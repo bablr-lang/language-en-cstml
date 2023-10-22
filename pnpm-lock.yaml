@@ -10,7 +10,7 @@ specifiers:
   '@bablr/boot-helpers': github:bablr-lang/boot-helpers#ff3b7b07f783800e33f533c9d4b2292819f4efc2
   '@bablr/eslint-config-base': github:bablr-lang/eslint-config-base#a49dbe6861a82d96864ee89fbf0ec1844a8a5e8e
   '@bablr/grammar': github:bablr-lang/grammar#a280340581846073caf47fd531e7f365f4aef5f2
-  '@bablr/language-cstml-string': github:bablr-lang/language-cstml-string#3387bcf4fdec24a4bfa0256843b0e20600b47a83
+  '@bablr/language-cstml-string': github:bablr-lang/language-cstml-string#194c98e1e255931a75b3831f482edaace4e56d2b
   babel-plugin-macros: 3.1.0
   enhanced-resolve: ^5.12.0
   eslint: ^8.47.0
@@ -24,7 +24,7 @@ dependencies:
   '@babel/runtime': 7.22.15
   '@bablr/boot-helpers': github.com/bablr-lang/boot-helpers/ff3b7b07f783800e33f533c9d4b2292819f4efc2
   '@bablr/grammar': github.com/bablr-lang/grammar/a280340581846073caf47fd531e7f365f4aef5f2
-  '@bablr/language-cstml-string': github.com/bablr-lang/language-cstml-string/3387bcf4fdec24a4bfa0256843b0e20600b47a83
+  '@bablr/language-cstml-string': github.com/bablr-lang/language-cstml-string/194c98e1e255931a75b3831f482edaace4e56d2b
   iter-tools-es: 7.5.3
 
 devDependencies:
@@ -375,6 +375,13 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.0
+
+  /@babel/runtime/7.23.2:
+    resolution: {integrity: sha512-mM8eg4yl5D6i3lu2QKPuPH4FArvJ8KhTofbE7jwMUv9KX5mBvwPAqnV3MlyBNqdp9RyRKP6Yck8TrfYrPvX3bg==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      regenerator-runtime: 0.14.0
+    dev: false
 
   /@babel/template/7.22.15:
     resolution: {integrity: sha512-QPErUVm4uyJa60rkI73qneDacvdvzxshT3kksGqlGWYdOTIUOwJ7RDUL8sGqslY1uXWSL6xMFKEXDS3ox2uF0w==}
@@ -2439,12 +2446,13 @@ packages:
       iter-tools-es: 7.5.3
     dev: false
 
-  github.com/bablr-lang/language-cstml-string/3387bcf4fdec24a4bfa0256843b0e20600b47a83:
-    resolution: {tarball: https://codeload.github.com/bablr-lang/language-cstml-string/tar.gz/3387bcf4fdec24a4bfa0256843b0e20600b47a83}
+  github.com/bablr-lang/language-cstml-string/194c98e1e255931a75b3831f482edaace4e56d2b:
+    resolution: {tarball: https://codeload.github.com/bablr-lang/language-cstml-string/tar.gz/194c98e1e255931a75b3831f482edaace4e56d2b}
     name: '@bablr/language-cstml-string'
     version: 0.0.0
     engines: {node: '>=12.0.0'}
     dependencies:
+      '@babel/runtime': 7.23.2
       '@bablr/boot-helpers': github.com/bablr-lang/boot-helpers/ff3b7b07f783800e33f533c9d4b2292819f4efc2
       '@bablr/grammar': github.com/bablr-lang/grammar/a280340581846073caf47fd531e7f365f4aef5f2
       iter-tools-es: 7.5.3

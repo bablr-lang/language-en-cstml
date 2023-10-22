@@ -21,7 +21,7 @@
     "@babel/runtime": "^7.22.15",
     "@bablr/boot-helpers": "github:bablr-lang/boot-helpers#ff3b7b07f783800e33f533c9d4b2292819f4efc2",
     "@bablr/grammar": "github:bablr-lang/grammar#a280340581846073caf47fd531e7f365f4aef5f2",
-    "@bablr/language-cstml-string": "github:bablr-lang/language-cstml-string#3387bcf4fdec24a4bfa0256843b0e20600b47a83",
+    "@bablr/language-cstml-string": "github:bablr-lang/language-cstml-string#194c98e1e255931a75b3831f482edaace4e56d2b",
     "iter-tools-es": "^7.5.3"
   },
   "devDependencies": {
