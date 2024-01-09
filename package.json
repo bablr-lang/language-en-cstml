@@ -14,14 +14,15 @@
   ],
   "sideEffects": false,
   "scripts": {
+    "test": "node test/test.js",
     "generate": "babel lib/grammar.js --out-file lib/grammar.generated.js",
     "clean": "rm lib/grammar.generated.js"
   },
   "dependencies": {
     "@babel/runtime": "^7.22.15",
-    "@bablr/boot-helpers": "github:bablr-lang/boot-helpers#ff3b7b07f783800e33f533c9d4b2292819f4efc2",
+    "@bablr/boot-helpers": "github:bablr-lang/boot-helpers#4ec521c805eabd7e49f6d5cf7fa902c7670685f0",
+    "@bablr/helpers": "github:bablr-lang/helpers#5dbb856f5075e27bca52989aad4c7003b6813a92",
     "@bablr/grammar": "github:bablr-lang/grammar#a280340581846073caf47fd531e7f365f4aef5f2",
-    "@bablr/language-cstml-string": "github:bablr-lang/language-cstml-string#194c98e1e255931a75b3831f482edaace4e56d2b",
     "iter-tools-es": "^7.5.3"
   },
   "devDependencies": {
@@ -29,8 +30,12 @@
     "@babel/core": "7.22.20",
     "@babel/plugin-proposal-decorators": "7.22.15",
     "@babel/plugin-transform-runtime": "^7.22.15",
-    "@bablr/boot": "github:bablr-lang/boot#e3bab9d63ac466a0ead88d85c3265e4de2881ffe",
+    "@bablr/boot": "0.1.9",
     "@bablr/eslint-config-base": "github:bablr-lang/eslint-config-base#a49dbe6861a82d96864ee89fbf0ec1844a8a5e8e",
+    "@bablr/hol-debug-log": "0.1.3",
+    "@bablr/test-runner": "github:bablr-lang/test-runner#ba97b934592b02163cdc911159fd53581206118f",
+    "@bablr/vm": "0.1.12",
+    "@qnighy/dedent": "0.1.1",
     "babel-plugin-macros": "3.1.0",
     "enhanced-resolve": "^5.12.0",
     "eslint": "^8.47.0",
