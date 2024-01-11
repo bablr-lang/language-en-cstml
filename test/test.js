@@ -10,7 +10,7 @@ export const testCases = [
     parsed: dedent`\
       <>
         open:
-        <OpenFragmentNodeTag>
+        <OpenFragmentTag>
           value:
           <Punctuator>
             '<>'
@@ -19,7 +19,7 @@ export const testCases = [
         children[]:
         null
         close:
-        <CloseNodeTag>
+        <CloseFragmentTag>
           value:
           <Punctuator>
             '</>'
@@ -33,7 +33,7 @@ export const testCases = [
     parsed: dedent`\
       <>
         open:
-        <OpenFragmentNodeTag>
+        <OpenFragmentTag>
           value:
           <Punctuator>
             '<>'
@@ -62,7 +62,7 @@ export const testCases = [
           </>
         </>
         close:
-        <CloseNodeTag>
+        <CloseFragmentTag>
           value:
           <Punctuator>
             '</>'
@@ -76,7 +76,7 @@ export const testCases = [
     parsed: dedent`\
       <>
         open:
-        <OpenFragmentNodeTag>
+        <OpenFragmentTag>
           value:
           <Punctuator>
             '<>'
@@ -84,36 +84,32 @@ export const testCases = [
         </>
         children[]:
         <Property>
-          path:
-          <Identifier>
-            'children'
-          </>
-          pathIsArray:
-          <Punctuator>
-            '[]'
-          </>
-          mapOperator:
-          <Punctuator>
-            ':'
-          </>
-          value:
-          <Node>
-            #' '
-            open:
-            <Null>
-              value:
-              <Keyword>
-                'null'
-              </>
+          reference:
+          <Reference>
+            path:
+            <Identifier>
+              'children'
             </>
-            children[]:
-            null
-            close:
-            null
+            pathIsArray:
+            <Punctuator>
+              '[]'
+            </>
+            mapOperator:
+            <Punctuator>
+              ':'
+              #' '
+            </>
+          </>
+          node:
+          <Null>
+            value:
+            <Keyword>
+              'null'
+            </>
           </>
         </>
         close:
-        <CloseNodeTag>
+        <CloseFragmentTag>
           value:
           <Punctuator>
             '</>'
@@ -123,7 +119,7 @@ export const testCases = [
   },
   {
     matcher: spam`<Node>`,
-    sourceText: `<| Keyword 'null' |>`,
+    sourceText: `<Keyword>'null'</>`,
     parsed: dedent`\
       <>
         children[]:
