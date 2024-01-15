@@ -9,20 +9,23 @@ export const testCases = [
     sourceText: `<></>`,
     parsed: dedent`\
       <>
-        open:
-        <OpenFragmentTag>
-          value:
-          <Punctuator>
-            '<>'
+        root:
+        <Fragment>
+          open:
+          <OpenFragmentTag>
+            value:
+            <Punctuator>
+              '<>'
+            </>
           </>
-        </>
-        children[]:
-        null
-        close:
-        <CloseFragmentTag>
-          value:
-          <Punctuator>
-            '</>'
+          children[]:
+          null
+          close:
+          <CloseFragmentTag>
+            value:
+            <Punctuator>
+              '</>'
+            </>
           </>
         </>
       </>`,
@@ -32,40 +35,43 @@ export const testCases = [
     sourceText: `<>#'hello, world'</>`,
     parsed: dedent`\
       <>
-        open:
-        <OpenFragmentTag>
-          value:
-          <Punctuator>
-            '<>'
-          </>
-        </>
-        children[]:
-        <Trivia>
-          trivializeOperator:
-          <Punctuator>
-            '#'
-          </>
-          value:
-          <String>
-            open:
-            <Punctuator balanced="'" lexicalSpan='String:Single'>
-              "'"
-            </>
-            content:
-            <Content>
-              'hello, world'
-            </>
-            close:
-            <Punctuator balancer>
-              "'"
+        root:
+        <Fragment>
+          open:
+          <OpenFragmentTag>
+            value:
+            <Punctuator>
+              '<>'
             </>
           </>
-        </>
-        close:
-        <CloseFragmentTag>
-          value:
-          <Punctuator>
-            '</>'
+          children[]:
+          <Trivia>
+            trivializeOperator:
+            <Punctuator>
+              '#'
+            </>
+            value:
+            <String>
+              open:
+              <Punctuator balanced="'" lexicalSpan='String:Single'>
+                "'"
+              </>
+              content:
+              <Content>
+                'hello, world'
+              </>
+              close:
+              <Punctuator balancer>
+                "'"
+              </>
+            </>
+          </>
+          close:
+          <CloseFragmentTag>
+            value:
+            <Punctuator>
+              '</>'
+            </>
           </>
         </>
       </>`,
@@ -75,44 +81,47 @@ export const testCases = [
     sourceText: `<>children[]: null</>`,
     parsed: dedent`\
       <>
-        open:
-        <OpenFragmentTag>
-          value:
-          <Punctuator>
-            '<>'
-          </>
-        </>
-        children[]:
-        <Property>
-          reference:
-          <Reference>
-            path:
-            <Identifier>
-              'children'
-            </>
-            pathIsArray:
-            <Punctuator>
-              '[]'
-            </>
-            mapOperator:
-            <Punctuator>
-              ':'
-              #' '
-            </>
-          </>
-          node:
-          <Null>
+        root:
+        <Fragment>
+          open:
+          <OpenFragmentTag>
             value:
-            <Keyword>
-              'null'
+            <Punctuator>
+              '<>'
             </>
           </>
-        </>
-        close:
-        <CloseFragmentTag>
-          value:
-          <Punctuator>
-            '</>'
+          children[]:
+          <Property>
+            reference:
+            <Reference>
+              path:
+              <Identifier>
+                'children'
+              </>
+              pathIsArray:
+              <Punctuator>
+                '[]'
+              </>
+              mapOperator:
+              <Punctuator>
+                ':'
+                #' '
+              </>
+            </>
+            node:
+            <Null>
+              value:
+              <Keyword>
+                'null'
+              </>
+            </>
+          </>
+          close:
+          <CloseFragmentTag>
+            value:
+            <Punctuator>
+              '</>'
+            </>
           </>
         </>
       </>`,
@@ -122,56 +131,52 @@ export const testCases = [
     sourceText: `<Keyword>'null'</>`,
     parsed: dedent`\
       <>
-        children[]:
+        root:
         <Node>
           open:
-          <OpenTerminalNodeTag selfClosing>
+          <OpenNodeTag>
             open:
             <Punctuator lexicalSpan='Tag' balanced='>'>
-              '<|'
+              '<'
             </>
-            #' '
             type:
             <Identifier>
               'Keyword'
             </>
-            #' '
-            open:
-            <Literal>
-              value:
-              <String>
-                open:
-                <Punctuator balanced="'" lexicalSpan='String:Single'>
-                  "'"
-                </>
-                content:
-                <Content>
-                  'null'
-                </>
-                close:
-                <Punctuator balancer>
-                  "'"
-                </>
-                #' '
-              </>
-            </>
+            attributes[]:
+            null
             close:
             <Punctuator balancer>
-              '|>'
+              '>'
             </>
           </>
           children[]:
-          null
+          <Literal>
+            value:
+            <String>
+              open:
+              <Punctuator balanced="'" lexicalSpan='String:Single'>
+                "'"
+              </>
+              content:
+              <Content>
+                'null'
+              </>
+              close:
+              <Punctuator balancer>
+                "'"
+              </>
+            </>
+          </>
           close:
-          null
+          <CloseNodeTag>
+            value:
+            <Punctuator>
+              '</>'
+            </>
+          </>
         </>
       </>`,
-  },
-  {
-    matcher: spam`<Node>`,
-    sourceText: `<Node> <| Keyword 'null' |> </>`,
-    parsed: dedent`\
-      `,
   },
 ];
 
