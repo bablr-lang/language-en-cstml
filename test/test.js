@@ -105,8 +105,8 @@ export const testCases = [
               mapOperator:
               <Punctuator>
                 ':'
-                #' '
               </>
+              #' '
             </>
             node:
             <Null>
