@@ -9,11 +9,11 @@ dependencies:
     specifier: ^7.22.15
     version: 7.22.15
   '@bablr/agast-helpers':
-    specifier: github:bablr-lang/agast-helpers#6080ac9e504fb0392e40cd3ae5ff2e61a2ffc0ba
-    version: github.com/bablr-lang/agast-helpers/6080ac9e504fb0392e40cd3ae5ff2e61a2ffc0ba
+    specifier: github:bablr-lang/agast-helpers#f2786e7b8051714e5c427ba2c8af92fa8c75e209
+    version: github.com/bablr-lang/agast-helpers/f2786e7b8051714e5c427ba2c8af92fa8c75e209
   '@bablr/helpers':
-    specifier: github:bablr-lang/helpers#cc1d37fa91f470dcf3bf1b4f6b05a8350dc52155
-    version: git@github.com+bablr-lang/helpers/cc1d37fa91f470dcf3bf1b4f6b05a8350dc52155
+    specifier: github:bablr-lang/helpers#a73e7d24341ce5e63c11424e6349da3ac9d87985
+    version: git@github.com+bablr-lang/helpers/a73e7d24341ce5e63c11424e6349da3ac9d87985
   iter-tools-es:
     specifier: ^7.5.3
     version: 7.5.3
@@ -32,8 +32,8 @@ devDependencies:
     specifier: ^7.22.15
     version: 7.22.15(@babel/core@7.22.20)
   '@bablr/boot':
-    specifier: github:bablr-lang/boot#64184e83c8ef575d7e9bcf2b5417f585382ce09a
-    version: github.com/bablr-lang/boot/64184e83c8ef575d7e9bcf2b5417f585382ce09a
+    specifier: github:bablr-lang/boot#5d956667b5226f402d850266501e3c816bfaac79
+    version: github.com/bablr-lang/boot/5d956667b5226f402d850266501e3c816bfaac79
   '@bablr/eslint-config-base':
     specifier: github:bablr-lang/eslint-config-base#a49dbe6861a82d96864ee89fbf0ec1844a8a5e8e
     version: github.com/bablr-lang/eslint-config-base/a49dbe6861a82d96864ee89fbf0ec1844a8a5e8e(eslint@8.49.0)
@@ -2473,6 +2473,18 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
+  git@github.com+bablr-lang/generator-class-trampoline/16d03dce8fc9ac3183ec2b3304822c3d8648b699:
+    resolution: {commit: 16d03dce8fc9ac3183ec2b3304822c3d8648b699, repo: git@github.com:bablr-lang/generator-class-trampoline.git, type: git}
+    name: '@bablr/generator-class-trampoline'
+    version: 0.0.0
+    dependencies:
+      '@bablr/agast-helpers': github.com/bablr-lang/agast-helpers/8b57f2971fc91f6dd4e23ec626a77c931c877786
+      '@bablr/agast-vm-helpers': github.com/bablr-lang/agast-vm-helpers/62420e6dcf3cd4c9cb9301ba13a3854f4e1af8d4
+      '@bablr/class-grammar-helpers': github.com/bablr-lang/class-grammar-helpers/3bd5c83a2697e3a1b9e421f868a430d3ea1c9be0
+      '@bablr/coroutine': github.com/bablr-lang/coroutine/2342d82713731288034df588f11f540d1b76603d
+      '@bablr/weak-stack': github.com/bablr-lang/weak-stack/9448f4a9a550900698c072fb39d77307763b5cd8
+    dev: true
+
   git@github.com+bablr-lang/helpers/1a32199aac2f146a818b97ec228544aa14ef73a5:
     resolution: {commit: 1a32199aac2f146a818b97ec228544aa14ef73a5, repo: git@github.com:bablr-lang/helpers.git, type: git}
     name: '@bablr/helpers'
@@ -2482,12 +2494,14 @@ packages:
       iter-tools-es: 7.5.3
     dev: true
 
-  git@github.com+bablr-lang/helpers/cc1d37fa91f470dcf3bf1b4f6b05a8350dc52155:
-    resolution: {commit: cc1d37fa91f470dcf3bf1b4f6b05a8350dc52155, repo: git@github.com:bablr-lang/helpers.git, type: git}
+  git@github.com+bablr-lang/helpers/a73e7d24341ce5e63c11424e6349da3ac9d87985:
+    resolution: {commit: a73e7d24341ce5e63c11424e6349da3ac9d87985, repo: git@github.com:bablr-lang/helpers.git, type: git}
     name: '@bablr/helpers'
     version: 0.0.0
     dependencies:
-      '@bablr/agast-helpers': github.com/bablr-lang/agast-helpers/8b57f2971fc91f6dd4e23ec626a77c931c877786
+      '@bablr/agast-helpers': github.com/bablr-lang/agast-helpers/f2786e7b8051714e5c427ba2c8af92fa8c75e209
+      '@bablr/agast-vm-helpers': github.com/bablr-lang/agast-vm-helpers/9e7a73db7772cd97952e0b92b6448da8f180ebaf
+      '@bablr/coroutine': github.com/bablr-lang/coroutine/2342d82713731288034df588f11f540d1b76603d
       iter-tools-es: 7.5.3
     dev: false
 
@@ -2508,20 +2522,21 @@ packages:
       '@iter-tools/imm-stack': 1.1.0
     dev: true
 
-  github.com/bablr-lang/agast-helpers/6080ac9e504fb0392e40cd3ae5ff2e61a2ffc0ba:
-    resolution: {tarball: https://codeload.github.com/bablr-lang/agast-helpers/tar.gz/6080ac9e504fb0392e40cd3ae5ff2e61a2ffc0ba}
-    name: '@bablr/agast-helpers'
-    version: 0.0.0
-    dependencies:
-      '@iter-tools/imm-stack': 1.1.0
-    dev: false
-
   github.com/bablr-lang/agast-helpers/8b57f2971fc91f6dd4e23ec626a77c931c877786:
     resolution: {tarball: https://codeload.github.com/bablr-lang/agast-helpers/tar.gz/8b57f2971fc91f6dd4e23ec626a77c931c877786}
     name: '@bablr/agast-helpers'
     version: 0.0.0
     dependencies:
       '@iter-tools/imm-stack': 1.1.0
+    dev: true
+
+  github.com/bablr-lang/agast-helpers/f2786e7b8051714e5c427ba2c8af92fa8c75e209:
+    resolution: {tarball: https://codeload.github.com/bablr-lang/agast-helpers/tar.gz/f2786e7b8051714e5c427ba2c8af92fa8c75e209}
+    name: '@bablr/agast-helpers'
+    version: 0.0.0
+    dependencies:
+      '@iter-tools/imm-stack': 1.1.0
+    dev: false
 
   github.com/bablr-lang/agast-helpers/f59c044508ac43226f071345f8e0231fa3fc7fa4:
     resolution: {tarball: https://codeload.github.com/bablr-lang/agast-helpers/tar.gz/f59c044508ac43226f071345f8e0231fa3fc7fa4}
@@ -2547,6 +2562,15 @@ packages:
       '@bablr/agast-helpers': github.com/bablr-lang/agast-helpers/f59c044508ac43226f071345f8e0231fa3fc7fa4
     dev: true
 
+  github.com/bablr-lang/agast-vm-helpers/9e7a73db7772cd97952e0b92b6448da8f180ebaf:
+    resolution: {tarball: https://codeload.github.com/bablr-lang/agast-vm-helpers/tar.gz/9e7a73db7772cd97952e0b92b6448da8f180ebaf}
+    name: '@bablr/agast-vm-helpers'
+    version: 0.0.0
+    dependencies:
+      '@bablr/agast-helpers': github.com/bablr-lang/agast-helpers/f2786e7b8051714e5c427ba2c8af92fa8c75e209
+      '@bablr/coroutine': github.com/bablr-lang/coroutine/2342d82713731288034df588f11f540d1b76603d
+    dev: false
+
   github.com/bablr-lang/agast-vm/1f7ba210f281bacec98f3e4d1ad25b8a8583c986:
     resolution: {tarball: https://codeload.github.com/bablr-lang/agast-vm/tar.gz/1f7ba210f281bacec98f3e4d1ad25b8a8583c986}
     name: '@bablr/agast-vm'
@@ -2568,11 +2592,11 @@ packages:
     dependencies:
       '@bablr/agast-helpers': github.com/bablr-lang/agast-helpers/06894387f6d302a35d61a016cc5054fa5a69d768
       '@bablr/agast-vm': github.com/bablr-lang/agast-vm/1f7ba210f281bacec98f3e4d1ad25b8a8583c986
-      '@bablr/generator-class-trampoline': github.com/bablr-lang/generator-class-trampoline/16d03dce8fc9ac3183ec2b3304822c3d8648b699
+      '@bablr/generator-class-trampoline': git@github.com+bablr-lang/generator-class-trampoline/16d03dce8fc9ac3183ec2b3304822c3d8648b699
     dev: true
 
-  github.com/bablr-lang/boot/64184e83c8ef575d7e9bcf2b5417f585382ce09a:
-    resolution: {tarball: https://codeload.github.com/bablr-lang/boot/tar.gz/64184e83c8ef575d7e9bcf2b5417f585382ce09a}
+  github.com/bablr-lang/boot/5d956667b5226f402d850266501e3c816bfaac79:
+    resolution: {tarball: https://codeload.github.com/bablr-lang/boot/tar.gz/5d956667b5226f402d850266501e3c816bfaac79}
     name: '@bablr/boot'
     version: 0.0.0
     engines: {node: '>=12.0.0'}
@@ -2595,7 +2619,6 @@ packages:
     resolution: {tarball: https://codeload.github.com/bablr-lang/coroutine/tar.gz/2342d82713731288034df588f11f540d1b76603d}
     name: '@bablr/coroutine'
     version: 0.0.0
-    dev: true
 
   github.com/bablr-lang/eslint-config-base/a49dbe6861a82d96864ee89fbf0ec1844a8a5e8e(eslint@8.49.0):
     resolution: {tarball: https://codeload.github.com/bablr-lang/eslint-config-base/tar.gz/a49dbe6861a82d96864ee89fbf0ec1844a8a5e8e}
@@ -2615,18 +2638,6 @@ packages:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - supports-color
-    dev: true
-
-  github.com/bablr-lang/generator-class-trampoline/16d03dce8fc9ac3183ec2b3304822c3d8648b699:
-    resolution: {tarball: https://codeload.github.com/bablr-lang/generator-class-trampoline/tar.gz/16d03dce8fc9ac3183ec2b3304822c3d8648b699}
-    name: '@bablr/generator-class-trampoline'
-    version: 0.0.0
-    dependencies:
-      '@bablr/agast-helpers': github.com/bablr-lang/agast-helpers/8b57f2971fc91f6dd4e23ec626a77c931c877786
-      '@bablr/agast-vm-helpers': github.com/bablr-lang/agast-vm-helpers/62420e6dcf3cd4c9cb9301ba13a3854f4e1af8d4
-      '@bablr/class-grammar-helpers': github.com/bablr-lang/class-grammar-helpers/3bd5c83a2697e3a1b9e421f868a430d3ea1c9be0
-      '@bablr/coroutine': github.com/bablr-lang/coroutine/2342d82713731288034df588f11f540d1b76603d
-      '@bablr/weak-stack': github.com/bablr-lang/weak-stack/9448f4a9a550900698c072fb39d77307763b5cd8
     dev: true
 
   github.com/bablr-lang/language_enhancer-debug-log/d00cebdc223abc16d430db203a636df077e37623:
