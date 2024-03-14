@@ -21,7 +21,7 @@
   "dependencies": {
     "@babel/runtime": "^7.22.15",
     "@bablr/agast-helpers": "github:bablr-lang/agast-helpers#90448dbbce32f902affe36efc2cc3bb17fd9e032",
-    "@bablr/helpers": "github:bablr-lang/helpers#a73e7d24341ce5e63c11424e6349da3ac9d87985",
+    "@bablr/helpers": "github:bablr-lang/helpers#35a31cdbd1836bab7ae08fbab36d18c83242c22c",
     "iter-tools-es": "^7.5.3"
   },
   "devDependencies": {
@@ -35,7 +35,7 @@
     "@bablr/test-runner": "github:bablr-lang/test-runner#4f1d33b990a66659830160596e7a8c23a2556520",
     "@bablr/vm": "0.1.16",
     "@qnighy/dedent": "0.1.1",
-    "bablr": "github:bablr-lang/bablr#37f919e002262eb792bc902895cbcd9707d66ae5",
+    "bablr": "github:bablr-lang/bablr#08a83e22b81cee8e2dd250cd314ec7126702391c",
     "babel-plugin-macros": "3.1.0",
     "enhanced-resolve": "^5.12.0",
     "eslint": "^8.47.0",
