@@ -31,7 +31,7 @@
     "@babel/plugin-transform-runtime": "^7.22.15",
     "@bablr/boot": "github:bablr-lang/boot#f48073ba9b9cba5941dde92173f845d97e822525",
     "@bablr/eslint-config-base": "github:bablr-lang/eslint-config-base#a49dbe6861a82d96864ee89fbf0ec1844a8a5e8e",
-    "@bablr/language_enhancer-debug-log": "github:bablr-lang/language_enhancer-debug-log#d00cebdc223abc16d430db203a636df077e37623",
+    "@bablr/language_enhancer-debug-log": "github:bablr-lang/language_enhancer-debug-log#c9de4b97706a3ec952b6a540748cf93f7cd3dd64",
     "@bablr/test-runner": "github:bablr-lang/test-runner#4f1d33b990a66659830160596e7a8c23a2556520",
     "@bablr/vm": "0.1.16",
     "@qnighy/dedent": "0.1.1",
