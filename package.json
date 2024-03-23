@@ -20,10 +20,10 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.22.15",
-    "@bablr/agast-helpers": "github:bablr-lang/agast-helpers#c08b0717e1c69837d640def28a52519bee52d04c",
-    "@bablr/agast-vm-helpers": "github:bablr-lang/agast-vm-helpers#58093b613d49efcab426ef0a482fbd16f80c1b39",
-    "@bablr/helpers": "github:bablr-lang/helpers#4faf436140e306f636db505ff741cf9ac4a19beb",
-    "@bablr/language-c-comments": "github:bablr-lang/language-c-comments#3b09c8bbfe7ad7193d46db316c78d0e027f6ea47",
+    "@bablr/agast-helpers": "github:bablr-lang/agast-helpers#bbf50d0ea19e62c7c81e674e58463592e9491f89",
+    "@bablr/agast-vm-helpers": "github:bablr-lang/agast-vm-helpers#fb71025b331a519f321dfef0cdc432ee0cc494fd",
+    "@bablr/helpers": "github:bablr-lang/helpers#126e39cce3a4f7687d100197821d77f5d26d10e1",
+    "@bablr/language-c-comments": "github:bablr-lang/language-c-comments#2632ab42438b1642da9625c7d16d4cb40a402ec5",
     "iter-tools-es": "^7.5.3"
   },
   "devDependencies": {

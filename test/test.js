@@ -1,178 +1,179 @@
 import { runTests } from '@bablr/test-runner';
-import { spam } from '@bablr/boot';
+import { buildFullyQualifiedSpamMatcher } from '@bablr/agast-vm-helpers/builders';
 import { dedent } from '@qnighy/dedent';
 import * as language from '@bablr/language-cstml';
 
+const buildMatcher = (type) => buildFullyQualifiedSpamMatcher(language.canonicalURL, type);
+
 export const testCases = [
   {
-    matcher: spam`<Fragment>`,
+    matcher: buildMatcher('Fragment'),
     sourceText: `<></>`,
     parsed: dedent`\
       <>
-        root:
         <Fragment>
           open:
           <OpenFragmentTag>
-            value:
-            <Punctuator>
-              '<>'
-            </>
-          </>
-          children[]:
-          null
-          close:
-          <CloseFragmentTag>
-            value:
-            <Punctuator>
-              '</>'
-            </>
-          </>
-        </>
-      </>`,
-  },
-  {
-    matcher: spam`<Fragment>`,
-    sourceText: `<>#'hello, world'</>`,
-    parsed: dedent`\
-      <>
-        root:
-        <Fragment>
-          open:
-          <OpenFragmentTag>
-            value:
-            <Punctuator>
-              '<>'
-            </>
-          </>
-          children[]:
-          <Trivia>
-            trivializeOperator:
-            <Punctuator>
-              '#'
-            </>
-            value:
-            <String>
-              open:
-              <Punctuator balanced="'" lexicalSpan='String:Single'>
-                "'"
-              </>
-              content:
-              <Content>
-                'hello, world'
-              </>
-              close:
-              <Punctuator balancer>
-                "'"
-              </>
-            </>
-          </>
-          close:
-          <CloseFragmentTag>
-            value:
-            <Punctuator>
-              '</>'
-            </>
-          </>
-        </>
-      </>`,
-  },
-  {
-    matcher: spam`<Fragment>`,
-    sourceText: `<>children[]: null</>`,
-    parsed: dedent`\
-      <>
-        root:
-        <Fragment>
-          open:
-          <OpenFragmentTag>
-            value:
-            <Punctuator>
-              '<>'
-            </>
-          </>
-          children[]:
-          <Property>
-            reference:
-            <Reference>
-              path:
-              <Identifier>
-                'children'
-              </>
-              pathIsArray:
-              <Punctuator>
-                '[]'
-              </>
-              mapOperator:
-              <Punctuator>
-                ':'
-              </>
-              #' '
-            </>
-            node:
-            <Null>
-              value:
-              <Keyword>
-                'null'
-              </>
-            </>
-          </>
-          close:
-          <CloseFragmentTag>
-            value:
-            <Punctuator>
-              '</>'
-            </>
-          </>
-        </>
-      </>`,
-  },
-  {
-    matcher: spam`<Node>`,
-    sourceText: `<Keyword>'null'</>`,
-    parsed: dedent`\
-      <>
-        root:
-        <Node>
-          open:
-          <OpenNodeTag>
             open:
-            <Punctuator lexicalSpan='Tag' balanced='>'>
+            <*Punctuator lexicalSpan='Tag' balanced='>'>
               '<'
             </>
-            type:
-            <Identifier>
-              'Keyword'
-            </>
-            attributes[]:
+            flags:
             null
             close:
-            <Punctuator balancer>
+            <*Punctuator balancer>
               '>'
             </>
           </>
-          children[]:
-          <Literal>
-            value:
-            <String>
+          root:
+          null
+          close:
+          <CloseFragmentTag>
+            open:
+            <*Punctuator balanced='>'>
+              '</'
+            </>
+            close:
+            <*Punctuator balancer>
+              '>'
+            </>
+          </>
+        </>
+      </>`,
+  },
+  {
+    matcher: buildMatcher('Fragment'),
+    sourceText: `<> </>`,
+    parsed: dedent`\
+      <>
+        <Fragment>
+          open:
+          <OpenFragmentTag>
+            open:
+            <*Punctuator lexicalSpan='Tag' balanced='>'>
+              '<'
+            </>
+            flags:
+            null
+            close:
+            <*Punctuator balancer>
+              '>'
+            </>
+            <*#Space>
+              ' '
+            </>
+          </>
+          root:
+          null
+          close:
+          <CloseFragmentTag>
+            open:
+            <*Punctuator balanced='>'>
+              '</'
+            </>
+            close:
+            <*Punctuator balancer>
+              '>'
+            </>
+          </>
+        </>
+      </>`,
+  },
+  {
+    matcher: buildMatcher('Fragment'),
+    sourceText: `<#><*Comment>'# hello, world'</></>`,
+    parsed: dedent`\
+      <>
+        <Fragment>
+          open:
+          <OpenFragmentTag>
+            open:
+            <*Punctuator lexicalSpan='Tag' balanced='>'>
+              '<'
+            </>
+            flags:
+            <FragmentFlags>
+              comment:
+              <*Punctuator>
+                '#'
+              </>
+            </>
+            close:
+            <*Punctuator balancer>
+              '>'
+            </>
+          </>
+          root:
+          <Node>
+            open:
+            <OpenNodeTag>
               open:
-              <Punctuator balanced="'" lexicalSpan='String:Single'>
-                "'"
+              <*Punctuator lexicalSpan='Tag' balanced='>'>
+                '<'
               </>
-              content:
-              <Content>
-                'null'
+              flags:
+              <NodeFlags>
+                token:
+                <*Punctuator>
+                  '*'
+                </>
+                trivia:
+                null
+                escape:
+                null
               </>
+              type:
+              <*Identifier>
+                'Comment'
+              </>
+              attributes[]:
+              null
               close:
-              <Punctuator balancer>
-                "'"
+              <*Punctuator balancer>
+                '>'
+              </>
+            </>
+            children[]:
+            <Literal>
+              value:
+              <String>
+                open:
+                <*Punctuator balanced="'" lexicalSpan='String:Single'>
+                  "'"
+                </>
+                content:
+                <*StringContent>
+                  '# hello, world'
+                </>
+                close:
+                <*Punctuator balancer>
+                  "'"
+                </>
+              </>
+            </>
+            close:
+            <CloseNodeTag>
+              open:
+              <*Punctuator balanced='>'>
+                '</'
+              </>
+              type:
+              null
+              close:
+              <*Punctuator balancer>
+                '>'
               </>
             </>
           </>
           close:
-          <CloseNodeTag>
-            value:
-            <Punctuator>
-              '</>'
+          <CloseFragmentTag>
+            open:
+            <*Punctuator balanced='>'>
+              '</'
+            </>
+            close:
+            <*Punctuator balancer>
+              '>'
             </>
           </>
         </>
