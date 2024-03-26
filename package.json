@@ -23,7 +23,7 @@
     "@bablr/agast-helpers": "github:bablr-lang/agast-helpers#bbf50d0ea19e62c7c81e674e58463592e9491f89",
     "@bablr/agast-vm-helpers": "github:bablr-lang/agast-vm-helpers#fb71025b331a519f321dfef0cdc432ee0cc494fd",
     "@bablr/helpers": "github:bablr-lang/helpers#126e39cce3a4f7687d100197821d77f5d26d10e1",
-    "@bablr/language-c-comments": "github:bablr-lang/language-c-comments#2632ab42438b1642da9625c7d16d4cb40a402ec5",
+    "@bablr/language-c-comments": "github:bablr-lang/language-c-comments#304b14540790530ccde27f833b1e2b2ed1cc5db4",
     "iter-tools-es": "^7.5.3"
   },
   "devDependencies": {
