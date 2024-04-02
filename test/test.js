@@ -1,9 +1,9 @@
 import { runTests } from '@bablr/test-runner';
-import { buildFullyQualifiedSpamMatcher } from '@bablr/agast-vm-helpers/builders';
+import { buildSpamMatcher } from '@bablr/agast-vm-helpers/builders';
 import { dedent } from '@qnighy/dedent';
 import * as language from '@bablr/language-cstml';
 
-const buildMatcher = (type) => buildFullyQualifiedSpamMatcher(language.canonicalURL, type);
+const buildMatcher = (type) => buildSpamMatcher(null, type);
 
 export const testCases = [
   {
@@ -59,12 +59,82 @@ export const testCases = [
             <*Punctuator balancer>
               '>'
             </>
-            <*#Space>
+            <*#Trivia.Space:Space>
               ' '
             </>
           </>
           root:
           null
+          close:
+          <CloseFragmentTag>
+            open:
+            <*Punctuator balanced='>'>
+              '</'
+            </>
+            close:
+            <*Punctuator balancer>
+              '>'
+            </>
+          </>
+        </>
+      </>`,
+  },
+  {
+    matcher: buildMatcher('Fragment'),
+    sourceText: `<><Node></></>`,
+    parsed: dedent`\
+      <>
+        <Fragment>
+          open:
+          <OpenFragmentTag>
+            open:
+            <*Punctuator lexicalSpan='Tag' balanced='>'>
+              '<'
+            </>
+            flags:
+            null
+            close:
+            <*Punctuator balancer>
+              '>'
+            </>
+          </>
+          root:
+          <Node>
+            open:
+            <OpenNodeTag>
+              open:
+              <*Punctuator lexicalSpan='Tag' balanced='>'>
+                '<'
+              </>
+              flags:
+              null
+              type:
+              <*Identifier>
+                'Node'
+              </>
+              attributes[]:
+              null
+              close:
+              <*Punctuator balancer>
+                '>'
+              </>
+            </>
+            children[]:
+            null
+            close:
+            <CloseNodeTag>
+              open:
+              <*Punctuator balanced='>'>
+                '</'
+              </>
+              type:
+              null
+              close:
+              <*Punctuator balancer>
+                '>'
+              </>
+            </>
+          </>
           close:
           <CloseFragmentTag>
             open:
