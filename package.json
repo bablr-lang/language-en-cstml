@@ -20,10 +20,10 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.22.15",
-    "@bablr/agast-helpers": "github:bablr-lang/agast-helpers#5ed0288b0c9ffa794a11e8afed7583f1e3100bf3",
-    "@bablr/agast-vm-helpers": "github:bablr-lang/agast-vm-helpers#1d5b9c9bd54b4fd9816f5876488f4459a4c33641",
-    "@bablr/helpers": "github:bablr-lang/helpers#3b7124900d97329e38a444f099a2f751cf3a5724",
-    "@bablr/language-c-comments": "github:bablr-lang/language-c-comments#9822f66f3d143f2a4dbd7547db705002a55bef57",
+    "@bablr/agast-helpers": "github:bablr-lang/agast-helpers#caaa3389b422a03bc0f79e377fb499278bcd9109",
+    "@bablr/agast-vm-helpers": "github:bablr-lang/agast-vm-helpers#06490d8a33a192a39df2cd35ea97292d23f63675",
+    "@bablr/helpers": "github:bablr-lang/helpers#7315ea97e7a5fd3890ba76ea50ac689d01cbc446",
+    "@bablr/language-c-comments": "github:bablr-lang/language-c-comments#f420e3b356dc30756e3261c29cb78db374501dc3",
     "iter-tools-es": "^7.5.3"
   },
   "devDependencies": {
@@ -31,7 +31,7 @@
     "@babel/core": "7.22.20",
     "@babel/plugin-proposal-decorators": "7.22.15",
     "@babel/plugin-transform-runtime": "^7.22.15",
-    "@bablr/boot": "github:bablr-lang/boot#be25b71611905a5db73c2b41efd9c10e9ebde38e",
+    "@bablr/boot": "github:bablr-lang/boot#0631fe96c69cfa3b0b5071d89925f1d52aa1ee93",
     "@bablr/eslint-config-base": "github:bablr-lang/eslint-config-base#49f5952efed27f94ee9b94340eb1563c440bf64e",
     "@bablr/language_enhancer-debug-log": "github:bablr-lang/language_enhancer-debug-log#ae6d800a63423724b9290dcfa0688ea4e8568dce",
     "@bablr/test-runner": "github:bablr-lang/test-runner#4f1d33b990a66659830160596e7a8c23a2556520",
