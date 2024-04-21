@@ -59,7 +59,7 @@ export const testCases = [
             <*Punctuator balancer>
               '>'
             </>
-            <*#Trivia.Space:Space>
+            <#*Trivia.Space:Space>
               ' '
             </>
           </>
