@@ -15,7 +15,7 @@ export const testCases = [
           open:
           <OpenFragmentTag>
             open:
-            <*Punctuator lexicalSpan='Tag' balanced='>'>
+            <*Punctuator balancedSpan='Tag' balanced='>'>
               '<'
             </>
             flags:
@@ -50,7 +50,7 @@ export const testCases = [
           open:
           <OpenFragmentTag>
             open:
-            <*Punctuator lexicalSpan='Tag' balanced='>'>
+            <*Punctuator balancedSpan='Tag' balanced='>'>
               '<'
             </>
             flags:
@@ -88,7 +88,7 @@ export const testCases = [
           open:
           <OpenFragmentTag>
             open:
-            <*Punctuator lexicalSpan='Tag' balanced='>'>
+            <*Punctuator balancedSpan='Tag' balanced='>'>
               '<'
             </>
             flags:
@@ -103,7 +103,7 @@ export const testCases = [
             open:
             <OpenNodeTag>
               open:
-              <*Punctuator lexicalSpan='Tag' balanced='>'>
+              <*Punctuator balancedSpan='Tag' balanced='>'>
                 '<'
               </>
               flags:
@@ -158,11 +158,11 @@ export const testCases = [
           open:
           <OpenFragmentTag>
             open:
-            <*Punctuator lexicalSpan='Tag' balanced='>'>
+            <*Punctuator balancedSpan='Tag' balanced='>'>
               '<'
             </>
             flags:
-            <FragmentFlags>
+            <Flags>
               comment:
               <*Punctuator>
                 '#'
@@ -178,11 +178,11 @@ export const testCases = [
             open:
             <OpenNodeTag>
               open:
-              <*Punctuator lexicalSpan='Tag' balanced='>'>
+              <*Punctuator balancedSpan='Tag' balanced='>'>
                 '<'
               </>
               flags:
-              <NodeFlags>
+              <Flags>
                 token:
                 <*Punctuator>
                   '*'
@@ -208,7 +208,7 @@ export const testCases = [
               value:
               <String>
                 open:
-                <*Punctuator balanced="'" lexicalSpan='String:Single'>
+                <*Punctuator balanced="'" balancedSpan='String:Single'>
                   "'"
                 </>
                 content:
