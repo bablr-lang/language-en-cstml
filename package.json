@@ -9,9 +9,7 @@
   "exports": {
     ".": "./lib/grammar.generated.js"
   },
-  "files": [
-    "lib/**/*.js"
-  ],
+  "files": ["lib/**/*.js"],
   "sideEffects": false,
   "scripts": {
     "test": "node test/test.js",
@@ -22,7 +20,7 @@
     "@babel/runtime": "^7.22.15",
     "@bablr/agast-helpers": "github:bablr-lang/agast-helpers#5a704bd826ed2e8ab6ef0419571433996cea2894",
     "@bablr/agast-vm-helpers": "github:bablr-lang/agast-vm-helpers#f5e73888656c091c5a9fd1963146ac3bf3426628",
-    "@bablr/helpers": "github:bablr-lang/bablr-helpers#8ded1818aef49ccc3c90783aa94516bd6da07050",
+    "@bablr/helpers": "github:bablr-lang/bablr-helpers#db20891fdd02c7984f109ccf37fafe2223b275ab",
     "@bablr/language-c-comments": "github:bablr-lang/language-c-comments#96839cd5795ba3d23b83b6aa186ea7acf9334097",
     "iter-tools-es": "^7.5.3"
   },
@@ -31,13 +29,13 @@
     "@babel/core": "7.22.20",
     "@babel/plugin-proposal-decorators": "7.22.15",
     "@babel/plugin-transform-runtime": "^7.22.15",
-    "@bablr/boot": "github:bablr-lang/boot#de245b2262eb69b64a4be5edbb621b93e2b1e65e",
+    "@bablr/boot": "github:bablr-lang/boot#7667feb1c9ce0fea1358a854c1dd05b4affd985a",
     "@bablr/eslint-config-base": "github:bablr-lang/eslint-config-base#49f5952efed27f94ee9b94340eb1563c440bf64e",
     "@bablr/language_enhancer-debug-log": "github:bablr-lang/language_enhancer-debug-log#ba6c4326955ce3f30763ab429071c533671f3895",
     "@bablr/test-runner": "github:bablr-lang/test-runner#4f1d33b990a66659830160596e7a8c23a2556520",
     "@bablr/vm": "0.1.16",
     "@qnighy/dedent": "0.1.1",
-    "bablr": "github:bablr-lang/bablr#0e60f07b60ab596c482d88efa71609effc3950a6",
+    "bablr": "github:bablr-lang/bablr#57e16ba5f774176c94a1b16d5e1788eaa51c4b4b",
     "babel-plugin-macros": "3.1.0",
     "enhanced-resolve": "^5.12.0",
     "eslint": "^8.47.0",
