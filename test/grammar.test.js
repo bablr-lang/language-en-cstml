@@ -44,7 +44,7 @@ describe('cstml', () => {
             open: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
             close: <*Punctuator '>' balancer />
           </>
-          <#*Comment.Space:Space>
+          <#*Space:Space>
             ' '
           </>
           root: null
