@@ -24,7 +24,7 @@ describe('cstml', () => {
             open: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
             close: <*Punctuator '>' balancer />
           </>
-          root: null
+          children[]: null
           close:
           <CloseFragmentTag>
             open: <*Punctuator '</' balanced='>' />
@@ -47,7 +47,7 @@ describe('cstml', () => {
           <#*Space:Space>
             ' '
           </>
-          root: null
+          children[]: null
           close:
           <CloseFragmentTag>
             open: <*Punctuator '</' balanced='>' />
@@ -67,7 +67,7 @@ describe('cstml', () => {
             open: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
             close: <*Punctuator '>' balancer />
           </>
-          root:
+          children[]:
           <Node>
             open:
             <OpenNodeTag>
