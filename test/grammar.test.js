@@ -31,7 +31,7 @@ describe('cstml', () => {
             close: <*Punctuator '>' balancer />
           </>
         </>
-      </>`);
+      </>\n`);
   });
 
   it('<> </>', () => {
@@ -54,7 +54,7 @@ describe('cstml', () => {
             close: <*Punctuator '>' balancer />
           </>
         </>
-      </>`);
+      </>\n`);
   });
 
   it('<><Node></></>', () => {
@@ -99,6 +99,6 @@ describe('cstml', () => {
             close: <*Punctuator '>' balancer />
           </>
         </>
-      </>`);
+      </>\n`);
   });
 });

@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.22.15",
-    "@bablr/agast-helpers": "0.1.1",
+    "@bablr/agast-helpers": "0.1.4",
     "@bablr/agast-vm-helpers": "0.1.1",
     "@bablr/helpers": "0.15.1",
     "@bablr/language-blank-space": "0.1.1"
