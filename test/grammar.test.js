@@ -21,14 +21,14 @@ describe('cstml', () => {
         <Fragment>
           open:
           <OpenFragmentTag>
-            open: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
-            close: <*Punctuator '>' balancer />
+            openToken: <~*Punctuator '<' balancedSpan='Tag' balanced='>' />
+            closeToken: <~*Punctuator '>' balancer />
           </>
           children[]: null
           close:
           <CloseFragmentTag>
-            open: <*Punctuator '</' balanced='>' />
-            close: <*Punctuator '>' balancer />
+            openToken: <~*Punctuator '</' balanced='>' />
+            closeToken: <~*Punctuator '>' balancer />
           </>
         </>
       </>\n`);
@@ -41,8 +41,8 @@ describe('cstml', () => {
         <Fragment>
           open:
           <OpenFragmentTag>
-            open: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
-            close: <*Punctuator '>' balancer />
+            openToken: <~*Punctuator '<' balancedSpan='Tag' balanced='>' />
+            closeToken: <~*Punctuator '>' balancer />
           </>
           <#*Space:Space>
             ' '
@@ -50,8 +50,8 @@ describe('cstml', () => {
           children[]: null
           close:
           <CloseFragmentTag>
-            open: <*Punctuator '</' balanced='>' />
-            close: <*Punctuator '>' balancer />
+            openToken: <~*Punctuator '</' balanced='>' />
+            closeToken: <~*Punctuator '>' balancer />
           </>
         </>
       </>\n`);
@@ -64,39 +64,43 @@ describe('cstml', () => {
         <Fragment>
           open:
           <OpenFragmentTag>
-            open: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
-            close: <*Punctuator '>' balancer />
+            openToken: <~*Punctuator '<' balancedSpan='Tag' balanced='>' />
+            closeToken: <~*Punctuator '>' balancer />
           </>
           children[]:
           <Node>
             open:
             <OpenNodeTag>
-              open: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
-              triviaFlag: null
-              tokenFlag: null
-              escapeFlag: null
-              expressionFlag: null
+              openToken: <~*Punctuator '<' balancedSpan='Tag' balanced='>' />
+              flags:
+              <~Flags>
+                triviaToken: null
+                intrinsicToken: null
+                tokenToken: null
+                escapeToken: null
+                expressionToken: null
+              </>
               type:
               <*Identifier>
                 'Node'
               </>
               intrinsicValue: null
               attributes[]: null
-              selfClosingToken: null
-              close: <*Punctuator '>' balancer />
+              selfClosingTagToken: null
+              closeToken: <~*Punctuator '>' balancer />
             </>
             children[]: null
             close:
             <CloseNodeTag>
-              open: <*Punctuator '</' balanced='>' />
+              openToken: <~*Punctuator '</' balanced='>' />
               type: null
-              close: <*Punctuator '>' balancer />
+              closeToken: <~*Punctuator '>' balancer />
             </>
           </>
           close:
           <CloseFragmentTag>
-            open: <*Punctuator '</' balanced='>' />
-            close: <*Punctuator '>' balancer />
+            openToken: <~*Punctuator '</' balanced='>' />
+            closeToken: <~*Punctuator '>' balancer />
           </>
         </>
       </>\n`);
