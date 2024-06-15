@@ -1,6 +1,6 @@
 {
   "name": "@bablr/language-cstml",
-  "version": "0.0.0",
+  "version": "0.2.4",
   "description": "A BABLR language for CSTML",
   "engines": {
     "node": ">=12.0.0"
