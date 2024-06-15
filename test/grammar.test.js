@@ -105,4 +105,53 @@ describe('cstml', () => {
         </>
       </>\n`);
   });
+
+  it ('<*Token><@Escape cooked="e"></></>', () => {
+    expect(cstml`<><Node></></>`).toEqual(dedent`\
+      <!0:cstml bablr-language='https://bablr.org/languages/core/cstml'>
+      <>
+        <Fragment>
+          open:
+          <OpenFragmentTag>
+            openToken: <~*Punctuator '<' balancedSpan='Tag' balanced='>' />
+            closeToken: <~*Punctuator '>' balancer />
+          </>
+          children[]:
+          <Node>
+            open:
+            <OpenNodeTag>
+              openToken: <~*Punctuator '<' balancedSpan='Tag' balanced='>' />
+              flags:
+              <~Flags>
+                triviaToken: null
+                intrinsicToken: null
+                tokenToken: null
+                escapeToken: null
+                expressionToken: null
+              </>
+              type:
+              <*Identifier>
+                'Node'
+              </>
+              intrinsicValue: null
+              attributes[]: null
+              selfClosingTagToken: null
+              closeToken: <~*Punctuator '>' balancer />
+            </>
+            children[]: null
+            close:
+            <CloseNodeTag>
+              openToken: <~*Punctuator '</' balanced='>' />
+              type: null
+              closeToken: <~*Punctuator '>' balancer />
+            </>
+          </>
+          close:
+          <CloseFragmentTag>
+            openToken: <~*Punctuator '</' balanced='>' />
+            closeToken: <~*Punctuator '>' balancer />
+          </>
+        </>
+      </>\n`);
+  })
 });
