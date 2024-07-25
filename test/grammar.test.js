@@ -1,8 +1,7 @@
 import { dedent } from '@qnighy/dedent';
 // eslint-disable-next-line import/no-unresolved
-import * as language from '@bablr/language-cstml';
+import * as language from '@bablr/language-en-cstml';
 import { buildTag } from 'bablr';
-import { debugEnhancers } from '@bablr/helpers/enhancers';
 import { expect } from 'expect';
 import { printPrettyCSTML } from '@bablr/agast-helpers/tree';
 
@@ -12,14 +11,69 @@ const { raw } = String;
 
 // enhancers = debugEnhancers;
 
-describe('@bablr/language-cstml', () => {
-  describe('Node', () => {
+describe('@bablr/language-en-cstml', () => {
+  describe('Document', () => {
+    const cstml = (...args) =>
+      printPrettyCSTML(buildTag(language, 'Document', undefined, enhancers)(...args));
+
+    it('<!0:cstml><></>', () => {
+      expect(cstml`<!0:cstml><></>`).toEqual(dedent`\
+        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
+        <>
+          <Document>
+            doctype:
+            <DoctypeTag>
+              openToken: <~*Punctuator '<!' balanced='>' />
+              version:
+              <UnsignedInteger>
+                digits[]:
+                <*Digit>
+                  '0'
+                </>
+              </>
+              versionSeparatorToken: <~*Punctuator ':' />
+              doctypeToken: <~*Keyword 'cstml' />
+              closeToken: <~*Punctuator '>' balancer />
+            </>
+            tree:
+            <Node>
+              open:
+              <OpenNodeTag>
+                openToken: <~*Punctuator '<' balancedSpan='Tag' balanced='>' />
+                flags:
+                <~Flags>
+                  triviaToken: null
+                  intrinsicToken: null
+                  tokenToken: null
+                  escapeToken: null
+                  expressionToken: null
+                </>
+                closeToken: <~*Punctuator '>' balancer />
+              </>
+              children[]: null
+              close:
+              <CloseNodeTag>
+                openToken: <~*Punctuator '</' balanced='>' />
+                type: null
+                closeToken: <~*Punctuator '>' balancer />
+              </>
+            </>
+          </>
+        </>\n`);
+    });
+
+    it('<!0:cstml><Node></> throws', () => {
+      expect(() => cstml`<!0:cstml><Node></>`).toThrowError();
+    });
+  });
+
+  describe('Node (without type)', () => {
     const cstml = (...args) =>
       printPrettyCSTML(buildTag(language, 'Node', undefined, enhancers)(...args));
 
     it('<></>', () => {
       expect(cstml`<></>`).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/cstml'>
+        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
         <>
           <Node>
             open:
@@ -48,7 +102,7 @@ describe('@bablr/language-cstml', () => {
 
     it('<> </>', () => {
       expect(cstml`<> </>`).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/cstml'>
+        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
         <>
           <Node>
             open:
@@ -78,9 +132,9 @@ describe('@bablr/language-cstml', () => {
         </>\n`);
     });
 
-    it('<><Node></></>', () => {
-      expect(cstml`<><Node></></>`).toEqual(dedent`\
-      <!0:cstml bablr-language='https://bablr.org/languages/core/cstml'>
+    it('<>root:<Node></></>', () => {
+      expect(cstml`<>root:<Node></></>`).toEqual(dedent`\
+      <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
       <>
         <Node>
           open:
@@ -97,33 +151,45 @@ describe('@bablr/language-cstml', () => {
             closeToken: <~*Punctuator '>' balancer />
           </>
           children[]:
-          <Node>
-            open:
-            <OpenNodeTag>
-              openToken: <~*Punctuator '<' balancedSpan='Tag' balanced='>' />
-              flags:
-              <~Flags>
-                triviaToken: null
-                intrinsicToken: null
-                tokenToken: null
-                escapeToken: null
-                expressionToken: null
-              </>
-              type:
+          <Property>
+            reference:
+            <Reference>
+              name:
               <*Identifier>
-                'Node'
+                'root'
               </>
-              intrinsicValue: null
-              attributes[]: null
-              selfClosingTagToken: null
-              closeToken: <~*Punctuator '>' balancer />
+              arrayOperatorToken: null
+              sigilToken: <~*Punctuator ':' />
             </>
-            children[]: null
-            close:
-            <CloseNodeTag>
-              openToken: <~*Punctuator '</' balanced='>' />
-              type: null
-              closeToken: <~*Punctuator '>' balancer />
+            node:
+            <Node>
+              open:
+              <OpenNodeTag>
+                openToken: <~*Punctuator '<' balancedSpan='Tag' balanced='>' />
+                flags:
+                <~Flags>
+                  triviaToken: null
+                  intrinsicToken: null
+                  tokenToken: null
+                  escapeToken: null
+                  expressionToken: null
+                </>
+                type:
+                <*Identifier>
+                  'Node'
+                </>
+                intrinsicValue: null
+                attributes[]: null
+                selfClosingTagToken: null
+                closeToken: <~*Punctuator '>' balancer />
+              </>
+              children[]: null
+              close:
+              <CloseNodeTag>
+                openToken: <~*Punctuator '</' balanced='>' />
+                type: null
+                closeToken: <~*Punctuator '>' balancer />
+              </>
             </>
           </>
           close:
@@ -136,9 +202,9 @@ describe('@bablr/language-cstml', () => {
       </>\n`);
     });
 
-    it('<><Node></><#Trivia></></>', () => {
-      expect(cstml`<><Node></><#Trivia></></>`).toEqual(dedent`\
-      <!0:cstml bablr-language='https://bablr.org/languages/core/cstml'>
+    it('<>root:<Node></><#Trivia></></>', () => {
+      expect(cstml`<>root:<Node></><#Trivia></></>`).toEqual(dedent`\
+      <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
       <>
         <Node>
           open:
@@ -155,33 +221,45 @@ describe('@bablr/language-cstml', () => {
             closeToken: <~*Punctuator '>' balancer />
           </>
           children[]:
-          <Node>
-            open:
-            <OpenNodeTag>
-              openToken: <~*Punctuator '<' balancedSpan='Tag' balanced='>' />
-              flags:
-              <~Flags>
-                triviaToken: null
-                intrinsicToken: null
-                tokenToken: null
-                escapeToken: null
-                expressionToken: null
-              </>
-              type:
+          <Property>
+            reference:
+            <Reference>
+              name:
               <*Identifier>
-                'Node'
+                'root'
               </>
-              intrinsicValue: null
-              attributes[]: null
-              selfClosingTagToken: null
-              closeToken: <~*Punctuator '>' balancer />
+              arrayOperatorToken: null
+              sigilToken: <~*Punctuator ':' />
             </>
-            children[]: null
-            close:
-            <CloseNodeTag>
-              openToken: <~*Punctuator '</' balanced='>' />
-              type: null
-              closeToken: <~*Punctuator '>' balancer />
+            node:
+            <Node>
+              open:
+              <OpenNodeTag>
+                openToken: <~*Punctuator '<' balancedSpan='Tag' balanced='>' />
+                flags:
+                <~Flags>
+                  triviaToken: null
+                  intrinsicToken: null
+                  tokenToken: null
+                  escapeToken: null
+                  expressionToken: null
+                </>
+                type:
+                <*Identifier>
+                  'Node'
+                </>
+                intrinsicValue: null
+                attributes[]: null
+                selfClosingTagToken: null
+                closeToken: <~*Punctuator '>' balancer />
+              </>
+              children[]: null
+              close:
+              <CloseNodeTag>
+                openToken: <~*Punctuator '</' balanced='>' />
+                type: null
+                closeToken: <~*Punctuator '>' balancer />
+              </>
             </>
           </>
           children[]:
@@ -231,7 +309,7 @@ describe('@bablr/language-cstml', () => {
 
     it('<Node>reference: null</>', () => {
       expect(cstml`<Node>reference: null</>`).toEqual(dedent`\
-      <!0:cstml bablr-language='https://bablr.org/languages/core/cstml'>
+      <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
       <>
         <Node>
           open:
@@ -285,7 +363,7 @@ describe('@bablr/language-cstml', () => {
 
     it('<Node>reference: <//></>', () => {
       expect(cstml`<Node>reference: <//></>`).toEqual(dedent`\
-      <!0:cstml bablr-language='https://bablr.org/languages/core/cstml'>
+      <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
       <>
         <Node>
           open:
@@ -339,7 +417,7 @@ describe('@bablr/language-cstml', () => {
 
     it('<Node>reference: <Node></></>', () => {
       expect(cstml`<Node>reference: <Node></></>`).toEqual(dedent`\
-      <!0:cstml bablr-language='https://bablr.org/languages/core/cstml'>
+      <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
       <>
         <Node>
           open:
@@ -419,7 +497,7 @@ describe('@bablr/language-cstml', () => {
 
     it('<*Token><@Escape cooked="e"></></>', () => {
       expect(cstml`<*Token><@Escape cooked="e"></></>`).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/cstml'>
+        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
         <>
           <Node>
             open:
@@ -508,7 +586,7 @@ describe('@bablr/language-cstml', () => {
 
     it(`<*Type 'intrinsicValue' />`, () => {
       expect(tag`<*Type 'intrinsicValue' />`).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/cstml'>
+        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
         <>
           <OpenNodeTag>
             openToken: <~*Punctuator '<' balancedSpan='Tag' balanced='>' />
@@ -548,7 +626,7 @@ describe('@bablr/language-cstml', () => {
 
     it(`<Type attr>`, () => {
       expect(tag`<Type attr>`).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/cstml'>
+        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
         <>
           <OpenNodeTag>
             openToken: <~*Punctuator '<' balancedSpan='Tag' balanced='>' />
@@ -584,7 +662,7 @@ describe('@bablr/language-cstml', () => {
 
     it(`<Quantifier min=1 max=+Infinity>`, () => {
       expect(tag`<Quantifier min=1 max=+Infinity>`).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/cstml'>
+        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
         <>
           <OpenNodeTag>
             openToken: <~*Punctuator '<' balancedSpan='Tag' balanced='>' />
@@ -644,7 +722,7 @@ describe('@bablr/language-cstml', () => {
 
     it(`<Type !attr>`, () => {
       expect(tag`<Type !attr>`).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/cstml'>
+        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
         <>
           <OpenNodeTag>
             openToken: <~*Punctuator '<' balancedSpan='Tag' balanced='>' />
@@ -685,7 +763,7 @@ describe('@bablr/language-cstml', () => {
 
     it(`"'"`, () => {
       expect(str`"'"`).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/cstml'>
+        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
         <>
           <String>
             openToken: <~*Punctuator '"' balanced='"' balancedSpan='String:Double' />
@@ -700,7 +778,7 @@ describe('@bablr/language-cstml', () => {
 
     it(raw`"\""`, () => {
       expect(str`"\""`).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/cstml'>
+        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
         <>
           <String>
             openToken: <~*Punctuator '"' balanced='"' balancedSpan='String:Double' />
@@ -718,7 +796,7 @@ describe('@bablr/language-cstml', () => {
 
     it(raw`"\u1234"`, () => {
       expect(str`"\u1234"`).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/cstml'>
+        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
         <>
           <String>
             openToken: <~*Punctuator '"' balanced='"' balancedSpan='String:Double' />
@@ -757,7 +835,7 @@ describe('@bablr/language-cstml', () => {
 
     it(raw`"\u{1}"`, () => {
       expect(str`"\u{1}"`).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/cstml'>
+        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
         <>
           <String>
             openToken: <~*Punctuator '"' balanced='"' balancedSpan='String:Double' />
@@ -789,7 +867,7 @@ describe('@bablr/language-cstml', () => {
 
     it('5', () => {
       expect(num`5`).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/cstml'>
+        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
         <>
           <Integer>
             negativeToken: null

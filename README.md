@@ -1,3 +1,3 @@
-# @bablr/language-cstml
+# @bablr/language-en-cstml
 
 Defines CSTML
