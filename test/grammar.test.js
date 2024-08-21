@@ -167,7 +167,7 @@ describe('@bablr/language-en-cstml', () => {
           children[]:
           <Property>
             reference:
-            <Reference>
+            <ReferenceTag>
               name:
               <*Identifier>
                 'root'
@@ -238,7 +238,7 @@ describe('@bablr/language-en-cstml', () => {
           children[]:
           <Property>
             reference:
-            <Reference>
+            <ReferenceTag>
               name:
               <*Identifier>
                 'root'
@@ -350,7 +350,7 @@ describe('@bablr/language-en-cstml', () => {
           children[]:
           <Property>
             reference:
-            <Reference>
+            <ReferenceTag>
               name:
               <*Identifier>
                 'reference'
@@ -362,7 +362,7 @@ describe('@bablr/language-en-cstml', () => {
               ' '
             </>
             node:
-            <Null>
+            <NullTag>
               sigilToken: <~*Keyword 'null' />
             </>
           </>
@@ -405,7 +405,7 @@ describe('@bablr/language-en-cstml', () => {
           children[]:
           <Property>
             reference:
-            <Reference>
+            <ReferenceTag>
               name:
               <*Identifier>
                 'reference'
@@ -417,7 +417,7 @@ describe('@bablr/language-en-cstml', () => {
               ' '
             </>
             node:
-            <Gap>
+            <GapTag>
               sigilToken: <~*Punctuator '<//>' />
             </>
           </>
@@ -460,7 +460,7 @@ describe('@bablr/language-en-cstml', () => {
           children[]:
           <Property>
             reference:
-            <Reference>
+            <ReferenceTag>
               name:
               <*Identifier>
                 'reference'
@@ -512,8 +512,8 @@ describe('@bablr/language-en-cstml', () => {
       </>\n`);
     });
 
-    it('<*Token><@Escape cooked="e"></></>', () => {
-      expect(print(cstml`<*Token><@Escape cooked="e"></></>`)).toEqual(dedent`\
+    it('<*Tag><@Escape cooked="e"></></>', () => {
+      expect(print(cstml`<*Tag><@Escape cooked="e"></></>`)).toEqual(dedent`\
         <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
         <>
           root:
@@ -531,7 +531,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
               type:
               <*Identifier>
-                'Token'
+                'Tag'
               </>
               intrinsicValue: null
               attributes[]: null
