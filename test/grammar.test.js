@@ -38,6 +38,7 @@ describe('@bablr/language-en-cstml', () => {
               openToken: <~*Punctuator '<!' balanced='>' />
               version:
               <UnsignedInteger>
+                digits[]: []
                 digits[]:
                 <*Digit>
                   '0'
@@ -62,7 +63,7 @@ describe('@bablr/language-en-cstml', () => {
                 </>
                 closeToken: <~*Punctuator '>' balancer />
               </>
-              children[]: null
+              children[]: []
               close:
               <CloseNodeTag>
                 openToken: <~*Punctuator '</' balanced='>' />
@@ -101,7 +102,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
               closeToken: <~*Punctuator '>' balancer />
             </>
-            children[]: null
+            children[]: []
             close:
             <CloseNodeTag>
               openToken: <~*Punctuator '</' balanced='>' />
@@ -134,7 +135,7 @@ describe('@bablr/language-en-cstml', () => {
             <#*Space:Space>
               ' '
             </>
-            children[]: null
+            children[]: []
             close:
             <CloseNodeTag>
               openToken: <~*Punctuator '</' balanced='>' />
@@ -164,6 +165,7 @@ describe('@bablr/language-en-cstml', () => {
             </>
             closeToken: <~*Punctuator '>' balancer />
           </>
+          children[]: []
           children[]:
           <Property>
             reference:
@@ -193,11 +195,11 @@ describe('@bablr/language-en-cstml', () => {
                   'Node'
                 </>
                 intrinsicValue: null
-                attributes[]: null
+                attributes[]: []
                 selfClosingTagToken: null
                 closeToken: <~*Punctuator '>' balancer />
               </>
-              children[]: null
+              children[]: []
               close:
               <CloseNodeTag>
                 openToken: <~*Punctuator '</' balanced='>' />
@@ -235,6 +237,7 @@ describe('@bablr/language-en-cstml', () => {
             </>
             closeToken: <~*Punctuator '>' balancer />
           </>
+          children[]: []
           children[]:
           <Property>
             reference:
@@ -264,11 +267,11 @@ describe('@bablr/language-en-cstml', () => {
                   'Node'
                 </>
                 intrinsicValue: null
-                attributes[]: null
+                attributes[]: []
                 selfClosingTagToken: null
                 closeToken: <~*Punctuator '>' balancer />
               </>
-              children[]: null
+              children[]: []
               close:
               <CloseNodeTag>
                 openToken: <~*Punctuator '</' balanced='>' />
@@ -295,11 +298,11 @@ describe('@bablr/language-en-cstml', () => {
                 'Trivia'
               </>
               intrinsicValue: null
-              attributes[]: null
+              attributes[]: []
               selfClosingTagToken: null
               closeToken: <~*Punctuator '>' balancer />
             </>
-            children[]: null
+            children[]: []
             close:
             <CloseNodeTag>
               openToken: <~*Punctuator '</' balanced='>' />
@@ -343,10 +346,11 @@ describe('@bablr/language-en-cstml', () => {
               'Node'
             </>
             intrinsicValue: null
-            attributes[]: null
+            attributes[]: []
             selfClosingTagToken: null
             closeToken: <~*Punctuator '>' balancer />
           </>
+          children[]: []
           children[]:
           <Property>
             reference:
@@ -398,10 +402,11 @@ describe('@bablr/language-en-cstml', () => {
               'Node'
             </>
             intrinsicValue: null
-            attributes[]: null
+            attributes[]: []
             selfClosingTagToken: null
             closeToken: <~*Punctuator '>' balancer />
           </>
+          children[]: []
           children[]:
           <Property>
             reference:
@@ -453,10 +458,11 @@ describe('@bablr/language-en-cstml', () => {
               'Node'
             </>
             intrinsicValue: null
-            attributes[]: null
+            attributes[]: []
             selfClosingTagToken: null
             closeToken: <~*Punctuator '>' balancer />
           </>
+          children[]: []
           children[]:
           <Property>
             reference:
@@ -489,11 +495,11 @@ describe('@bablr/language-en-cstml', () => {
                   'Node'
                 </>
                 intrinsicValue: null
-                attributes[]: null
+                attributes[]: []
                 selfClosingTagToken: null
                 closeToken: <~*Punctuator '>' balancer />
               </>
-              children[]: null
+              children[]: []
               close:
               <CloseNodeTag>
                 openToken: <~*Punctuator '</' balanced='>' />
@@ -534,10 +540,11 @@ describe('@bablr/language-en-cstml', () => {
                 'Tag'
               </>
               intrinsicValue: null
-              attributes[]: null
+              attributes[]: []
               selfClosingTagToken: null
               closeToken: <~*Punctuator '>' balancer />
             </>
+            children[]: []
             children[]:
             <Node>
               open:
@@ -559,6 +566,7 @@ describe('@bablr/language-en-cstml', () => {
                   ' '
                 </>
                 intrinsicValue: null
+                attributes[]: []
                 attributes[]:
                 <MappingAttribute>
                   key:
@@ -579,7 +587,7 @@ describe('@bablr/language-en-cstml', () => {
                 selfClosingTagToken: null
                 closeToken: <~*Punctuator '>' balancer />
               </>
-              children[]: null
+              children[]: []
               close:
               <CloseNodeTag>
                 openToken: <~*Punctuator '</' balanced='>' />
@@ -635,7 +643,7 @@ describe('@bablr/language-en-cstml', () => {
             <#*Space:Space>
               ' '
             </>
-            attributes[]: null
+            attributes[]: []
             selfClosingTagToken: <~*Punctuator '/' />
             closeToken: <~*Punctuator '>' balancer />
           </>
@@ -665,6 +673,7 @@ describe('@bablr/language-en-cstml', () => {
               ' '
             </>
             intrinsicValue: null
+            attributes[]: []
             attributes[]:
             <BooleanAttribute true>
               negateToken: null
@@ -702,6 +711,7 @@ describe('@bablr/language-en-cstml', () => {
               ' '
             </>
             intrinsicValue: null
+            attributes[]: []
             attributes[]:
             <MappingAttribute>
               key:
@@ -712,6 +722,7 @@ describe('@bablr/language-en-cstml', () => {
               value:
               <Integer>
                 negativeToken: null
+                digits[]: []
                 digits[]:
                 <*Digit>
                   '1'
@@ -763,6 +774,7 @@ describe('@bablr/language-en-cstml', () => {
               ' '
             </>
             intrinsicValue: null
+            attributes[]: []
             attributes[]:
             <BooleanAttribute !true>
               negateToken: <~*Punctuator '!' />
@@ -831,6 +843,7 @@ describe('@bablr/language-en-cstml', () => {
                 <EscapeCode closeSpan='Escape'>
                   typeToken: <~*Keyword 'u' />
                   openToken: null
+                  digits[]: []
                   digits[]:
                   <*Digit>
                     '1'
@@ -871,6 +884,7 @@ describe('@bablr/language-en-cstml', () => {
                 <EscapeCode closeSpan='Escape'>
                   typeToken: <~*Keyword 'u' />
                   openToken: <~*Punctuator '{' balanced='}' />
+                  digits[]: []
                   digits[]:
                   <*Digit>
                     '1'
@@ -895,6 +909,7 @@ describe('@bablr/language-en-cstml', () => {
           root:
           <Integer>
             negativeToken: null
+            digits[]: []
             digits[]:
             <*Digit>
               '5'
