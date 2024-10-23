@@ -15,7 +15,7 @@ const { raw } = String;
 const ctx = Context.from(AgastContext.create(), language, enhancers.bablrProduction);
 
 const buildCSTMLTag = (type) => {
-  const matcher = buildFullyQualifiedSpamMatcher({}, language.canonicalURL, type);
+  const matcher = buildFullyQualifiedSpamMatcher({ hasGap: true }, language.canonicalURL, type);
   return buildTag(ctx, matcher, undefined, { enhancers });
 };
 
