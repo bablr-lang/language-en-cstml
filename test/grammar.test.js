@@ -791,6 +791,333 @@ describe('@bablr/language-en-cstml', () => {
           </>
         </>\n`);
     });
+
+    it('`b={ balancedSpan: "Tag" }`', () => {
+      expect(print(attrs`b={ balancedSpan: "Tag" }`)).toEqual(dedent`\
+        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
+        <$>
+          .[]$: []
+          .[]$:
+          <$MappingAttribute>
+            key$: <*Identifier 'b' />
+            sigilToken: <*Punctuator '=' />
+            value$:
+            <$Object>
+              openToken: <*Punctuator '{' balanced='}' />
+              <#*Space:Space ' ' />
+              properties[]$: []
+              properties[]$:
+              <$ObjectProperty>
+                key$: <*Identifier 'balancedSpan' />
+                mapToken: <*Punctuator ':' />
+                <#*Space:Space ' ' />
+                value$:
+                <$String>
+                  openToken: <*Punctuator '"' balanced='"' balancedSpan='String:Double' />
+                  content: <*StringContent 'Tag' />
+                  closeToken: <*Punctuator '"' balancer />
+                </>
+              </>
+              separators[]: []
+              separators[]: <#*Space:Space ' ' />
+              <$Separator>
+                sigilToken: null
+              </>
+              closeToken: <*Punctuator '}' balancer />
+            </>
+          </>
+        </>\n`);
+    });
+
+    it('`b={ balancedSpan: "Tag", Balancer: "]" }`', () => {
+      expect(print(attrs`b={ balancedSpan: "Tag", Balancer: "]" }`)).toEqual(dedent`\
+       <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
+       <$>
+         .[]$: []
+         .[]$:
+         <$MappingAttribute>
+           key$: <*Identifier 'b' />
+           sigilToken: <*Punctuator '=' />
+           value$:
+           <$Object>
+             openToken: <*Punctuator '{' balanced='}' />
+             <#*Space:Space ' ' />
+             properties[]$: []
+             properties[]$:
+             <$ObjectProperty>
+               key$: <*Identifier 'balancedSpan' />
+               mapToken: <*Punctuator ':' />
+               <#*Space:Space ' ' />
+               value$:
+               <$String>
+                 openToken: <*Punctuator '"' balanced='"' balancedSpan='String:Double' />
+                 content: <*StringContent 'Tag' />
+                 closeToken: <*Punctuator '"' balancer />
+               </>
+             </>
+             separators[]: []
+             separators[]:
+             <$Separator>
+               sigilToken: <*Punctuator ',' />
+               <#*Space:Space ' ' />
+             </>
+             properties[]$:
+             <$ObjectProperty>
+               key$: <*Identifier 'Balancer' />
+               mapToken: <*Punctuator ':' />
+               <#*Space:Space ' ' />
+               value$:
+               <$String>
+                 openToken: <*Punctuator '"' balanced='"' balancedSpan='String:Double' />
+                 content: <*StringContent ']' />
+                 closeToken: <*Punctuator '"' balancer />
+               </>
+             </>
+             separators[]: <#*Space:Space ' ' />
+             <$Separator>
+               sigilToken: null
+             </>
+             closeToken: <*Punctuator '}' balancer />
+           </>
+         </>
+       </>\n`);
+    });
+
+    it('`b={ balancedSpan: "Tag", Balancer: { symbol: "]", balanced: true} }`', () => {
+      expect(print(attrs`b={ balancedSpan: "Tag", Balancer: { symbol: "]", balanced: true} }`))
+        .toEqual(dedent`\
+        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
+        <$>
+          .[]$: []
+          .[]$:
+          <$MappingAttribute>
+            key$: <*Identifier 'b' />
+            sigilToken: <*Punctuator '=' />
+            value$:
+            <$Object>
+              openToken: <*Punctuator '{' balanced='}' />
+              <#*Space:Space ' ' />
+              properties[]$: []
+              properties[]$:
+              <$ObjectProperty>
+                key$: <*Identifier 'balancedSpan' />
+                mapToken: <*Punctuator ':' />
+                <#*Space:Space ' ' />
+                value$:
+                <$String>
+                  openToken: <*Punctuator '"' balanced='"' balancedSpan='String:Double' />
+                  content: <*StringContent 'Tag' />
+                  closeToken: <*Punctuator '"' balancer />
+                </>
+              </>
+              separators[]: []
+              separators[]:
+              <$Separator>
+                sigilToken: <*Punctuator ',' />
+                <#*Space:Space ' ' />
+              </>
+              properties[]$:
+              <$ObjectProperty>
+                key$: <*Identifier 'Balancer' />
+                mapToken: <*Punctuator ':' />
+                <#*Space:Space ' ' />
+                value$:
+                <$Object>
+                  openToken: <*Punctuator '{' balanced='}' />
+                  <#*Space:Space ' ' />
+                  properties[]$: []
+                  properties[]$:
+                  <$ObjectProperty>
+                    key$: <*Identifier 'symbol' />
+                    mapToken: <*Punctuator ':' />
+                    <#*Space:Space ' ' />
+                    value$:
+                    <$String>
+                      openToken: <*Punctuator '"' balanced='"' balancedSpan='String:Double' />
+                      content: <*StringContent ']' />
+                      closeToken: <*Punctuator '"' balancer />
+                    </>
+                  </>
+                  separators[]: []
+                  separators[]:
+                  <$Separator>
+                    sigilToken: <*Punctuator ',' />
+                    <#*Space:Space ' ' />
+                  </>
+                  properties[]$:
+                  <$ObjectProperty>
+                    key$: <*Identifier 'balanced' />
+                    mapToken: <*Punctuator ':' />
+                    <#*Space:Space ' ' />
+                    value$: <*Boolean 'true' />
+                  </>
+                  separators[]:
+                  <$Separator>
+                    sigilToken: null
+                  </>
+                  closeToken: <*Punctuator '}' balancer />
+                </>
+              </>
+              separators[]: <#*Space:Space ' ' />
+              <$Separator>
+                sigilToken: null
+              </>
+              closeToken: <*Punctuator '}' balancer />
+            </>
+          </>
+        </>\n`);
+    });
+
+    it('`b={ balancedSpan: "Tag", values: [4, 2] }`', () => {
+      expect(print(attrs`b={ balancedSpan: "Tag", values: [4, 2] }`)).toEqual(dedent`\
+        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
+        <$>
+          .[]$: []
+          .[]$:
+          <$MappingAttribute>
+            key$: <*Identifier 'b' />
+            sigilToken: <*Punctuator '=' />
+            value$:
+            <$Object>
+              openToken: <*Punctuator '{' balanced='}' />
+              <#*Space:Space ' ' />
+              properties[]$: []
+              properties[]$:
+              <$ObjectProperty>
+                key$: <*Identifier 'balancedSpan' />
+                mapToken: <*Punctuator ':' />
+                <#*Space:Space ' ' />
+                value$:
+                <$String>
+                  openToken: <*Punctuator '"' balanced='"' balancedSpan='String:Double' />
+                  content: <*StringContent 'Tag' />
+                  closeToken: <*Punctuator '"' balancer />
+                </>
+              </>
+              separators[]: []
+              separators[]:
+              <$Separator>
+                sigilToken: <*Punctuator ',' />
+                <#*Space:Space ' ' />
+              </>
+              properties[]$:
+              <$ObjectProperty>
+                key$: <*Identifier 'values' />
+                mapToken: <*Punctuator ':' />
+                <#*Space:Space ' ' />
+                value$:
+                <$Array>
+                  openToken: <*Punctuator '[' balanced=']' />
+                  elements[]$: []
+                  elements[]$:
+                  <$Integer>
+                    signToken: null
+                    value: <*UnsignedInteger '4' />
+                  </>
+                  separators[]: []
+                  separators[]:
+                  <$Separator>
+                    sigilToken: <*Punctuator ',' />
+                    <#*Space:Space ' ' />
+                  </>
+                  elements[]$:
+                  <$Integer>
+                    signToken: null
+                    value: <*UnsignedInteger '2' />
+                  </>
+                  separators[]:
+                  <$Separator>
+                    sigilToken: null
+                  </>
+                  closeToken: <*Punctuator ']' balancer />
+                </>
+              </>
+              separators[]: <#*Space:Space ' ' />
+              <$Separator>
+                sigilToken: null
+              </>
+              closeToken: <*Punctuator '}' balancer />
+            </>
+          </>
+        </>\n`);
+    });
+
+    it('`b=[3, 4]`', () => {
+      expect(print(attrs`b=[3, 4]`)).toEqual(dedent`\
+        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
+        <$>
+          .[]$: []
+          .[]$:
+          <$MappingAttribute>
+            key$: <*Identifier 'b' />
+            sigilToken: <*Punctuator '=' />
+            value$:
+            <$Array>
+              openToken: <*Punctuator '[' balanced=']' />
+              elements[]$: []
+              elements[]$:
+              <$Integer>
+                signToken: null
+                value: <*UnsignedInteger '3' />
+              </>
+              separators[]: []
+              separators[]:
+              <$Separator>
+                sigilToken: <*Punctuator ',' />
+                <#*Space:Space ' ' />
+              </>
+              elements[]$:
+              <$Integer>
+                signToken: null
+                value: <*UnsignedInteger '4' />
+              </>
+              separators[]:
+              <$Separator>
+                sigilToken: null
+              </>
+              closeToken: <*Punctuator ']' balancer />
+            </>
+          </>
+        </>\n`);
+    });
+
+    it('`b=[3 4]`', () => {
+      expect(print(attrs`b=[3 4]`)).toEqual(dedent`\
+        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
+        <$>
+          .[]$: []
+          .[]$:
+          <$MappingAttribute>
+            key$: <*Identifier 'b' />
+            sigilToken: <*Punctuator '=' />
+            value$:
+            <$Array>
+              openToken: <*Punctuator '[' balanced=']' />
+              elements[]$: []
+              elements[]$:
+              <$Integer>
+                signToken: null
+                value: <*UnsignedInteger '3' />
+              </>
+              separators[]: []
+              separators[]: <#*Space:Space ' ' />
+              <$Separator>
+                sigilToken: null
+              </>
+              elements[]$:
+              <$Integer>
+                signToken: null
+                value: <*UnsignedInteger '4' />
+              </>
+              separators[]:
+              <$Separator>
+                sigilToken: null
+              </>
+              closeToken: <*Punctuator ']' balancer />
+            </>
+          </>
+        </>\n`);
+    });
   });
 
   describe('String', () => {
