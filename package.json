@@ -10,7 +10,9 @@
     ".": "./lib/grammar.js",
     "./package.json": "./package.json"
   },
-  "files": ["lib/**/*.js"],
+  "files": [
+    "lib/**/*.js"
+  ],
   "sideEffects": false,
   "scripts": {
     "build": "macrome build",
@@ -20,9 +22,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.22.15",
-    "@bablr/agast-helpers": "^0.5.0",
+    "@bablr/agast-helpers": "^0.5.3",
     "@bablr/agast-vm-helpers": "^0.5.0",
-    "@bablr/helpers": "^0.20.0",
+    "@bablr/helpers": "^0.20.5",
     "@bablr/language-en-blank-space": "^0.5.0"
   },
   "devDependencies": {
@@ -40,7 +42,12 @@
     "mocha": "^10.4.0",
     "prettier": "^2.0.5"
   },
-  "keywords": ["bablr-language", "grammar", "english", "cstml"],
+  "keywords": [
+    "bablr-language",
+    "grammar",
+    "english",
+    "cstml"
+  ],
   "repository": "git@github.com:bablr-lang/language-en-cstml.git",
   "homepage": "https://github.com/bablr-lang/language-en-cstml",
   "author": "Conrad Buck <conartist6@gmail.com>",
