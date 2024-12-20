@@ -968,6 +968,38 @@ describe('@bablr/language-en-cstml', () => {
         </>\n`);
     });
 
+    it('`b={ number: NaN }`', () => {
+      expect(print(attrs`b={ number: NaN}`)).toEqual(dedent`\
+        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
+        <$>
+          .[]$: []
+          .[]$:
+          <$MappingAttribute>
+            key$: <*Identifier 'b' />
+            sigilToken: <*Punctuator '=' />
+            value$:
+            <$Object>
+              openToken: <*Punctuator '{' balanced='}' />
+              <#*Space:Space ' ' />
+              properties[]$: []
+              properties[]$:
+              <$ObjectProperty>
+                key$: <*Identifier 'number' />
+                mapToken: <*Punctuator ':' />
+                <#*Space:Space ' ' />
+                value$: <*Identifier 'NaN' />
+              </>
+              separators[]: []
+              separators[]:
+              <$Separator>
+                sigilToken: null
+              </>
+              closeToken: <*Punctuator '}' balancer />
+            </>
+          </>
+        </>\n`);
+    });
+
     it('`b={ balancedSpan: "Tag", values: [4, 2] }`', () => {
       expect(print(attrs`b={ balancedSpan: "Tag", values: [4, 2] }`)).toEqual(dedent`\
         <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
