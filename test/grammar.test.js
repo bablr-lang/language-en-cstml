@@ -2,7 +2,7 @@ import { spam } from '@bablr/boot';
 import { dedent } from '@qnighy/dedent';
 // eslint-disable-next-line import/no-unresolved
 import * as language from '@bablr/language-en-cstml';
-import { buildTag, Context, AgastContext } from 'bablr';
+import { buildTag, Context } from 'bablr';
 import { expect } from 'expect';
 import { printPrettyCSTML } from '@bablr/helpers/tree';
 import { buildString } from '@bablr/agast-vm-helpers';
@@ -13,7 +13,7 @@ const { raw } = String;
 
 // enhancers = debugEnhancers;
 
-const ctx = Context.from(AgastContext.create(), language, enhancers.bablrProduction);
+const ctx = Context.from(language, enhancers.bablrProduction);
 
 const buildCSTMLTag = (type) => {
   const matcher = spam`<$${buildString(language.canonicalURL)}:${buildString(type)} />`;
