@@ -1,21 +1,21 @@
+import { buildTag, Context } from 'bablr';
+import { spam } from '@bablr/boot';
 import { dedent } from '@qnighy/dedent';
-// eslint-disable-next-line import/no-unresolved
 import * as language from '@bablr/language-en-cstml';
-import { buildTag, Context, AgastContext } from 'bablr';
 import { expect } from 'expect';
 import { printPrettyCSTML } from '@bablr/helpers/tree';
-import { buildFullyQualifiedSpamMatcher } from '@bablr/helpers/builders';
+import { buildIdentifier, buildString } from '@bablr/helpers/builders';
 
 let enhancers = {};
 
-const { raw } = String;
-
 // enhancers = debugEnhancers;
 
-const ctx = Context.from(AgastContext.create(), language, enhancers.bablrProduction);
+const { raw } = String;
+
+const ctx = Context.from(language, enhancers.bablrProduction);
 
 const buildCSTMLTag = (type) => {
-  const matcher = buildFullyQualifiedSpamMatcher({ hasGap: true }, language.canonicalURL, type);
+  const matcher = spam`<$${buildString(language.canonicalURL)}:${buildIdentifier(type)} />`;
   return buildTag(ctx, matcher, undefined, { enhancers });
 };
 
@@ -29,39 +29,36 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<!0:cstml><></>', () => {
       expect(print(cstml`<!0:cstml><></>`)).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
+        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$>
           .:
           <$Document>
             doctype$:
             <$DoctypeTag>
-              openToken: <*Punctuator '<!' balancedSpan='Tag' balanced='>' />
-              version$: <*UnsignedInteger '0' />
+              openToken: <*Punctuator '<!' { balancedSpan: 'Tag', balanced: '>' } />
+              version$: <*JSON:UnsignedInteger '0' />
               versionSeparatorToken: <*Punctuator ':' />
               doctypeToken$: <*Keyword 'cstml' />
-              attributes[]$: []
-              closeToken: <*Punctuator '>' balancer />
+              attributes$: null
+              closeToken: <*Punctuator '>' { balancer: true } />
             </>
             tree$:
             <$Fragment>
               open:
-              <$OpenFragmentTag balanced balancedSpan='FragmentChildren'>
-                openToken: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
+              <$OpenFragmentTag { balanced: true, balancedSpan: 'FragmentChildren' }>
+                openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
                 flags:
-                <$Flags>
-                  triviaToken: null
+                <$NodeFlags>
                   tokenToken: null
-                  escapeToken: null
-                  expressionToken: null
                   hasGapToken: null
                 </>
-                closeToken: <*Punctuator '>' balancer />
+                closeToken: <*Punctuator '>' { balancer: true } />
               </>
               children[]$: []
               close:
-              <$CloseFragmentTag balancer>
-                openToken: <*Punctuator '</' balanced='>' />
-                closeToken: <*Punctuator '>' balancer />
+              <$CloseFragmentTag { balancer: true }>
+                openToken: <*Punctuator '</' { balanced: '>' } />
+                closeToken: <*Punctuator '>' { balancer: true } />
               </>
             </>
           </>
@@ -78,67 +75,64 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<!0:cstml><>.:<Node></></>', () => {
       expect(print(cstml`<!0:cstml><>.:<Node></></>`)).toEqual(dedent`\
-      <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
+      <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
       <$>
         .[]: []
         .[]:
         <$DoctypeTag>
-          openToken: <*Punctuator '<!' balancedSpan='Tag' balanced='>' />
-          version$: <*UnsignedInteger '0' />
+          openToken: <*Punctuator '<!' { balancedSpan: 'Tag', balanced: '>' } />
+          version$: <*JSON:UnsignedInteger '0' />
           versionSeparatorToken: <*Punctuator ':' />
           doctypeToken$: <*Keyword 'cstml' />
-          attributes[]$: []
-          closeToken: <*Punctuator '>' balancer />
+          attributes$: null
+          closeToken: <*Punctuator '>' { balancer: true } />
         </>
         .[]:
-        <$OpenFragmentTag balanced balancedSpan='FragmentChildren'>
-          openToken: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
+        <$OpenFragmentTag { balanced: true, balancedSpan: 'FragmentChildren' }>
+          openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
           flags:
-          <$Flags>
-            triviaToken: null
+          <$NodeFlags>
             tokenToken: null
-            escapeToken: null
-            expressionToken: null
             hasGapToken: null
           </>
-          closeToken: <*Punctuator '>' balancer />
+          closeToken: <*Punctuator '>' { balancer: true } />
         </>
         .[]:
         <$ReferenceTag>
           name$: <*Punctuator '.' />
-          arrayOperatorToken: null
-          hasGapToken: null
+          openIndexToken: null
+          closeIndexToken: null
+          flags:
+          <$ReferenceFlags>
+            expressionToken: null
+            hasGapToken: null
+          </>
           sigilToken: <*Punctuator ':' />
         </>
         .[]:
-        <$OpenNodeTag balanced balancedSpan='NodeChildren'>
-          openToken: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
+        <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+          openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
           flags:
-          <$Flags>
-            triviaToken: null
+          <$NodeFlags>
             tokenToken: null
-            escapeToken: null
-            expressionToken: null
             hasGapToken: null
           </>
           language$: null
           type$: <*Identifier 'Node' />
           intrinsicValue$: null
-          attributes[]$: []
+          attributes$: null
           selfClosingTagToken: null
-          closeToken: <*Punctuator '>' balancer />
+          closeToken: <*Punctuator '>' { balancer: true } />
         </>
         .[]:
-        <$CloseNodeTag balancer>
-          openToken: <*Punctuator '</' balanced='>' />
-          language$: null
-          type$: null
-          closeToken: <*Punctuator '>' balancer />
+        <$CloseNodeTag { balancer: true }>
+          openToken: <*Punctuator '</' { balanced: '>' } />
+          closeToken: <*Punctuator '>' { balancer: true } />
         </>
         .[]:
-        <$CloseFragmentTag balancer>
-          openToken: <*Punctuator '</' balanced='>' />
-          closeToken: <*Punctuator '>' balancer />
+        <$CloseFragmentTag { balancer: true }>
+          openToken: <*Punctuator '</' { balanced: '>' } />
+          closeToken: <*Punctuator '>' { balancer: true } />
         </>
       </>\n`);
     });
@@ -149,28 +143,25 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<></>', () => {
       expect(print(cstml`<></>`)).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
+        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$>
           .:
           <$Fragment>
             open:
-            <$OpenFragmentTag balanced balancedSpan='FragmentChildren'>
-              openToken: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
+            <$OpenFragmentTag { balanced: true, balancedSpan: 'FragmentChildren' }>
+              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
-              <$Flags>
-                triviaToken: null
+              <$NodeFlags>
                 tokenToken: null
-                escapeToken: null
-                expressionToken: null
                 hasGapToken: null
               </>
-              closeToken: <*Punctuator '>' balancer />
+              closeToken: <*Punctuator '>' { balancer: true } />
             </>
             children[]$: []
             close:
-            <$CloseFragmentTag balancer>
-              openToken: <*Punctuator '</' balanced='>' />
-              closeToken: <*Punctuator '>' balancer />
+            <$CloseFragmentTag { balancer: true }>
+              openToken: <*Punctuator '</' { balanced: '>' } />
+              closeToken: <*Punctuator '>' { balancer: true } />
             </>
           </>
         </>\n`);
@@ -178,29 +169,26 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<> </>', () => {
       expect(print(cstml`<> </>`)).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
+        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$>
           .:
           <$Fragment>
             open:
-            <$OpenFragmentTag balanced balancedSpan='FragmentChildren'>
-              openToken: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
+            <$OpenFragmentTag { balanced: true, balancedSpan: 'FragmentChildren' }>
+              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
-              <$Flags>
-                triviaToken: null
+              <$NodeFlags>
                 tokenToken: null
-                escapeToken: null
-                expressionToken: null
                 hasGapToken: null
               </>
-              closeToken: <*Punctuator '>' balancer />
+              closeToken: <*Punctuator '>' { balancer: true } />
             </>
-            <#*Space:Space ' ' />
+            #: <*Space:Space ' ' />
             children[]$: []
             close:
-            <$CloseFragmentTag balancer>
-              openToken: <*Punctuator '</' balanced='>' />
-              closeToken: <*Punctuator '>' balancer />
+            <$CloseFragmentTag { balancer: true }>
+              openToken: <*Punctuator '</' { balanced: '>' } />
+              closeToken: <*Punctuator '>' { balancer: true } />
             </>
           </>
         </>\n`);
@@ -208,22 +196,19 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<>.:<Node></></>', () => {
       expect(print(cstml`<>.:<Node></></>`)).toEqual(dedent`\
-      <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
+      <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
       <$>
         .:
         <$Fragment>
           open:
-          <$OpenFragmentTag balanced balancedSpan='FragmentChildren'>
-            openToken: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
+          <$OpenFragmentTag { balanced: true, balancedSpan: 'FragmentChildren' }>
+            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
             flags:
-            <$Flags>
-              triviaToken: null
+            <$NodeFlags>
               tokenToken: null
-              escapeToken: null
-              expressionToken: null
               hasGapToken: null
             </>
-            closeToken: <*Punctuator '>' balancer />
+            closeToken: <*Punctuator '>' { balancer: true } />
           </>
           children[]$: []
           children[]$:
@@ -231,67 +216,64 @@ describe('@bablr/language-en-cstml', () => {
             reference$:
             <$ReferenceTag>
               name$: <*Punctuator '.' />
-              arrayOperatorToken: null
-              hasGapToken: null
+              openIndexToken: null
+              closeIndexToken: null
+              flags:
+              <$ReferenceFlags>
+                expressionToken: null
+                hasGapToken: null
+              </>
               sigilToken: <*Punctuator ':' />
             </>
-            node$:
+            value$:
             <$Node>
               open:
-              <$OpenNodeTag balanced balancedSpan='NodeChildren'>
-                openToken: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
+              <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+                openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
                 flags:
-                <$Flags>
-                  triviaToken: null
+                <$NodeFlags>
                   tokenToken: null
-                  escapeToken: null
-                  expressionToken: null
                   hasGapToken: null
                 </>
                 language$: null
                 type$: <*Identifier 'Node' />
                 intrinsicValue$: null
-                attributes[]$: []
+                attributes$: null
                 selfClosingTagToken: null
-                closeToken: <*Punctuator '>' balancer />
+                closeToken: <*Punctuator '>' { balancer: true } />
               </>
               children[]$: []
               close:
-              <$CloseNodeTag balancer>
-                openToken: <*Punctuator '</' balanced='>' />
-                language$: null
-                type$: null
-                closeToken: <*Punctuator '>' balancer />
+              <$CloseNodeTag { balancer: true }>
+                openToken: <*Punctuator '</' { balanced: '>' } />
+                closeToken: <*Punctuator '>' { balancer: true } />
               </>
             </>
           </>
           close:
-          <$CloseFragmentTag balancer>
-            openToken: <*Punctuator '</' balanced='>' />
-            closeToken: <*Punctuator '>' balancer />
+          <$CloseFragmentTag { balancer: true }>
+            openToken: <*Punctuator '</' { balanced: '>' } />
+            closeToken: <*Punctuator '>' { balancer: true } />
           </>
         </>
       </>\n`);
     });
 
-    it('<>.:<Node></><#Trivia></></>', () => {
-      expect(print(cstml`<>.:<Node></><#Trivia></></>`)).toEqual(dedent`\
-      <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
+    it('<>.:<Node></>#:<Trivia></></>', () => {
+      expect(print(cstml`<>.:<Node></>#:<Trivia></></>`)).toEqual(dedent`\
+      <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
       <$>
         .:
         <$Fragment>
           open:
-          <$OpenFragmentTag balanced balancedSpan='FragmentChildren'>
-            openToken: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
+          <$OpenFragmentTag { balanced: true, balancedSpan: 'FragmentChildren' }>
+            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
             flags:
-            <$Flags>
-              triviaToken: null
+            <$NodeFlags>
               tokenToken: null
-              escapeToken: null
-              expressionToken: null
               hasGapToken: null
             </>
-            closeToken: <*Punctuator '>' balancer />
+            closeToken: <*Punctuator '>' { balancer: true } />
           </>
           children[]$: []
           children[]$:
@@ -299,73 +281,83 @@ describe('@bablr/language-en-cstml', () => {
             reference$:
             <$ReferenceTag>
               name$: <*Punctuator '.' />
-              arrayOperatorToken: null
-              hasGapToken: null
+              openIndexToken: null
+              closeIndexToken: null
+              flags:
+              <$ReferenceFlags>
+                expressionToken: null
+                hasGapToken: null
+              </>
               sigilToken: <*Punctuator ':' />
             </>
-            node$:
+            value$:
             <$Node>
               open:
-              <$OpenNodeTag balanced balancedSpan='NodeChildren'>
-                openToken: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
+              <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+                openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
                 flags:
-                <$Flags>
-                  triviaToken: null
+                <$NodeFlags>
                   tokenToken: null
-                  escapeToken: null
-                  expressionToken: null
                   hasGapToken: null
                 </>
                 language$: null
                 type$: <*Identifier 'Node' />
                 intrinsicValue$: null
-                attributes[]$: []
+                attributes$: null
                 selfClosingTagToken: null
-                closeToken: <*Punctuator '>' balancer />
+                closeToken: <*Punctuator '>' { balancer: true } />
               </>
               children[]$: []
               close:
-              <$CloseNodeTag balancer>
-                openToken: <*Punctuator '</' balanced='>' />
-                language$: null
-                type$: null
-                closeToken: <*Punctuator '>' balancer />
+              <$CloseNodeTag { balancer: true }>
+                openToken: <*Punctuator '</' { balanced: '>' } />
+                closeToken: <*Punctuator '>' { balancer: true } />
               </>
             </>
           </>
           children[]$:
-          <$Node>
-            open:
-            <$OpenNodeTag balanced balancedSpan='NodeChildren'>
-              openToken: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
+          <$Property>
+            reference$:
+            <$ReferenceTag>
+              name$: <*Punctuator '#' />
+              openIndexToken: null
+              closeIndexToken: null
               flags:
-              <$Flags>
-                triviaToken: <*Punctuator '#' />
-                tokenToken: null
-                escapeToken: null
+              <$ReferenceFlags>
                 expressionToken: null
                 hasGapToken: null
               </>
-              language$: null
-              type$: <*Identifier 'Trivia' />
-              intrinsicValue$: null
-              attributes[]$: []
-              selfClosingTagToken: null
-              closeToken: <*Punctuator '>' balancer />
+              sigilToken: <*Punctuator ':' />
             </>
-            children[]$: []
-            close:
-            <$CloseNodeTag balancer>
-              openToken: <*Punctuator '</' balanced='>' />
-              language$: null
-              type$: null
-              closeToken: <*Punctuator '>' balancer />
+            value$:
+            <$Node>
+              open:
+              <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+                openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+                flags:
+                <$NodeFlags>
+                  tokenToken: null
+                  hasGapToken: null
+                </>
+                language$: null
+                type$: <*Identifier 'Trivia' />
+                intrinsicValue$: null
+                attributes$: null
+                selfClosingTagToken: null
+                closeToken: <*Punctuator '>' { balancer: true } />
+              </>
+              children[]$: []
+              close:
+              <$CloseNodeTag { balancer: true }>
+                openToken: <*Punctuator '</' { balanced: '>' } />
+                closeToken: <*Punctuator '>' { balancer: true } />
+              </>
             </>
           </>
           close:
-          <$CloseFragmentTag balancer>
-            openToken: <*Punctuator '</' balanced='>' />
-            closeToken: <*Punctuator '>' balancer />
+          <$CloseFragmentTag { balancer: true }>
+            openToken: <*Punctuator '</' { balanced: '>' } />
+            closeToken: <*Punctuator '>' { balancer: true } />
           </>
         </>
       </>\n`);
@@ -377,27 +369,24 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node>reference: null</>`', () => {
       expect(print(cstml`<Node>reference: null</>`)).toEqual(dedent`\
-      <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
+      <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
       <$>
         .:
         <$Node>
           open:
-          <$OpenNodeTag balanced balancedSpan='NodeChildren'>
-            openToken: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
+          <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
             flags:
-            <$Flags>
-              triviaToken: null
+            <$NodeFlags>
               tokenToken: null
-              escapeToken: null
-              expressionToken: null
               hasGapToken: null
             </>
             language$: null
             type$: <*Identifier 'Node' />
             intrinsicValue$: null
-            attributes[]$: []
+            attributes$: null
             selfClosingTagToken: null
-            closeToken: <*Punctuator '>' balancer />
+            closeToken: <*Punctuator '>' { balancer: true } />
           </>
           children[]$: []
           children[]$:
@@ -405,22 +394,25 @@ describe('@bablr/language-en-cstml', () => {
             reference$:
             <$ReferenceTag>
               name$: <*Identifier 'reference' />
-              arrayOperatorToken: null
-              hasGapToken: null
+              openIndexToken: null
+              closeIndexToken: null
+              flags:
+              <$ReferenceFlags>
+                expressionToken: null
+                hasGapToken: null
+              </>
               sigilToken: <*Punctuator ':' />
             </>
-            <#*Space:Space ' ' />
-            node$:
+            #: <*Space:Space ' ' />
+            value$:
             <$NullTag>
               sigilToken: <*Keyword 'null' />
             </>
           </>
           close:
-          <$CloseNodeTag balancer>
-            openToken: <*Punctuator '</' balanced='>' />
-            language$: null
-            type$: null
-            closeToken: <*Punctuator '>' balancer />
+          <$CloseNodeTag { balancer: true }>
+            openToken: <*Punctuator '</' { balanced: '>' } />
+            closeToken: <*Punctuator '>' { balancer: true } />
           </>
         </>
       </>\n`);
@@ -428,27 +420,24 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node>reference: <//></>`', () => {
       expect(print(cstml`<Node>reference: <//></>`)).toEqual(dedent`\
-      <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
+      <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
       <$>
         .:
         <$Node>
           open:
-          <$OpenNodeTag balanced balancedSpan='NodeChildren'>
-            openToken: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
+          <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
             flags:
-            <$Flags>
-              triviaToken: null
+            <$NodeFlags>
               tokenToken: null
-              escapeToken: null
-              expressionToken: null
               hasGapToken: null
             </>
             language$: null
             type$: <*Identifier 'Node' />
             intrinsicValue$: null
-            attributes[]$: []
+            attributes$: null
             selfClosingTagToken: null
-            closeToken: <*Punctuator '>' balancer />
+            closeToken: <*Punctuator '>' { balancer: true } />
           </>
           children[]$: []
           children[]$:
@@ -456,22 +445,25 @@ describe('@bablr/language-en-cstml', () => {
             reference$:
             <$ReferenceTag>
               name$: <*Identifier 'reference' />
-              arrayOperatorToken: null
-              hasGapToken: null
+              openIndexToken: null
+              closeIndexToken: null
+              flags:
+              <$ReferenceFlags>
+                expressionToken: null
+                hasGapToken: null
+              </>
               sigilToken: <*Punctuator ':' />
             </>
-            <#*Space:Space ' ' />
-            node$:
+            #: <*Space:Space ' ' />
+            value$:
             <$GapTag>
               sigilToken: <*Punctuator '<//>' />
             </>
           </>
           close:
-          <$CloseNodeTag balancer>
-            openToken: <*Punctuator '</' balanced='>' />
-            language$: null
-            type$: null
-            closeToken: <*Punctuator '>' balancer />
+          <$CloseNodeTag { balancer: true }>
+            openToken: <*Punctuator '</' { balanced: '>' } />
+            closeToken: <*Punctuator '>' { balancer: true } />
           </>
         </>
       </>\n`);
@@ -479,27 +471,24 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node>reference: <Node></></>`', () => {
       expect(print(cstml`<Node>reference: <Node></></>`)).toEqual(dedent`\
-      <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
+      <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
       <$>
         .:
         <$Node>
           open:
-          <$OpenNodeTag balanced balancedSpan='NodeChildren'>
-            openToken: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
+          <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
             flags:
-            <$Flags>
-              triviaToken: null
+            <$NodeFlags>
               tokenToken: null
-              escapeToken: null
-              expressionToken: null
               hasGapToken: null
             </>
             language$: null
             type$: <*Identifier 'Node' />
             intrinsicValue$: null
-            attributes[]$: []
+            attributes$: null
             selfClosingTagToken: null
-            closeToken: <*Punctuator '>' balancer />
+            closeToken: <*Punctuator '>' { balancer: true } />
           </>
           children[]$: []
           children[]$:
@@ -507,124 +496,136 @@ describe('@bablr/language-en-cstml', () => {
             reference$:
             <$ReferenceTag>
               name$: <*Identifier 'reference' />
-              arrayOperatorToken: null
-              hasGapToken: null
+              openIndexToken: null
+              closeIndexToken: null
+              flags:
+              <$ReferenceFlags>
+                expressionToken: null
+                hasGapToken: null
+              </>
               sigilToken: <*Punctuator ':' />
             </>
-            <#*Space:Space ' ' />
-            node$:
+            #: <*Space:Space ' ' />
+            value$:
             <$Node>
               open:
-              <$OpenNodeTag balanced balancedSpan='NodeChildren'>
-                openToken: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
+              <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+                openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
                 flags:
-                <$Flags>
-                  triviaToken: null
+                <$NodeFlags>
                   tokenToken: null
-                  escapeToken: null
-                  expressionToken: null
                   hasGapToken: null
                 </>
                 language$: null
                 type$: <*Identifier 'Node' />
                 intrinsicValue$: null
-                attributes[]$: []
+                attributes$: null
                 selfClosingTagToken: null
-                closeToken: <*Punctuator '>' balancer />
+                closeToken: <*Punctuator '>' { balancer: true } />
               </>
               children[]$: []
               close:
-              <$CloseNodeTag balancer>
-                openToken: <*Punctuator '</' balanced='>' />
-                language$: null
-                type$: null
-                closeToken: <*Punctuator '>' balancer />
+              <$CloseNodeTag { balancer: true }>
+                openToken: <*Punctuator '</' { balanced: '>' } />
+                closeToken: <*Punctuator '>' { balancer: true } />
               </>
             </>
           </>
           close:
-          <$CloseNodeTag balancer>
-            openToken: <*Punctuator '</' balanced='>' />
-            language$: null
-            type$: null
-            closeToken: <*Punctuator '>' balancer />
+          <$CloseNodeTag { balancer: true }>
+            openToken: <*Punctuator '</' { balanced: '>' } />
+            closeToken: <*Punctuator '>' { balancer: true } />
           </>
         </>
       </>\n`);
     });
 
-    it('`<*Tag><@Escape cooked="e"></></>`', () => {
-      expect(print(cstml`<*Tag><@Escape cooked="e"></></>`)).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
+    it('`<*Tag>@:<Escape { cooked: "e" }></></>`', () => {
+      expect(print(cstml`<*Tag>@:<Escape { cooked: "e" }></></>`)).toEqual(dedent`\
+        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$>
           .:
           <$Node>
             open:
-            <$OpenNodeTag balanced balancedSpan='NodeChildren'>
-              openToken: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
+            <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
-              <$Flags>
-                triviaToken: null
+              <$NodeFlags>
                 tokenToken: <*Punctuator '*' />
-                escapeToken: null
-                expressionToken: null
                 hasGapToken: null
               </>
               language$: null
               type$: <*Identifier 'Tag' />
               intrinsicValue$: null
-              attributes[]$: []
+              attributes$: null
               selfClosingTagToken: null
-              closeToken: <*Punctuator '>' balancer />
+              closeToken: <*Punctuator '>' { balancer: true } />
             </>
             children[]$: []
             children[]$:
-            <$Node>
-              open:
-              <$OpenNodeTag balanced balancedSpan='NodeChildren'>
-                openToken: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
+            <$Property>
+              reference$:
+              <$ReferenceTag>
+                name$: <*Punctuator '@' />
+                openIndexToken: null
+                closeIndexToken: null
                 flags:
-                <$Flags>
-                  triviaToken: null
-                  tokenToken: null
-                  escapeToken: <*Punctuator '@' />
+                <$ReferenceFlags>
                   expressionToken: null
                   hasGapToken: null
                 </>
-                language$: null
-                type$: <*Identifier 'Escape' />
-                <#*Space:Space ' ' />
-                intrinsicValue$: null
-                attributes[]$: []
-                attributes[]$:
-                <$MappingAttribute>
-                  key$: <*Identifier 'cooked' />
-                  sigilToken: <*Punctuator '=' />
-                  value$:
-                  <$String>
-                    openToken: <*Punctuator '"' balanced='"' balancedSpan='String:Double' />
-                    content: <*StringContent 'e' />
-                    closeToken: <*Punctuator '"' balancer />
-                  </>
-                </>
-                selfClosingTagToken: null
-                closeToken: <*Punctuator '>' balancer />
+                sigilToken: <*Punctuator ':' />
               </>
-              children[]$: []
-              close:
-              <$CloseNodeTag balancer>
-                openToken: <*Punctuator '</' balanced='>' />
-                language$: null
-                type$: null
-                closeToken: <*Punctuator '>' balancer />
+              value$:
+              <$Node>
+                open:
+                <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+                  openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+                  flags:
+                  <$NodeFlags>
+                    tokenToken: null
+                    hasGapToken: null
+                  </>
+                  language$: null
+                  type$: <*Identifier 'Escape' />
+                  #: <*Space:Space ' ' />
+                  intrinsicValue$: null
+                  attributes$:
+                  <$JSON:Object>
+                    openToken: <*Punctuator '{' { balanced: '}' } />
+                    #: <*Space:Space ' ' />
+                    separatorTokens[]: []
+                    properties[]$: []
+                    properties[]$:
+                    <$Property>
+                      key$: <*Identifier 'cooked' />
+                      sigilToken: <*Punctuator ':' />
+                      #: <*Space:Space ' ' />
+                      value$:
+                      <$String>
+                        openToken: <*Punctuator '"' { balanced: '"', balancedSpan: 'String:Double' } />
+                        content: <*StringContent 'e' />
+                        closeToken: <*Punctuator '"' { balancer: true } />
+                        #: <*Space:Space ' ' />
+                      </>
+                    </>
+                    closeToken: <*Punctuator '}' { balancer: true } />
+                  </>
+                  selfClosingTagToken: null
+                  closeToken: <*Punctuator '>' { balancer: true } />
+                </>
+                children[]$: []
+                close:
+                <$CloseNodeTag { balancer: true }>
+                  openToken: <*Punctuator '</' { balanced: '>' } />
+                  closeToken: <*Punctuator '>' { balancer: true } />
+                </>
               </>
             </>
             close:
-            <$CloseNodeTag balancer>
-              openToken: <*Punctuator '</' balanced='>' />
-              language$: null
-              type$: null
-              closeToken: <*Punctuator '>' balancer />
+            <$CloseNodeTag { balancer: true }>
+              openToken: <*Punctuator '</' { balanced: '>' } />
+              closeToken: <*Punctuator '>' { balancer: true } />
             </>
           </>
         </>\n`);
@@ -636,619 +637,92 @@ describe('@bablr/language-en-cstml', () => {
 
     it("`<*Type 'intrinsicValue' />`", () => {
       expect(print(tag`<*Type 'intrinsicValue' />`)).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
+        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$>
           .:
-          <$OpenNodeTag !balanced>
-            openToken: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
+          <$OpenNodeTag { balanced: false }>
+            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
             flags:
-            <$Flags>
-              triviaToken: null
+            <$NodeFlags>
               tokenToken: <*Punctuator '*' />
-              escapeToken: null
-              expressionToken: null
               hasGapToken: null
             </>
             language$: null
             type$: <*Identifier 'Type' />
-            <#*Space:Space ' ' />
+            #: <*Space:Space ' ' />
             intrinsicValue$:
-            <$String>
-              openToken: <*Punctuator "'" balanced="'" balancedSpan='String:Single' />
+            <$JSON:String>
+              openToken: <*Punctuator "'" { balanced: "'", balancedSpan: 'String:Single' } />
               content: <*StringContent 'intrinsicValue' />
-              closeToken: <*Punctuator "'" balancer />
+              closeToken: <*Punctuator "'" { balancer: true } />
+              #: <*Space:Space ' ' />
             </>
-            <#*Space:Space ' ' />
-            attributes[]$: []
+            attributes$: null
             selfClosingTagToken: <*Punctuator '/' />
-            closeToken: <*Punctuator '>' balancer />
+            closeToken: <*Punctuator '>' { balancer: true } />
           </>
         </>\n`);
     });
 
-    it('`<Type attr>`', () => {
-      expect(print(tag`<Type attr>`)).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
+    it('`<Quantifier { min: 1, max: Infinity } />`', () => {
+      expect(print(tag`<Quantifier { min: 1, max: Infinity } />`)).toEqual(dedent`\
+        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$>
           .:
-          <$OpenNodeTag !balanced>
-            openToken: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
+          <$OpenNodeTag { balanced: false }>
+            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
             flags:
-            <$Flags>
-              triviaToken: null
+            <$NodeFlags>
               tokenToken: null
-              escapeToken: null
-              expressionToken: null
-              hasGapToken: null
-            </>
-            language$: null
-            type$: <*Identifier 'Type' />
-            <#*Space:Space ' ' />
-            intrinsicValue$: null
-            attributes[]$: []
-            attributes[]$:
-            <$BooleanAttribute true>
-              negateToken: null
-              key$: <*Identifier 'attr' />
-            </>
-            selfClosingTagToken: null
-            closeToken: <*Punctuator '>' balancer />
-          </>
-        </>\n`);
-    });
-
-    it('`<Quantifier min=1 max=+Infinity>`', () => {
-      expect(print(tag`<Quantifier min=1 max=+Infinity>`)).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
-        <$>
-          .:
-          <$OpenNodeTag !balanced>
-            openToken: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
-            flags:
-            <$Flags>
-              triviaToken: null
-              tokenToken: null
-              escapeToken: null
-              expressionToken: null
               hasGapToken: null
             </>
             language$: null
             type$: <*Identifier 'Quantifier' />
-            <#*Space:Space ' ' />
+            #: <*Space:Space ' ' />
             intrinsicValue$: null
-            attributes[]$: []
-            attributes[]$:
-            <$MappingAttribute>
-              key$: <*Identifier 'min' />
-              sigilToken: <*Punctuator '=' />
-              value$:
-              <$Integer>
-                signToken: null
-                value: <*UnsignedInteger '1' />
-              </>
-            </>
-            <#*Space:Space ' ' />
-            attributes[]$:
-            <$MappingAttribute>
-              key$: <*Identifier 'max' />
-              sigilToken: <*Punctuator '=' />
-              value$:
-              <$Infinity>
-                signToken: <*Punctuator '+' />
-                sigilToken: <*Keyword 'Infinity' />
-              </>
-            </>
-            selfClosingTagToken: null
-            closeToken: <*Punctuator '>' balancer />
-          </>
-        </>\n`);
-    });
-
-    it('`<Type !attr>`', () => {
-      expect(print(tag`<Type !attr>`)).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
-        <$>
-          .:
-          <$OpenNodeTag !balanced>
-            openToken: <*Punctuator '<' balancedSpan='Tag' balanced='>' />
-            flags:
-            <$Flags>
-              triviaToken: null
-              tokenToken: null
-              escapeToken: null
-              expressionToken: null
-              hasGapToken: null
-            </>
-            language$: null
-            type$: <*Identifier 'Type' />
-            <#*Space:Space ' ' />
-            intrinsicValue$: null
-            attributes[]$: []
-            attributes[]$:
-            <$BooleanAttribute !true>
-              negateToken: <*Punctuator '!' />
-              key$: <*Identifier 'attr' />
-            </>
-            selfClosingTagToken: null
-            closeToken: <*Punctuator '>' balancer />
-          </>
-        </>\n`);
-    });
-  });
-
-  describe('Attributes', () => {
-    const attrs = buildCSTMLTag('Attributes');
-
-    it('`foo`', () => {
-      expect(print(attrs`foo`)).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
-        <$>
-          .[]$: []
-          .[]$:
-          <$BooleanAttribute true>
-            negateToken: null
-            key$: <*Identifier 'foo' />
-          </>
-        </>\n`);
-    });
-
-    it('`b={ balancedSpan: "Tag" }`', () => {
-      expect(print(attrs`b={ balancedSpan: "Tag" }`)).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
-        <$>
-          .[]$: []
-          .[]$:
-          <$MappingAttribute>
-            key$: <*Identifier 'b' />
-            sigilToken: <*Punctuator '=' />
-            value$:
-            <$Object>
-              openToken: <*Punctuator '{' balanced='}' />
-              <#*Space:Space ' ' />
+            attributes$:
+            <$JSON:Object>
+              openToken: <*Punctuator '{' { balanced: '}' } />
+              #: <*Space:Space ' ' />
+              separatorTokens[]: []
               properties[]$: []
               properties[]$:
-              <$ObjectProperty>
-                key$: <*Identifier 'balancedSpan' />
-                mapToken: <*Punctuator ':' />
-                <#*Space:Space ' ' />
+              <$Property>
+                key$: <*Identifier 'min' />
+                sigilToken: <*Punctuator ':' />
+                #: <*Space:Space ' ' />
                 value$:
-                <$String>
-                  openToken: <*Punctuator '"' balanced='"' balancedSpan='String:Double' />
-                  content: <*StringContent 'Tag' />
-                  closeToken: <*Punctuator '"' balancer />
-                </>
-              </>
-              separators[]: []
-              separators[]: <#*Space:Space ' ' />
-              <$Separator>
-                sigilToken: null
-              </>
-              closeToken: <*Punctuator '}' balancer />
-            </>
-          </>
-        </>\n`);
-    });
-
-    it('`b={ balancedSpan: "Tag", Balancer: "]" }`', () => {
-      expect(print(attrs`b={ balancedSpan: "Tag", Balancer: "]" }`)).toEqual(dedent`\
-       <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
-       <$>
-         .[]$: []
-         .[]$:
-         <$MappingAttribute>
-           key$: <*Identifier 'b' />
-           sigilToken: <*Punctuator '=' />
-           value$:
-           <$Object>
-             openToken: <*Punctuator '{' balanced='}' />
-             <#*Space:Space ' ' />
-             properties[]$: []
-             properties[]$:
-             <$ObjectProperty>
-               key$: <*Identifier 'balancedSpan' />
-               mapToken: <*Punctuator ':' />
-               <#*Space:Space ' ' />
-               value$:
-               <$String>
-                 openToken: <*Punctuator '"' balanced='"' balancedSpan='String:Double' />
-                 content: <*StringContent 'Tag' />
-                 closeToken: <*Punctuator '"' balancer />
-               </>
-             </>
-             separators[]: []
-             separators[]:
-             <$Separator>
-               sigilToken: <*Punctuator ',' />
-               <#*Space:Space ' ' />
-             </>
-             properties[]$:
-             <$ObjectProperty>
-               key$: <*Identifier 'Balancer' />
-               mapToken: <*Punctuator ':' />
-               <#*Space:Space ' ' />
-               value$:
-               <$String>
-                 openToken: <*Punctuator '"' balanced='"' balancedSpan='String:Double' />
-                 content: <*StringContent ']' />
-                 closeToken: <*Punctuator '"' balancer />
-               </>
-             </>
-             separators[]: <#*Space:Space ' ' />
-             <$Separator>
-               sigilToken: null
-             </>
-             closeToken: <*Punctuator '}' balancer />
-           </>
-         </>
-       </>\n`);
-    });
-
-    it('`b={ balancedSpan: "Tag", Balancer: { symbol: "]", balanced: true} }`', () => {
-      expect(print(attrs`b={ balancedSpan: "Tag", Balancer: { symbol: "]", balanced: true} }`))
-        .toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
-        <$>
-          .[]$: []
-          .[]$:
-          <$MappingAttribute>
-            key$: <*Identifier 'b' />
-            sigilToken: <*Punctuator '=' />
-            value$:
-            <$Object>
-              openToken: <*Punctuator '{' balanced='}' />
-              <#*Space:Space ' ' />
-              properties[]$: []
-              properties[]$:
-              <$ObjectProperty>
-                key$: <*Identifier 'balancedSpan' />
-                mapToken: <*Punctuator ':' />
-                <#*Space:Space ' ' />
-                value$:
-                <$String>
-                  openToken: <*Punctuator '"' balanced='"' balancedSpan='String:Double' />
-                  content: <*StringContent 'Tag' />
-                  closeToken: <*Punctuator '"' balancer />
-                </>
-              </>
-              separators[]: []
-              separators[]:
-              <$Separator>
-                sigilToken: <*Punctuator ',' />
-                <#*Space:Space ' ' />
-              </>
-              properties[]$:
-              <$ObjectProperty>
-                key$: <*Identifier 'Balancer' />
-                mapToken: <*Punctuator ':' />
-                <#*Space:Space ' ' />
-                value$:
-                <$Object>
-                  openToken: <*Punctuator '{' balanced='}' />
-                  <#*Space:Space ' ' />
-                  properties[]$: []
-                  properties[]$:
-                  <$ObjectProperty>
-                    key$: <*Identifier 'symbol' />
-                    mapToken: <*Punctuator ':' />
-                    <#*Space:Space ' ' />
-                    value$:
-                    <$String>
-                      openToken: <*Punctuator '"' balanced='"' balancedSpan='String:Double' />
-                      content: <*StringContent ']' />
-                      closeToken: <*Punctuator '"' balancer />
-                    </>
-                  </>
-                  separators[]: []
-                  separators[]:
-                  <$Separator>
-                    sigilToken: <*Punctuator ',' />
-                    <#*Space:Space ' ' />
-                  </>
-                  properties[]$:
-                  <$ObjectProperty>
-                    key$: <*Identifier 'balanced' />
-                    mapToken: <*Punctuator ':' />
-                    <#*Space:Space ' ' />
-                    value$: <*Boolean 'true' />
-                  </>
-                  separators[]:
-                  <$Separator>
-                    sigilToken: null
-                  </>
-                  closeToken: <*Punctuator '}' balancer />
-                </>
-              </>
-              separators[]: <#*Space:Space ' ' />
-              <$Separator>
-                sigilToken: null
-              </>
-              closeToken: <*Punctuator '}' balancer />
-            </>
-          </>
-        </>\n`);
-    });
-
-    it('`b={ number: NaN }`', () => {
-      expect(print(attrs`b={ number: NaN}`)).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
-        <$>
-          .[]$: []
-          .[]$:
-          <$MappingAttribute>
-            key$: <*Identifier 'b' />
-            sigilToken: <*Punctuator '=' />
-            value$:
-            <$Object>
-              openToken: <*Punctuator '{' balanced='}' />
-              <#*Space:Space ' ' />
-              properties[]$: []
-              properties[]$:
-              <$ObjectProperty>
-                key$: <*Identifier 'number' />
-                mapToken: <*Punctuator ':' />
-                <#*Space:Space ' ' />
-                value$: <*Identifier 'NaN' />
-              </>
-              separators[]: []
-              separators[]:
-              <$Separator>
-                sigilToken: null
-              </>
-              closeToken: <*Punctuator '}' balancer />
-            </>
-          </>
-        </>\n`);
-    });
-
-    it('`b={ balancedSpan: "Tag", values: [4, 2] }`', () => {
-      expect(print(attrs`b={ balancedSpan: "Tag", values: [4, 2] }`)).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
-        <$>
-          .[]$: []
-          .[]$:
-          <$MappingAttribute>
-            key$: <*Identifier 'b' />
-            sigilToken: <*Punctuator '=' />
-            value$:
-            <$Object>
-              openToken: <*Punctuator '{' balanced='}' />
-              <#*Space:Space ' ' />
-              properties[]$: []
-              properties[]$:
-              <$ObjectProperty>
-                key$: <*Identifier 'balancedSpan' />
-                mapToken: <*Punctuator ':' />
-                <#*Space:Space ' ' />
-                value$:
-                <$String>
-                  openToken: <*Punctuator '"' balanced='"' balancedSpan='String:Double' />
-                  content: <*StringContent 'Tag' />
-                  closeToken: <*Punctuator '"' balancer />
-                </>
-              </>
-              separators[]: []
-              separators[]:
-              <$Separator>
-                sigilToken: <*Punctuator ',' />
-                <#*Space:Space ' ' />
-              </>
-              properties[]$:
-              <$ObjectProperty>
-                key$: <*Identifier 'values' />
-                mapToken: <*Punctuator ':' />
-                <#*Space:Space ' ' />
-                value$:
-                <$Array>
-                  openToken: <*Punctuator '[' balanced=']' />
-                  elements[]$: []
-                  elements[]$:
+                <$Number { span: 'Number' }>
+                  wholePart:
                   <$Integer>
                     signToken: null
-                    value: <*UnsignedInteger '4' />
+                    value: <*UnsignedInteger '1' />
                   </>
-                  separators[]: []
-                  separators[]:
-                  <$Separator>
-                    sigilToken: <*Punctuator ',' />
-                    <#*Space:Space ' ' />
-                  </>
-                  elements[]$:
-                  <$Integer>
-                    signToken: null
-                    value: <*UnsignedInteger '2' />
-                  </>
-                  separators[]:
-                  <$Separator>
-                    sigilToken: null
-                  </>
-                  closeToken: <*Punctuator ']' balancer />
+                  fractionalSeparatorToken: null
+                  fractionalPart: null
+                  exponentSeparatorToken: null
+                  exponentPart: null
                 </>
               </>
-              separators[]: <#*Space:Space ' ' />
-              <$Separator>
-                sigilToken: null
-              </>
-              closeToken: <*Punctuator '}' balancer />
-            </>
-          </>
-        </>\n`);
-    });
-
-    it('`b=[3, 4]`', () => {
-      expect(print(attrs`b=[3, 4]`)).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
-        <$>
-          .[]$: []
-          .[]$:
-          <$MappingAttribute>
-            key$: <*Identifier 'b' />
-            sigilToken: <*Punctuator '=' />
-            value$:
-            <$Array>
-              openToken: <*Punctuator '[' balanced=']' />
-              elements[]$: []
-              elements[]$:
-              <$Integer>
-                signToken: null
-                value: <*UnsignedInteger '3' />
-              </>
-              separators[]: []
-              separators[]:
-              <$Separator>
-                sigilToken: <*Punctuator ',' />
-                <#*Space:Space ' ' />
-              </>
-              elements[]$:
-              <$Integer>
-                signToken: null
-                value: <*UnsignedInteger '4' />
-              </>
-              separators[]:
-              <$Separator>
-                sigilToken: null
-              </>
-              closeToken: <*Punctuator ']' balancer />
-            </>
-          </>
-        </>\n`);
-    });
-
-    it('`b=[3 4]`', () => {
-      expect(print(attrs`b=[3 4]`)).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
-        <$>
-          .[]$: []
-          .[]$:
-          <$MappingAttribute>
-            key$: <*Identifier 'b' />
-            sigilToken: <*Punctuator '=' />
-            value$:
-            <$Array>
-              openToken: <*Punctuator '[' balanced=']' />
-              elements[]$: []
-              elements[]$:
-              <$Integer>
-                signToken: null
-                value: <*UnsignedInteger '3' />
-              </>
-              separators[]: []
-              separators[]: <#*Space:Space ' ' />
-              <$Separator>
-                sigilToken: null
-              </>
-              elements[]$:
-              <$Integer>
-                signToken: null
-                value: <*UnsignedInteger '4' />
-              </>
-              separators[]:
-              <$Separator>
-                sigilToken: null
-              </>
-              closeToken: <*Punctuator ']' balancer />
-            </>
-          </>
-        </>\n`);
-    });
-  });
-
-  describe('String', () => {
-    const str = buildCSTMLTag('String');
-
-    it(`\`"'"\``, () => {
-      expect(print(str`"'"`)).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
-        <$>
-          .:
-          <$String>
-            openToken: <*Punctuator '"' balanced='"' balancedSpan='String:Double' />
-            content: <*StringContent "'" />
-            closeToken: <*Punctuator '"' balancer />
-          </>
-        </>\n`);
-    });
-
-    it(`\`${raw`"\""`}\``, () => {
-      expect(print(str`"\""`)).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
-        <$>
-          .:
-          <$String>
-            openToken: <*Punctuator '"' balanced='"' balancedSpan='String:Double' />
-            content:
-            <*StringContent>
-              <@EscapeSequence cooked='"'>
-                escapeToken: <*Punctuator '${'\\\\'}' openSpan='Escape' />
-                code: <*Keyword '"' closeSpan='Escape' />
-              </>
-            </>
-            closeToken: <*Punctuator '"' balancer />
-          </>
-        </>\n`);
-    });
-
-    it(`\`${raw`"\u1234"`}\``, () => {
-      expect(print(str`"\u1234"`)).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
-        <$>
-          .:
-          <$String>
-            openToken: <*Punctuator '"' balanced='"' balancedSpan='String:Double' />
-            content:
-            <*StringContent>
-              <@EscapeSequence cooked='4660'>
-                escapeToken: <*Punctuator '${'\\\\'}' openSpan='Escape' />
-                code:
-                <$EscapeCode closeSpan='Escape'>
-                  typeToken: <*Keyword 'u' />
-                  openToken: null
-                  value$: <*UnsignedInteger '1234' />
-                  closeToken: null
+              separatorTokens[]: <*Punctuator ',' />
+              #: <*Space:Space ' ' />
+              properties[]$:
+              <$Property>
+                key$: <*Identifier 'max' />
+                sigilToken: <*Punctuator ':' />
+                #: <*Space:Space ' ' />
+                value$:
+                <$Infinity>
+                  signToken: null
+                  sigilToken: <*Keyword 'Infinity' />
+                  #: <*Space:Space ' ' />
                 </>
               </>
+              closeToken: <*Punctuator '}' { balancer: true } />
+              #: <*Space:Space ' ' />
             </>
-            closeToken: <*Punctuator '"' balancer />
-          </>
-        </>\n`);
-    });
-
-    it(`\`${raw`"\u{1}"`}\``, () => {
-      expect(print(str`"\u{1}"`)).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
-        <$>
-          .:
-          <$String>
-            openToken: <*Punctuator '"' balanced='"' balancedSpan='String:Double' />
-            content:
-            <*StringContent>
-              <@EscapeSequence cooked='1'>
-                escapeToken: <*Punctuator '${'\\\\'}' openSpan='Escape' />
-                code:
-                <$EscapeCode closeSpan='Escape'>
-                  typeToken: <*Keyword 'u' />
-                  openToken: <*Punctuator '{' balanced='}' />
-                  value$: <*UnsignedInteger '1' />
-                  closeToken: <*Punctuator '}' balancer />
-                </>
-              </>
-            </>
-            closeToken: <*Punctuator '"' balancer />
-          </>
-        </>\n`);
-    });
-  });
-
-  describe('Number', () => {
-    const num = buildCSTMLTag('Number');
-
-    it('`5`', () => {
-      expect(print(num`5`)).toEqual(dedent`\
-        <!0:cstml bablr-language='https://bablr.org/languages/core/en/cstml'>
-        <$>
-          .:
-          <$Integer>
-            signToken: null
-            value: <*UnsignedInteger '5' />
+            selfClosingTagToken: <*Punctuator '/' />
+            closeToken: <*Punctuator '>' { balancer: true } />
           </>
         </>\n`);
     });
