@@ -43,20 +43,25 @@ describe('@bablr/language-en-cstml', () => {
               closeToken: <*Punctuator '>' { balancer: true } />
             </>
             tree$:
-            <$Fragment>
+            <$Node>
               open:
-              <$OpenFragmentTag { balanced: true, balancedSpan: 'FragmentChildren' }>
+              <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
                 openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
                 flags:
                 <$NodeFlags>
                   tokenToken: null
                   hasGapToken: null
                 </>
+                language$: null
+                type$: null
+                intrinsicValue$: null
+                attributes$: null
+                selfClosingTagToken: null
                 closeToken: <*Punctuator '>' { balancer: true } />
               </>
               children[]$: []
               close:
-              <$CloseFragmentTag { balancer: true }>
+              <$CloseNodeTag { balancer: true }>
                 openToken: <*Punctuator '</' { balanced: '>' } />
                 closeToken: <*Punctuator '>' { balancer: true } />
               </>
@@ -88,13 +93,18 @@ describe('@bablr/language-en-cstml', () => {
           closeToken: <*Punctuator '>' { balancer: true } />
         </>
         .[]:
-        <$OpenFragmentTag { balanced: true, balancedSpan: 'FragmentChildren' }>
+        <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
           openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
           flags:
           <$NodeFlags>
             tokenToken: null
             hasGapToken: null
           </>
+          language$: null
+          type$: null
+          intrinsicValue$: null
+          attributes$: null
+          selfClosingTagToken: null
           closeToken: <*Punctuator '>' { balancer: true } />
         </>
         .[]:
@@ -130,7 +140,7 @@ describe('@bablr/language-en-cstml', () => {
           closeToken: <*Punctuator '>' { balancer: true } />
         </>
         .[]:
-        <$CloseFragmentTag { balancer: true }>
+        <$CloseNodeTag { balancer: true }>
           openToken: <*Punctuator '</' { balanced: '>' } />
           closeToken: <*Punctuator '>' { balancer: true } />
         </>
@@ -139,27 +149,32 @@ describe('@bablr/language-en-cstml', () => {
   });
 
   describe('Fragment', () => {
-    const cstml = buildCSTMLTag('Fragment');
+    const cstml = buildCSTMLTag('Node');
 
     it('<></>', () => {
       expect(print(cstml`<></>`)).toEqual(dedent`\
         <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$>
           .:
-          <$Fragment>
+          <$Node>
             open:
-            <$OpenFragmentTag { balanced: true, balancedSpan: 'FragmentChildren' }>
+            <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
               openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
               <$NodeFlags>
                 tokenToken: null
                 hasGapToken: null
               </>
+              language$: null
+              type$: null
+              intrinsicValue$: null
+              attributes$: null
+              selfClosingTagToken: null
               closeToken: <*Punctuator '>' { balancer: true } />
             </>
             children[]$: []
             close:
-            <$CloseFragmentTag { balancer: true }>
+            <$CloseNodeTag { balancer: true }>
               openToken: <*Punctuator '</' { balanced: '>' } />
               closeToken: <*Punctuator '>' { balancer: true } />
             </>
@@ -172,21 +187,26 @@ describe('@bablr/language-en-cstml', () => {
         <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$>
           .:
-          <$Fragment>
+          <$Node>
             open:
-            <$OpenFragmentTag { balanced: true, balancedSpan: 'FragmentChildren' }>
+            <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
               openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
               <$NodeFlags>
                 tokenToken: null
                 hasGapToken: null
               </>
+              language$: null
+              type$: null
+              intrinsicValue$: null
+              attributes$: null
+              selfClosingTagToken: null
               closeToken: <*Punctuator '>' { balancer: true } />
             </>
             #: <*Space:Space ' ' />
             children[]$: []
             close:
-            <$CloseFragmentTag { balancer: true }>
+            <$CloseNodeTag { balancer: true }>
               openToken: <*Punctuator '</' { balanced: '>' } />
               closeToken: <*Punctuator '>' { balancer: true } />
             </>
@@ -199,15 +219,20 @@ describe('@bablr/language-en-cstml', () => {
       <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
       <$>
         .:
-        <$Fragment>
+        <$Node>
           open:
-          <$OpenFragmentTag { balanced: true, balancedSpan: 'FragmentChildren' }>
+          <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
             openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
             flags:
             <$NodeFlags>
               tokenToken: null
               hasGapToken: null
             </>
+            language$: null
+            type$: null
+            intrinsicValue$: null
+            attributes$: null
+            selfClosingTagToken: null
             closeToken: <*Punctuator '>' { balancer: true } />
           </>
           children[]$: []
@@ -251,7 +276,7 @@ describe('@bablr/language-en-cstml', () => {
             </>
           </>
           close:
-          <$CloseFragmentTag { balancer: true }>
+          <$CloseNodeTag { balancer: true }>
             openToken: <*Punctuator '</' { balanced: '>' } />
             closeToken: <*Punctuator '>' { balancer: true } />
           </>
@@ -264,15 +289,20 @@ describe('@bablr/language-en-cstml', () => {
       <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
       <$>
         .:
-        <$Fragment>
+        <$Node>
           open:
-          <$OpenFragmentTag { balanced: true, balancedSpan: 'FragmentChildren' }>
+          <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
             openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
             flags:
             <$NodeFlags>
               tokenToken: null
               hasGapToken: null
             </>
+            language$: null
+            type$: null
+            intrinsicValue$: null
+            attributes$: null
+            selfClosingTagToken: null
             closeToken: <*Punctuator '>' { balancer: true } />
           </>
           children[]$: []
@@ -355,7 +385,7 @@ describe('@bablr/language-en-cstml', () => {
             </>
           </>
           close:
-          <$CloseFragmentTag { balancer: true }>
+          <$CloseNodeTag { balancer: true }>
             openToken: <*Punctuator '</' { balanced: '>' } />
             closeToken: <*Punctuator '>' { balancer: true } />
           </>
@@ -606,9 +636,9 @@ describe('@bablr/language-en-cstml', () => {
                         openToken: <*Punctuator '"' { balanced: '"', balancedSpan: 'String:Double' } />
                         content: <*StringContent 'e' />
                         closeToken: <*Punctuator '"' { balancer: true } />
-                        #: <*Space:Space ' ' />
                       </>
                     </>
+                    #: <*Space:Space ' ' />
                     closeToken: <*Punctuator '}' { balancer: true } />
                   </>
                   selfClosingTagToken: null
@@ -655,8 +685,8 @@ describe('@bablr/language-en-cstml', () => {
               openToken: <*Punctuator "'" { balanced: "'", balancedSpan: 'String:Single' } />
               content: <*StringContent 'intrinsicValue' />
               closeToken: <*Punctuator "'" { balancer: true } />
-              #: <*Space:Space ' ' />
             </>
+            #: <*Space:Space ' ' />
             attributes$: null
             selfClosingTagToken: <*Punctuator '/' />
             closeToken: <*Punctuator '>' { balancer: true } />
@@ -715,12 +745,12 @@ describe('@bablr/language-en-cstml', () => {
                 <$Infinity>
                   signToken: null
                   sigilToken: <*Keyword 'Infinity' />
-                  #: <*Space:Space ' ' />
                 </>
               </>
-              closeToken: <*Punctuator '}' { balancer: true } />
               #: <*Space:Space ' ' />
+              closeToken: <*Punctuator '}' { balancer: true } />
             </>
+            #: <*Space:Space ' ' />
             selfClosingTagToken: <*Punctuator '/' />
             closeToken: <*Punctuator '>' { balancer: true } />
           </>
