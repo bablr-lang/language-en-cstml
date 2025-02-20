@@ -634,7 +634,7 @@ describe('@bablr/language-en-cstml', () => {
                       value$:
                       <$String>
                         openToken: <*Punctuator '"' { balanced: '"', balancedSpan: 'String:Double' } />
-                        content: <*StringContent 'e' />
+                        content$: <*StringContent 'e' />
                         closeToken: <*Punctuator '"' { balancer: true } />
                       </>
                     </>
@@ -683,7 +683,7 @@ describe('@bablr/language-en-cstml', () => {
             intrinsicValue$:
             <$JSON:String>
               openToken: <*Punctuator "'" { balanced: "'", balancedSpan: 'String:Single' } />
-              content: <*StringContent 'intrinsicValue' />
+              content$: <*StringContent 'intrinsicValue' />
               closeToken: <*Punctuator "'" { balancer: true } />
             </>
             #: <*Space:Space ' ' />
@@ -723,15 +723,15 @@ describe('@bablr/language-en-cstml', () => {
                 #: <*Space:Space ' ' />
                 value$:
                 <$Number { span: 'Number' }>
-                  wholePart:
+                  wholePart$:
                   <$Integer>
                     signToken: null
-                    value: <*UnsignedInteger '1' />
+                    value$: <*UnsignedInteger '1' />
                   </>
                   fractionalSeparatorToken: null
-                  fractionalPart: null
+                  fractionalPart$: null
                   exponentSeparatorToken: null
-                  exponentPart: null
+                  exponentPart$: null
                 </>
               </>
               separatorTokens[]: <*Punctuator ',' />
