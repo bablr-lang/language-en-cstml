@@ -623,15 +623,15 @@ describe('@bablr/language-en-cstml', () => {
                   attributes$:
                   <$JSON:Object>
                     openToken: <*Punctuator '{' { balanced: '}' } />
-                    #: <*Space:Space ' ' />
                     separatorTokens[]: []
                     properties[]$: []
+                    #: <*Space:Space ' ' />
                     properties[]$:
                     <$Property>
                       key$: <*Identifier 'cooked' />
                       sigilToken: <*Punctuator ':' />
                       #: <*Space:Space ' ' />
-                      value$:
+                      value+$:
                       <$String>
                         openToken: <*Punctuator '"' { balanced: '"', balancedSpan: 'String:Double' } />
                         content$: <*StringContent 'e' />
@@ -713,15 +713,15 @@ describe('@bablr/language-en-cstml', () => {
             attributes$:
             <$JSON:Object>
               openToken: <*Punctuator '{' { balanced: '}' } />
-              #: <*Space:Space ' ' />
               separatorTokens[]: []
               properties[]$: []
+              #: <*Space:Space ' ' />
               properties[]$:
               <$Property>
                 key$: <*Identifier 'min' />
                 sigilToken: <*Punctuator ':' />
                 #: <*Space:Space ' ' />
-                value$:
+                value+$:
                 <$Number { span: 'Number' }>
                   wholePart$:
                   <$Integer>
@@ -741,7 +741,7 @@ describe('@bablr/language-en-cstml', () => {
                 key$: <*Identifier 'max' />
                 sigilToken: <*Punctuator ':' />
                 #: <*Space:Space ' ' />
-                value$:
+                value+$:
                 <$Infinity>
                   signToken: null
                   sigilToken: <*Keyword 'Infinity' />
