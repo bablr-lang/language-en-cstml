@@ -128,7 +128,12 @@ describe('@bablr/language-en-cstml', () => {
             hasGapToken: null
           </>
           language$: null
-          type$: <*Identifier 'Node' />
+          type$:
+          <$Identifier>
+            openToken: null
+            content: <*IdentifierContent 'Node' { span: 'Identifier' } />
+            closeToken: null
+          </>
           intrinsicValue$: null
           attributes$: null
           selfClosingTagToken: null
@@ -261,7 +266,12 @@ describe('@bablr/language-en-cstml', () => {
                   hasGapToken: null
                 </>
                 language$: null
-                type$: <*Identifier 'Node' />
+                type$:
+                <$Identifier>
+                  openToken: null
+                  content: <*IdentifierContent 'Node' { span: 'Identifier' } />
+                  closeToken: null
+                </>
                 intrinsicValue$: null
                 attributes$: null
                 selfClosingTagToken: null
@@ -331,7 +341,12 @@ describe('@bablr/language-en-cstml', () => {
                   hasGapToken: null
                 </>
                 language$: null
-                type$: <*Identifier 'Node' />
+                type$:
+                <$Identifier>
+                  openToken: null
+                  content: <*IdentifierContent 'Node' { span: 'Identifier' } />
+                  closeToken: null
+                </>
                 intrinsicValue$: null
                 attributes$: null
                 selfClosingTagToken: null
@@ -370,7 +385,12 @@ describe('@bablr/language-en-cstml', () => {
                   hasGapToken: null
                 </>
                 language$: null
-                type$: <*Identifier 'Trivia' />
+                type$:
+                <$Identifier>
+                  openToken: null
+                  content: <*IdentifierContent 'Trivia' { span: 'Identifier' } />
+                  closeToken: null
+                </>
                 intrinsicValue$: null
                 attributes$: null
                 selfClosingTagToken: null
@@ -412,7 +432,12 @@ describe('@bablr/language-en-cstml', () => {
               hasGapToken: null
             </>
             language$: null
-            type$: <*Identifier 'Node' />
+            type$:
+            <$Identifier>
+              openToken: null
+              content: <*IdentifierContent 'Node' { span: 'Identifier' } />
+              closeToken: null
+            </>
             intrinsicValue$: null
             attributes$: null
             selfClosingTagToken: null
@@ -423,7 +448,12 @@ describe('@bablr/language-en-cstml', () => {
           <$Property>
             reference$:
             <$ReferenceTag>
-              name$: <*Identifier 'reference' />
+              name$:
+              <$Identifier>
+                openToken: null
+                content: <*IdentifierContent 'reference' { span: 'Identifier' } />
+                closeToken: null
+              </>
               openIndexToken: null
               closeIndexToken: null
               flags:
@@ -463,7 +493,12 @@ describe('@bablr/language-en-cstml', () => {
               hasGapToken: null
             </>
             language$: null
-            type$: <*Identifier 'Node' />
+            type$:
+            <$Identifier>
+              openToken: null
+              content: <*IdentifierContent 'Node' { span: 'Identifier' } />
+              closeToken: null
+            </>
             intrinsicValue$: null
             attributes$: null
             selfClosingTagToken: null
@@ -474,7 +509,12 @@ describe('@bablr/language-en-cstml', () => {
           <$Property>
             reference$:
             <$ReferenceTag>
-              name$: <*Identifier 'reference' />
+              name$:
+              <$Identifier>
+                openToken: null
+                content: <*IdentifierContent 'reference' { span: 'Identifier' } />
+                closeToken: null
+              </>
               openIndexToken: null
               closeIndexToken: null
               flags:
@@ -514,7 +554,12 @@ describe('@bablr/language-en-cstml', () => {
               hasGapToken: null
             </>
             language$: null
-            type$: <*Identifier 'Node' />
+            type$:
+            <$Identifier>
+              openToken: null
+              content: <*IdentifierContent 'Node' { span: 'Identifier' } />
+              closeToken: null
+            </>
             intrinsicValue$: null
             attributes$: null
             selfClosingTagToken: null
@@ -525,7 +570,12 @@ describe('@bablr/language-en-cstml', () => {
           <$Property>
             reference$:
             <$ReferenceTag>
-              name$: <*Identifier 'reference' />
+              name$:
+              <$Identifier>
+                openToken: null
+                content: <*IdentifierContent 'reference' { span: 'Identifier' } />
+                closeToken: null
+              </>
               openIndexToken: null
               closeIndexToken: null
               flags:
@@ -547,7 +597,12 @@ describe('@bablr/language-en-cstml', () => {
                   hasGapToken: null
                 </>
                 language$: null
-                type$: <*Identifier 'Node' />
+                type$:
+                <$Identifier>
+                  openToken: null
+                  content: <*IdentifierContent 'Node' { span: 'Identifier' } />
+                  closeToken: null
+                </>
                 intrinsicValue$: null
                 attributes$: null
                 selfClosingTagToken: null
@@ -585,7 +640,12 @@ describe('@bablr/language-en-cstml', () => {
                 hasGapToken: null
               </>
               language$: null
-              type$: <*Identifier 'Tag' />
+              type$:
+              <$Identifier>
+                openToken: null
+                content: <*IdentifierContent 'Tag' { span: 'Identifier' } />
+                closeToken: null
+              </>
               intrinsicValue$: null
               attributes$: null
               selfClosingTagToken: null
@@ -617,7 +677,12 @@ describe('@bablr/language-en-cstml', () => {
                     hasGapToken: null
                   </>
                   language$: null
-                  type$: <*Identifier 'Escape' />
+                  type$:
+                  <$Identifier>
+                    openToken: null
+                    content: <*IdentifierContent 'Escape' { span: 'Identifier' } />
+                    closeToken: null
+                  </>
                   #: <*Space:Space ' ' />
                   intrinsicValue$: null
                   attributes$:
@@ -678,7 +743,12 @@ describe('@bablr/language-en-cstml', () => {
               hasGapToken: null
             </>
             language$: null
-            type$: <*Identifier 'Type' />
+            type$:
+            <$Identifier>
+              openToken: null
+              content: <*IdentifierContent 'Type' { span: 'Identifier' } />
+              closeToken: null
+            </>
             #: <*Space:Space ' ' />
             intrinsicValue$:
             <$JSON:String>
@@ -707,7 +777,12 @@ describe('@bablr/language-en-cstml', () => {
               hasGapToken: null
             </>
             language$: null
-            type$: <*Identifier 'Quantifier' />
+            type$:
+            <$Identifier>
+              openToken: null
+              content: <*IdentifierContent 'Quantifier' { span: 'Identifier' } />
+              closeToken: null
+            </>
             #: <*Space:Space ' ' />
             intrinsicValue$: null
             attributes$:
@@ -751,6 +826,103 @@ describe('@bablr/language-en-cstml', () => {
               closeToken: <*Punctuator '}' { balancer: true } />
             </>
             #: <*Space:Space ' ' />
+            selfClosingTagToken: <*Punctuator '/' />
+            closeToken: <*Punctuator '>' { balancer: true } />
+          </>
+        </>\n`);
+    });
+
+    it('"<`Identifier` />"', () => {
+      expect(print(tag({ raw: ['<`Identifier` />'] }))).toEqual(dedent`\
+        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
+        <$>
+          .:
+          <$OpenNodeTag { balanced: false }>
+            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+            flags:
+            <$NodeFlags>
+              tokenToken: null
+              hasGapToken: null
+            </>
+            language$: null
+            type$:
+            <$Identifier>
+              openToken: <*Punctuator '${'`'}' { balanced: '${'`'}' } />
+              content: <*IdentifierContent 'Identifier' { span: 'Identifier' } />
+              closeToken: <*Punctuator '${'`'}' { balancer: true } />
+            </>
+            #: <*Space:Space ' ' />
+            intrinsicValue$: null
+            attributes$: null
+            selfClosingTagToken: <*Punctuator '/' />
+            closeToken: <*Punctuator '>' { balancer: true } />
+          </>
+        </>\n`);
+    });
+
+    it('"<\\u004a />"', () => {
+      expect(print(tag`<\u004a />`)).toEqual(dedent`\
+        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
+        <$>
+          .:
+          <$OpenNodeTag { balanced: false }>
+            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+            flags:
+            <$NodeFlags>
+              tokenToken: null
+              hasGapToken: null
+            </>
+            language$: null
+            type$:
+            <$Identifier>
+              openToken: null
+              content:
+              <*IdentifierContent { span: 'Identifier' }>
+                @:
+                <EscapeSequence { cooked: 'J' }>
+                  sigilToken: <*Punctuator '${'\\\\'}' { openSpan: 'Escape' } />
+                  code:
+                  <$EscapeCode { closeSpan: 'Escape' }>
+                    typeToken: <*Keyword 'u' />
+                    openToken: null
+                    value$: <*JSON:UnsignedHexInteger '004a' />
+                    closeToken: null
+                  </>
+                </>
+              </>
+              closeToken: null
+            </>
+            #: <*Space:Space ' ' />
+            intrinsicValue$: null
+            attributes$: null
+            selfClosingTagToken: <*Punctuator '/' />
+            closeToken: <*Punctuator '>' { balancer: true } />
+          </>
+        </>\n`);
+    });
+
+    it('"<日本語 />"', () => {
+      expect(print(tag`<日本語 />`)).toEqual(dedent`\
+        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
+        <$>
+          .:
+          <$OpenNodeTag { balanced: false }>
+            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+            flags:
+            <$NodeFlags>
+              tokenToken: null
+              hasGapToken: null
+            </>
+            language$: null
+            type$:
+            <$Identifier>
+              openToken: null
+              content: <*IdentifierContent '日本語' { span: 'Identifier' } />
+              closeToken: null
+            </>
+            #: <*Space:Space ' ' />
+            intrinsicValue$: null
+            attributes$: null
             selfClosingTagToken: <*Punctuator '/' />
             closeToken: <*Punctuator '>' { balancer: true } />
           </>
