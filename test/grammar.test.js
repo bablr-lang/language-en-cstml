@@ -14,8 +14,7 @@ const { raw } = String;
 
 const ctx = Context.from(language, enhancers.bablrProduction);
 
-const buildCSTMLTag = (type) => {
-  const matcher = spam`<$${buildString(language.canonicalURL)}:${buildIdentifier(type)} />`;
+const buildCSTMLTag = (matcher) => {
   return buildTag(ctx, matcher, undefined, { enhancers });
 };
 
@@ -25,10 +24,10 @@ const print = (tree) => {
 
 describe('@bablr/language-en-cstml', () => {
   describe('Document', () => {
-    const cstml = buildCSTMLTag('Document');
+    const cstml = buildCSTMLTag(spam`<$${buildString(language.canonicalURL)}:Document />`);
 
-    it('<!0:cstml><></>', () => {
-      expect(print(cstml`<!0:cstml><></>`)).toEqual(dedent`\
+    it('<!0:cstml><_></>', () => {
+      expect(print(cstml`<!0:cstml><_></>`)).toEqual(dedent`\
         <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$>
           .:
@@ -51,6 +50,8 @@ describe('@bablr/language-en-cstml', () => {
                 <$NodeFlags>
                   tokenToken: null
                   hasGapToken: null
+                  fragmentToken: <*Punctuator '_' />
+                  coverFragmentToken: null
                 </>
                 language$: null
                 type$: null
@@ -76,10 +77,10 @@ describe('@bablr/language-en-cstml', () => {
   });
 
   describe('Stream', () => {
-    const cstml = buildCSTMLTag('Stream');
+    const cstml = buildCSTMLTag(spam`<$_${buildString(language.canonicalURL)}:Stream />`);
 
-    it('<!0:cstml><>.:<Node></></>', () => {
-      expect(print(cstml`<!0:cstml><>.:<Node></></>`)).toEqual(dedent`\
+    it('<!0:cstml><_>.:<Node></></>', () => {
+      expect(print(cstml`<!0:cstml><_>.:<Node></></>`)).toEqual(dedent`\
       <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
       <$>
         .[]: []
@@ -99,6 +100,8 @@ describe('@bablr/language-en-cstml', () => {
           <$NodeFlags>
             tokenToken: null
             hasGapToken: null
+            fragmentToken: <*Punctuator '_' />
+            coverFragmentToken: null
           </>
           language$: null
           type$: null
@@ -126,6 +129,8 @@ describe('@bablr/language-en-cstml', () => {
           <$NodeFlags>
             tokenToken: null
             hasGapToken: null
+            fragmentToken: null
+            coverFragmentToken: null
           </>
           language$: null
           type$:
@@ -154,10 +159,10 @@ describe('@bablr/language-en-cstml', () => {
   });
 
   describe('Fragment', () => {
-    const cstml = buildCSTMLTag('Node');
+    const cstml = buildCSTMLTag(spam`<$${buildString(language.canonicalURL)}:Node />`);
 
-    it('<></>', () => {
-      expect(print(cstml`<></>`)).toEqual(dedent`\
+    it('<_></>', () => {
+      expect(print(cstml`<_></>`)).toEqual(dedent`\
         <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$>
           .:
@@ -169,6 +174,8 @@ describe('@bablr/language-en-cstml', () => {
               <$NodeFlags>
                 tokenToken: null
                 hasGapToken: null
+                fragmentToken: <*Punctuator '_' />
+                coverFragmentToken: null
               </>
               language$: null
               type$: null
@@ -187,8 +194,8 @@ describe('@bablr/language-en-cstml', () => {
         </>\n`);
     });
 
-    it('<> </>', () => {
-      expect(print(cstml`<> </>`)).toEqual(dedent`\
+    it('<_> </>', () => {
+      expect(print(cstml`<_> </>`)).toEqual(dedent`\
         <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$>
           .:
@@ -200,6 +207,8 @@ describe('@bablr/language-en-cstml', () => {
               <$NodeFlags>
                 tokenToken: null
                 hasGapToken: null
+                fragmentToken: <*Punctuator '_' />
+                coverFragmentToken: null
               </>
               language$: null
               type$: null
@@ -219,8 +228,8 @@ describe('@bablr/language-en-cstml', () => {
         </>\n`);
     });
 
-    it('<>.:<Node></></>', () => {
-      expect(print(cstml`<>.:<Node></></>`)).toEqual(dedent`\
+    it('<_>.:<Node></></>', () => {
+      expect(print(cstml`<_>.:<Node></></>`)).toEqual(dedent`\
       <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
       <$>
         .:
@@ -232,6 +241,8 @@ describe('@bablr/language-en-cstml', () => {
             <$NodeFlags>
               tokenToken: null
               hasGapToken: null
+              fragmentToken: <*Punctuator '_' />
+              coverFragmentToken: null
             </>
             language$: null
             type$: null
@@ -264,6 +275,8 @@ describe('@bablr/language-en-cstml', () => {
                 <$NodeFlags>
                   tokenToken: null
                   hasGapToken: null
+                  fragmentToken: null
+                  coverFragmentToken: null
                 </>
                 language$: null
                 type$:
@@ -294,8 +307,8 @@ describe('@bablr/language-en-cstml', () => {
       </>\n`);
     });
 
-    it('<>.:<Node></>#:<Trivia></></>', () => {
-      expect(print(cstml`<>.:<Node></>#:<Trivia></></>`)).toEqual(dedent`\
+    it('<_>.:<Node></>#:<Trivia></></>', () => {
+      expect(print(cstml`<_>.:<Node></>#:<Trivia></></>`)).toEqual(dedent`\
       <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
       <$>
         .:
@@ -307,6 +320,8 @@ describe('@bablr/language-en-cstml', () => {
             <$NodeFlags>
               tokenToken: null
               hasGapToken: null
+              fragmentToken: <*Punctuator '_' />
+              coverFragmentToken: null
             </>
             language$: null
             type$: null
@@ -339,6 +354,8 @@ describe('@bablr/language-en-cstml', () => {
                 <$NodeFlags>
                   tokenToken: null
                   hasGapToken: null
+                  fragmentToken: null
+                  coverFragmentToken: null
                 </>
                 language$: null
                 type$:
@@ -383,6 +400,8 @@ describe('@bablr/language-en-cstml', () => {
                 <$NodeFlags>
                   tokenToken: null
                   hasGapToken: null
+                  fragmentToken: null
+                  coverFragmentToken: null
                 </>
                 language$: null
                 type$:
@@ -415,7 +434,7 @@ describe('@bablr/language-en-cstml', () => {
   });
 
   describe('Node', () => {
-    const cstml = buildCSTMLTag('Node');
+    const cstml = buildCSTMLTag(spam`<$${buildString(language.canonicalURL)}:Node />`);
 
     it('`<Node>reference: null</>`', () => {
       expect(print(cstml`<Node>reference: null</>`)).toEqual(dedent`\
@@ -430,6 +449,8 @@ describe('@bablr/language-en-cstml', () => {
             <$NodeFlags>
               tokenToken: null
               hasGapToken: null
+              fragmentToken: null
+              coverFragmentToken: null
             </>
             language$: null
             type$:
@@ -491,6 +512,8 @@ describe('@bablr/language-en-cstml', () => {
             <$NodeFlags>
               tokenToken: null
               hasGapToken: null
+              fragmentToken: null
+              coverFragmentToken: null
             </>
             language$: null
             type$:
@@ -552,6 +575,8 @@ describe('@bablr/language-en-cstml', () => {
             <$NodeFlags>
               tokenToken: null
               hasGapToken: null
+              fragmentToken: null
+              coverFragmentToken: null
             </>
             language$: null
             type$:
@@ -595,6 +620,8 @@ describe('@bablr/language-en-cstml', () => {
                 <$NodeFlags>
                   tokenToken: null
                   hasGapToken: null
+                  fragmentToken: null
+                  coverFragmentToken: null
                 </>
                 language$: null
                 type$:
@@ -638,6 +665,8 @@ describe('@bablr/language-en-cstml', () => {
               <$NodeFlags>
                 tokenToken: <*Punctuator '*' />
                 hasGapToken: null
+                fragmentToken: null
+                coverFragmentToken: null
               </>
               language$: null
               type$:
@@ -675,6 +704,8 @@ describe('@bablr/language-en-cstml', () => {
                   <$NodeFlags>
                     tokenToken: null
                     hasGapToken: null
+                    fragmentToken: null
+                    coverFragmentToken: null
                   </>
                   language$: null
                   type$:
@@ -728,7 +759,7 @@ describe('@bablr/language-en-cstml', () => {
   });
 
   describe('OpenNodeTag', () => {
-    const tag = buildCSTMLTag('OpenNodeTag');
+    const tag = buildCSTMLTag(spam`<$${buildString(language.canonicalURL)}:OpenNodeTag />`);
 
     it("`<*Type 'intrinsicValue' />`", () => {
       expect(print(tag`<*Type 'intrinsicValue' />`)).toEqual(dedent`\
@@ -741,6 +772,8 @@ describe('@bablr/language-en-cstml', () => {
             <$NodeFlags>
               tokenToken: <*Punctuator '*' />
               hasGapToken: null
+              fragmentToken: null
+              coverFragmentToken: null
             </>
             language$: null
             type$:
@@ -775,6 +808,8 @@ describe('@bablr/language-en-cstml', () => {
             <$NodeFlags>
               tokenToken: null
               hasGapToken: null
+              fragmentToken: null
+              coverFragmentToken: null
             </>
             language$: null
             type$:
@@ -843,6 +878,8 @@ describe('@bablr/language-en-cstml', () => {
             <$NodeFlags>
               tokenToken: null
               hasGapToken: null
+              fragmentToken: null
+              coverFragmentToken: null
             </>
             language$: null
             type$:
@@ -871,6 +908,8 @@ describe('@bablr/language-en-cstml', () => {
             <$NodeFlags>
               tokenToken: null
               hasGapToken: null
+              fragmentToken: null
+              coverFragmentToken: null
             </>
             language$: null
             type$:
@@ -912,6 +951,8 @@ describe('@bablr/language-en-cstml', () => {
             <$NodeFlags>
               tokenToken: null
               hasGapToken: null
+              fragmentToken: null
+              coverFragmentToken: null
             </>
             language$: null
             type$:
