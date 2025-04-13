@@ -112,7 +112,8 @@ describe('@bablr/language-en-cstml', () => {
         </>
         .[]:
         <$ReferenceTag>
-          name$: <*Punctuator '.' />
+          type: <*Punctuator '.' />
+          name$: null
           openIndexToken: null
           closeIndexToken: null
           flags:
@@ -256,7 +257,8 @@ describe('@bablr/language-en-cstml', () => {
           <$Property>
             reference$:
             <$ReferenceTag>
-              name$: <*Punctuator '.' />
+              type: <*Punctuator '.' />
+              name$: null
               openIndexToken: null
               closeIndexToken: null
               flags:
@@ -335,7 +337,8 @@ describe('@bablr/language-en-cstml', () => {
           <$Property>
             reference$:
             <$ReferenceTag>
-              name$: <*Punctuator '.' />
+              type: <*Punctuator '.' />
+              name$: null
               openIndexToken: null
               closeIndexToken: null
               flags:
@@ -381,7 +384,8 @@ describe('@bablr/language-en-cstml', () => {
           <$Property>
             reference$:
             <$ReferenceTag>
-              name$: <*Punctuator '#' />
+              type: <*Punctuator '#' />
+              name$: null
               openIndexToken: null
               closeIndexToken: null
               flags:
@@ -469,6 +473,7 @@ describe('@bablr/language-en-cstml', () => {
           <$Property>
             reference$:
             <$ReferenceTag>
+              type: null
               name$:
               <$Identifier>
                 openToken: null
@@ -532,6 +537,7 @@ describe('@bablr/language-en-cstml', () => {
           <$Property>
             reference$:
             <$ReferenceTag>
+              type: null
               name$:
               <$Identifier>
                 openToken: null
@@ -595,6 +601,7 @@ describe('@bablr/language-en-cstml', () => {
           <$Property>
             reference$:
             <$ReferenceTag>
+              type: null
               name$:
               <$Identifier>
                 openToken: null
@@ -685,7 +692,8 @@ describe('@bablr/language-en-cstml', () => {
             <$Property>
               reference$:
               <$ReferenceTag>
-                name$: <*Punctuator '@' />
+                type: <*Punctuator '@' />
+                name$: null
                 openIndexToken: null
                 closeIndexToken: null
                 flags:
@@ -719,9 +727,9 @@ describe('@bablr/language-en-cstml', () => {
                   attributes$:
                   <$JSON:Object>
                     openToken: <*Punctuator '{' { balanced: '}' } />
+                    #: <*Space:Space ' ' />
                     separatorTokens[]: []
                     properties[]$: []
-                    #: <*Space:Space ' ' />
                     properties[]$:
                     <$Property>
                       key$: <*Identifier 'cooked' />
@@ -766,7 +774,7 @@ describe('@bablr/language-en-cstml', () => {
         <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$_>
           .:
-          <$OpenNodeTag { balanced: false }>
+          <$OpenNodeTag { balanced: false, balancedSpan: null }>
             openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
             flags:
             <$NodeFlags>
@@ -802,7 +810,7 @@ describe('@bablr/language-en-cstml', () => {
         <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$_>
           .:
-          <$OpenNodeTag { balanced: false }>
+          <$OpenNodeTag { balanced: false, balancedSpan: null }>
             openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
             flags:
             <$NodeFlags>
@@ -823,9 +831,9 @@ describe('@bablr/language-en-cstml', () => {
             attributes$:
             <$JSON:Object>
               openToken: <*Punctuator '{' { balanced: '}' } />
+              #: <*Space:Space ' ' />
               separatorTokens[]: []
               properties[]$: []
-              #: <*Space:Space ' ' />
               properties[]$:
               <$Property>
                 key$: <*Identifier 'min' />
@@ -872,7 +880,7 @@ describe('@bablr/language-en-cstml', () => {
         <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$_>
           .:
-          <$OpenNodeTag { balanced: false }>
+          <$OpenNodeTag { balanced: false, balancedSpan: null }>
             openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
             flags:
             <$NodeFlags>
@@ -902,7 +910,7 @@ describe('@bablr/language-en-cstml', () => {
         <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$_>
           .:
-          <$OpenNodeTag { balanced: false }>
+          <$OpenNodeTag { balanced: false, balancedSpan: null }>
             openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
             flags:
             <$NodeFlags>
@@ -945,7 +953,7 @@ describe('@bablr/language-en-cstml', () => {
         <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$_>
           .:
-          <$OpenNodeTag { balanced: false }>
+          <$OpenNodeTag { balanced: false, balancedSpan: null }>
             openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
             flags:
             <$NodeFlags>
