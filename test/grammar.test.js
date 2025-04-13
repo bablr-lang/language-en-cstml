@@ -732,7 +732,12 @@ describe('@bablr/language-en-cstml', () => {
                     properties[]$: []
                     properties[]$:
                     <$Property>
-                      key$: <*Identifier 'cooked' />
+                      key$:
+                      <$Identifier>
+                        openToken: null
+                        content: <*IdentifierContent 'cooked' { span: 'Identifier' } />
+                        closeToken: null
+                      </>
                       sigilToken: <*Punctuator ':' />
                       #: <*Space:Space ' ' />
                       value+$:
@@ -836,7 +841,12 @@ describe('@bablr/language-en-cstml', () => {
               properties[]$: []
               properties[]$:
               <$Property>
-                key$: <*Identifier 'min' />
+                key$:
+                <$Identifier>
+                  openToken: null
+                  content: <*IdentifierContent 'min' { span: 'Identifier' } />
+                  closeToken: null
+                </>
                 sigilToken: <*Punctuator ':' />
                 #: <*Space:Space ' ' />
                 value+$:
@@ -856,7 +866,12 @@ describe('@bablr/language-en-cstml', () => {
               #: <*Space:Space ' ' />
               properties[]$:
               <$Property>
-                key$: <*Identifier 'max' />
+                key$:
+                <$Identifier>
+                  openToken: null
+                  content: <*IdentifierContent 'max' { span: 'Identifier' } />
+                  closeToken: null
+                </>
                 sigilToken: <*Punctuator ':' />
                 #: <*Space:Space ' ' />
                 value+$:
