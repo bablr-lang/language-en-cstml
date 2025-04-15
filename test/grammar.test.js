@@ -659,6 +659,129 @@ describe('@bablr/language-en-cstml', () => {
       </>\n`);
     });
 
+    it('`<Node { foo: { bar: undefined } }> { foo.bar: 1 } </>`', () => {
+      expect(print(cstml`<Node { foo: { bar: undefined } }> { foo.bar: 1 } </>`)).toEqual(dedent`\
+      <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
+      <$_>
+        .:
+        <$Node>
+          open:
+          <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+            flags:
+            <$NodeFlags>
+              tokenToken: null
+              hasGapToken: null
+              fragmentToken: null
+              coverFragmentToken: null
+            </>
+            language$: null
+            type$:
+            <$Identifier>
+              openToken: null
+              content: <*IdentifierContent 'Node' { span: 'Identifier' } />
+              closeToken: null
+            </>
+            #: <*Space:Space ' ' />
+            intrinsicValue$: null
+            attributes$:
+            <$JSON:Object>
+              openToken: <*Punctuator '{' { balanced: '}' } />
+              #: <*Space:Space ' ' />
+              separatorTokens[]: []
+              properties[]$: []
+              properties[]$:
+              <$Property>
+                key$:
+                <$Identifier>
+                  openToken: null
+                  content: <*IdentifierContent 'foo' { span: 'Identifier' } />
+                  closeToken: null
+                </>
+                sigilToken: <*Punctuator ':' />
+                #: <*Space:Space ' ' />
+                value+$:
+                <$Object>
+                  openToken: <*Punctuator '{' { balanced: '}' } />
+                  #: <*Space:Space ' ' />
+                  separatorTokens[]: []
+                  properties[]$: []
+                  properties[]$:
+                  <$Property>
+                    key$:
+                    <$Identifier>
+                      openToken: null
+                      content: <*IdentifierContent 'bar' { span: 'Identifier' } />
+                      closeToken: null
+                    </>
+                    sigilToken: <*Punctuator ':' />
+                    #: <*Space:Space ' ' />
+                    value+$:
+                    <$Undefined>
+                      sigilToken: <*Keyword 'undefined' />
+                    </>
+                  </>
+                  #: <*Space:Space ' ' />
+                  closeToken: <*Punctuator '}' { balancer: true } />
+                </>
+              </>
+              #: <*Space:Space ' ' />
+              closeToken: <*Punctuator '}' { balancer: true } />
+            </>
+            selfClosingTagToken: null
+            closeToken: <*Punctuator '>' { balancer: true } />
+          </>
+          #: <*Space:Space ' ' />
+          children[]$: []
+          children[]$:
+          <$AttributeDefinition>
+            openToken: <*Punctuator '{' { balanced: '}' } />
+            #: <*Space:Space ' ' />
+            key:
+            <$IdentifierPath>
+              segments[]$: []
+              segments[]$:
+              <$Identifier>
+                openToken: null
+                content: <*IdentifierContent 'foo' { span: 'Identifier' } />
+                closeToken: null
+              </>
+              separatorTokens[]: []
+              separatorTokens[]: <*Punctuator '.' />
+              segments[]$:
+              <$Identifier>
+                openToken: null
+                content: <*IdentifierContent 'bar' { span: 'Identifier' } />
+                closeToken: null
+              </>
+            </>
+            sigilToken: <*Punctuator ':' />
+            #: <*Space:Space ' ' />
+            value:
+            <$JSON:Number { span: 'Number' }>
+              wholePart$:
+              <$Integer>
+                signToken: null
+                value$: <*UnsignedInteger '1' />
+              </>
+              fractionalSeparatorToken: null
+              fractionalPart$: null
+              exponentSeparatorToken: null
+              exponentPart$: null
+            </>
+            #: <*Space:Space ' ' />
+            closeToken: <*Punctuator '}' { balancer: true } />
+          </>
+          #: <*Space:Space ' ' />
+          close:
+          <$CloseNodeTag { balancer: true }>
+            openToken: <*Punctuator '</' { balanced: '>' } />
+            closeToken: <*Punctuator '>' { balancer: true } />
+          </>
+        </>
+      </>\n`);
+    });
+
     it('`<*Tag>@:<Escape { cooked: "e" }></></>`', () => {
       expect(print(cstml`<*Tag>@:<Escape { cooked: "e" }></></>`)).toEqual(dedent`\
         <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
