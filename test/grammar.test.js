@@ -1067,10 +1067,10 @@ describe('@bablr/language-en-cstml', () => {
                 <EscapeSequence { cooked: 'J' }>
                   sigilToken: <*Punctuator '${'\\\\'}' { openSpan: 'Escape' } />
                   code:
-                  <$EscapeCode { closeSpan: 'Escape' }>
+                  <EscapeCode { closeSpan: 'Escape' }>
                     typeToken: <*Keyword 'u' />
                     openToken: null
-                    value$: <*JSON:UnsignedHexInteger '004a' />
+                    value: <*JSON:UnsignedHexInteger '004a' />
                     closeToken: null
                   </>
                 </>
