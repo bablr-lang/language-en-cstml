@@ -35,7 +35,7 @@ describe('@bablr/language-en-cstml', () => {
             doctype$:
             <$DoctypeTag>
               openToken: <*Punctuator '<!' { balancedSpan: 'Tag', balanced: '>' } />
-              version$: <*JSON:UnsignedInteger '0' />
+              version$: :JSON: <*UnsignedInteger '0' />
               versionSeparatorToken: <*Punctuator ':' />
               doctypeToken$: <*Keyword 'cstml' />
               attributes$: null
@@ -87,7 +87,7 @@ describe('@bablr/language-en-cstml', () => {
         .[]:
         <$DoctypeTag>
           openToken: <*Punctuator '<!' { balancedSpan: 'Tag', balanced: '>' } />
-          version$: <*JSON:UnsignedInteger '0' />
+          version$: :JSON: <*UnsignedInteger '0' />
           versionSeparatorToken: <*Punctuator ':' />
           doctypeToken$: <*Keyword 'cstml' />
           attributes$: null
@@ -159,7 +159,7 @@ describe('@bablr/language-en-cstml', () => {
     });
   });
 
-  describe('Fragment', () => {
+  describe('Node', () => {
     const cstml = buildCSTMLTag(spam`<$${buildString(language.canonicalURL)}:Node />`);
 
     it('<_></>', () => {
@@ -218,7 +218,7 @@ describe('@bablr/language-en-cstml', () => {
               selfClosingTagToken: null
               closeToken: <*Punctuator '>' { balancer: true } />
             </>
-            #: <*Space:Space ' ' />
+            #: :Space: <*Space ' ' />
             children[]$: []
             close:
             <$CloseNodeTag { balancer: true }>
@@ -435,10 +435,6 @@ describe('@bablr/language-en-cstml', () => {
         </>
       </>\n`);
     });
-  });
-
-  describe('Node', () => {
-    const cstml = buildCSTMLTag(spam`<$${buildString(language.canonicalURL)}:Node />`);
 
     it('`<Node>reference: null</>`', () => {
       expect(print(cstml`<Node>reference: null</>`)).toEqual(dedent`\
@@ -489,7 +485,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
               sigilToken: <*Punctuator ':' />
             </>
-            #: <*Space:Space ' ' />
+            #: :Space: <*Space ' ' />
             value$:
             <$NullTag>
               sigilToken: <*Keyword 'null' />
@@ -553,7 +549,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
               sigilToken: <*Punctuator ':' />
             </>
-            #: <*Space:Space ' ' />
+            #: :Space: <*Space ' ' />
             value$:
             <$GapTag>
               sigilToken: <*Punctuator '<//>' />
@@ -617,7 +613,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
               sigilToken: <*Punctuator ':' />
             </>
-            #: <*Space:Space ' ' />
+            #: :Space: <*Space ' ' />
             value$:
             <$Node>
               open:
@@ -682,12 +678,12 @@ describe('@bablr/language-en-cstml', () => {
               content: <*IdentifierContent 'Node' { span: 'Identifier' } />
               closeToken: null
             </>
-            #: <*Space:Space ' ' />
+            #: :Space: <*Space ' ' />
             intrinsicValue$: null
-            attributes$:
-            <$JSON:Object>
+            attributes$: :JSON:
+            <$Object>
               openToken: <*Punctuator '{' { balanced: '}' } />
-              #: <*Space:Space ' ' />
+              #: :Space: <*Space ' ' />
               separatorTokens[]: []
               properties[]$: []
               properties[]$:
@@ -699,11 +695,11 @@ describe('@bablr/language-en-cstml', () => {
                   closeToken: null
                 </>
                 sigilToken: <*Punctuator ':' />
-                #: <*Space:Space ' ' />
+                #: :Space: <*Space ' ' />
                 value+$:
                 <$Object>
                   openToken: <*Punctuator '{' { balanced: '}' } />
-                  #: <*Space:Space ' ' />
+                  #: :Space: <*Space ' ' />
                   separatorTokens[]: []
                   properties[]$: []
                   properties[]$:
@@ -715,28 +711,28 @@ describe('@bablr/language-en-cstml', () => {
                       closeToken: null
                     </>
                     sigilToken: <*Punctuator ':' />
-                    #: <*Space:Space ' ' />
+                    #: :Space: <*Space ' ' />
                     value+$:
                     <$Undefined>
                       sigilToken: <*Keyword 'undefined' />
                     </>
                   </>
-                  #: <*Space:Space ' ' />
+                  #: :Space: <*Space ' ' />
                   closeToken: <*Punctuator '}' { balancer: true } />
                 </>
               </>
-              #: <*Space:Space ' ' />
+              #: :Space: <*Space ' ' />
               closeToken: <*Punctuator '}' { balancer: true } />
             </>
             selfClosingTagToken: null
             closeToken: <*Punctuator '>' { balancer: true } />
           </>
-          #: <*Space:Space ' ' />
+          #: :Space: <*Space ' ' />
           children[]$: []
           children[]$:
           <$AttributeDefinition>
             openToken: <*Punctuator '{' { balanced: '}' } />
-            #: <*Space:Space ' ' />
+            #: :Space: <*Space ' ' />
             key:
             <$IdentifierPath>
               segments[]$: []
@@ -756,7 +752,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
             sigilToken: <*Punctuator ':' />
-            #: <*Space:Space ' ' />
+            #: :Space: <*Space ' ' />
             value:
             <$JSON:Number { span: 'Number' }>
               wholePart$:
@@ -769,10 +765,10 @@ describe('@bablr/language-en-cstml', () => {
               exponentSeparatorToken: null
               exponentPart$: null
             </>
-            #: <*Space:Space ' ' />
+            #: :Space: <*Space ' ' />
             closeToken: <*Punctuator '}' { balancer: true } />
           </>
-          #: <*Space:Space ' ' />
+          #: :Space: <*Space ' ' />
           close:
           <$CloseNodeTag { balancer: true }>
             openToken: <*Punctuator '</' { balanced: '>' } />
@@ -845,12 +841,12 @@ describe('@bablr/language-en-cstml', () => {
                     content: <*IdentifierContent 'Escape' { span: 'Identifier' } />
                     closeToken: null
                   </>
-                  #: <*Space:Space ' ' />
+                  #: :Space: <*Space ' ' />
                   intrinsicValue$: null
-                  attributes$:
-                  <$JSON:Object>
+                  attributes$: :JSON:
+                  <$Object>
                     openToken: <*Punctuator '{' { balanced: '}' } />
-                    #: <*Space:Space ' ' />
+                    #: :Space: <*Space ' ' />
                     separatorTokens[]: []
                     properties[]$: []
                     properties[]$:
@@ -862,7 +858,7 @@ describe('@bablr/language-en-cstml', () => {
                         closeToken: null
                       </>
                       sigilToken: <*Punctuator ':' />
-                      #: <*Space:Space ' ' />
+                      #: :Space: <*Space ' ' />
                       value+$:
                       <$String>
                         openToken: <*Punctuator '"' { balanced: '"', balancedSpan: 'String:Double' } />
@@ -870,7 +866,7 @@ describe('@bablr/language-en-cstml', () => {
                         closeToken: <*Punctuator '"' { balancer: true } />
                       </>
                     </>
-                    #: <*Space:Space ' ' />
+                    #: :Space: <*Space ' ' />
                     closeToken: <*Punctuator '}' { balancer: true } />
                   </>
                   selfClosingTagToken: null
@@ -918,14 +914,14 @@ describe('@bablr/language-en-cstml', () => {
               content: <*IdentifierContent 'Type' { span: 'Identifier' } />
               closeToken: null
             </>
-            #: <*Space:Space ' ' />
-            intrinsicValue$:
-            <$JSON:String>
+            #: :Space: <*Space ' ' />
+            intrinsicValue$: :JSON:
+            <$String>
               openToken: <*Punctuator "'" { balanced: "'", balancedSpan: 'String:Single' } />
               content$: <*StringContent 'intrinsicValue' />
               closeToken: <*Punctuator "'" { balancer: true } />
             </>
-            #: <*Space:Space ' ' />
+            #: :Space: <*Space ' ' />
             attributes$: null
             selfClosingTagToken: <*Punctuator '/' />
             closeToken: <*Punctuator '>' { balancer: true } />
@@ -954,12 +950,12 @@ describe('@bablr/language-en-cstml', () => {
               content: <*IdentifierContent 'Quantifier' { span: 'Identifier' } />
               closeToken: null
             </>
-            #: <*Space:Space ' ' />
+            #: :Space: <*Space ' ' />
             intrinsicValue$: null
-            attributes$:
-            <$JSON:Object>
+            attributes$: :JSON:
+            <$Object>
               openToken: <*Punctuator '{' { balanced: '}' } />
-              #: <*Space:Space ' ' />
+              #: :Space: <*Space ' ' />
               separatorTokens[]: []
               properties[]$: []
               properties[]$:
@@ -971,7 +967,7 @@ describe('@bablr/language-en-cstml', () => {
                   closeToken: null
                 </>
                 sigilToken: <*Punctuator ':' />
-                #: <*Space:Space ' ' />
+                #: :Space: <*Space ' ' />
                 value+$:
                 <$Number { span: 'Number' }>
                   wholePart$:
@@ -986,7 +982,7 @@ describe('@bablr/language-en-cstml', () => {
                 </>
               </>
               separatorTokens[]: <*Punctuator ',' />
-              #: <*Space:Space ' ' />
+              #: :Space: <*Space ' ' />
               properties[]$:
               <$Property>
                 key$:
@@ -996,17 +992,17 @@ describe('@bablr/language-en-cstml', () => {
                   closeToken: null
                 </>
                 sigilToken: <*Punctuator ':' />
-                #: <*Space:Space ' ' />
+                #: :Space: <*Space ' ' />
                 value+$:
                 <$Infinity>
                   signToken: null
                   sigilToken: <*Keyword 'Infinity' />
                 </>
               </>
-              #: <*Space:Space ' ' />
+              #: :Space: <*Space ' ' />
               closeToken: <*Punctuator '}' { balancer: true } />
             </>
-            #: <*Space:Space ' ' />
+            #: :Space: <*Space ' ' />
             selfClosingTagToken: <*Punctuator '/' />
             closeToken: <*Punctuator '>' { balancer: true } />
           </>
@@ -1034,7 +1030,7 @@ describe('@bablr/language-en-cstml', () => {
               content: <*IdentifierContent 'Identifier' { span: 'Identifier' } />
               closeToken: <*Punctuator '${'`'}' { balancer: true } />
             </>
-            #: <*Space:Space ' ' />
+            #: :Space: <*Space ' ' />
             intrinsicValue$: null
             attributes$: null
             selfClosingTagToken: <*Punctuator '/' />
@@ -1070,14 +1066,14 @@ describe('@bablr/language-en-cstml', () => {
                   <EscapeCode { closeSpan: 'Escape' }>
                     typeToken: <*Keyword 'u' />
                     openToken: null
-                    value: <*JSON:UnsignedHexInteger '004a' />
+                    value: :JSON: <*UnsignedHexInteger '004a' />
                     closeToken: null
                   </>
                 </>
               </>
               closeToken: null
             </>
-            #: <*Space:Space ' ' />
+            #: :Space: <*Space ' ' />
             intrinsicValue$: null
             attributes$: null
             selfClosingTagToken: <*Punctuator '/' />
@@ -1107,7 +1103,7 @@ describe('@bablr/language-en-cstml', () => {
               content: <*IdentifierContent '日本語' { span: 'Identifier' } />
               closeToken: null
             </>
-            #: <*Space:Space ' ' />
+            #: :Space: <*Space ' ' />
             intrinsicValue$: null
             attributes$: null
             selfClosingTagToken: <*Punctuator '/' />
