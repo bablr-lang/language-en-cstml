@@ -753,8 +753,8 @@ describe('@bablr/language-en-cstml', () => {
             </>
             sigilToken: <*Punctuator ':' />
             #: :Space: <*Space ' ' />
-            value:
-            <$JSON:Number { span: 'Number' }>
+            value: :JSON:
+            <$Number { span: 'Number' }>
               wholePart$:
               <$Integer>
                 signToken: null
