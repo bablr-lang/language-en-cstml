@@ -258,6 +258,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
               sigilToken: <*Punctuator ':' />
             </>
+            binding$: null
             value$:
             <$Node>
               open:
@@ -336,6 +337,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
               sigilToken: <*Punctuator ':' />
             </>
+            binding$: null
             value$:
             <$Node>
               open:
@@ -382,6 +384,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
               sigilToken: <*Punctuator ':' />
             </>
+            binding$: null
             value$:
             <$Node>
               open:
@@ -471,6 +474,7 @@ describe('@bablr/language-en-cstml', () => {
               sigilToken: <*Punctuator ':' />
             </>
             #: :Space: <*Space ' ' />
+            binding$: null
             value$:
             <$NullTag>
               sigilToken: <*Keyword 'null' />
@@ -534,6 +538,7 @@ describe('@bablr/language-en-cstml', () => {
               sigilToken: <*Punctuator ':' />
             </>
             #: :Space: <*Space ' ' />
+            binding$: null
             value$:
             <$GapTag>
               sigilToken: <*Punctuator '<//>' />
@@ -597,6 +602,7 @@ describe('@bablr/language-en-cstml', () => {
               sigilToken: <*Punctuator ':' />
             </>
             #: :Space: <*Space ' ' />
+            binding$: null
             value$:
             <$Node>
               open:
@@ -802,6 +808,7 @@ describe('@bablr/language-en-cstml', () => {
                 </>
                 sigilToken: <*Punctuator ':' />
               </>
+              binding$: null
               value$:
               <$Node>
                 open:
