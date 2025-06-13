@@ -720,7 +720,7 @@ describe('@bablr/language-en-cstml', () => {
           <$AttributeDefinition>
             openToken: <*Punctuator '{' { balanced: '}' } />
             #: :Space: <*Space ' ' />
-            key:
+            key$:
             <$IdentifierPath>
               segments[]$: []
               segments[]$:
@@ -740,7 +740,7 @@ describe('@bablr/language-en-cstml', () => {
             </>
             sigilToken: <*Punctuator ':' />
             #: :Space: <*Space ' ' />
-            value: :JSON:
+            value$: :JSON:
             <$Number { span: 'Number' }>
               wholePart$:
               <$Integer>
