@@ -22,8 +22,8 @@ describe('@bablr/language-en-cstml', () => {
   describe('Document', () => {
     const cstml = buildCSTMLTag(spam`<$Document />`);
 
-    it('<!0:cstml><_></>', () => {
-      expect(print(cstml`<!0:cstml><_></>`)).toEqual(dedent`\
+    it('<!0:cstml><__></>', () => {
+      expect(print(cstml`<!0:cstml><__></>`)).toEqual(dedent`\
         <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$_>
           .:
@@ -47,7 +47,7 @@ describe('@bablr/language-en-cstml', () => {
                   tokenToken: null
                   hasGapToken: null
                   fragmentToken: <*Punctuator '_' />
-                  coverFragmentToken: null
+                  multiFragmentToken: <*Punctuator '_' />
                 </>
                 type$: null
                 intrinsicValue$: null
@@ -72,12 +72,12 @@ describe('@bablr/language-en-cstml', () => {
   });
 
   describe('Stream', () => {
-    const cstml = buildCSTMLTag(spam`<$_Stream />`);
+    const cstml = buildCSTMLTag(spam`<$__Stream />`);
 
     it('<!0:cstml><_>.:<Node></></>', () => {
       expect(print(cstml`<!0:cstml><_>.:<Node></></>`)).toEqual(dedent`\
       <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
-      <$_>
+      <$__>
         .[]: []
         .[]:
         <$DoctypeTag>
@@ -96,7 +96,7 @@ describe('@bablr/language-en-cstml', () => {
             tokenToken: null
             hasGapToken: null
             fragmentToken: <*Punctuator '_' />
-            coverFragmentToken: null
+            multiFragmentToken: null
           </>
           type$: null
           intrinsicValue$: null
@@ -125,7 +125,7 @@ describe('@bablr/language-en-cstml', () => {
             tokenToken: null
             hasGapToken: null
             fragmentToken: null
-            coverFragmentToken: null
+            multiFragmentToken: null
           </>
           type$:
           <$Identifier>
@@ -169,7 +169,7 @@ describe('@bablr/language-en-cstml', () => {
                 tokenToken: null
                 hasGapToken: null
                 fragmentToken: <*Punctuator '_' />
-                coverFragmentToken: null
+                multiFragmentToken: null
               </>
               type$: null
               intrinsicValue$: null
@@ -201,7 +201,7 @@ describe('@bablr/language-en-cstml', () => {
                 tokenToken: null
                 hasGapToken: null
                 fragmentToken: <*Punctuator '_' />
-                coverFragmentToken: null
+                multiFragmentToken: null
               </>
               type$: null
               intrinsicValue$: null
@@ -234,7 +234,7 @@ describe('@bablr/language-en-cstml', () => {
               tokenToken: null
               hasGapToken: null
               fragmentToken: <*Punctuator '_' />
-              coverFragmentToken: null
+              multiFragmentToken: null
             </>
             type$: null
             intrinsicValue$: null
@@ -269,7 +269,7 @@ describe('@bablr/language-en-cstml', () => {
                   tokenToken: null
                   hasGapToken: null
                   fragmentToken: null
-                  coverFragmentToken: null
+                  multiFragmentToken: null
                 </>
                 type$:
                 <$Identifier>
@@ -313,7 +313,7 @@ describe('@bablr/language-en-cstml', () => {
               tokenToken: null
               hasGapToken: null
               fragmentToken: <*Punctuator '_' />
-              coverFragmentToken: null
+              multiFragmentToken: null
             </>
             type$: null
             intrinsicValue$: null
@@ -348,7 +348,7 @@ describe('@bablr/language-en-cstml', () => {
                   tokenToken: null
                   hasGapToken: null
                   fragmentToken: null
-                  coverFragmentToken: null
+                  multiFragmentToken: null
                 </>
                 type$:
                 <$Identifier>
@@ -395,7 +395,7 @@ describe('@bablr/language-en-cstml', () => {
                   tokenToken: null
                   hasGapToken: null
                   fragmentToken: null
-                  coverFragmentToken: null
+                  multiFragmentToken: null
                 </>
                 type$:
                 <$Identifier>
@@ -439,7 +439,7 @@ describe('@bablr/language-en-cstml', () => {
               tokenToken: null
               hasGapToken: null
               fragmentToken: null
-              coverFragmentToken: null
+              multiFragmentToken: null
             </>
             type$:
             <$Identifier>
@@ -503,7 +503,7 @@ describe('@bablr/language-en-cstml', () => {
               tokenToken: null
               hasGapToken: null
               fragmentToken: null
-              coverFragmentToken: null
+              multiFragmentToken: null
             </>
             type$:
             <$Identifier>
@@ -567,7 +567,7 @@ describe('@bablr/language-en-cstml', () => {
               tokenToken: null
               hasGapToken: null
               fragmentToken: null
-              coverFragmentToken: null
+              multiFragmentToken: null
             </>
             type$:
             <$Identifier>
@@ -613,7 +613,7 @@ describe('@bablr/language-en-cstml', () => {
                   tokenToken: null
                   hasGapToken: null
                   fragmentToken: null
-                  coverFragmentToken: null
+                  multiFragmentToken: null
                 </>
                 type$:
                 <$Identifier>
@@ -657,7 +657,7 @@ describe('@bablr/language-en-cstml', () => {
               tokenToken: null
               hasGapToken: null
               fragmentToken: null
-              coverFragmentToken: null
+              multiFragmentToken: null
             </>
             type$:
             <$Identifier>
@@ -779,7 +779,7 @@ describe('@bablr/language-en-cstml', () => {
                 tokenToken: <*Punctuator '*' />
                 hasGapToken: null
                 fragmentToken: null
-                coverFragmentToken: null
+                multiFragmentToken: null
               </>
               type$:
               <$Identifier>
@@ -819,7 +819,7 @@ describe('@bablr/language-en-cstml', () => {
                     tokenToken: null
                     hasGapToken: null
                     fragmentToken: null
-                    coverFragmentToken: null
+                    multiFragmentToken: null
                   </>
                   type$:
                   <$Identifier>
@@ -891,7 +891,7 @@ describe('@bablr/language-en-cstml', () => {
               tokenToken: <*Punctuator '*' />
               hasGapToken: null
               fragmentToken: null
-              coverFragmentToken: null
+              multiFragmentToken: null
             </>
             type$:
             <$Identifier>
@@ -926,7 +926,7 @@ describe('@bablr/language-en-cstml', () => {
               tokenToken: null
               hasGapToken: null
               fragmentToken: null
-              coverFragmentToken: null
+              multiFragmentToken: null
             </>
             type$:
             <$Identifier>
@@ -1005,7 +1005,7 @@ describe('@bablr/language-en-cstml', () => {
               tokenToken: null
               hasGapToken: null
               fragmentToken: null
-              coverFragmentToken: null
+              multiFragmentToken: null
             </>
             type$:
             <$Identifier>
@@ -1034,7 +1034,7 @@ describe('@bablr/language-en-cstml', () => {
               tokenToken: null
               hasGapToken: null
               fragmentToken: null
-              coverFragmentToken: null
+              multiFragmentToken: null
             </>
             type$:
             <$Identifier>
@@ -1076,7 +1076,7 @@ describe('@bablr/language-en-cstml', () => {
               tokenToken: null
               hasGapToken: null
               fragmentToken: null
-              coverFragmentToken: null
+              multiFragmentToken: null
             </>
             type$:
             <$Identifier>
