@@ -670,7 +670,7 @@ describe('@bablr/language-en-cstml', () => {
             <$Object>
               openToken: <*Punctuator '{' { balanced: '}' } />
               #: :Space: <*Space ' ' />
-              separatorTokens[]: []
+              #separatorTokens[]: []
               properties[]$: []
               properties[]$:
               <$Property>
@@ -686,7 +686,7 @@ describe('@bablr/language-en-cstml', () => {
                 <$Object>
                   openToken: <*Punctuator '{' { balanced: '}' } />
                   #: :Space: <*Space ' ' />
-                  separatorTokens[]: []
+                  #separatorTokens[]: []
                   properties[]$: []
                   properties[]$:
                   <$Property>
@@ -728,8 +728,8 @@ describe('@bablr/language-en-cstml', () => {
                 content: <*IdentifierContent 'foo' { span: 'Identifier' } />
                 closeToken: null
               </>
-              separatorTokens[]: []
-              separatorTokens[]: <*Punctuator '.' />
+              #separatorTokens[]: []
+              #separatorTokens[]: <*Punctuator '.' />
               segments[]$:
               <$Identifier>
                 openToken: null
@@ -832,7 +832,7 @@ describe('@bablr/language-en-cstml', () => {
                   <$Object>
                     openToken: <*Punctuator '{' { balanced: '}' } />
                     #: :Space: <*Space ' ' />
-                    separatorTokens[]: []
+                    #separatorTokens[]: []
                     properties[]$: []
                     properties[]$:
                     <$Property>
@@ -939,7 +939,7 @@ describe('@bablr/language-en-cstml', () => {
             <$Object>
               openToken: <*Punctuator '{' { balanced: '}' } />
               #: :Space: <*Space ' ' />
-              separatorTokens[]: []
+              #separatorTokens[]: []
               properties[]$: []
               properties[]$:
               <$Property>
@@ -964,7 +964,7 @@ describe('@bablr/language-en-cstml', () => {
                   exponentPart$: null
                 </>
               </>
-              separatorTokens[]: <*Punctuator ',' />
+              #separatorTokens[]: <*Punctuator ',' />
               #: :Space: <*Space ' ' />
               properties[]$:
               <$Property>
