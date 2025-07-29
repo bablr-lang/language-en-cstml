@@ -23,7 +23,6 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<!0:cstml><_></>', () => {
       expect(print(cstml`<!0:cstml><_></>`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$_>
           .:
           <$Document>
@@ -75,7 +74,6 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<!0:cstml><_>.:<Node></></>', () => {
       expect(print(cstml`<!0:cstml><_>.:<Node></></>`)).toEqual(dedent`\
-      <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
       <$__>
         .[]: []
         .[]:
@@ -156,7 +154,6 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<_></>', () => {
       expect(print(cstml`<_></>`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$_>
           .:
           <$Node>
@@ -188,7 +185,6 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<_> </>', () => {
       expect(print(cstml`<_> </>`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$_>
           .:
           <$Node>
@@ -221,7 +217,6 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<_>.:<Node></></>', () => {
       expect(print(cstml`<_>.:<Node></></>`)).toEqual(dedent`\
-      <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
       <$_>
         .:
         <$Node>
@@ -300,7 +295,6 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<_>.:<Node></>#:<Trivia></></>', () => {
       expect(print(cstml`<_>.:<Node></>#:<Trivia></></>`)).toEqual(dedent`\
-      <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
       <$_>
         .:
         <$Node>
@@ -426,7 +420,6 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node>reference: null</>`', () => {
       expect(print(cstml`<Node>reference: null</>`)).toEqual(dedent`\
-      <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
       <$_>
         .:
         <$Node>
@@ -490,7 +483,6 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node>#: <__></></>`', () => {
       expect(print(cstml`<Node>_: <__></></>`)).toEqual(dedent`\
-      <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
       <$_>
         .:
         <$Node>
@@ -570,7 +562,6 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node>reference: <//></>`', () => {
       expect(print(cstml`<Node>reference: <//></>`)).toEqual(dedent`\
-      <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
       <$_>
         .:
         <$Node>
@@ -634,7 +625,6 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node>reference: <Node></></>`', () => {
       expect(print(cstml`<Node>reference: <Node></></>`)).toEqual(dedent`\
-      <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
       <$_>
         .:
         <$Node>
@@ -724,7 +714,6 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node { foo: { bar: undefined } }> { foo.bar: 1 } </>`', () => {
       expect(print(cstml`<Node { foo: { bar: undefined } }> { foo.bar: 1 } </>`)).toEqual(dedent`\
-      <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
       <$_>
         .:
         <$Node>
@@ -846,7 +835,6 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<*Tag>@:<Escape { cooked: "e" }></></>`', () => {
       expect(print(cstml`<*Tag>@:<Escape { cooked: "e" }></></>`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$_>
           .:
           <$Node>
@@ -960,7 +948,6 @@ describe('@bablr/language-en-cstml', () => {
 
     it("`<*Type 'intrinsicValue' />`", () => {
       expect(print(tag`<*Type 'intrinsicValue' />`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$_>
           .:
           <$OpenNodeTag { balanced: false, balancedSpan: null }>
@@ -995,7 +982,6 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Quantifier { min: 1, max: Infinity } />`', () => {
       expect(print(tag`<Quantifier { min: 1, max: Infinity } />`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$_>
           .:
           <$OpenNodeTag { balanced: false, balancedSpan: null }>
@@ -1074,7 +1060,6 @@ describe('@bablr/language-en-cstml', () => {
 
     it('"<`Identifier` />"', () => {
       expect(print(tag({ raw: ['<`Identifier` />'] }))).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$_>
           .:
           <$OpenNodeTag { balanced: false, balancedSpan: null }>
@@ -1103,7 +1088,6 @@ describe('@bablr/language-en-cstml', () => {
 
     it('"<\\u004a />"', () => {
       expect(print(tag`<\u004a />`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$_>
           .:
           <$OpenNodeTag { balanced: false, balancedSpan: null }>
@@ -1145,7 +1129,6 @@ describe('@bablr/language-en-cstml', () => {
 
     it('"<日本語 />"', () => {
       expect(print(tag`<日本語 />`)).toEqual(dedent`\
-        <!0:cstml { bablrLanguage: 'https://bablr.org/languages/core/en/cstml' }>
         <$_>
           .:
           <$OpenNodeTag { balanced: false, balancedSpan: null }>
