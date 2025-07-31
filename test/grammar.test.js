@@ -48,7 +48,7 @@ describe('@bablr/language-en-cstml', () => {
                   multiFragmentToken: null
                 </>
                 type$: null
-                intrinsicValue$: null
+                literalValue$: null
                 attributes$: null
                 selfClosingTagToken: null
                 closeToken: <*Punctuator '>' { balancer: true } />
@@ -96,7 +96,7 @@ describe('@bablr/language-en-cstml', () => {
             multiFragmentToken: null
           </>
           type$: null
-          intrinsicValue$: null
+          literalValue$: null
           attributes$: null
           selfClosingTagToken: null
           closeToken: <*Punctuator '>' { balancer: true } />
@@ -130,7 +130,7 @@ describe('@bablr/language-en-cstml', () => {
             content: <*IdentifierContent 'Node' { span: 'Identifier' } />
             closeToken: null
           </>
-          intrinsicValue$: null
+          literalValue$: null
           attributes$: null
           selfClosingTagToken: null
           closeToken: <*Punctuator '>' { balancer: true } />
@@ -168,7 +168,7 @@ describe('@bablr/language-en-cstml', () => {
                 multiFragmentToken: null
               </>
               type$: null
-              intrinsicValue$: null
+              literalValue$: null
               attributes$: null
               selfClosingTagToken: null
               closeToken: <*Punctuator '>' { balancer: true } />
@@ -199,7 +199,7 @@ describe('@bablr/language-en-cstml', () => {
                 multiFragmentToken: null
               </>
               type$: null
-              intrinsicValue$: null
+              literalValue$: null
               attributes$: null
               selfClosingTagToken: null
               closeToken: <*Punctuator '>' { balancer: true } />
@@ -231,7 +231,7 @@ describe('@bablr/language-en-cstml', () => {
               multiFragmentToken: null
             </>
             type$: null
-            intrinsicValue$: null
+            literalValue$: null
             attributes$: null
             selfClosingTagToken: null
             closeToken: <*Punctuator '>' { balancer: true } />
@@ -271,7 +271,7 @@ describe('@bablr/language-en-cstml', () => {
                   content: <*IdentifierContent 'Node' { span: 'Identifier' } />
                   closeToken: null
                 </>
-                intrinsicValue$: null
+                literalValue$: null
                 attributes$: null
                 selfClosingTagToken: null
                 closeToken: <*Punctuator '>' { balancer: true } />
@@ -309,7 +309,7 @@ describe('@bablr/language-en-cstml', () => {
               multiFragmentToken: null
             </>
             type$: null
-            intrinsicValue$: null
+            literalValue$: null
             attributes$: null
             selfClosingTagToken: null
             closeToken: <*Punctuator '>' { balancer: true } />
@@ -349,7 +349,7 @@ describe('@bablr/language-en-cstml', () => {
                   content: <*IdentifierContent 'Node' { span: 'Identifier' } />
                   closeToken: null
                 </>
-                intrinsicValue$: null
+                literalValue$: null
                 attributes$: null
                 selfClosingTagToken: null
                 closeToken: <*Punctuator '>' { balancer: true } />
@@ -396,7 +396,7 @@ describe('@bablr/language-en-cstml', () => {
                   content: <*IdentifierContent 'Trivia' { span: 'Identifier' } />
                   closeToken: null
                 </>
-                intrinsicValue$: null
+                literalValue$: null
                 attributes$: null
                 selfClosingTagToken: null
                 closeToken: <*Punctuator '>' { balancer: true } />
@@ -439,7 +439,7 @@ describe('@bablr/language-en-cstml', () => {
               content: <*IdentifierContent 'Node' { span: 'Identifier' } />
               closeToken: null
             </>
-            intrinsicValue$: null
+            literalValue$: null
             attributes$: null
             selfClosingTagToken: null
             closeToken: <*Punctuator '>' { balancer: true } />
@@ -502,7 +502,7 @@ describe('@bablr/language-en-cstml', () => {
               content: <*IdentifierContent 'Node' { span: 'Identifier' } />
               closeToken: null
             </>
-            intrinsicValue$: null
+            literalValue$: null
             attributes$: null
             selfClosingTagToken: null
             closeToken: <*Punctuator '>' { balancer: true } />
@@ -538,7 +538,7 @@ describe('@bablr/language-en-cstml', () => {
                   multiFragmentToken: <*Punctuator '_' />
                 </>
                 type$: null
-                intrinsicValue$: null
+                literalValue$: null
                 attributes$: null
                 selfClosingTagToken: null
                 closeToken: <*Punctuator '>' { balancer: true } />
@@ -581,7 +581,7 @@ describe('@bablr/language-en-cstml', () => {
               content: <*IdentifierContent 'Node' { span: 'Identifier' } />
               closeToken: null
             </>
-            intrinsicValue$: null
+            literalValue$: null
             attributes$: null
             selfClosingTagToken: null
             closeToken: <*Punctuator '>' { balancer: true } />
@@ -644,7 +644,7 @@ describe('@bablr/language-en-cstml', () => {
               content: <*IdentifierContent 'Node' { span: 'Identifier' } />
               closeToken: null
             </>
-            intrinsicValue$: null
+            literalValue$: null
             attributes$: null
             selfClosingTagToken: null
             closeToken: <*Punctuator '>' { balancer: true } />
@@ -690,7 +690,7 @@ describe('@bablr/language-en-cstml', () => {
                   content: <*IdentifierContent 'Node' { span: 'Identifier' } />
                   closeToken: null
                 </>
-                intrinsicValue$: null
+                literalValue$: null
                 attributes$: null
                 selfClosingTagToken: null
                 closeToken: <*Punctuator '>' { balancer: true } />
@@ -734,7 +734,7 @@ describe('@bablr/language-en-cstml', () => {
               closeToken: null
             </>
             #: :Space: <*Space ' ' />
-            intrinsicValue$: null
+            literalValue$: null
             attributes$: :JSON:
             <$Object>
               openToken: <*Punctuator '{' { balanced: '}' } />
@@ -854,7 +854,7 @@ describe('@bablr/language-en-cstml', () => {
                 content: <*IdentifierContent 'Tag' { span: 'Identifier' } />
                 closeToken: null
               </>
-              intrinsicValue$: null
+              literalValue$: null
               attributes$: null
               selfClosingTagToken: null
               closeToken: <*Punctuator '>' { balancer: true } />
@@ -895,7 +895,7 @@ describe('@bablr/language-en-cstml', () => {
                     closeToken: null
                   </>
                   #: :Space: <*Space ' ' />
-                  intrinsicValue$: null
+                  literalValue$: null
                   attributes$: :JSON:
                   <$Object>
                     openToken: <*Punctuator '{' { balanced: '}' } />
@@ -946,8 +946,8 @@ describe('@bablr/language-en-cstml', () => {
   describe('OpenNodeTag', () => {
     const tag = buildCSTMLTag(spam`<$OpenNodeTag />`);
 
-    it("`<*Type 'intrinsicValue' />`", () => {
-      expect(print(tag`<*Type 'intrinsicValue' />`)).toEqual(dedent`\
+    it("`<*Type 'literalValue' />`", () => {
+      expect(print(tag`<*Type 'literalValue' />`)).toEqual(dedent`\
         <$_>
           .:
           <$OpenNodeTag { balanced: false, balancedSpan: null }>
@@ -966,10 +966,10 @@ describe('@bablr/language-en-cstml', () => {
               closeToken: null
             </>
             #: :Space: <*Space ' ' />
-            intrinsicValue$: :JSON:
+            literalValue$: :JSON:
             <$String>
               openToken: <*Punctuator "'" { balanced: "'", balancedSpan: 'String:Single' } />
-              content$: <*StringContent 'intrinsicValue' />
+              content$: <*StringContent 'literalValue' />
               closeToken: <*Punctuator "'" { balancer: true } />
             </>
             #: :Space: <*Space ' ' />
@@ -1000,7 +1000,7 @@ describe('@bablr/language-en-cstml', () => {
               closeToken: null
             </>
             #: :Space: <*Space ' ' />
-            intrinsicValue$: null
+            literalValue$: null
             attributes$: :JSON:
             <$Object>
               openToken: <*Punctuator '{' { balanced: '}' } />
@@ -1078,7 +1078,7 @@ describe('@bablr/language-en-cstml', () => {
               closeToken: <*Punctuator '${'`'}' { balancer: true } />
             </>
             #: :Space: <*Space ' ' />
-            intrinsicValue$: null
+            literalValue$: null
             attributes$: null
             selfClosingTagToken: <*Punctuator '/' />
             closeToken: <*Punctuator '>' { balancer: true } />
@@ -1119,7 +1119,7 @@ describe('@bablr/language-en-cstml', () => {
               closeToken: null
             </>
             #: :Space: <*Space ' ' />
-            intrinsicValue$: null
+            literalValue$: null
             attributes$: null
             selfClosingTagToken: <*Punctuator '/' />
             closeToken: <*Punctuator '>' { balancer: true } />
@@ -1147,7 +1147,7 @@ describe('@bablr/language-en-cstml', () => {
               closeToken: null
             </>
             #: :Space: <*Space ' ' />
-            intrinsicValue$: null
+            literalValue$: null
             attributes$: null
             selfClosingTagToken: <*Punctuator '/' />
             closeToken: <*Punctuator '>' { balancer: true } />
