@@ -32,7 +32,6 @@ describe('@bablr/language-en-cstml', () => {
               version$: :JSON: <*UnsignedInteger '0' />
               versionSeparatorToken: <*Punctuator ':' />
               doctypeToken$: <*Keyword 'cstml' />
-              attributes$: null
               closeToken: <*Punctuator '>' { balancer: true } />
             </>
             tree$:
@@ -50,7 +49,7 @@ describe('@bablr/language-en-cstml', () => {
                 type$: null
                 literalValue$: null
                 attributes$: null
-                selfClosingTagToken: null
+                selfClosingToken: null
                 closeToken: <*Punctuator '>' { balancer: true } />
               </>
               children[]$: []
@@ -82,7 +81,6 @@ describe('@bablr/language-en-cstml', () => {
           version$: :JSON: <*UnsignedInteger '0' />
           versionSeparatorToken: <*Punctuator ':' />
           doctypeToken$: <*Keyword 'cstml' />
-          attributes$: null
           closeToken: <*Punctuator '>' { balancer: true } />
         </>
         .[]:
@@ -98,7 +96,7 @@ describe('@bablr/language-en-cstml', () => {
           type$: null
           literalValue$: null
           attributes$: null
-          selfClosingTagToken: null
+          selfClosingToken: null
           closeToken: <*Punctuator '>' { balancer: true } />
         </>
         .[]:
@@ -132,7 +130,7 @@ describe('@bablr/language-en-cstml', () => {
           </>
           literalValue$: null
           attributes$: null
-          selfClosingTagToken: null
+          selfClosingToken: null
           closeToken: <*Punctuator '>' { balancer: true } />
         </>
         .[]:
@@ -170,7 +168,7 @@ describe('@bablr/language-en-cstml', () => {
               type$: null
               literalValue$: null
               attributes$: null
-              selfClosingTagToken: null
+              selfClosingToken: null
               closeToken: <*Punctuator '>' { balancer: true } />
             </>
             children[]$: []
@@ -201,7 +199,7 @@ describe('@bablr/language-en-cstml', () => {
               type$: null
               literalValue$: null
               attributes$: null
-              selfClosingTagToken: null
+              selfClosingToken: null
               closeToken: <*Punctuator '>' { balancer: true } />
             </>
             #: :Space: <*Space ' ' />
@@ -233,7 +231,7 @@ describe('@bablr/language-en-cstml', () => {
             type$: null
             literalValue$: null
             attributes$: null
-            selfClosingTagToken: null
+            selfClosingToken: null
             closeToken: <*Punctuator '>' { balancer: true } />
           </>
           children[]$: []
@@ -273,7 +271,7 @@ describe('@bablr/language-en-cstml', () => {
                 </>
                 literalValue$: null
                 attributes$: null
-                selfClosingTagToken: null
+                selfClosingToken: null
                 closeToken: <*Punctuator '>' { balancer: true } />
               </>
               children[]$: []
@@ -311,7 +309,7 @@ describe('@bablr/language-en-cstml', () => {
             type$: null
             literalValue$: null
             attributes$: null
-            selfClosingTagToken: null
+            selfClosingToken: null
             closeToken: <*Punctuator '>' { balancer: true } />
           </>
           children[]$: []
@@ -351,7 +349,7 @@ describe('@bablr/language-en-cstml', () => {
                 </>
                 literalValue$: null
                 attributes$: null
-                selfClosingTagToken: null
+                selfClosingToken: null
                 closeToken: <*Punctuator '>' { balancer: true } />
               </>
               children[]$: []
@@ -398,7 +396,7 @@ describe('@bablr/language-en-cstml', () => {
                 </>
                 literalValue$: null
                 attributes$: null
-                selfClosingTagToken: null
+                selfClosingToken: null
                 closeToken: <*Punctuator '>' { balancer: true } />
               </>
               children[]$: []
@@ -441,7 +439,7 @@ describe('@bablr/language-en-cstml', () => {
             </>
             literalValue$: null
             attributes$: null
-            selfClosingTagToken: null
+            selfClosingToken: null
             closeToken: <*Punctuator '>' { balancer: true } />
           </>
           children[]$: []
@@ -504,7 +502,7 @@ describe('@bablr/language-en-cstml', () => {
             </>
             literalValue$: null
             attributes$: null
-            selfClosingTagToken: null
+            selfClosingToken: null
             closeToken: <*Punctuator '>' { balancer: true } />
           </>
           children[]$: []
@@ -540,7 +538,7 @@ describe('@bablr/language-en-cstml', () => {
                 type$: null
                 literalValue$: null
                 attributes$: null
-                selfClosingTagToken: null
+                selfClosingToken: null
                 closeToken: <*Punctuator '>' { balancer: true } />
               </>
               children[]$: []
@@ -583,7 +581,7 @@ describe('@bablr/language-en-cstml', () => {
             </>
             literalValue$: null
             attributes$: null
-            selfClosingTagToken: null
+            selfClosingToken: null
             closeToken: <*Punctuator '>' { balancer: true } />
           </>
           children[]$: []
@@ -646,7 +644,7 @@ describe('@bablr/language-en-cstml', () => {
             </>
             literalValue$: null
             attributes$: null
-            selfClosingTagToken: null
+            selfClosingToken: null
             closeToken: <*Punctuator '>' { balancer: true } />
           </>
           children[]$: []
@@ -692,7 +690,7 @@ describe('@bablr/language-en-cstml', () => {
                 </>
                 literalValue$: null
                 attributes$: null
-                selfClosingTagToken: null
+                selfClosingToken: null
                 closeToken: <*Punctuator '>' { balancer: true } />
               </>
               children[]$: []
@@ -779,7 +777,7 @@ describe('@bablr/language-en-cstml', () => {
               #: :Space: <*Space ' ' />
               closeToken: <*Punctuator '}' { balancer: true } />
             </>
-            selfClosingTagToken: null
+            selfClosingToken: null
             closeToken: <*Punctuator '>' { balancer: true } />
           </>
           #: :Space: <*Space ' ' />
@@ -856,7 +854,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
               literalValue$: null
               attributes$: null
-              selfClosingTagToken: null
+              selfClosingToken: null
               closeToken: <*Punctuator '>' { balancer: true } />
             </>
             children[]$: []
@@ -922,7 +920,7 @@ describe('@bablr/language-en-cstml', () => {
                     #: :Space: <*Space ' ' />
                     closeToken: <*Punctuator '}' { balancer: true } />
                   </>
-                  selfClosingTagToken: null
+                  selfClosingToken: null
                   closeToken: <*Punctuator '>' { balancer: true } />
                 </>
                 children[]$: []
@@ -974,7 +972,7 @@ describe('@bablr/language-en-cstml', () => {
             </>
             #: :Space: <*Space ' ' />
             attributes$: null
-            selfClosingTagToken: <*Punctuator '/' />
+            selfClosingToken: <*Punctuator '/' />
             closeToken: <*Punctuator '>' { balancer: true } />
           </>
         </>\n`);
@@ -1052,7 +1050,7 @@ describe('@bablr/language-en-cstml', () => {
               closeToken: <*Punctuator '}' { balancer: true } />
             </>
             #: :Space: <*Space ' ' />
-            selfClosingTagToken: <*Punctuator '/' />
+            selfClosingToken: <*Punctuator '/' />
             closeToken: <*Punctuator '>' { balancer: true } />
           </>
         </>\n`);
@@ -1080,7 +1078,7 @@ describe('@bablr/language-en-cstml', () => {
             #: :Space: <*Space ' ' />
             literalValue$: null
             attributes$: null
-            selfClosingTagToken: <*Punctuator '/' />
+            selfClosingToken: <*Punctuator '/' />
             closeToken: <*Punctuator '>' { balancer: true } />
           </>
         </>\n`);
@@ -1121,7 +1119,7 @@ describe('@bablr/language-en-cstml', () => {
             #: :Space: <*Space ' ' />
             literalValue$: null
             attributes$: null
-            selfClosingTagToken: <*Punctuator '/' />
+            selfClosingToken: <*Punctuator '/' />
             closeToken: <*Punctuator '>' { balancer: true } />
           </>
         </>\n`);
@@ -1149,7 +1147,7 @@ describe('@bablr/language-en-cstml', () => {
             #: :Space: <*Space ' ' />
             literalValue$: null
             attributes$: null
-            selfClosingTagToken: <*Punctuator '/' />
+            selfClosingToken: <*Punctuator '/' />
             closeToken: <*Punctuator '>' { balancer: true } />
           </>
         </>\n`);
