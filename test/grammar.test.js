@@ -73,77 +73,77 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<!0:cstml><_>.:<Node></></>', () => {
       expect(print(cstml`<!0:cstml><_>.:<Node></></>`)).toEqual(dedent`\
-      <$__>
-        .[]: []
-        .[]:
-        <$DoctypeTag>
-          openToken: <*Punctuator '<!' { balancedSpan: 'Tag', balanced: '>' } />
-          version$: :JSON: <*UnsignedInteger '0' />
-          versionSeparatorToken: <*Punctuator ':' />
-          doctypeToken$: <*Keyword 'cstml' />
-          closeToken: <*Punctuator '>' { balancer: true } />
-        </>
-        .[]:
-        <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-          openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
-          flags:
-          <$NodeFlags>
-            tokenToken: null
-            hasGapToken: null
-            fragmentToken: <*Punctuator '_' />
-            multiFragmentToken: null
+        <$__>
+          .[]: []
+          .[]:
+          <$DoctypeTag>
+            openToken: <*Punctuator '<!' { balancedSpan: 'Tag', balanced: '>' } />
+            version$: :JSON: <*UnsignedInteger '0' />
+            versionSeparatorToken: <*Punctuator ':' />
+            doctypeToken$: <*Keyword 'cstml' />
+            closeToken: <*Punctuator '>' { balancer: true } />
           </>
-          type$: null
-          literalValue$: null
-          attributes$: null
-          selfClosingToken: null
-          closeToken: <*Punctuator '>' { balancer: true } />
-        </>
-        .[]:
-        <$ReferenceTag>
-          type: <*Punctuator '.' />
-          name$: null
-          openIndexToken: null
-          closeIndexToken: null
-          flags:
-          <$ReferenceFlags>
-            expressionToken: null
-            hasGapToken: null
+          .[]:
+          <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+            flags:
+            <$NodeFlags>
+              tokenToken: null
+              hasGapToken: null
+              fragmentToken: <*Punctuator '_' />
+              multiFragmentToken: null
+            </>
+            type$: null
+            literalValue$: null
+            attributes$: null
+            selfClosingToken: null
+            closeToken: <*Punctuator '>' { balancer: true } />
           </>
-          sigilToken: <*Punctuator ':' />
-        </>
-        .[]:
-        <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-          openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
-          flags:
-          <$NodeFlags>
-            tokenToken: null
-            hasGapToken: null
-            fragmentToken: null
-            multiFragmentToken: null
+          .[]:
+          <$ReferenceTag>
+            type: <*Punctuator '.' />
+            name$: null
+            openIndexToken: null
+            closeIndexToken: null
+            flags:
+            <$ReferenceFlags>
+              expressionToken: null
+              hasGapToken: null
+            </>
+            sigilToken: <*Punctuator ':' />
           </>
-          type$:
-          <$Identifier>
-            openToken: null
-            content: <*IdentifierContent 'Node' { span: 'Identifier' } />
-            closeToken: null
+          .[]:
+          <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+            flags:
+            <$NodeFlags>
+              tokenToken: null
+              hasGapToken: null
+              fragmentToken: null
+              multiFragmentToken: null
+            </>
+            type$:
+            <$Identifier>
+              openToken: null
+              content: <*IdentifierContent 'Node' { span: 'Identifier' } />
+              closeToken: null
+            </>
+            literalValue$: null
+            attributes$: null
+            selfClosingToken: null
+            closeToken: <*Punctuator '>' { balancer: true } />
           </>
-          literalValue$: null
-          attributes$: null
-          selfClosingToken: null
-          closeToken: <*Punctuator '>' { balancer: true } />
-        </>
-        .[]:
-        <$CloseNodeTag { balancer: true }>
-          openToken: <*Punctuator '</' { balanced: '>' } />
-          closeToken: <*Punctuator '>' { balancer: true } />
-        </>
-        .[]:
-        <$CloseNodeTag { balancer: true }>
-          openToken: <*Punctuator '</' { balanced: '>' } />
-          closeToken: <*Punctuator '>' { balancer: true } />
-        </>
-      </>\n`);
+          .[]:
+          <$CloseNodeTag { balancer: true }>
+            openToken: <*Punctuator '</' { balanced: '>' } />
+            closeToken: <*Punctuator '>' { balancer: true } />
+          </>
+          .[]:
+          <$CloseNodeTag { balancer: true }>
+            openToken: <*Punctuator '</' { balanced: '>' } />
+            closeToken: <*Punctuator '>' { balancer: true } />
+          </>
+        </>\n`);
     });
   });
 
@@ -215,803 +215,808 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<_>.:<Node></></>', () => {
       expect(print(cstml`<_>.:<Node></></>`)).toEqual(dedent`\
-      <$_>
-        .:
-        <$Node>
-          open:
-          <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
-            flags:
-            <$NodeFlags>
-              tokenToken: null
-              hasGapToken: null
-              fragmentToken: <*Punctuator '_' />
-              multiFragmentToken: null
-            </>
-            type$: null
-            literalValue$: null
-            attributes$: null
-            selfClosingToken: null
-            closeToken: <*Punctuator '>' { balancer: true } />
-          </>
-          children[]$: []
-          children[]$:
-          <$Property>
-            reference$:
-            <$ReferenceTag>
-              type: <*Punctuator '.' />
-              name$: null
-              openIndexToken: null
-              closeIndexToken: null
+        <$_>
+          .:
+          <$Node>
+            open:
+            <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
-              <$ReferenceFlags>
-                expressionToken: null
+              <$NodeFlags>
+                tokenToken: null
                 hasGapToken: null
+                fragmentToken: <*Punctuator '_' />
+                multiFragmentToken: null
               </>
-              sigilToken: <*Punctuator ':' />
+              type$: null
+              literalValue$: null
+              attributes$: null
+              selfClosingToken: null
+              closeToken: <*Punctuator '>' { balancer: true } />
             </>
-            binding$: null
-            value$:
-            <$Node>
-              open:
-              <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-                openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+            children[]$: []
+            children[]$:
+            <$Property>
+              reference$:
+              <$ReferenceTag>
+                type: <*Punctuator '.' />
+                name$: null
+                openIndexToken: null
+                closeIndexToken: null
                 flags:
-                <$NodeFlags>
-                  tokenToken: null
+                <$ReferenceFlags>
+                  expressionToken: null
                   hasGapToken: null
-                  fragmentToken: null
-                  multiFragmentToken: null
                 </>
-                type$:
-                <$Identifier>
-                  openToken: null
-                  content: <*IdentifierContent 'Node' { span: 'Identifier' } />
-                  closeToken: null
-                </>
-                literalValue$: null
-                attributes$: null
-                selfClosingToken: null
-                closeToken: <*Punctuator '>' { balancer: true } />
+                sigilToken: <*Punctuator ':' />
               </>
-              children[]$: []
-              close:
-              <$CloseNodeTag { balancer: true }>
-                openToken: <*Punctuator '</' { balanced: '>' } />
-                closeToken: <*Punctuator '>' { balancer: true } />
+              binding$: null
+              value$:
+              <$Node>
+                open:
+                <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+                  openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+                  flags:
+                  <$NodeFlags>
+                    tokenToken: null
+                    hasGapToken: null
+                    fragmentToken: null
+                    multiFragmentToken: null
+                  </>
+                  type$:
+                  <$Identifier>
+                    openToken: null
+                    content: <*IdentifierContent 'Node' { span: 'Identifier' } />
+                    closeToken: null
+                  </>
+                  literalValue$: null
+                  attributes$: null
+                  selfClosingToken: null
+                  closeToken: <*Punctuator '>' { balancer: true } />
+                </>
+                children[]$: []
+                close:
+                <$CloseNodeTag { balancer: true }>
+                  openToken: <*Punctuator '</' { balanced: '>' } />
+                  closeToken: <*Punctuator '>' { balancer: true } />
+                </>
               </>
             </>
+            close:
+            <$CloseNodeTag { balancer: true }>
+              openToken: <*Punctuator '</' { balanced: '>' } />
+              closeToken: <*Punctuator '>' { balancer: true } />
+            </>
           </>
-          close:
-          <$CloseNodeTag { balancer: true }>
-            openToken: <*Punctuator '</' { balanced: '>' } />
-            closeToken: <*Punctuator '>' { balancer: true } />
-          </>
-        </>
-      </>\n`);
+        </>\n`);
     });
 
     it('<_>.:<Node></>#:<Trivia></></>', () => {
       expect(print(cstml`<_>.:<Node></>#:<Trivia></></>`)).toEqual(dedent`\
-      <$_>
-        .:
-        <$Node>
-          open:
-          <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
-            flags:
-            <$NodeFlags>
-              tokenToken: null
-              hasGapToken: null
-              fragmentToken: <*Punctuator '_' />
-              multiFragmentToken: null
-            </>
-            type$: null
-            literalValue$: null
-            attributes$: null
-            selfClosingToken: null
-            closeToken: <*Punctuator '>' { balancer: true } />
-          </>
-          children[]$: []
-          children[]$:
-          <$Property>
-            reference$:
-            <$ReferenceTag>
-              type: <*Punctuator '.' />
-              name$: null
-              openIndexToken: null
-              closeIndexToken: null
+        <$_>
+          .:
+          <$Node>
+            open:
+            <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
-              <$ReferenceFlags>
-                expressionToken: null
+              <$NodeFlags>
+                tokenToken: null
                 hasGapToken: null
+                fragmentToken: <*Punctuator '_' />
+                multiFragmentToken: null
               </>
-              sigilToken: <*Punctuator ':' />
+              type$: null
+              literalValue$: null
+              attributes$: null
+              selfClosingToken: null
+              closeToken: <*Punctuator '>' { balancer: true } />
             </>
-            binding$: null
-            value$:
-            <$Node>
-              open:
-              <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-                openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+            children[]$: []
+            children[]$:
+            <$Property>
+              reference$:
+              <$ReferenceTag>
+                type: <*Punctuator '.' />
+                name$: null
+                openIndexToken: null
+                closeIndexToken: null
                 flags:
-                <$NodeFlags>
-                  tokenToken: null
+                <$ReferenceFlags>
+                  expressionToken: null
                   hasGapToken: null
-                  fragmentToken: null
-                  multiFragmentToken: null
                 </>
-                type$:
-                <$Identifier>
-                  openToken: null
-                  content: <*IdentifierContent 'Node' { span: 'Identifier' } />
-                  closeToken: null
-                </>
-                literalValue$: null
-                attributes$: null
-                selfClosingToken: null
-                closeToken: <*Punctuator '>' { balancer: true } />
+                sigilToken: <*Punctuator ':' />
               </>
-              children[]$: []
-              close:
-              <$CloseNodeTag { balancer: true }>
-                openToken: <*Punctuator '</' { balanced: '>' } />
-                closeToken: <*Punctuator '>' { balancer: true } />
+              binding$: null
+              value$:
+              <$Node>
+                open:
+                <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+                  openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+                  flags:
+                  <$NodeFlags>
+                    tokenToken: null
+                    hasGapToken: null
+                    fragmentToken: null
+                    multiFragmentToken: null
+                  </>
+                  type$:
+                  <$Identifier>
+                    openToken: null
+                    content: <*IdentifierContent 'Node' { span: 'Identifier' } />
+                    closeToken: null
+                  </>
+                  literalValue$: null
+                  attributes$: null
+                  selfClosingToken: null
+                  closeToken: <*Punctuator '>' { balancer: true } />
+                </>
+                children[]$: []
+                close:
+                <$CloseNodeTag { balancer: true }>
+                  openToken: <*Punctuator '</' { balanced: '>' } />
+                  closeToken: <*Punctuator '>' { balancer: true } />
+                </>
               </>
             </>
-          </>
-          children[]$:
-          <$Property>
-            reference$:
-            <$ReferenceTag>
-              type: <*Punctuator '#' />
-              name$: null
-              openIndexToken: null
-              closeIndexToken: null
-              flags:
-              <$ReferenceFlags>
-                expressionToken: null
-                hasGapToken: null
-              </>
-              sigilToken: <*Punctuator ':' />
-            </>
-            binding$: null
-            value$:
-            <$Node>
-              open:
-              <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-                openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+            children[]$:
+            <$Property>
+              reference$:
+              <$ReferenceTag>
+                type: <*Punctuator '#' />
+                name$: null
+                openIndexToken: null
+                closeIndexToken: null
                 flags:
-                <$NodeFlags>
-                  tokenToken: null
+                <$ReferenceFlags>
+                  expressionToken: null
                   hasGapToken: null
-                  fragmentToken: null
-                  multiFragmentToken: null
                 </>
-                type$:
-                <$Identifier>
-                  openToken: null
-                  content: <*IdentifierContent 'Trivia' { span: 'Identifier' } />
-                  closeToken: null
-                </>
-                literalValue$: null
-                attributes$: null
-                selfClosingToken: null
-                closeToken: <*Punctuator '>' { balancer: true } />
+                sigilToken: <*Punctuator ':' />
               </>
-              children[]$: []
-              close:
-              <$CloseNodeTag { balancer: true }>
-                openToken: <*Punctuator '</' { balanced: '>' } />
-                closeToken: <*Punctuator '>' { balancer: true } />
+              binding$: null
+              value$:
+              <$Node>
+                open:
+                <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+                  openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+                  flags:
+                  <$NodeFlags>
+                    tokenToken: null
+                    hasGapToken: null
+                    fragmentToken: null
+                    multiFragmentToken: null
+                  </>
+                  type$:
+                  <$Identifier>
+                    openToken: null
+                    content: <*IdentifierContent 'Trivia' { span: 'Identifier' } />
+                    closeToken: null
+                  </>
+                  literalValue$: null
+                  attributes$: null
+                  selfClosingToken: null
+                  closeToken: <*Punctuator '>' { balancer: true } />
+                </>
+                children[]$: []
+                close:
+                <$CloseNodeTag { balancer: true }>
+                  openToken: <*Punctuator '</' { balanced: '>' } />
+                  closeToken: <*Punctuator '>' { balancer: true } />
+                </>
               </>
             </>
+            close:
+            <$CloseNodeTag { balancer: true }>
+              openToken: <*Punctuator '</' { balanced: '>' } />
+              closeToken: <*Punctuator '>' { balancer: true } />
+            </>
           </>
-          close:
-          <$CloseNodeTag { balancer: true }>
-            openToken: <*Punctuator '</' { balanced: '>' } />
-            closeToken: <*Punctuator '>' { balancer: true } />
-          </>
-        </>
-      </>\n`);
+        </>\n`);
     });
 
     it('`<Node>reference: null</>`', () => {
       expect(print(cstml`<Node>reference: null</>`)).toEqual(dedent`\
-      <$_>
-        .:
-        <$Node>
-          open:
-          <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
-            flags:
-            <$NodeFlags>
-              tokenToken: null
-              hasGapToken: null
-              fragmentToken: null
-              multiFragmentToken: null
-            </>
-            type$:
-            <$Identifier>
-              openToken: null
-              content: <*IdentifierContent 'Node' { span: 'Identifier' } />
-              closeToken: null
-            </>
-            literalValue$: null
-            attributes$: null
-            selfClosingToken: null
-            closeToken: <*Punctuator '>' { balancer: true } />
-          </>
-          children[]$: []
-          children[]$:
-          <$Property>
-            reference$:
-            <$ReferenceTag>
-              type: null
-              name$:
+        <$_>
+          .:
+          <$Node>
+            open:
+            <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              flags:
+              <$NodeFlags>
+                tokenToken: null
+                hasGapToken: null
+                fragmentToken: null
+                multiFragmentToken: null
+              </>
+              type$:
               <$Identifier>
                 openToken: null
-                content: <*IdentifierContent 'reference' { span: 'Identifier' } />
+                content: <*IdentifierContent 'Node' { span: 'Identifier' } />
                 closeToken: null
               </>
-              openIndexToken: null
-              closeIndexToken: null
-              flags:
-              <$ReferenceFlags>
-                expressionToken: null
-                hasGapToken: null
+              literalValue$: null
+              attributes$: null
+              selfClosingToken: null
+              closeToken: <*Punctuator '>' { balancer: true } />
+            </>
+            children[]$: []
+            children[]$:
+            <$Property>
+              reference$:
+              <$ReferenceTag>
+                type: null
+                name$:
+                <$Identifier>
+                  openToken: null
+                  content: <*IdentifierContent 'reference' { span: 'Identifier' } />
+                  closeToken: null
+                </>
+                openIndexToken: null
+                closeIndexToken: null
+                flags:
+                <$ReferenceFlags>
+                  expressionToken: null
+                  hasGapToken: null
+                </>
+                sigilToken: <*Punctuator ':' />
               </>
-              sigilToken: <*Punctuator ':' />
+              #: :Space: <*Space ' ' />
+              binding$: null
+              value$:
+              <$NullTag>
+                sigilToken: <*Keyword 'null' />
+              </>
             </>
-            #: :Space: <*Space ' ' />
-            binding$: null
-            value$:
-            <$NullTag>
-              sigilToken: <*Keyword 'null' />
+            close:
+            <$CloseNodeTag { balancer: true }>
+              openToken: <*Punctuator '</' { balanced: '>' } />
+              closeToken: <*Punctuator '>' { balancer: true } />
             </>
           </>
-          close:
-          <$CloseNodeTag { balancer: true }>
-            openToken: <*Punctuator '</' { balanced: '>' } />
-            closeToken: <*Punctuator '>' { balancer: true } />
-          </>
-        </>
-      </>\n`);
+        </>\n`);
     });
 
     it('`<Node> "stringContent" </>`', () => {
       expect(print(cstml`<Node> "stringContent" </>`)).toEqual(dedent`\
-      <$_>
-        .:
-        <$Node>
-          open:
-          <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
-            flags:
-            <$NodeFlags>
-              tokenToken: null
-              hasGapToken: null
-              fragmentToken: null
-              multiFragmentToken: null
-            </>
-            type$:
-            <$Identifier>
-              openToken: null
-              content: <*IdentifierContent 'Node' { span: 'Identifier' } />
-              closeToken: null
-            </>
-            intrinsicValue$: null
-            attributes$: null
-            selfClosingTagToken: null
-            closeToken: <*Punctuator '>' { balancer: true } />
-          </>
-          #: :Space: <*Space ' ' />
-          children[]$: []
-          children[]$:
+        <$_>
+          .:
           <$Node>
             open:
-            <$OpenNodeTag { balanced: null, balancedSpan: null }>
-              openToken: null
-              flags: null
-              type: null
-              literalValue: :JSON:
+            <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              flags:
+              <$NodeFlags>
+                tokenToken: null
+                hasGapToken: null
+                fragmentToken: null
+                multiFragmentToken: null
+              </>
+              type$:
+              <$Identifier>
+                openToken: null
+                content: <*IdentifierContent 'Node' { span: 'Identifier' } />
+                closeToken: null
+              </>
+              literalValue$: null
+              attributes$: null
+              selfClosingToken: null
+              closeToken: <*Punctuator '>' { balancer: true } />
+            </>
+            #: :Space: <*Space ' ' />
+            children[]$: []
+            children[]$:
+            <$Property>
+              reference$: null
+              binding$: null
+              value$:
+              <$Node>
+                open:
+                <$OpenNodeTag { balanced: undefined, balancedSpan: undefined }>
+                  openToken: null
+                  flags: null
+                  type: null
+                  literalValue: :JSON:
+                  <$String>
+                    openToken: <*Punctuator '"' { balanced: '"', balancedSpan: 'String:Double' } />
+                    content$: <*StringContent 'stringContent' />
+                    closeToken: <*Punctuator '"' { balancer: true } />
+                  </>
+                  attributes: null
+                  selfClosingTag: null
+                  closeToken: null
+                </>
+                #: :Space: <*Space ' ' />
+                children[]$: []
+                close: null
+              </>
+            </>
+            close:
+            <$CloseNodeTag { balancer: true }>
+              openToken: <*Punctuator '</' { balanced: '>' } />
+              closeToken: <*Punctuator '>' { balancer: true } />
+            </>
+          </>
+        </>\n`);
+    });
+
+    it('`<Node "stringContent" />`', () => {
+      expect(print(cstml`<Node "stringContent" />`)).toEqual(dedent`\
+        <$_>
+          .:
+          <$Node>
+            open:
+            <$OpenNodeTag { balanced: false, balancedSpan: null }>
+              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              flags:
+              <$NodeFlags>
+                tokenToken: null
+                hasGapToken: null
+                fragmentToken: null
+                multiFragmentToken: null
+              </>
+              type$:
+              <$Identifier>
+                openToken: null
+                content: <*IdentifierContent 'Node' { span: 'Identifier' } />
+                closeToken: null
+              </>
+              #: :Space: <*Space ' ' />
+              literalValue$: :JSON:
               <$String>
                 openToken: <*Punctuator '\"' { balanced: '\"', balancedSpan: 'String:Double' } />
                 content$: <*StringContent 'stringContent' />
                 closeToken: <*Punctuator '\"' { balancer: true } />
               </>
-              attributes: null
-              selfClosingTag: null
-              closeToken: null
+              #: :Space: <*Space ' ' />
+              attributes$: null
+              selfClosingToken: <*Punctuator '/' />
+              closeToken: <*Punctuator '>' { balancer: true } />
             </>
-            #: :Space: <*Space ' ' />
             children[]$: []
             close: null
           </>
-          close:
-          <$CloseNodeTag { balancer: true }>
-            openToken: <*Punctuator '</' { balanced: '>' } />
-            closeToken: <*Punctuator '>' { balancer: true } />
-          </>
-        </>
-      </>\n`);
-    });
-
-    it('`<Node "stringContent" />`', () => {
-      expect(print(cstml`<Node "stringContent" />`)).toEqual(dedent`\
-      <$_>
-        .:
-        <$Node>
-          open:
-          <$OpenNodeTag { balanced: false, balancedSpan: null }>
-            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
-            flags:
-            <$NodeFlags>
-              tokenToken: null
-              hasGapToken: null
-              fragmentToken: null
-              multiFragmentToken: null
-            </>
-            type$:
-            <$Identifier>
-              openToken: null
-              content: <*IdentifierContent 'Node' { span: 'Identifier' } />
-              closeToken: null
-            </>
-            #: :Space: <*Space ' ' />
-            intrinsicValue$: :JSON:
-            <$String>
-              openToken: <*Punctuator '\"' { balanced: '\"', balancedSpan: 'String:Double' } />
-              content$: <*StringContent 'stringContent' />
-              closeToken: <*Punctuator '\"' { balancer: true } />
-            </>
-            #: :Space: <*Space ' ' />
-            attributes$: null
-            selfClosingTagToken: <*Punctuator '/' />
-            closeToken: <*Punctuator '>' { balancer: true } />
-          </>
-          children[]$: []
-          close: null
-        </>
-      </>\n`);
+        </>\n`);
     });
 
     it('`<*Token> "stringContent" </>`', () => {
       expect(print(cstml`<*Token> "stringContent" </>`)).toEqual(dedent`\
-      <$_>
-        .:
-        <$Node>
-          open:
-          <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
-            flags:
-            <$NodeFlags>
-              tokenToken: <*Punctuator '*' />
-              hasGapToken: null
-              fragmentToken: null
-              multiFragmentToken: null
+        <$_>
+          .:
+          <$Node>
+            open:
+            <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              flags:
+              <$NodeFlags>
+                tokenToken: <*Punctuator '*' />
+                hasGapToken: null
+                fragmentToken: null
+                multiFragmentToken: null
+              </>
+              type$:
+              <$Identifier>
+                openToken: null
+                content: <*IdentifierContent 'Token' { span: 'Identifier' } />
+                closeToken: null
+              </>
+              literalValue$: null
+              attributes$: null
+              selfClosingToken: null
+              closeToken: <*Punctuator '>' { balancer: true } />
             </>
-            type$:
-            <$Identifier>
-              openToken: null
-              content: <*IdentifierContent 'Token' { span: 'Identifier' } />
-              closeToken: null
+            #: :Space: <*Space ' ' />
+            children[]$: []
+            children[]$:
+            <$LiteralTag>
+              value: :JSON:
+              <$String>
+                openToken: <*Punctuator '"' { balanced: '"', balancedSpan: 'String:Double' } />
+                content$: <*StringContent 'stringContent' />
+                closeToken: <*Punctuator '"' { balancer: true } />
+              </>
             </>
-            intrinsicValue$: null
-            attributes$: null
-            selfClosingTagToken: null
-            closeToken: <*Punctuator '>' { balancer: true } />
-          </>
-          #: :Space: <*Space ' ' />
-          children[]$: []
-          children[]$:
-          <$LiteralTag>
-            value: :JSON:
-            <$String>
-              openToken: <*Punctuator '"' { balanced: '"', balancedSpan: 'String:Double' } />
-              content$: <*StringContent 'stringContent' />
-              closeToken: <*Punctuator '"' { balancer: true } />
+            #: :Space: <*Space ' ' />
+            close:
+            <$CloseNodeTag { balancer: true }>
+              openToken: <*Punctuator '</' { balanced: '>' } />
+              closeToken: <*Punctuator '>' { balancer: true } />
             </>
           </>
-          #: :Space: <*Space ' ' />
-          close:
-          <$CloseNodeTag { balancer: true }>
-            openToken: <*Punctuator '</' { balanced: '>' } />
-            closeToken: <*Punctuator '>' { balancer: true } />
-          </>
-        </>
-      </>\n`);
+        </>\n`);
     });
 
     it('`<*Token "stringContent" />`', () => {
       expect(print(cstml`<*Token "stringContent" />`)).toEqual(dedent`\
-      <$_>
-        .:
-        <$Node>
-          open:
-          <$OpenNodeTag { balanced: false, balancedSpan: null }>
-            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
-            flags:
-            <$NodeFlags>
-              tokenToken: <*Punctuator '*' />
-              hasGapToken: null
-              fragmentToken: null
-              multiFragmentToken: null
+        <$_>
+          .:
+          <$Node>
+            open:
+            <$OpenNodeTag { balanced: false, balancedSpan: null }>
+              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              flags:
+              <$NodeFlags>
+                tokenToken: <*Punctuator '*' />
+                hasGapToken: null
+                fragmentToken: null
+                multiFragmentToken: null
+              </>
+              type$:
+              <$Identifier>
+                openToken: null
+                content: <*IdentifierContent 'Token' { span: 'Identifier' } />
+                closeToken: null
+              </>
+              #: :Space: <*Space ' ' />
+              literalValue$: :JSON:
+              <$String>
+                openToken: <*Punctuator '"' { balanced: '"', balancedSpan: 'String:Double' } />
+                content$: <*StringContent 'stringContent' />
+                closeToken: <*Punctuator '"' { balancer: true } />
+              </>
+              #: :Space: <*Space ' ' />
+              attributes$: null
+              selfClosingToken: <*Punctuator '/' />
+              closeToken: <*Punctuator '>' { balancer: true } />
             </>
-            type$:
-            <$Identifier>
-              openToken: null
-              content: <*IdentifierContent 'Token' { span: 'Identifier' } />
-              closeToken: null
-            </>
-            #: :Space: <*Space ' ' />
-            intrinsicValue$: :JSON:
-            <$String>
-              openToken: <*Punctuator '"' { balanced: '"', balancedSpan: 'String:Double' } />
-              content$: <*StringContent 'stringContent' />
-              closeToken: <*Punctuator '"' { balancer: true } />
-            </>
-            #: :Space: <*Space ' ' />
-            attributes$: null
-            selfClosingTagToken: <*Punctuator '/' />
-            closeToken: <*Punctuator '>' { balancer: true } />
+            children[]$: []
+            close: null
           </>
-          children[]$: []
-          close: null
-        </>
-      </>\n`);
+        </>\n`);
     });
 
     it('`<Node>#: <__></></>`', () => {
       expect(print(cstml`<Node>_: <__></></>`)).toEqual(dedent`\
-      <$_>
-        .:
-        <$Node>
-          open:
-          <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
-            flags:
-            <$NodeFlags>
-              tokenToken: null
-              hasGapToken: null
-              fragmentToken: null
-              multiFragmentToken: null
-            </>
-            type$:
-            <$Identifier>
-              openToken: null
-              content: <*IdentifierContent 'Node' { span: 'Identifier' } />
-              closeToken: null
-            </>
-            literalValue$: null
-            attributes$: null
-            selfClosingToken: null
-            closeToken: <*Punctuator '>' { balancer: true } />
-          </>
-          children[]$: []
-          children[]$:
-          <$Property>
-            reference$:
-            <$ReferenceTag>
-              type: <*Punctuator '_' />
-              name$: null
-              openIndexToken: null
-              closeIndexToken: null
+        <$_>
+          .:
+          <$Node>
+            open:
+            <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
-              <$ReferenceFlags>
-                expressionToken: null
+              <$NodeFlags>
+                tokenToken: null
                 hasGapToken: null
+                fragmentToken: null
+                multiFragmentToken: null
               </>
-              sigilToken: <*Punctuator ':' />
+              type$:
+              <$Identifier>
+                openToken: null
+                content: <*IdentifierContent 'Node' { span: 'Identifier' } />
+                closeToken: null
+              </>
+              literalValue$: null
+              attributes$: null
+              selfClosingToken: null
+              closeToken: <*Punctuator '>' { balancer: true } />
             </>
-            #: :Space: <*Space ' ' />
-            binding$: null
-            value$:
-            <$Node>
-              open:
-              <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-                openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+            children[]$: []
+            children[]$:
+            <$Property>
+              reference$:
+              <$ReferenceTag>
+                type: <*Punctuator '_' />
+                name$: null
+                openIndexToken: null
+                closeIndexToken: null
                 flags:
-                <$NodeFlags>
-                  tokenToken: null
+                <$ReferenceFlags>
+                  expressionToken: null
                   hasGapToken: null
-                  fragmentToken: <*Punctuator '_' />
-                  multiFragmentToken: <*Punctuator '_' />
                 </>
-                type$: null
-                literalValue$: null
-                attributes$: null
-                selfClosingToken: null
-                closeToken: <*Punctuator '>' { balancer: true } />
+                sigilToken: <*Punctuator ':' />
               </>
-              children[]$: []
-              close:
-              <$CloseNodeTag { balancer: true }>
-                openToken: <*Punctuator '</' { balanced: '>' } />
-                closeToken: <*Punctuator '>' { balancer: true } />
+              #: :Space: <*Space ' ' />
+              binding$: null
+              value$:
+              <$Node>
+                open:
+                <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+                  openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+                  flags:
+                  <$NodeFlags>
+                    tokenToken: null
+                    hasGapToken: null
+                    fragmentToken: <*Punctuator '_' />
+                    multiFragmentToken: <*Punctuator '_' />
+                  </>
+                  type$: null
+                  literalValue$: null
+                  attributes$: null
+                  selfClosingToken: null
+                  closeToken: <*Punctuator '>' { balancer: true } />
+                </>
+                children[]$: []
+                close:
+                <$CloseNodeTag { balancer: true }>
+                  openToken: <*Punctuator '</' { balanced: '>' } />
+                  closeToken: <*Punctuator '>' { balancer: true } />
+                </>
               </>
             </>
+            close:
+            <$CloseNodeTag { balancer: true }>
+              openToken: <*Punctuator '</' { balanced: '>' } />
+              closeToken: <*Punctuator '>' { balancer: true } />
+            </>
           </>
-          close:
-          <$CloseNodeTag { balancer: true }>
-            openToken: <*Punctuator '</' { balanced: '>' } />
-            closeToken: <*Punctuator '>' { balancer: true } />
-          </>
-        </>
-      </>\n`);
+        </>\n`);
     });
 
     it('`<Node>reference: <//></>`', () => {
       expect(print(cstml`<Node>reference: <//></>`)).toEqual(dedent`\
-      <$_>
-        .:
-        <$Node>
-          open:
-          <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
-            flags:
-            <$NodeFlags>
-              tokenToken: null
-              hasGapToken: null
-              fragmentToken: null
-              multiFragmentToken: null
-            </>
-            type$:
-            <$Identifier>
-              openToken: null
-              content: <*IdentifierContent 'Node' { span: 'Identifier' } />
-              closeToken: null
-            </>
-            literalValue$: null
-            attributes$: null
-            selfClosingToken: null
-            closeToken: <*Punctuator '>' { balancer: true } />
-          </>
-          children[]$: []
-          children[]$:
-          <$Property>
-            reference$:
-            <$ReferenceTag>
-              type: null
-              name$:
+        <$_>
+          .:
+          <$Node>
+            open:
+            <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              flags:
+              <$NodeFlags>
+                tokenToken: null
+                hasGapToken: null
+                fragmentToken: null
+                multiFragmentToken: null
+              </>
+              type$:
               <$Identifier>
                 openToken: null
-                content: <*IdentifierContent 'reference' { span: 'Identifier' } />
+                content: <*IdentifierContent 'Node' { span: 'Identifier' } />
                 closeToken: null
               </>
-              openIndexToken: null
-              closeIndexToken: null
-              flags:
-              <$ReferenceFlags>
-                expressionToken: null
-                hasGapToken: null
+              literalValue$: null
+              attributes$: null
+              selfClosingToken: null
+              closeToken: <*Punctuator '>' { balancer: true } />
+            </>
+            children[]$: []
+            children[]$:
+            <$Property>
+              reference$:
+              <$ReferenceTag>
+                type: null
+                name$:
+                <$Identifier>
+                  openToken: null
+                  content: <*IdentifierContent 'reference' { span: 'Identifier' } />
+                  closeToken: null
+                </>
+                openIndexToken: null
+                closeIndexToken: null
+                flags:
+                <$ReferenceFlags>
+                  expressionToken: null
+                  hasGapToken: null
+                </>
+                sigilToken: <*Punctuator ':' />
               </>
-              sigilToken: <*Punctuator ':' />
+              #: :Space: <*Space ' ' />
+              binding$: null
+              value$:
+              <$GapTag>
+                sigilToken: <*Punctuator '<//>' />
+              </>
             </>
-            #: :Space: <*Space ' ' />
-            binding$: null
-            value$:
-            <$GapTag>
-              sigilToken: <*Punctuator '<//>' />
+            close:
+            <$CloseNodeTag { balancer: true }>
+              openToken: <*Punctuator '</' { balanced: '>' } />
+              closeToken: <*Punctuator '>' { balancer: true } />
             </>
           </>
-          close:
-          <$CloseNodeTag { balancer: true }>
-            openToken: <*Punctuator '</' { balanced: '>' } />
-            closeToken: <*Punctuator '>' { balancer: true } />
-          </>
-        </>
-      </>\n`);
+        </>\n`);
     });
 
     it('`<Node>reference: <Node></></>`', () => {
       expect(print(cstml`<Node>reference: <Node></></>`)).toEqual(dedent`\
-      <$_>
-        .:
-        <$Node>
-          open:
-          <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
-            flags:
-            <$NodeFlags>
-              tokenToken: null
-              hasGapToken: null
-              fragmentToken: null
-              multiFragmentToken: null
-            </>
-            type$:
-            <$Identifier>
-              openToken: null
-              content: <*IdentifierContent 'Node' { span: 'Identifier' } />
-              closeToken: null
-            </>
-            literalValue$: null
-            attributes$: null
-            selfClosingToken: null
-            closeToken: <*Punctuator '>' { balancer: true } />
-          </>
-          children[]$: []
-          children[]$:
-          <$Property>
-            reference$:
-            <$ReferenceTag>
-              type: null
-              name$:
+        <$_>
+          .:
+          <$Node>
+            open:
+            <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              flags:
+              <$NodeFlags>
+                tokenToken: null
+                hasGapToken: null
+                fragmentToken: null
+                multiFragmentToken: null
+              </>
+              type$:
               <$Identifier>
                 openToken: null
-                content: <*IdentifierContent 'reference' { span: 'Identifier' } />
+                content: <*IdentifierContent 'Node' { span: 'Identifier' } />
                 closeToken: null
               </>
-              openIndexToken: null
-              closeIndexToken: null
-              flags:
-              <$ReferenceFlags>
-                expressionToken: null
-                hasGapToken: null
-              </>
-              sigilToken: <*Punctuator ':' />
+              literalValue$: null
+              attributes$: null
+              selfClosingToken: null
+              closeToken: <*Punctuator '>' { balancer: true } />
             </>
-            #: :Space: <*Space ' ' />
-            binding$: null
-            value$:
-            <$Node>
-              open:
-              <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-                openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
-                flags:
-                <$NodeFlags>
-                  tokenToken: null
-                  hasGapToken: null
-                  fragmentToken: null
-                  multiFragmentToken: null
-                </>
-                type$:
+            children[]$: []
+            children[]$:
+            <$Property>
+              reference$:
+              <$ReferenceTag>
+                type: null
+                name$:
                 <$Identifier>
                   openToken: null
-                  content: <*IdentifierContent 'Node' { span: 'Identifier' } />
+                  content: <*IdentifierContent 'reference' { span: 'Identifier' } />
                   closeToken: null
                 </>
-                literalValue$: null
-                attributes$: null
-                selfClosingToken: null
-                closeToken: <*Punctuator '>' { balancer: true } />
+                openIndexToken: null
+                closeIndexToken: null
+                flags:
+                <$ReferenceFlags>
+                  expressionToken: null
+                  hasGapToken: null
+                </>
+                sigilToken: <*Punctuator ':' />
               </>
-              children[]$: []
-              close:
-              <$CloseNodeTag { balancer: true }>
-                openToken: <*Punctuator '</' { balanced: '>' } />
-                closeToken: <*Punctuator '>' { balancer: true } />
+              #: :Space: <*Space ' ' />
+              binding$: null
+              value$:
+              <$Node>
+                open:
+                <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+                  openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+                  flags:
+                  <$NodeFlags>
+                    tokenToken: null
+                    hasGapToken: null
+                    fragmentToken: null
+                    multiFragmentToken: null
+                  </>
+                  type$:
+                  <$Identifier>
+                    openToken: null
+                    content: <*IdentifierContent 'Node' { span: 'Identifier' } />
+                    closeToken: null
+                  </>
+                  literalValue$: null
+                  attributes$: null
+                  selfClosingToken: null
+                  closeToken: <*Punctuator '>' { balancer: true } />
+                </>
+                children[]$: []
+                close:
+                <$CloseNodeTag { balancer: true }>
+                  openToken: <*Punctuator '</' { balanced: '>' } />
+                  closeToken: <*Punctuator '>' { balancer: true } />
+                </>
               </>
             </>
+            close:
+            <$CloseNodeTag { balancer: true }>
+              openToken: <*Punctuator '</' { balanced: '>' } />
+              closeToken: <*Punctuator '>' { balancer: true } />
+            </>
           </>
-          close:
-          <$CloseNodeTag { balancer: true }>
-            openToken: <*Punctuator '</' { balanced: '>' } />
-            closeToken: <*Punctuator '>' { balancer: true } />
-          </>
-        </>
-      </>\n`);
+        </>\n`);
     });
 
     it('`<Node { foo: { bar: undefined } }> { foo.bar: 1 } </>`', () => {
       expect(print(cstml`<Node { foo: { bar: undefined } }> { foo.bar: 1 } </>`)).toEqual(dedent`\
-      <$_>
-        .:
-        <$Node>
-          open:
-          <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
-            flags:
-            <$NodeFlags>
-              tokenToken: null
-              hasGapToken: null
-              fragmentToken: null
-              multiFragmentToken: null
-            </>
-            type$:
-            <$Identifier>
-              openToken: null
-              content: <*IdentifierContent 'Node' { span: 'Identifier' } />
-              closeToken: null
+        <$_>
+          .:
+          <$Node>
+            open:
+            <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
+              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              flags:
+              <$NodeFlags>
+                tokenToken: null
+                hasGapToken: null
+                fragmentToken: null
+                multiFragmentToken: null
+              </>
+              type$:
+              <$Identifier>
+                openToken: null
+                content: <*IdentifierContent 'Node' { span: 'Identifier' } />
+                closeToken: null
+              </>
+              #: :Space: <*Space ' ' />
+              literalValue$: null
+              attributes$: :JSON:
+              <$Object>
+                openToken: <*Punctuator '{' { balanced: '}' } />
+                #: :Space: <*Space ' ' />
+                #separatorTokens[]: []
+                properties[]$: []
+                properties[]$:
+                <$Property>
+                  key$:
+                  <$Identifier>
+                    openToken: null
+                    content: <*IdentifierContent 'foo' { span: 'Identifier' } />
+                    closeToken: null
+                  </>
+                  sigilToken: <*Punctuator ':' />
+                  #: :Space: <*Space ' ' />
+                  value+$:
+                  <$Object>
+                    openToken: <*Punctuator '{' { balanced: '}' } />
+                    #: :Space: <*Space ' ' />
+                    #separatorTokens[]: []
+                    properties[]$: []
+                    properties[]$:
+                    <$Property>
+                      key$:
+                      <$Identifier>
+                        openToken: null
+                        content: <*IdentifierContent 'bar' { span: 'Identifier' } />
+                        closeToken: null
+                      </>
+                      sigilToken: <*Punctuator ':' />
+                      #: :Space: <*Space ' ' />
+                      value+$:
+                      <$Undefined>
+                        sigilToken: <*Keyword 'undefined' />
+                      </>
+                    </>
+                    #: :Space: <*Space ' ' />
+                    closeToken: <*Punctuator '}' { balancer: true } />
+                  </>
+                </>
+                #: :Space: <*Space ' ' />
+                closeToken: <*Punctuator '}' { balancer: true } />
+              </>
+              selfClosingToken: null
+              closeToken: <*Punctuator '>' { balancer: true } />
             </>
             #: :Space: <*Space ' ' />
-            literalValue$: null
-            attributes$: :JSON:
-            <$Object>
+            children[]$: []
+            children[]$:
+            <$AttributeDefinition>
               openToken: <*Punctuator '{' { balanced: '}' } />
               #: :Space: <*Space ' ' />
-              #separatorTokens[]: []
-              properties[]$: []
-              properties[]$:
-              <$Property>
-                key$:
+              key$:
+              <$IdentifierPath>
+                segments[]$: []
+                segments[]$:
                 <$Identifier>
                   openToken: null
                   content: <*IdentifierContent 'foo' { span: 'Identifier' } />
                   closeToken: null
                 </>
-                sigilToken: <*Punctuator ':' />
-                #: :Space: <*Space ' ' />
-                value+$:
-                <$Object>
-                  openToken: <*Punctuator '{' { balanced: '}' } />
-                  #: :Space: <*Space ' ' />
-                  #separatorTokens[]: []
-                  properties[]$: []
-                  properties[]$:
-                  <$Property>
-                    key$:
-                    <$Identifier>
-                      openToken: null
-                      content: <*IdentifierContent 'bar' { span: 'Identifier' } />
-                      closeToken: null
-                    </>
-                    sigilToken: <*Punctuator ':' />
-                    #: :Space: <*Space ' ' />
-                    value+$:
-                    <$Undefined>
-                      sigilToken: <*Keyword 'undefined' />
-                    </>
-                  </>
-                  #: :Space: <*Space ' ' />
-                  closeToken: <*Punctuator '}' { balancer: true } />
+                #separatorTokens[]: []
+                #separatorTokens[]: <*Punctuator '.' />
+                segments[]$:
+                <$Identifier>
+                  openToken: null
+                  content: <*IdentifierContent 'bar' { span: 'Identifier' } />
+                  closeToken: null
                 </>
+              </>
+              sigilToken: <*Punctuator ':' />
+              #: :Space: <*Space ' ' />
+              value$: :JSON:
+              <$Number { span: 'Number' }>
+                wholePart$:
+                <$Integer>
+                  signToken: null
+                  value$: <*UnsignedInteger '1' />
+                </>
+                fractionalSeparatorToken: null
+                fractionalPart$: null
+                exponentSeparatorToken: null
+                exponentPart$: null
               </>
               #: :Space: <*Space ' ' />
               closeToken: <*Punctuator '}' { balancer: true } />
             </>
-            selfClosingToken: null
-            closeToken: <*Punctuator '>' { balancer: true } />
-          </>
-          #: :Space: <*Space ' ' />
-          children[]$: []
-          children[]$:
-          <$AttributeDefinition>
-            openToken: <*Punctuator '{' { balanced: '}' } />
             #: :Space: <*Space ' ' />
-            key$:
-            <$IdentifierPath>
-              segments[]$: []
-              segments[]$:
-              <$Identifier>
-                openToken: null
-                content: <*IdentifierContent 'foo' { span: 'Identifier' } />
-                closeToken: null
-              </>
-              #separatorTokens[]: []
-              #separatorTokens[]: <*Punctuator '.' />
-              segments[]$:
-              <$Identifier>
-                openToken: null
-                content: <*IdentifierContent 'bar' { span: 'Identifier' } />
-                closeToken: null
-              </>
+            close:
+            <$CloseNodeTag { balancer: true }>
+              openToken: <*Punctuator '</' { balanced: '>' } />
+              closeToken: <*Punctuator '>' { balancer: true } />
             </>
-            sigilToken: <*Punctuator ':' />
-            #: :Space: <*Space ' ' />
-            value$: :JSON:
-            <$Number { span: 'Number' }>
-              wholePart$:
-              <$Integer>
-                signToken: null
-                value$: <*UnsignedInteger '1' />
-              </>
-              fractionalSeparatorToken: null
-              fractionalPart$: null
-              exponentSeparatorToken: null
-              exponentPart$: null
-            </>
-            #: :Space: <*Space ' ' />
-            closeToken: <*Punctuator '}' { balancer: true } />
           </>
-          #: :Space: <*Space ' ' />
-          close:
-          <$CloseNodeTag { balancer: true }>
-            openToken: <*Punctuator '</' { balanced: '>' } />
-            closeToken: <*Punctuator '>' { balancer: true } />
-          </>
-        </>
-      </>\n`);
+        </>\n`);
     });
 
     it('`<*Tag>@:<Escape { cooked: "e" }></></>`', () => {
