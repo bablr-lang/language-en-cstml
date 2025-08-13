@@ -32,6 +32,7 @@ describe('@bablr/language-en-cstml', () => {
               version$: :JSON: <*UnsignedInteger '0' />
               versionSeparatorToken: <*Punctuator ':' />
               doctypeToken$: <*Keyword 'cstml' />
+              attributes$: null
               closeToken: <*Punctuator '>' { balancer: true } />
             </>
             tree$:
@@ -81,6 +82,7 @@ describe('@bablr/language-en-cstml', () => {
             version$: :JSON: <*UnsignedInteger '0' />
             versionSeparatorToken: <*Punctuator ':' />
             doctypeToken$: <*Keyword 'cstml' />
+            attributes$: null
             closeToken: <*Punctuator '>' { balancer: true } />
           </>
           .[]:
