@@ -28,36 +28,36 @@ describe('@bablr/language-en-cstml', () => {
           <$Document>
             doctype$:
             <$DoctypeTag>
-              openToken: <*Punctuator '<!' { balancedSpan: 'Tag', balanced: '>' } />
+              openToken: <* '<!' { balancedSpan: 'Tag', balanced: '>' } />
               version$: :JSON: <*UnsignedInteger '0' />
-              versionSeparatorToken: <*Punctuator ':' />
+              versionSeparatorToken: <* ':' />
               doctypeToken$: <*Keyword 'cstml' />
               attributes$: null
-              closeToken: <*Punctuator '>' { balancer: true } />
+              closeToken: <* '>' { balancer: true } />
             </>
             tree$:
             <$Node>
               open:
               <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-                openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+                openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
                 flags:
                 <$NodeFlags>
                   tokenToken: null
                   hasGapToken: null
-                  fragmentToken: <*Punctuator '_' />
+                  fragmentToken: <* '_' />
                   multiFragmentToken: null
                 </>
                 type$: null
                 literalValue$: null
                 attributes$: null
                 selfClosingToken: null
-                closeToken: <*Punctuator '>' { balancer: true } />
+                closeToken: <* '>' { balancer: true } />
               </>
               children[]$: []
               close:
               <$CloseNodeTag { balancer: true }>
-                openToken: <*Punctuator '</' { balanced: '>' } />
-                closeToken: <*Punctuator '>' { balancer: true } />
+                openToken: <* '</' { balanced: '>' } />
+                closeToken: <* '>' { balancer: true } />
               </>
             </>
           </>
@@ -78,32 +78,32 @@ describe('@bablr/language-en-cstml', () => {
           .[]: []
           .[]:
           <$DoctypeTag>
-            openToken: <*Punctuator '<!' { balancedSpan: 'Tag', balanced: '>' } />
+            openToken: <* '<!' { balancedSpan: 'Tag', balanced: '>' } />
             version$: :JSON: <*UnsignedInteger '0' />
-            versionSeparatorToken: <*Punctuator ':' />
+            versionSeparatorToken: <* ':' />
             doctypeToken$: <*Keyword 'cstml' />
             attributes$: null
-            closeToken: <*Punctuator '>' { balancer: true } />
+            closeToken: <* '>' { balancer: true } />
           </>
           .[]:
           <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+            openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
             flags:
             <$NodeFlags>
               tokenToken: null
               hasGapToken: null
-              fragmentToken: <*Punctuator '_' />
+              fragmentToken: <* '_' />
               multiFragmentToken: null
             </>
             type$: null
             literalValue$: null
             attributes$: null
             selfClosingToken: null
-            closeToken: <*Punctuator '>' { balancer: true } />
+            closeToken: <* '>' { balancer: true } />
           </>
           .[]:
           <$ReferenceTag>
-            type: <*Punctuator '.' />
+            type: <* '.' />
             name$: null
             openIndexToken: null
             closeIndexToken: null
@@ -112,11 +112,11 @@ describe('@bablr/language-en-cstml', () => {
               expressionToken: null
               hasGapToken: null
             </>
-            sigilToken: <*Punctuator ':' />
+            sigilToken: <* ':' />
           </>
           .[]:
           <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+            openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
             flags:
             <$NodeFlags>
               tokenToken: null
@@ -133,17 +133,17 @@ describe('@bablr/language-en-cstml', () => {
             literalValue$: null
             attributes$: null
             selfClosingToken: null
-            closeToken: <*Punctuator '>' { balancer: true } />
+            closeToken: <* '>' { balancer: true } />
           </>
           .[]:
           <$CloseNodeTag { balancer: true }>
-            openToken: <*Punctuator '</' { balanced: '>' } />
-            closeToken: <*Punctuator '>' { balancer: true } />
+            openToken: <* '</' { balanced: '>' } />
+            closeToken: <* '>' { balancer: true } />
           </>
           .[]:
           <$CloseNodeTag { balancer: true }>
-            openToken: <*Punctuator '</' { balanced: '>' } />
-            closeToken: <*Punctuator '>' { balancer: true } />
+            openToken: <* '</' { balanced: '>' } />
+            closeToken: <* '>' { balancer: true } />
           </>
         </>\n`);
     });
@@ -159,25 +159,25 @@ describe('@bablr/language-en-cstml', () => {
           <$Node>
             open:
             <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
               <$NodeFlags>
                 tokenToken: null
                 hasGapToken: null
-                fragmentToken: <*Punctuator '_' />
+                fragmentToken: <* '_' />
                 multiFragmentToken: null
               </>
               type$: null
               literalValue$: null
               attributes$: null
               selfClosingToken: null
-              closeToken: <*Punctuator '>' { balancer: true } />
+              closeToken: <* '>' { balancer: true } />
             </>
             children[]$: []
             close:
             <$CloseNodeTag { balancer: true }>
-              openToken: <*Punctuator '</' { balanced: '>' } />
-              closeToken: <*Punctuator '>' { balancer: true } />
+              openToken: <* '</' { balanced: '>' } />
+              closeToken: <* '>' { balancer: true } />
             </>
           </>
         </>\n`);
@@ -190,26 +190,26 @@ describe('@bablr/language-en-cstml', () => {
           <$Node>
             open:
             <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
               <$NodeFlags>
                 tokenToken: null
                 hasGapToken: null
-                fragmentToken: <*Punctuator '_' />
+                fragmentToken: <* '_' />
                 multiFragmentToken: null
               </>
               type$: null
               literalValue$: null
               attributes$: null
               selfClosingToken: null
-              closeToken: <*Punctuator '>' { balancer: true } />
+              closeToken: <* '>' { balancer: true } />
             </>
             #: :Space: <*Space ' ' />
             children[]$: []
             close:
             <$CloseNodeTag { balancer: true }>
-              openToken: <*Punctuator '</' { balanced: '>' } />
-              closeToken: <*Punctuator '>' { balancer: true } />
+              openToken: <* '</' { balanced: '>' } />
+              closeToken: <* '>' { balancer: true } />
             </>
           </>
         </>\n`);
@@ -222,26 +222,26 @@ describe('@bablr/language-en-cstml', () => {
           <$Node>
             open:
             <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
               <$NodeFlags>
                 tokenToken: null
                 hasGapToken: null
-                fragmentToken: <*Punctuator '_' />
+                fragmentToken: <* '_' />
                 multiFragmentToken: null
               </>
               type$: null
               literalValue$: null
               attributes$: null
               selfClosingToken: null
-              closeToken: <*Punctuator '>' { balancer: true } />
+              closeToken: <* '>' { balancer: true } />
             </>
             children[]$: []
             children[]$:
             <$Property>
               reference$:
               <$ReferenceTag>
-                type: <*Punctuator '.' />
+                type: <* '.' />
                 name$: null
                 openIndexToken: null
                 closeIndexToken: null
@@ -250,14 +250,14 @@ describe('@bablr/language-en-cstml', () => {
                   expressionToken: null
                   hasGapToken: null
                 </>
-                sigilToken: <*Punctuator ':' />
+                sigilToken: <* ':' />
               </>
               binding$: null
               value$:
               <$Node>
                 open:
                 <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-                  openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+                  openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
                   flags:
                   <$NodeFlags>
                     tokenToken: null
@@ -274,20 +274,20 @@ describe('@bablr/language-en-cstml', () => {
                   literalValue$: null
                   attributes$: null
                   selfClosingToken: null
-                  closeToken: <*Punctuator '>' { balancer: true } />
+                  closeToken: <* '>' { balancer: true } />
                 </>
                 children[]$: []
                 close:
                 <$CloseNodeTag { balancer: true }>
-                  openToken: <*Punctuator '</' { balanced: '>' } />
-                  closeToken: <*Punctuator '>' { balancer: true } />
+                  openToken: <* '</' { balanced: '>' } />
+                  closeToken: <* '>' { balancer: true } />
                 </>
               </>
             </>
             close:
             <$CloseNodeTag { balancer: true }>
-              openToken: <*Punctuator '</' { balanced: '>' } />
-              closeToken: <*Punctuator '>' { balancer: true } />
+              openToken: <* '</' { balanced: '>' } />
+              closeToken: <* '>' { balancer: true } />
             </>
           </>
         </>\n`);
@@ -300,26 +300,26 @@ describe('@bablr/language-en-cstml', () => {
           <$Node>
             open:
             <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
               <$NodeFlags>
                 tokenToken: null
                 hasGapToken: null
-                fragmentToken: <*Punctuator '_' />
+                fragmentToken: <* '_' />
                 multiFragmentToken: null
               </>
               type$: null
               literalValue$: null
               attributes$: null
               selfClosingToken: null
-              closeToken: <*Punctuator '>' { balancer: true } />
+              closeToken: <* '>' { balancer: true } />
             </>
             children[]$: []
             children[]$:
             <$Property>
               reference$:
               <$ReferenceTag>
-                type: <*Punctuator '.' />
+                type: <* '.' />
                 name$: null
                 openIndexToken: null
                 closeIndexToken: null
@@ -328,14 +328,14 @@ describe('@bablr/language-en-cstml', () => {
                   expressionToken: null
                   hasGapToken: null
                 </>
-                sigilToken: <*Punctuator ':' />
+                sigilToken: <* ':' />
               </>
               binding$: null
               value$:
               <$Node>
                 open:
                 <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-                  openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+                  openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
                   flags:
                   <$NodeFlags>
                     tokenToken: null
@@ -352,13 +352,13 @@ describe('@bablr/language-en-cstml', () => {
                   literalValue$: null
                   attributes$: null
                   selfClosingToken: null
-                  closeToken: <*Punctuator '>' { balancer: true } />
+                  closeToken: <* '>' { balancer: true } />
                 </>
                 children[]$: []
                 close:
                 <$CloseNodeTag { balancer: true }>
-                  openToken: <*Punctuator '</' { balanced: '>' } />
-                  closeToken: <*Punctuator '>' { balancer: true } />
+                  openToken: <* '</' { balanced: '>' } />
+                  closeToken: <* '>' { balancer: true } />
                 </>
               </>
             </>
@@ -366,7 +366,7 @@ describe('@bablr/language-en-cstml', () => {
             <$Property>
               reference$:
               <$ReferenceTag>
-                type: <*Punctuator '#' />
+                type: <* '#' />
                 name$: null
                 openIndexToken: null
                 closeIndexToken: null
@@ -375,14 +375,14 @@ describe('@bablr/language-en-cstml', () => {
                   expressionToken: null
                   hasGapToken: null
                 </>
-                sigilToken: <*Punctuator ':' />
+                sigilToken: <* ':' />
               </>
               binding$: null
               value$:
               <$Node>
                 open:
                 <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-                  openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+                  openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
                   flags:
                   <$NodeFlags>
                     tokenToken: null
@@ -399,20 +399,20 @@ describe('@bablr/language-en-cstml', () => {
                   literalValue$: null
                   attributes$: null
                   selfClosingToken: null
-                  closeToken: <*Punctuator '>' { balancer: true } />
+                  closeToken: <* '>' { balancer: true } />
                 </>
                 children[]$: []
                 close:
                 <$CloseNodeTag { balancer: true }>
-                  openToken: <*Punctuator '</' { balanced: '>' } />
-                  closeToken: <*Punctuator '>' { balancer: true } />
+                  openToken: <* '</' { balanced: '>' } />
+                  closeToken: <* '>' { balancer: true } />
                 </>
               </>
             </>
             close:
             <$CloseNodeTag { balancer: true }>
-              openToken: <*Punctuator '</' { balanced: '>' } />
-              closeToken: <*Punctuator '>' { balancer: true } />
+              openToken: <* '</' { balanced: '>' } />
+              closeToken: <* '>' { balancer: true } />
             </>
           </>
         </>\n`);
@@ -425,7 +425,7 @@ describe('@bablr/language-en-cstml', () => {
           <$Node>
             open:
             <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
               <$NodeFlags>
                 tokenToken: null
@@ -442,7 +442,7 @@ describe('@bablr/language-en-cstml', () => {
               literalValue$: null
               attributes$: null
               selfClosingToken: null
-              closeToken: <*Punctuator '>' { balancer: true } />
+              closeToken: <* '>' { balancer: true } />
             </>
             children[]$: []
             children[]$:
@@ -463,7 +463,7 @@ describe('@bablr/language-en-cstml', () => {
                   expressionToken: null
                   hasGapToken: null
                 </>
-                sigilToken: <*Punctuator ':' />
+                sigilToken: <* ':' />
               </>
               #: :Space: <*Space ' ' />
               binding$: null
@@ -474,8 +474,8 @@ describe('@bablr/language-en-cstml', () => {
             </>
             close:
             <$CloseNodeTag { balancer: true }>
-              openToken: <*Punctuator '</' { balanced: '>' } />
-              closeToken: <*Punctuator '>' { balancer: true } />
+              openToken: <* '</' { balanced: '>' } />
+              closeToken: <* '>' { balancer: true } />
             </>
           </>
         </>\n`);
@@ -488,7 +488,7 @@ describe('@bablr/language-en-cstml', () => {
           <$Node>
             open:
             <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
               <$NodeFlags>
                 tokenToken: null
@@ -505,7 +505,7 @@ describe('@bablr/language-en-cstml', () => {
               literalValue$: null
               attributes$: null
               selfClosingToken: null
-              closeToken: <*Punctuator '>' { balancer: true } />
+              closeToken: <* '>' { balancer: true } />
             </>
             #: :Space: <*Space ' ' />
             children[]$: []
@@ -522,9 +522,9 @@ describe('@bablr/language-en-cstml', () => {
                   type: null
                   literalValue: :JSON:
                   <$String>
-                    openToken: <*Punctuator '"' { balanced: '"', balancedSpan: 'String:Double' } />
+                    openToken: <* '"' { balanced: '"', balancedSpan: 'String:Double' } />
                     content$: <*StringContent 'stringContent' />
-                    closeToken: <*Punctuator '"' { balancer: true } />
+                    closeToken: <* '"' { balancer: true } />
                   </>
                   attributes: null
                   selfClosingTag: null
@@ -537,8 +537,8 @@ describe('@bablr/language-en-cstml', () => {
             </>
             close:
             <$CloseNodeTag { balancer: true }>
-              openToken: <*Punctuator '</' { balanced: '>' } />
-              closeToken: <*Punctuator '>' { balancer: true } />
+              openToken: <* '</' { balanced: '>' } />
+              closeToken: <* '>' { balancer: true } />
             </>
           </>
         </>\n`);
@@ -551,7 +551,7 @@ describe('@bablr/language-en-cstml', () => {
           <$Node>
             open:
             <$OpenNodeTag { balanced: false, balancedSpan: null }>
-              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
               <$NodeFlags>
                 tokenToken: null
@@ -568,14 +568,14 @@ describe('@bablr/language-en-cstml', () => {
               #: :Space: <*Space ' ' />
               literalValue$: :JSON:
               <$String>
-                openToken: <*Punctuator '\"' { balanced: '\"', balancedSpan: 'String:Double' } />
+                openToken: <* '\"' { balanced: '\"', balancedSpan: 'String:Double' } />
                 content$: <*StringContent 'stringContent' />
-                closeToken: <*Punctuator '\"' { balancer: true } />
+                closeToken: <* '\"' { balancer: true } />
               </>
               #: :Space: <*Space ' ' />
               attributes$: null
-              selfClosingToken: <*Punctuator '/' />
-              closeToken: <*Punctuator '>' { balancer: true } />
+              selfClosingToken: <* '/' />
+              closeToken: <* '>' { balancer: true } />
             </>
             children[]$: []
             close: null
@@ -590,10 +590,10 @@ describe('@bablr/language-en-cstml', () => {
           <$Node>
             open:
             <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
               <$NodeFlags>
-                tokenToken: <*Punctuator '*' />
+                tokenToken: <* '*' />
                 hasGapToken: null
                 fragmentToken: null
                 multiFragmentToken: null
@@ -607,7 +607,7 @@ describe('@bablr/language-en-cstml', () => {
               literalValue$: null
               attributes$: null
               selfClosingToken: null
-              closeToken: <*Punctuator '>' { balancer: true } />
+              closeToken: <* '>' { balancer: true } />
             </>
             #: :Space: <*Space ' ' />
             children[]$: []
@@ -615,16 +615,16 @@ describe('@bablr/language-en-cstml', () => {
             <$LiteralTag>
               value: :JSON:
               <$String>
-                openToken: <*Punctuator '"' { balanced: '"', balancedSpan: 'String:Double' } />
+                openToken: <* '"' { balanced: '"', balancedSpan: 'String:Double' } />
                 content$: <*StringContent 'stringContent' />
-                closeToken: <*Punctuator '"' { balancer: true } />
+                closeToken: <* '"' { balancer: true } />
               </>
             </>
             #: :Space: <*Space ' ' />
             close:
             <$CloseNodeTag { balancer: true }>
-              openToken: <*Punctuator '</' { balanced: '>' } />
-              closeToken: <*Punctuator '>' { balancer: true } />
+              openToken: <* '</' { balanced: '>' } />
+              closeToken: <* '>' { balancer: true } />
             </>
           </>
         </>\n`);
@@ -637,10 +637,10 @@ describe('@bablr/language-en-cstml', () => {
           <$Node>
             open:
             <$OpenNodeTag { balanced: false, balancedSpan: null }>
-              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
               <$NodeFlags>
-                tokenToken: <*Punctuator '*' />
+                tokenToken: <* '*' />
                 hasGapToken: null
                 fragmentToken: null
                 multiFragmentToken: null
@@ -654,14 +654,14 @@ describe('@bablr/language-en-cstml', () => {
               #: :Space: <*Space ' ' />
               literalValue$: :JSON:
               <$String>
-                openToken: <*Punctuator '"' { balanced: '"', balancedSpan: 'String:Double' } />
+                openToken: <* '"' { balanced: '"', balancedSpan: 'String:Double' } />
                 content$: <*StringContent 'stringContent' />
-                closeToken: <*Punctuator '"' { balancer: true } />
+                closeToken: <* '"' { balancer: true } />
               </>
               #: :Space: <*Space ' ' />
               attributes$: null
-              selfClosingToken: <*Punctuator '/' />
-              closeToken: <*Punctuator '>' { balancer: true } />
+              selfClosingToken: <* '/' />
+              closeToken: <* '>' { balancer: true } />
             </>
             children[]$: []
             close: null
@@ -676,7 +676,7 @@ describe('@bablr/language-en-cstml', () => {
           <$Node>
             open:
             <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
               <$NodeFlags>
                 tokenToken: null
@@ -693,14 +693,14 @@ describe('@bablr/language-en-cstml', () => {
               literalValue$: null
               attributes$: null
               selfClosingToken: null
-              closeToken: <*Punctuator '>' { balancer: true } />
+              closeToken: <* '>' { balancer: true } />
             </>
             children[]$: []
             children[]$:
             <$Property>
               reference$:
               <$ReferenceTag>
-                type: <*Punctuator '_' />
+                type: <* '_' />
                 name$: null
                 openIndexToken: null
                 closeIndexToken: null
@@ -709,7 +709,7 @@ describe('@bablr/language-en-cstml', () => {
                   expressionToken: null
                   hasGapToken: null
                 </>
-                sigilToken: <*Punctuator ':' />
+                sigilToken: <* ':' />
               </>
               #: :Space: <*Space ' ' />
               binding$: null
@@ -717,32 +717,32 @@ describe('@bablr/language-en-cstml', () => {
               <$Node>
                 open:
                 <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-                  openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+                  openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
                   flags:
                   <$NodeFlags>
                     tokenToken: null
                     hasGapToken: null
-                    fragmentToken: <*Punctuator '_' />
-                    multiFragmentToken: <*Punctuator '_' />
+                    fragmentToken: <* '_' />
+                    multiFragmentToken: <* '_' />
                   </>
                   type$: null
                   literalValue$: null
                   attributes$: null
                   selfClosingToken: null
-                  closeToken: <*Punctuator '>' { balancer: true } />
+                  closeToken: <* '>' { balancer: true } />
                 </>
                 children[]$: []
                 close:
                 <$CloseNodeTag { balancer: true }>
-                  openToken: <*Punctuator '</' { balanced: '>' } />
-                  closeToken: <*Punctuator '>' { balancer: true } />
+                  openToken: <* '</' { balanced: '>' } />
+                  closeToken: <* '>' { balancer: true } />
                 </>
               </>
             </>
             close:
             <$CloseNodeTag { balancer: true }>
-              openToken: <*Punctuator '</' { balanced: '>' } />
-              closeToken: <*Punctuator '>' { balancer: true } />
+              openToken: <* '</' { balanced: '>' } />
+              closeToken: <* '>' { balancer: true } />
             </>
           </>
         </>\n`);
@@ -755,7 +755,7 @@ describe('@bablr/language-en-cstml', () => {
           <$Node>
             open:
             <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
               <$NodeFlags>
                 tokenToken: null
@@ -772,7 +772,7 @@ describe('@bablr/language-en-cstml', () => {
               literalValue$: null
               attributes$: null
               selfClosingToken: null
-              closeToken: <*Punctuator '>' { balancer: true } />
+              closeToken: <* '>' { balancer: true } />
             </>
             children[]$: []
             children[]$:
@@ -793,19 +793,19 @@ describe('@bablr/language-en-cstml', () => {
                   expressionToken: null
                   hasGapToken: null
                 </>
-                sigilToken: <*Punctuator ':' />
+                sigilToken: <* ':' />
               </>
               #: :Space: <*Space ' ' />
               binding$: null
               value$:
               <$GapTag>
-                sigilToken: <*Punctuator '<//>' />
+                sigilToken: <* '<//>' />
               </>
             </>
             close:
             <$CloseNodeTag { balancer: true }>
-              openToken: <*Punctuator '</' { balanced: '>' } />
-              closeToken: <*Punctuator '>' { balancer: true } />
+              openToken: <* '</' { balanced: '>' } />
+              closeToken: <* '>' { balancer: true } />
             </>
           </>
         </>\n`);
@@ -818,7 +818,7 @@ describe('@bablr/language-en-cstml', () => {
           <$Node>
             open:
             <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
               <$NodeFlags>
                 tokenToken: null
@@ -835,7 +835,7 @@ describe('@bablr/language-en-cstml', () => {
               literalValue$: null
               attributes$: null
               selfClosingToken: null
-              closeToken: <*Punctuator '>' { balancer: true } />
+              closeToken: <* '>' { balancer: true } />
             </>
             children[]$: []
             children[]$:
@@ -856,7 +856,7 @@ describe('@bablr/language-en-cstml', () => {
                   expressionToken: null
                   hasGapToken: null
                 </>
-                sigilToken: <*Punctuator ':' />
+                sigilToken: <* ':' />
               </>
               #: :Space: <*Space ' ' />
               binding$: null
@@ -864,7 +864,7 @@ describe('@bablr/language-en-cstml', () => {
               <$Node>
                 open:
                 <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-                  openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+                  openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
                   flags:
                   <$NodeFlags>
                     tokenToken: null
@@ -881,20 +881,20 @@ describe('@bablr/language-en-cstml', () => {
                   literalValue$: null
                   attributes$: null
                   selfClosingToken: null
-                  closeToken: <*Punctuator '>' { balancer: true } />
+                  closeToken: <* '>' { balancer: true } />
                 </>
                 children[]$: []
                 close:
                 <$CloseNodeTag { balancer: true }>
-                  openToken: <*Punctuator '</' { balanced: '>' } />
-                  closeToken: <*Punctuator '>' { balancer: true } />
+                  openToken: <* '</' { balanced: '>' } />
+                  closeToken: <* '>' { balancer: true } />
                 </>
               </>
             </>
             close:
             <$CloseNodeTag { balancer: true }>
-              openToken: <*Punctuator '</' { balanced: '>' } />
-              closeToken: <*Punctuator '>' { balancer: true } />
+              openToken: <* '</' { balanced: '>' } />
+              closeToken: <* '>' { balancer: true } />
             </>
           </>
         </>\n`);
@@ -907,7 +907,7 @@ describe('@bablr/language-en-cstml', () => {
           <$Node>
             open:
             <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
               <$NodeFlags>
                 tokenToken: null
@@ -925,7 +925,7 @@ describe('@bablr/language-en-cstml', () => {
               literalValue$: null
               attributes$: :JSON:
               <$Object>
-                openToken: <*Punctuator '{' { balanced: '}' } />
+                openToken: <* '{' { balanced: '}' } />
                 #: :Space: <*Space ' ' />
                 #separatorTokens[]: []
                 properties[]$: []
@@ -937,11 +937,11 @@ describe('@bablr/language-en-cstml', () => {
                     content: <*IdentifierContent 'foo' { span: 'Identifier' } />
                     closeToken: null
                   </>
-                  sigilToken: <*Punctuator ':' />
+                  sigilToken: <* ':' />
                   #: :Space: <*Space ' ' />
                   value+$:
                   <$Object>
-                    openToken: <*Punctuator '{' { balanced: '}' } />
+                    openToken: <* '{' { balanced: '}' } />
                     #: :Space: <*Space ' ' />
                     #separatorTokens[]: []
                     properties[]$: []
@@ -953,7 +953,7 @@ describe('@bablr/language-en-cstml', () => {
                         content: <*IdentifierContent 'bar' { span: 'Identifier' } />
                         closeToken: null
                       </>
-                      sigilToken: <*Punctuator ':' />
+                      sigilToken: <* ':' />
                       #: :Space: <*Space ' ' />
                       value+$:
                       <$Undefined>
@@ -961,20 +961,20 @@ describe('@bablr/language-en-cstml', () => {
                       </>
                     </>
                     #: :Space: <*Space ' ' />
-                    closeToken: <*Punctuator '}' { balancer: true } />
+                    closeToken: <* '}' { balancer: true } />
                   </>
                 </>
                 #: :Space: <*Space ' ' />
-                closeToken: <*Punctuator '}' { balancer: true } />
+                closeToken: <* '}' { balancer: true } />
               </>
               selfClosingToken: null
-              closeToken: <*Punctuator '>' { balancer: true } />
+              closeToken: <* '>' { balancer: true } />
             </>
             #: :Space: <*Space ' ' />
             children[]$: []
             children[]$:
             <$AttributeDefinition>
-              openToken: <*Punctuator '{' { balanced: '}' } />
+              openToken: <* '{' { balanced: '}' } />
               #: :Space: <*Space ' ' />
               key$:
               <$IdentifierPath>
@@ -986,7 +986,7 @@ describe('@bablr/language-en-cstml', () => {
                   closeToken: null
                 </>
                 #separatorTokens[]: []
-                #separatorTokens[]: <*Punctuator '.' />
+                #separatorTokens[]: <* '.' />
                 segments[]$:
                 <$Identifier>
                   openToken: null
@@ -994,7 +994,7 @@ describe('@bablr/language-en-cstml', () => {
                   closeToken: null
                 </>
               </>
-              sigilToken: <*Punctuator ':' />
+              sigilToken: <* ':' />
               #: :Space: <*Space ' ' />
               value$: :JSON:
               <$Number { span: 'Number' }>
@@ -1009,13 +1009,13 @@ describe('@bablr/language-en-cstml', () => {
                 exponentPart$: null
               </>
               #: :Space: <*Space ' ' />
-              closeToken: <*Punctuator '}' { balancer: true } />
+              closeToken: <* '}' { balancer: true } />
             </>
             #: :Space: <*Space ' ' />
             close:
             <$CloseNodeTag { balancer: true }>
-              openToken: <*Punctuator '</' { balanced: '>' } />
-              closeToken: <*Punctuator '>' { balancer: true } />
+              openToken: <* '</' { balanced: '>' } />
+              closeToken: <* '>' { balancer: true } />
             </>
           </>
         </>\n`);
@@ -1028,10 +1028,10 @@ describe('@bablr/language-en-cstml', () => {
           <$Node>
             open:
             <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-              openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+              openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
               flags:
               <$NodeFlags>
-                tokenToken: <*Punctuator '*' />
+                tokenToken: <* '*' />
                 hasGapToken: null
                 fragmentToken: null
                 multiFragmentToken: null
@@ -1045,14 +1045,14 @@ describe('@bablr/language-en-cstml', () => {
               literalValue$: null
               attributes$: null
               selfClosingToken: null
-              closeToken: <*Punctuator '>' { balancer: true } />
+              closeToken: <* '>' { balancer: true } />
             </>
             children[]$: []
             children[]$:
             <$Property>
               reference$:
               <$ReferenceTag>
-                type: <*Punctuator '@' />
+                type: <* '@' />
                 name$: null
                 openIndexToken: null
                 closeIndexToken: null
@@ -1061,14 +1061,14 @@ describe('@bablr/language-en-cstml', () => {
                   expressionToken: null
                   hasGapToken: null
                 </>
-                sigilToken: <*Punctuator ':' />
+                sigilToken: <* ':' />
               </>
               binding$: null
               value$:
               <$Node>
                 open:
                 <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
-                  openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+                  openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
                   flags:
                   <$NodeFlags>
                     tokenToken: null
@@ -1086,7 +1086,7 @@ describe('@bablr/language-en-cstml', () => {
                   literalValue$: null
                   attributes$: :JSON:
                   <$Object>
-                    openToken: <*Punctuator '{' { balanced: '}' } />
+                    openToken: <* '{' { balanced: '}' } />
                     #: :Space: <*Space ' ' />
                     #separatorTokens[]: []
                     properties[]$: []
@@ -1098,33 +1098,33 @@ describe('@bablr/language-en-cstml', () => {
                         content: <*IdentifierContent 'cooked' { span: 'Identifier' } />
                         closeToken: null
                       </>
-                      sigilToken: <*Punctuator ':' />
+                      sigilToken: <* ':' />
                       #: :Space: <*Space ' ' />
                       value+$:
                       <$String>
-                        openToken: <*Punctuator '"' { balanced: '"', balancedSpan: 'String:Double' } />
+                        openToken: <* '"' { balanced: '"', balancedSpan: 'String:Double' } />
                         content$: <*StringContent 'e' />
-                        closeToken: <*Punctuator '"' { balancer: true } />
+                        closeToken: <* '"' { balancer: true } />
                       </>
                     </>
                     #: :Space: <*Space ' ' />
-                    closeToken: <*Punctuator '}' { balancer: true } />
+                    closeToken: <* '}' { balancer: true } />
                   </>
                   selfClosingToken: null
-                  closeToken: <*Punctuator '>' { balancer: true } />
+                  closeToken: <* '>' { balancer: true } />
                 </>
                 children[]$: []
                 close:
                 <$CloseNodeTag { balancer: true }>
-                  openToken: <*Punctuator '</' { balanced: '>' } />
-                  closeToken: <*Punctuator '>' { balancer: true } />
+                  openToken: <* '</' { balanced: '>' } />
+                  closeToken: <* '>' { balancer: true } />
                 </>
               </>
             </>
             close:
             <$CloseNodeTag { balancer: true }>
-              openToken: <*Punctuator '</' { balanced: '>' } />
-              closeToken: <*Punctuator '>' { balancer: true } />
+              openToken: <* '</' { balanced: '>' } />
+              closeToken: <* '>' { balancer: true } />
             </>
           </>
         </>\n`);
@@ -1139,10 +1139,10 @@ describe('@bablr/language-en-cstml', () => {
         <$_>
           .:
           <$OpenNodeTag { balanced: false, balancedSpan: null }>
-            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+            openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
             flags:
             <$NodeFlags>
-              tokenToken: <*Punctuator '*' />
+              tokenToken: <* '*' />
               hasGapToken: null
               fragmentToken: null
               multiFragmentToken: null
@@ -1156,14 +1156,43 @@ describe('@bablr/language-en-cstml', () => {
             #: :Space: <*Space ' ' />
             literalValue$: :JSON:
             <$String>
-              openToken: <*Punctuator "'" { balanced: "'", balancedSpan: 'String:Single' } />
+              openToken: <* "'" { balanced: "'", balancedSpan: 'String:Single' } />
               content$: <*StringContent 'literalValue' />
-              closeToken: <*Punctuator "'" { balancer: true } />
+              closeToken: <* "'" { balancer: true } />
             </>
             #: :Space: <*Space ' ' />
             attributes$: null
-            selfClosingToken: <*Punctuator '/' />
-            closeToken: <*Punctuator '>' { balancer: true } />
+            selfClosingToken: <* '/' />
+            closeToken: <* '>' { balancer: true } />
+          </>
+        </>\n`);
+    });
+
+    it("`<* 'literalValue' />`", () => {
+      expect(print(tag`<* 'literalValue' />`)).toEqual(dedent`\
+        <$_>
+          .:
+          <$OpenNodeTag { balanced: false, balancedSpan: null }>
+            openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
+            flags:
+            <$NodeFlags>
+              tokenToken: <* '*' />
+              hasGapToken: null
+              fragmentToken: null
+              multiFragmentToken: null
+            </>
+            type$: null
+            #: :Space: <*Space ' ' />
+            literalValue$: :JSON:
+            <$String>
+              openToken: <* "'" { balanced: "'", balancedSpan: 'String:Single' } />
+              content$: <*StringContent 'literalValue' />
+              closeToken: <* "'" { balancer: true } />
+            </>
+            #: :Space: <*Space ' ' />
+            attributes$: null
+            selfClosingToken: <* '/' />
+            closeToken: <* '>' { balancer: true } />
           </>
         </>\n`);
     });
@@ -1173,7 +1202,7 @@ describe('@bablr/language-en-cstml', () => {
         <$_>
           .:
           <$OpenNodeTag { balanced: false, balancedSpan: null }>
-            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+            openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
             flags:
             <$NodeFlags>
               tokenToken: null
@@ -1191,7 +1220,7 @@ describe('@bablr/language-en-cstml', () => {
             literalValue$: null
             attributes$: :JSON:
             <$Object>
-              openToken: <*Punctuator '{' { balanced: '}' } />
+              openToken: <* '{' { balanced: '}' } />
               #: :Space: <*Space ' ' />
               #separatorTokens[]: []
               properties[]$: []
@@ -1203,7 +1232,7 @@ describe('@bablr/language-en-cstml', () => {
                   content: <*IdentifierContent 'min' { span: 'Identifier' } />
                   closeToken: null
                 </>
-                sigilToken: <*Punctuator ':' />
+                sigilToken: <* ':' />
                 #: :Space: <*Space ' ' />
                 value+$:
                 <$Number { span: 'Number' }>
@@ -1218,7 +1247,7 @@ describe('@bablr/language-en-cstml', () => {
                   exponentPart$: null
                 </>
               </>
-              #separatorTokens[]: <*Punctuator ',' />
+              #separatorTokens[]: <* ',' />
               #: :Space: <*Space ' ' />
               properties[]$:
               <$Property>
@@ -1228,7 +1257,7 @@ describe('@bablr/language-en-cstml', () => {
                   content: <*IdentifierContent 'max' { span: 'Identifier' } />
                   closeToken: null
                 </>
-                sigilToken: <*Punctuator ':' />
+                sigilToken: <* ':' />
                 #: :Space: <*Space ' ' />
                 value+$:
                 <$Infinity>
@@ -1237,11 +1266,11 @@ describe('@bablr/language-en-cstml', () => {
                 </>
               </>
               #: :Space: <*Space ' ' />
-              closeToken: <*Punctuator '}' { balancer: true } />
+              closeToken: <* '}' { balancer: true } />
             </>
             #: :Space: <*Space ' ' />
-            selfClosingToken: <*Punctuator '/' />
-            closeToken: <*Punctuator '>' { balancer: true } />
+            selfClosingToken: <* '/' />
+            closeToken: <* '>' { balancer: true } />
           </>
         </>\n`);
     });
@@ -1251,7 +1280,7 @@ describe('@bablr/language-en-cstml', () => {
         <$_>
           .:
           <$OpenNodeTag { balanced: false, balancedSpan: null }>
-            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+            openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
             flags:
             <$NodeFlags>
               tokenToken: null
@@ -1261,15 +1290,15 @@ describe('@bablr/language-en-cstml', () => {
             </>
             type$:
             <$Identifier>
-              openToken: <*Punctuator '${'`'}' { balanced: '${'`'}' } />
+              openToken: <* '${'`'}' { balanced: '${'`'}' } />
               content: <*IdentifierContent 'Identifier' { span: 'Identifier' } />
-              closeToken: <*Punctuator '${'`'}' { balancer: true } />
+              closeToken: <* '${'`'}' { balancer: true } />
             </>
             #: :Space: <*Space ' ' />
             literalValue$: null
             attributes$: null
-            selfClosingToken: <*Punctuator '/' />
-            closeToken: <*Punctuator '>' { balancer: true } />
+            selfClosingToken: <* '/' />
+            closeToken: <* '>' { balancer: true } />
           </>
         </>\n`);
     });
@@ -1279,7 +1308,7 @@ describe('@bablr/language-en-cstml', () => {
         <$_>
           .:
           <$OpenNodeTag { balanced: false, balancedSpan: null }>
-            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+            openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
             flags:
             <$NodeFlags>
               tokenToken: null
@@ -1294,7 +1323,7 @@ describe('@bablr/language-en-cstml', () => {
               <*IdentifierContent { span: 'Identifier' }>
                 @:
                 <EscapeSequence { cooked: 'J' }>
-                  sigilToken: <*Punctuator '${'\\\\'}' { openSpan: 'Escape' } />
+                  sigilToken: <* '${'\\\\'}' { openSpan: 'Escape' } />
                   code:
                   <EscapeCode { closeSpan: 'Escape' }>
                     typeToken: <*Keyword 'u' />
@@ -1309,8 +1338,8 @@ describe('@bablr/language-en-cstml', () => {
             #: :Space: <*Space ' ' />
             literalValue$: null
             attributes$: null
-            selfClosingToken: <*Punctuator '/' />
-            closeToken: <*Punctuator '>' { balancer: true } />
+            selfClosingToken: <* '/' />
+            closeToken: <* '>' { balancer: true } />
           </>
         </>\n`);
     });
@@ -1320,7 +1349,7 @@ describe('@bablr/language-en-cstml', () => {
         <$_>
           .:
           <$OpenNodeTag { balanced: false, balancedSpan: null }>
-            openToken: <*Punctuator '<' { balancedSpan: 'Tag', balanced: '>' } />
+            openToken: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
             flags:
             <$NodeFlags>
               tokenToken: null
@@ -1337,8 +1366,8 @@ describe('@bablr/language-en-cstml', () => {
             #: :Space: <*Space ' ' />
             literalValue$: null
             attributes$: null
-            selfClosingToken: <*Punctuator '/' />
-            closeToken: <*Punctuator '>' { balancer: true } />
+            selfClosingToken: <* '/' />
+            closeToken: <* '>' { balancer: true } />
           </>
         </>\n`);
     });
