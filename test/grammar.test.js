@@ -53,7 +53,6 @@ describe('@bablr/language-en-cstml', () => {
                 selfClosingToken: null
                 closeToken: <* '>' { balancer: true } />
               </>
-              children[]$: []
               close:
               <$CloseNodeTag { balancer: true }>
                 openToken: <* '</' { balanced: '>' } />
@@ -75,7 +74,6 @@ describe('@bablr/language-en-cstml', () => {
     it('<!0:cstml><_>.:<Node></></>', () => {
       expect(print(cstml`<!0:cstml><_>.:<Node></></>`)).toEqual(dedent`\
         <$__>
-          .[]: []
           .[]:
           <$DoctypeTag>
             openToken: <* '<!' { balancedSpan: 'Tag', balanced: '>' } />
@@ -173,7 +171,6 @@ describe('@bablr/language-en-cstml', () => {
               selfClosingToken: null
               closeToken: <* '>' { balancer: true } />
             </>
-            children[]$: []
             close:
             <$CloseNodeTag { balancer: true }>
               openToken: <* '</' { balanced: '>' } />
@@ -205,7 +202,6 @@ describe('@bablr/language-en-cstml', () => {
               closeToken: <* '>' { balancer: true } />
             </>
             #: :Space: <*Space ' ' />
-            children[]$: []
             close:
             <$CloseNodeTag { balancer: true }>
               openToken: <* '</' { balanced: '>' } />
@@ -236,7 +232,6 @@ describe('@bablr/language-en-cstml', () => {
               selfClosingToken: null
               closeToken: <* '>' { balancer: true } />
             </>
-            children[]$: []
             children[]$:
             <$Property>
               reference$:
@@ -276,7 +271,6 @@ describe('@bablr/language-en-cstml', () => {
                   selfClosingToken: null
                   closeToken: <* '>' { balancer: true } />
                 </>
-                children[]$: []
                 close:
                 <$CloseNodeTag { balancer: true }>
                   openToken: <* '</' { balanced: '>' } />
@@ -314,7 +308,6 @@ describe('@bablr/language-en-cstml', () => {
               selfClosingToken: null
               closeToken: <* '>' { balancer: true } />
             </>
-            children[]$: []
             children[]$:
             <$Property>
               reference$:
@@ -354,7 +347,6 @@ describe('@bablr/language-en-cstml', () => {
                   selfClosingToken: null
                   closeToken: <* '>' { balancer: true } />
                 </>
-                children[]$: []
                 close:
                 <$CloseNodeTag { balancer: true }>
                   openToken: <* '</' { balanced: '>' } />
@@ -401,7 +393,6 @@ describe('@bablr/language-en-cstml', () => {
                   selfClosingToken: null
                   closeToken: <* '>' { balancer: true } />
                 </>
-                children[]$: []
                 close:
                 <$CloseNodeTag { balancer: true }>
                   openToken: <* '</' { balanced: '>' } />
@@ -444,7 +435,6 @@ describe('@bablr/language-en-cstml', () => {
               selfClosingToken: null
               closeToken: <* '>' { balancer: true } />
             </>
-            children[]$: []
             children[]$:
             <$Property>
               reference$:
@@ -508,7 +498,6 @@ describe('@bablr/language-en-cstml', () => {
               closeToken: <* '>' { balancer: true } />
             </>
             #: :Space: <*Space ' ' />
-            children[]$: []
             children[]$:
             <$Property>
               reference$: null
@@ -531,7 +520,6 @@ describe('@bablr/language-en-cstml', () => {
                   closeToken: null
                 </>
                 #: :Space: <*Space ' ' />
-                children[]$: []
                 close: null
               </>
             </>
@@ -577,7 +565,6 @@ describe('@bablr/language-en-cstml', () => {
               selfClosingToken: <* '/' />
               closeToken: <* '>' { balancer: true } />
             </>
-            children[]$: []
             close: null
           </>
         </>\n`);
@@ -610,7 +597,6 @@ describe('@bablr/language-en-cstml', () => {
               closeToken: <* '>' { balancer: true } />
             </>
             #: :Space: <*Space ' ' />
-            children[]$: []
             children[]$:
             <$LiteralTag>
               value: :JSON:
@@ -663,7 +649,6 @@ describe('@bablr/language-en-cstml', () => {
               selfClosingToken: <* '/' />
               closeToken: <* '>' { balancer: true } />
             </>
-            children[]$: []
             close: null
           </>
         </>\n`);
@@ -695,7 +680,6 @@ describe('@bablr/language-en-cstml', () => {
               selfClosingToken: null
               closeToken: <* '>' { balancer: true } />
             </>
-            children[]$: []
             children[]$:
             <$Property>
               reference$:
@@ -731,7 +715,6 @@ describe('@bablr/language-en-cstml', () => {
                   selfClosingToken: null
                   closeToken: <* '>' { balancer: true } />
                 </>
-                children[]$: []
                 close:
                 <$CloseNodeTag { balancer: true }>
                   openToken: <* '</' { balanced: '>' } />
@@ -774,7 +757,6 @@ describe('@bablr/language-en-cstml', () => {
               selfClosingToken: null
               closeToken: <* '>' { balancer: true } />
             </>
-            children[]$: []
             children[]$:
             <$Property>
               reference$:
@@ -837,7 +819,6 @@ describe('@bablr/language-en-cstml', () => {
               selfClosingToken: null
               closeToken: <* '>' { balancer: true } />
             </>
-            children[]$: []
             children[]$:
             <$Property>
               reference$:
@@ -883,7 +864,6 @@ describe('@bablr/language-en-cstml', () => {
                   selfClosingToken: null
                   closeToken: <* '>' { balancer: true } />
                 </>
-                children[]$: []
                 close:
                 <$CloseNodeTag { balancer: true }>
                   openToken: <* '</' { balanced: '>' } />
@@ -927,8 +907,6 @@ describe('@bablr/language-en-cstml', () => {
               <$Object>
                 openToken: <* '{' { balanced: '}' } />
                 #: :Space: <*Space ' ' />
-                #separatorTokens[]: []
-                properties[]$: []
                 properties[]$:
                 <$Property>
                   key$:
@@ -943,8 +921,6 @@ describe('@bablr/language-en-cstml', () => {
                   <$Object>
                     openToken: <* '{' { balanced: '}' } />
                     #: :Space: <*Space ' ' />
-                    #separatorTokens[]: []
-                    properties[]$: []
                     properties[]$:
                     <$Property>
                       key$:
@@ -971,21 +947,18 @@ describe('@bablr/language-en-cstml', () => {
               closeToken: <* '>' { balancer: true } />
             </>
             #: :Space: <*Space ' ' />
-            children[]$: []
             children[]$:
             <$AttributeDefinition>
               openToken: <* '{' { balanced: '}' } />
               #: :Space: <*Space ' ' />
               key$:
               <$IdentifierPath>
-                segments[]$: []
                 segments[]$:
                 <$Identifier>
                   openToken: null
                   content: <*IdentifierContent 'foo' { span: 'Identifier' } />
                   closeToken: null
                 </>
-                #separatorTokens[]: []
                 #separatorTokens[]: <* '.' />
                 segments[]$:
                 <$Identifier>
@@ -1047,7 +1020,6 @@ describe('@bablr/language-en-cstml', () => {
               selfClosingToken: null
               closeToken: <* '>' { balancer: true } />
             </>
-            children[]$: []
             children[]$:
             <$Property>
               reference$:
@@ -1088,8 +1060,6 @@ describe('@bablr/language-en-cstml', () => {
                   <$Object>
                     openToken: <* '{' { balanced: '}' } />
                     #: :Space: <*Space ' ' />
-                    #separatorTokens[]: []
-                    properties[]$: []
                     properties[]$:
                     <$Property>
                       key$:
@@ -1113,7 +1083,6 @@ describe('@bablr/language-en-cstml', () => {
                   selfClosingToken: null
                   closeToken: <* '>' { balancer: true } />
                 </>
-                children[]$: []
                 close:
                 <$CloseNodeTag { balancer: true }>
                   openToken: <* '</' { balanced: '>' } />
@@ -1222,8 +1191,6 @@ describe('@bablr/language-en-cstml', () => {
             <$Object>
               openToken: <* '{' { balanced: '}' } />
               #: :Space: <*Space ' ' />
-              #separatorTokens[]: []
-              properties[]$: []
               properties[]$:
               <$Property>
                 key$:
