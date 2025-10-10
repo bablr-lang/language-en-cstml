@@ -918,7 +918,7 @@ describe('@bablr/language-en-cstml', () => {
                 content: <*IdentifierContent 'foo' { span: 'Identifier' } />
                 closeToken: null
               </>
-              #separatorTokens[]: <* '.' />
+              separatorTokens[]: <* '.' />
               segments[]$:
               <$Identifier>
                 openToken: null
@@ -1161,7 +1161,7 @@ describe('@bablr/language-en-cstml', () => {
                 exponentPart$: null
               </>
             </>
-            #separatorTokens[]: <* ',' />
+            separatorTokens[]: <* ',' />
             #: :Space: <*Space ' ' />
             properties[]$:
             <$Property>
