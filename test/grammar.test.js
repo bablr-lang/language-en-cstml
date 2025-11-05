@@ -1,7 +1,7 @@
 import { buildTag } from 'bablr';
 import { spam } from '@bablr/boot';
 import { dedent } from '@qnighy/dedent';
-import * as language from '@bablr/language-en-cstml';
+import language from '@bablr/language-en-cstml';
 import { expect } from 'expect';
 import { printPrettyCSTML } from '@bablr/helpers/tree';
 
@@ -28,7 +28,7 @@ describe('@bablr/language-en-cstml', () => {
           <$DoctypeTag>
             openToken*: <* '<!' { balancedSpan: 'Tag', balanced: '>' } />
             version: :JSON: <*UnsignedInteger '0' />
-            versionSeparatorToken: <* ':' />
+            versionSeparatorToken*: <* ':' />
             doctypeToken: <*Keyword 'cstml' />
             attributes: null
             closeToken*: <* '>' { balancer: true } />
@@ -75,7 +75,7 @@ describe('@bablr/language-en-cstml', () => {
           <$DoctypeTag>
             openToken*: <* '<!' { balancedSpan: 'Tag', balanced: '>' } />
             version: :JSON: <*UnsignedInteger '0' />
-            versionSeparatorToken: <* ':' />
+            versionSeparatorToken*: <* ':' />
             doctypeToken: <*Keyword 'cstml' />
             attributes: null
             closeToken*: <* '>' { balancer: true } />
