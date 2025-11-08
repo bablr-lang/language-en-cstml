@@ -573,7 +573,7 @@ describe('@bablr/language-en-cstml', () => {
           #: :Space: <*Space ' ' />
           children[]:
           <$LiteralTag>
-            value: :JSON:
+            value*: :JSON:
             <$String>
               openToken*: <* '"' { balanced: '"', balancedSpan: 'String:Double' } />
               content: <*StringContent 'stringContent' />
