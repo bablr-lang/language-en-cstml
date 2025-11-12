@@ -496,7 +496,7 @@ describe('@bablr/language-en-cstml', () => {
                   closeToken*: <* '"' { balancer: true } />
                 </>
                 attributes: null
-                selfClosingTag: null
+                selfClosingTag*: null
                 closeToken*: null
               </>
               #: :Space: <*Space ' ' />
