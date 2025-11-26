@@ -34,7 +34,7 @@ describe('@bablr/language-en-cstml', () => {
             closeToken*: <* '>' { balancer: true } />
           </>
           tree:
-          <$Node>
+          <$TreeNode>
             open*:
             <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
               openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -68,8 +68,8 @@ describe('@bablr/language-en-cstml', () => {
   describe('Stream', () => {
     const cstml = buildCSTMLTag(spam`<$__Stream />`);
 
-    it('<!0:cstml><_>.:<Node></></>', () => {
-      expect(print(cstml`<!0:cstml><_>.:<Node></></>`)).toEqual(dedent`\
+    it('<!0:cstml> <_> .: <Node> </> </>', () => {
+      expect(print(cstml`<!0:cstml> <_> .: <Node> </> </>`)).toEqual(dedent`\
         <$__>
           .[]:
           <$DoctypeTag>
@@ -144,12 +144,12 @@ describe('@bablr/language-en-cstml', () => {
     });
   });
 
-  describe('Node', () => {
-    const cstml = buildCSTMLTag(spam`<$Node />`);
+  describe('TreeNode', () => {
+    const cstml = buildCSTMLTag(spam`<$TreeNode />`);
 
     it('<_></>', () => {
       expect(print(cstml`<_></>`)).toEqual(dedent`\
-        <$Node>
+        <$TreeNode>
           open*:
           <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
             openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -176,7 +176,7 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<_> </>', () => {
       expect(print(cstml`<_> </>`)).toEqual(dedent`\
-        <$Node>
+        <$TreeNode>
           open*:
           <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
             openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -204,7 +204,7 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<_>.:<Node></></>', () => {
       expect(print(cstml`<_>.:<Node></></>`)).toEqual(dedent`\
-        <$Node>
+        <$TreeNode>
           open*:
           <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
             openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -236,9 +236,8 @@ describe('@bablr/language-en-cstml', () => {
               </>
               sigilToken*: <* ':' />
             </>
-            binding: null
-            value:
-            <$Node>
+            value+:
+            <$TreeNode>
               open*:
               <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
                 openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -277,7 +276,7 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<_>.:<Node></>#:<Trivia></></>', () => {
       expect(print(cstml`<_>.:<Node></>#:<Trivia></></>`)).toEqual(dedent`\
-        <$Node>
+        <$TreeNode>
           open*:
           <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
             openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -309,9 +308,8 @@ describe('@bablr/language-en-cstml', () => {
               </>
               sigilToken*: <* ':' />
             </>
-            binding: null
-            value:
-            <$Node>
+            value+:
+            <$TreeNode>
               open*:
               <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
                 openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -355,9 +353,8 @@ describe('@bablr/language-en-cstml', () => {
               </>
               sigilToken*: <* ':' />
             </>
-            binding: null
-            value:
-            <$Node>
+            value+:
+            <$TreeNode>
               open*:
               <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
                 openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -396,7 +393,7 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node>reference: null</>`', () => {
       expect(print(cstml`<Node>reference: null</>`)).toEqual(dedent`\
-        <$Node>
+        <$TreeNode>
           open*:
           <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
             openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -439,10 +436,12 @@ describe('@bablr/language-en-cstml', () => {
               sigilToken*: <* ':' />
             </>
             #: :Space: <*Space ' ' />
-            binding: null
-            value:
-            <$NullTag>
-              sigilToken*: <*Keyword 'null' />
+            value+:
+            <$NullNode>
+              sigilTag*:
+              <$NullTag>
+                sigilToken*: <*Keyword 'null' />
+              </>
             </>
           </>
           close*:
@@ -455,7 +454,7 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node> "stringContent" </>`', () => {
       expect(print(cstml`<Node> "stringContent" </>`)).toEqual(dedent`\
-        <$Node>
+        <$TreeNode>
           open*:
           <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
             openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -481,9 +480,8 @@ describe('@bablr/language-en-cstml', () => {
           children[]:
           <$Property>
             reference: null
-            binding: null
-            value:
-            <$Node>
+            value+:
+            <$TreeNode>
               open*:
               <$OpenNodeTag { balanced: undefined, balancedSpan: undefined }>
                 openToken*: null
@@ -513,7 +511,7 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node "stringContent" />`', () => {
       expect(print(cstml`<Node "stringContent" />`)).toEqual(dedent`\
-        <$Node>
+        <$TreeNode>
           open*:
           <$OpenNodeTag { balanced: false, balancedSpan: null }>
             openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -548,7 +546,7 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<*Token> "stringContent" </>`', () => {
       expect(print(cstml`<*Token> "stringContent" </>`)).toEqual(dedent`\
-        <$Node>
+        <$TreeNode>
           open*:
           <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
             openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -591,7 +589,7 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<*Token "stringContent" />`', () => {
       expect(print(cstml`<*Token "stringContent" />`)).toEqual(dedent`\
-        <$Node>
+        <$TreeNode>
           open*:
           <$OpenNodeTag { balanced: false, balancedSpan: null }>
             openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -626,7 +624,7 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node>#: <__></></>`', () => {
       expect(print(cstml`<Node>_: <__></></>`)).toEqual(dedent`\
-        <$Node>
+        <$TreeNode>
           open*:
           <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
             openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -664,9 +662,8 @@ describe('@bablr/language-en-cstml', () => {
               sigilToken*: <* ':' />
             </>
             #: :Space: <*Space ' ' />
-            binding: null
-            value:
-            <$Node>
+            value+:
+            <$TreeNode>
               open*:
               <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
                 openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -700,7 +697,7 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node>reference: <//></>`', () => {
       expect(print(cstml`<Node>reference: <//></>`)).toEqual(dedent`\
-        <$Node>
+        <$TreeNode>
           open*:
           <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
             openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -743,10 +740,12 @@ describe('@bablr/language-en-cstml', () => {
               sigilToken*: <* ':' />
             </>
             #: :Space: <*Space ' ' />
-            binding: null
-            value:
-            <$GapTag>
-              sigilToken*: <* '<//>' />
+            value+:
+            <$GapNode>
+              sigilTag*:
+              <$GapTag>
+                sigilToken*: <* '<//>' />
+              </>
             </>
           </>
           close*:
@@ -759,7 +758,7 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node>reference: <Node></></>`', () => {
       expect(print(cstml`<Node>reference: <Node></></>`)).toEqual(dedent`\
-        <$Node>
+        <$TreeNode>
           open*:
           <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
             openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -802,9 +801,8 @@ describe('@bablr/language-en-cstml', () => {
               sigilToken*: <* ':' />
             </>
             #: :Space: <*Space ' ' />
-            binding: null
-            value:
-            <$Node>
+            value+:
+            <$TreeNode>
               open*:
               <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
                 openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -843,7 +841,7 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node { foo: { bar: undefined } }> { foo.bar: 1 } </>`', () => {
       expect(print(cstml`<Node { foo: { bar: undefined } }> { foo.bar: 1 } </>`)).toEqual(dedent`\
-        <$Node>
+        <$TreeNode>
           open*:
           <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
             openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -918,7 +916,7 @@ describe('@bablr/language-en-cstml', () => {
                 content*: <*IdentifierContent 'foo' { span: 'Identifier' } />
                 closeToken*: null
               </>
-              #separatorTokens[]: <* '.' />
+              #separatorTokens: <* '.' />
               segments[]:
               <$Identifier>
                 openToken*: null
@@ -933,7 +931,7 @@ describe('@bablr/language-en-cstml', () => {
               wholePart:
               <$Integer>
                 signToken*: null
-                value*: <*UnsignedInteger '1' />
+                value: <*UnsignedInteger '1' />
               </>
               fractionalSeparatorToken*: null
               fractionalPart: null
@@ -954,7 +952,7 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<*Tag>@:<Escape { cooked: "e" }></></>`', () => {
       expect(print(cstml`<*Tag>@:<Escape { cooked: "e" }></></>`)).toEqual(dedent`\
-        <$Node>
+        <$TreeNode>
           open*:
           <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
             openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -991,9 +989,8 @@ describe('@bablr/language-en-cstml', () => {
               </>
               sigilToken*: <* ':' />
             </>
-            binding: null
-            value:
-            <$Node>
+            value+:
+            <$TreeNode>
               open*:
               <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
                 openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -1153,7 +1150,7 @@ describe('@bablr/language-en-cstml', () => {
                 wholePart:
                 <$Integer>
                   signToken*: null
-                  value*: <*UnsignedInteger '1' />
+                  value: <*UnsignedInteger '1' />
                 </>
                 fractionalSeparatorToken*: null
                 fractionalPart: null
@@ -1161,7 +1158,7 @@ describe('@bablr/language-en-cstml', () => {
                 exponentPart: null
               </>
             </>
-            #separatorTokens[]: <* ',' />
+            #separatorTokens: <* ',' />
             #: :Space: <*Space ' ' />
             properties[]:
             <$Property>
