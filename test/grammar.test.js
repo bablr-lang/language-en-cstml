@@ -80,6 +80,7 @@ describe('@bablr/language-en-cstml', () => {
             attributes: null
             closeToken*: <* '>' { balancer: true } />
           </>
+          #: :Space: <*Space ' ' />
           .[]:
           <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
             openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -96,6 +97,7 @@ describe('@bablr/language-en-cstml', () => {
             selfClosingToken*: null
             closeToken*: <* '>' { balancer: true } />
           </>
+          #: :Space: <*Space ' ' />
           .[]:
           <$ReferenceTag>
             type*: <* '.' />
@@ -109,6 +111,7 @@ describe('@bablr/language-en-cstml', () => {
             </>
             sigilToken*: <* ':' />
           </>
+          #: :Space: <*Space ' ' />
           .[]:
           <$OpenNodeTag { balanced: true, balancedSpan: 'NodeChildren' }>
             openToken*: <* '<' { balancedSpan: 'Tag', balanced: '>' } />
@@ -130,11 +133,13 @@ describe('@bablr/language-en-cstml', () => {
             selfClosingToken*: null
             closeToken*: <* '>' { balancer: true } />
           </>
+          #: :Space: <*Space ' ' />
           .[]:
           <$CloseNodeTag { balancer: true }>
             openToken*: <* '</' { balanced: '>' } />
             closeToken*: <* '>' { balancer: true } />
           </>
+          #: :Space: <*Space ' ' />
           .[]:
           <$CloseNodeTag { balancer: true }>
             openToken*: <* '</' { balanced: '>' } />
