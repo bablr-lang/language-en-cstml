@@ -104,17 +104,17 @@ describe('@bablr/language-en-cstml', () => {
     it('<!0:cstml> <_> .: <Node> </> </>', () => {
       expect(print(cstml`<!0:cstml> <_> .: <Node> </> </>`)).toEqual(dedent`\
         <$__>
-          .[]:
+          .[]$:
           <$DoctypeTag>
             openToken*: <* '<!' />
-            version: :JSON: <*UnsignedInteger '0' />
+            version$: :JSON: <*UnsignedInteger '0' />
             versionSeparatorToken*: <* ':' />
-            doctypeToken: <*Keyword 'cstml' />
+            doctypeToken*: <*Keyword 'cstml' />
             attributes$: null
             closeToken*: <* '>' />
           </>
           #: :Space: <*Space ' ' />
-          .[]:
+          .[]$:
           <$OpenNodeTag { selfClosing: false }>
             openToken*: <* '<' />
             flags*:
@@ -127,7 +127,7 @@ describe('@bablr/language-en-cstml', () => {
             closeToken*: <* '>' />
           </>
           #: :Space: <*Space ' ' />
-          .[]:
+          .[]$:
           <$ReferenceTag>
             type*: <* '.' />
             name$: null
@@ -135,7 +135,7 @@ describe('@bablr/language-en-cstml', () => {
             sigilToken*: <* ':' />
           </>
           #: :Space: <*Space ' ' />
-          .[]:
+          .[]$:
           <$OpenNodeTag { selfClosing: false }>
             openToken*: <* '<' />
             flags*: <$NodeFlags { token: false, hasGap: false, fragment: false, cover: false } />
@@ -148,13 +148,13 @@ describe('@bablr/language-en-cstml', () => {
             closeToken*: <* '>' />
           </>
           #: :Space: <*Space ' ' />
-          .[]:
+          .[]$:
           <$CloseNodeTag>
             openToken*: <* '</' />
             closeToken*: <* '>' />
           </>
           #: :Space: <*Space ' ' />
-          .[]:
+          .[]$:
           <$CloseNodeTag>
             openToken*: <* '</' />
             closeToken*: <* '>' />
