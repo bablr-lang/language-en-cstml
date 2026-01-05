@@ -40,10 +40,8 @@ describe('@bablr/language-en-cstml', () => {
               openTag*:
               <$OpenNodeTag { selfClosing: false }>
                 openToken*: <* '<' />
-                flags*:
-                <$NodeFlags { token: false, hasGap: false, fragment: true, cover: true }>
-                  fragmentToken*: <* '_' />
-                </>
+                flags*: <$NodeFlags { token: false, hasGap: false } />
+                type*: <* '_' />
                 name$: null
                 literalValue$: null
                 attributes$: null
@@ -78,7 +76,7 @@ describe('@bablr/language-en-cstml', () => {
               openTag*:
               <$OpenNodeTag { selfClosing: false }>
                 openToken*: <* '<' />
-                flags*: <$NodeFlags { token: false, hasGap: false, fragment: false, cover: false } />
+                flags*: <$NodeFlags { token: false, hasGap: false } />
                 name$:
                 <$Identifier>
                   content*: <*IdentifierContent 'Node' />
@@ -117,10 +115,8 @@ describe('@bablr/language-en-cstml', () => {
           .[]$:
           <$OpenNodeTag { selfClosing: false }>
             openToken*: <* '<' />
-            flags*:
-            <$NodeFlags { token: false, hasGap: false, fragment: true, cover: true }>
-              fragmentToken*: <* '_' />
-            </>
+            flags*: <$NodeFlags { token: false, hasGap: false } />
+            type*: <* '_' />
             name$: null
             literalValue$: null
             attributes$: null
@@ -138,7 +134,7 @@ describe('@bablr/language-en-cstml', () => {
           .[]$:
           <$OpenNodeTag { selfClosing: false }>
             openToken*: <* '<' />
-            flags*: <$NodeFlags { token: false, hasGap: false, fragment: false, cover: false } />
+            flags*: <$NodeFlags { token: false, hasGap: false } />
             name$:
             <$Identifier>
               content*: <*IdentifierContent 'Node' />
@@ -172,10 +168,8 @@ describe('@bablr/language-en-cstml', () => {
           openTag*:
           <$OpenNodeTag { selfClosing: false }>
             openToken*: <* '<' />
-            flags*:
-            <$NodeFlags { token: false, hasGap: false, fragment: true, cover: true }>
-              fragmentToken*: <* '_' />
-            </>
+            flags*: <$NodeFlags { token: false, hasGap: false } />
+            type*: <* '_' />
             name$: null
             literalValue$: null
             attributes$: null
@@ -195,10 +189,8 @@ describe('@bablr/language-en-cstml', () => {
           openTag*:
           <$OpenNodeTag { selfClosing: false }>
             openToken*: <* '<' />
-            flags*:
-            <$NodeFlags { token: false, hasGap: false, fragment: true, cover: true }>
-              fragmentToken*: <* '_' />
-            </>
+            flags*: <$NodeFlags { token: false, hasGap: false } />
+            type*: <* '_' />
             name$: null
             literalValue$: null
             attributes$: null
@@ -219,10 +211,8 @@ describe('@bablr/language-en-cstml', () => {
           openTag*:
           <$OpenNodeTag { selfClosing: false }>
             openToken*: <* '<' />
-            flags*:
-            <$NodeFlags { token: false, hasGap: false, fragment: true, cover: true }>
-              fragmentToken*: <* '_' />
-            </>
+            flags*: <$NodeFlags { token: false, hasGap: false } />
+            type*: <* '_' />
             name$: null
             literalValue$: null
             attributes$: null
@@ -244,7 +234,7 @@ describe('@bablr/language-en-cstml', () => {
                 openTag*:
                 <$OpenNodeTag { selfClosing: false }>
                   openToken*: <* '<' />
-                  flags*: <$NodeFlags { token: false, hasGap: false, fragment: false, cover: false } />
+                  flags*: <$NodeFlags { token: false, hasGap: false } />
                   name$:
                   <$Identifier>
                     content*: <*IdentifierContent 'Node' />
@@ -275,10 +265,8 @@ describe('@bablr/language-en-cstml', () => {
           openTag*:
           <$OpenNodeTag { selfClosing: false }>
             openToken*: <* '<' />
-            flags*:
-            <$NodeFlags { token: false, hasGap: false, fragment: true, cover: true }>
-              fragmentToken*: <* '_' />
-            </>
+            flags*: <$NodeFlags { token: false, hasGap: false } />
+            type*: <* '_' />
             name$: null
             literalValue$: null
             attributes$: null
@@ -300,7 +288,7 @@ describe('@bablr/language-en-cstml', () => {
                 openTag*:
                 <$OpenNodeTag { selfClosing: false }>
                   openToken*: <* '<' />
-                  flags*: <$NodeFlags { token: false, hasGap: false, fragment: false, cover: false } />
+                  flags*: <$NodeFlags { token: false, hasGap: false } />
                   name$:
                   <$Identifier>
                     content*: <*IdentifierContent 'Node' />
@@ -333,7 +321,7 @@ describe('@bablr/language-en-cstml', () => {
                 openTag*:
                 <$OpenNodeTag { selfClosing: false }>
                   openToken*: <* '<' />
-                  flags*: <$NodeFlags { token: false, hasGap: false, fragment: false, cover: false } />
+                  flags*: <$NodeFlags { token: false, hasGap: false } />
                   name$:
                   <$Identifier>
                     content*: <*IdentifierContent 'Trivia' />
@@ -364,7 +352,7 @@ describe('@bablr/language-en-cstml', () => {
           openTag*:
           <$OpenNodeTag { selfClosing: false }>
             openToken*: <* '<' />
-            flags*: <$NodeFlags { token: false, hasGap: false, fragment: false, cover: false } />
+            flags*: <$NodeFlags { token: false, hasGap: false } />
             name$:
             <$Identifier>
               content*: <*IdentifierContent 'Node' />
@@ -410,7 +398,7 @@ describe('@bablr/language-en-cstml', () => {
           openTag*:
           <$OpenNodeTag { selfClosing: false }>
             openToken*: <* '<' />
-            flags*: <$NodeFlags { token: false, hasGap: false, fragment: false, cover: false } />
+            flags*: <$NodeFlags { token: false, hasGap: false } />
             name$:
             <$Identifier>
               content*: <*IdentifierContent 'Node' />
@@ -429,7 +417,7 @@ describe('@bablr/language-en-cstml', () => {
               <$TreeNode>
                 openTag*:
                 <$OpenNodeTag { selfClosing: true }>
-                  flags*: <$NodeFlags { token: true, hasGap: false, fragment: false, cover: false } />
+                  flags*: <$NodeFlags { token: true, hasGap: false } />
                   literalValue*: :JSON:
                   <$String>
                     openToken*: <* '"' />
@@ -455,7 +443,7 @@ describe('@bablr/language-en-cstml', () => {
           openTag*:
           <$OpenNodeTag { selfClosing: true }>
             openToken*: <* '<' />
-            flags*: <$NodeFlags { token: false, hasGap: false, fragment: false, cover: false } />
+            flags*: <$NodeFlags { token: false, hasGap: false } />
             name$:
             <$Identifier>
               content*: <*IdentifierContent 'Node' />
@@ -482,7 +470,7 @@ describe('@bablr/language-en-cstml', () => {
           <$OpenNodeTag { selfClosing: false }>
             openToken*: <* '<' />
             flags*:
-            <$NodeFlags { token: true, hasGap: false, fragment: false, cover: false }>
+            <$NodeFlags { token: true, hasGap: false }>
               tokenToken*: <* '*' />
             </>
             name$:
@@ -519,7 +507,7 @@ describe('@bablr/language-en-cstml', () => {
           <$OpenNodeTag { selfClosing: true }>
             openToken*: <* '<' />
             flags*:
-            <$NodeFlags { token: true, hasGap: false, fragment: false, cover: false }>
+            <$NodeFlags { token: true, hasGap: false }>
               tokenToken*: <* '*' />
             </>
             name$:
@@ -547,7 +535,7 @@ describe('@bablr/language-en-cstml', () => {
           openTag*:
           <$OpenNodeTag { selfClosing: false }>
             openToken*: <* '<' />
-            flags*: <$NodeFlags { token: false, hasGap: false, fragment: false, cover: false } />
+            flags*: <$NodeFlags { token: false, hasGap: false } />
             name$:
             <$Identifier>
               content*: <*IdentifierContent 'Node' />
@@ -573,11 +561,8 @@ describe('@bablr/language-en-cstml', () => {
                 openTag*:
                 <$OpenNodeTag { selfClosing: false }>
                   openToken*: <* '<' />
-                  flags*:
-                  <$NodeFlags { token: false, hasGap: false, fragment: true, cover: false }>
-                    fragmentToken*: <* '_' />
-                    multiFragmentToken*: <* '_' />
-                  </>
+                  flags*: <$NodeFlags { token: false, hasGap: false } />
+                  type*: <* '__' />
                   name$: null
                   literalValue$: null
                   attributes$: null
@@ -605,7 +590,7 @@ describe('@bablr/language-en-cstml', () => {
           openTag*:
           <$OpenNodeTag { selfClosing: false }>
             openToken*: <* '<' />
-            flags*: <$NodeFlags { token: false, hasGap: false, fragment: false, cover: false } />
+            flags*: <$NodeFlags { token: false, hasGap: false } />
             name$:
             <$Identifier>
               content*: <*IdentifierContent 'Node' />
@@ -651,7 +636,7 @@ describe('@bablr/language-en-cstml', () => {
           openTag*:
           <$OpenNodeTag { selfClosing: false }>
             openToken*: <* '<' />
-            flags*: <$NodeFlags { token: false, hasGap: false, fragment: false, cover: false } />
+            flags*: <$NodeFlags { token: false, hasGap: false } />
             name$:
             <$Identifier>
               content*: <*IdentifierContent 'Node' />
@@ -679,7 +664,7 @@ describe('@bablr/language-en-cstml', () => {
                 openTag*:
                 <$OpenNodeTag { selfClosing: false }>
                   openToken*: <* '<' />
-                  flags*: <$NodeFlags { token: false, hasGap: false, fragment: false, cover: false } />
+                  flags*: <$NodeFlags { token: false, hasGap: false } />
                   name$:
                   <$Identifier>
                     content*: <*IdentifierContent 'Node' />
@@ -710,7 +695,7 @@ describe('@bablr/language-en-cstml', () => {
           openTag*:
           <$OpenNodeTag { selfClosing: false }>
             openToken*: <* '<' />
-            flags*: <$NodeFlags { token: false, hasGap: false, fragment: false, cover: false } />
+            flags*: <$NodeFlags { token: false, hasGap: false } />
             name$:
             <$Identifier>
               content*: <*IdentifierContent 'Node' />
@@ -802,7 +787,7 @@ describe('@bablr/language-en-cstml', () => {
           <$OpenNodeTag { selfClosing: false }>
             openToken*: <* '<' />
             flags*:
-            <$NodeFlags { token: true, hasGap: false, fragment: false, cover: false }>
+            <$NodeFlags { token: true, hasGap: false }>
               tokenToken*: <* '*' />
             </>
             name$:
@@ -829,7 +814,7 @@ describe('@bablr/language-en-cstml', () => {
                 openTag*:
                 <$OpenNodeTag { selfClosing: false }>
                   openToken*: <* '<' />
-                  flags*: <$NodeFlags { token: false, hasGap: false, fragment: false, cover: false } />
+                  flags*: <$NodeFlags { token: false, hasGap: false } />
                   name$:
                   <$Identifier>
                     content*: <*IdentifierContent 'Escape' />
@@ -885,7 +870,7 @@ describe('@bablr/language-en-cstml', () => {
         <$OpenNodeTag { selfClosing: true }>
           openToken*: <* '<' />
           flags*:
-          <$NodeFlags { token: true, hasGap: false, fragment: false, cover: false }>
+          <$NodeFlags { token: true, hasGap: false }>
             tokenToken*: <* '*' />
           </>
           name$:
@@ -911,7 +896,7 @@ describe('@bablr/language-en-cstml', () => {
         <$OpenNodeTag { selfClosing: true }>
           openToken*: <* '<' />
           flags*:
-          <$NodeFlags { token: true, hasGap: false, fragment: false, cover: false }>
+          <$NodeFlags { token: true, hasGap: false }>
             tokenToken*: <* '*' />
           </>
           name$: null
@@ -933,7 +918,7 @@ describe('@bablr/language-en-cstml', () => {
       expect(print(tag`<Quantifier { min: 1, max: Infinity } />`)).toEqual(dedent`\
         <$OpenNodeTag { selfClosing: true }>
           openToken*: <* '<' />
-          flags*: <$NodeFlags { token: false, hasGap: false, fragment: false, cover: false } />
+          flags*: <$NodeFlags { token: false, hasGap: false } />
           name$:
           <$Identifier>
             content*: <*IdentifierContent 'Quantifier' />
@@ -990,7 +975,7 @@ describe('@bablr/language-en-cstml', () => {
       expect(print(tag({ raw: ['<`Identifier` />'] }))).toEqual(dedent`\
         <$OpenNodeTag { selfClosing: true }>
           openToken*: <* '<' />
-          flags*: <$NodeFlags { token: false, hasGap: false, fragment: false, cover: false } />
+          flags*: <$NodeFlags { token: false, hasGap: false } />
           name$:
           <$Identifier>
             openToken*: <* '${'`'}' />
@@ -1009,7 +994,7 @@ describe('@bablr/language-en-cstml', () => {
       expect(print(tag`<\u004a />`)).toEqual(dedent`\
         <$OpenNodeTag { selfClosing: true }>
           openToken*: <* '<' />
-          flags*: <$NodeFlags { token: false, hasGap: false, fragment: false, cover: false } />
+          flags*: <$NodeFlags { token: false, hasGap: false } />
           name$:
           <$Identifier>
             content*:
@@ -1037,7 +1022,7 @@ describe('@bablr/language-en-cstml', () => {
       expect(print(tag`<日本語 />`)).toEqual(dedent`\
         <$OpenNodeTag { selfClosing: true }>
           openToken*: <* '<' />
-          flags*: <$NodeFlags { token: false, hasGap: false, fragment: false, cover: false } />
+          flags*: <$NodeFlags { token: false, hasGap: false } />
           name$:
           <$Identifier>
             content*: <*IdentifierContent '日本語' />
