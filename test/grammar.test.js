@@ -33,7 +33,7 @@ describe('@bablr/language-en-cstml', () => {
             attributes$: null
             closeToken*: <* '>' />
           </>
-          tree$:
+          tree+$:
           <$BoundNode>
             node+$:
             <$TreeNode>
@@ -69,7 +69,7 @@ describe('@bablr/language-en-cstml', () => {
             attributes$: null
             closeToken*: <* '>' />
           </>
-          tree$:
+          tree+$:
           <$BoundNode>
             node+$:
             <$TreeNode>
