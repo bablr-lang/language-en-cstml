@@ -124,7 +124,7 @@ describe('@bablr/language-en-cstml', () => {
           </>
           #: :Space: <*Space ' ' />
           .[]$:
-          <$ReferenceTag { isArray: false }>
+          <$ReferenceTag>
             type*: <* '.' />
             name$: null
             flags*: <$ReferenceFlags />
@@ -221,7 +221,7 @@ describe('@bablr/language-en-cstml', () => {
           children[]$:
           <$Property>
             referenceTag$:
-            <$ReferenceTag { isArray: false }>
+            <$ReferenceTag>
               type*: <* '.' />
               name$: null
               flags*: <$ReferenceFlags />
@@ -275,7 +275,7 @@ describe('@bablr/language-en-cstml', () => {
           children[]$:
           <$Property>
             referenceTag$:
-            <$ReferenceTag { isArray: false }>
+            <$ReferenceTag>
               type*: <* '.' />
               name$: null
               flags*: <$ReferenceFlags />
@@ -308,7 +308,7 @@ describe('@bablr/language-en-cstml', () => {
           children[]$:
           <$Property>
             referenceTag$:
-            <$ReferenceTag { isArray: false }>
+            <$ReferenceTag>
               type*: <* '#' />
               name$: null
               flags*: <$ReferenceFlags />
@@ -364,7 +364,7 @@ describe('@bablr/language-en-cstml', () => {
           children[]$:
           <$Property>
             referenceTag$:
-            <$ReferenceTag { isArray: false }>
+            <$ReferenceTag>
               name$:
               <$Identifier>
                 content*: <*IdentifierContent 'reference' />
@@ -547,7 +547,7 @@ describe('@bablr/language-en-cstml', () => {
           children[]$:
           <$Property>
             referenceTag$:
-            <$ReferenceTag { isArray: false }>
+            <$ReferenceTag>
               type*: <* '_' />
               name$: null
               flags*: <$ReferenceFlags />
@@ -602,7 +602,7 @@ describe('@bablr/language-en-cstml', () => {
           children[]$:
           <$Property>
             referenceTag$:
-            <$ReferenceTag { isArray: false }>
+            <$ReferenceTag>
               name$:
               <$Identifier>
                 content*: <*IdentifierContent 'reference' />
@@ -648,7 +648,7 @@ describe('@bablr/language-en-cstml', () => {
           children[]$:
           <$Property>
             referenceTag$:
-            <$ReferenceTag { isArray: false }>
+            <$ReferenceTag>
               name$:
               <$Identifier>
                 content*: <*IdentifierContent 'reference' />
@@ -801,7 +801,7 @@ describe('@bablr/language-en-cstml', () => {
           children[]$:
           <$Property>
             referenceTag$:
-            <$ReferenceTag { isArray: false }>
+            <$ReferenceTag>
               type*: <* '@' />
               name$: null
               flags*: <$ReferenceFlags />
