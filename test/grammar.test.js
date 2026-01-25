@@ -415,10 +415,9 @@ describe('@bablr/language-en-cstml', () => {
             <$BoundNode>
               node+$:
               <$TreeNode>
-                openTag*:
-                <$OpenNodeTag { selfClosing: true }>
-                  flags*: <$NodeFlags { token: true, hasGap: false } />
-                  literalValue*: :JSON:
+                children[]$:
+                <$LiteralTag>
+                  value*: :JSON:
                   <$String>
                     openToken*: <* '"' />
                     content$: <*StringContent 'stringContent' />
