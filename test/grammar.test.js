@@ -713,7 +713,7 @@ describe('@bablr/language-en-cstml', () => {
                 </>
                 sigilToken*: <* ':' />
                 #: :Space: <*Space ' ' />
-                value+$:
+                value$:
                 <$Object>
                   openToken*: <* '{' />
                   #: :Space: <*Space ' ' />
@@ -725,7 +725,7 @@ describe('@bablr/language-en-cstml', () => {
                     </>
                     sigilToken*: <* ':' />
                     #: :Space: <*Space ' ' />
-                    value+$:
+                    value$:
                     <$Undefined>
                       sigilToken*: <*Keyword 'undefined' />
                     </>
@@ -832,7 +832,7 @@ describe('@bablr/language-en-cstml', () => {
                       </>
                       sigilToken*: <* ':' />
                       #: :Space: <*Space ' ' />
-                      value+$:
+                      value$:
                       <$String>
                         openToken*: <* '"' />
                         content$: <*StringContent 'e' />
@@ -936,7 +936,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
               sigilToken*: <* ':' />
               #: :Space: <*Space ' ' />
-              value+$:
+              value$:
               <$Number>
                 wholePart$:
                 <$Integer>
@@ -956,7 +956,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
               sigilToken*: <* ':' />
               #: :Space: <*Space ' ' />
-              value+$:
+              value$:
               <$Infinity>
                 sigilToken*: <*Keyword 'Infinity' />
               </>
