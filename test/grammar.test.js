@@ -23,34 +23,37 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<!0:cstml><_></>', () => {
       expect(print(cstml`<!0:cstml><_></>`)).toEqual(dedent`\
-        <$Document>
-          doctype:
-          <$DoctypeTag>
-            openToken*: <* '<!' />
-            version$: :JSON: <*UnsignedInteger '0' />
-            versionSeparatorToken*: <* ':' />
-            doctypeToken*: <*Keyword 'cstml' />
-            attributes$: null
-            closeToken*: <* '>' />
-          </>
-          tree+$:
-          <$BoundNode>
-            node+$:
-            <$TreeNode>
-              openTag*:
-              <$OpenNodeTag { selfClosing: false }>
-                openToken*: <* '<' />
-                flags*: <$NodeFlags { token: false, hasGap: false } />
-                type*: <* '_' />
-                name$: null
-                literalValue$: null
-                attributes$: null
-                closeToken*: <* '>' />
-              </>
-              closeTag*:
-              <$CloseNodeTag>
-                openToken*: <* '</' />
-                closeToken*: <* '>' />
+        <$_>
+          _:
+          <$Document>
+            doctype:
+            <$DoctypeTag>
+              openToken*: <* '<!' />
+              version$: :JSON: <*UnsignedInteger '0' />
+              versionSeparatorToken*: <* ':' />
+              doctypeToken*: <*Keyword 'cstml' />
+              attributes$: null
+              closeToken*: <* '>' />
+            </>
+            tree+$:
+            <$BoundNode>
+              node+$:
+              <$TreeNode>
+                openTag*:
+                <$OpenNodeTag { selfClosing: false }>
+                  openToken*: <* '<' />
+                  flags*: <$NodeFlags { token: false, hasGap: false } />
+                  type*: <* '_' />
+                  name$: null
+                  literalValue$: null
+                  attributes$: null
+                  closeToken*: <* '>' />
+                </>
+                closeTag*:
+                <$CloseNodeTag>
+                  openToken*: <* '</' />
+                  closeToken*: <* '>' />
+                </>
               </>
             </>
           </>
@@ -59,36 +62,39 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<!0:cstml><Node></>', () => {
       expect(print(cstml`<!0:cstml><Node></>`)).toEqual(dedent`\
-        <$Document>
-          doctype:
-          <$DoctypeTag>
-            openToken*: <* '<!' />
-            version$: :JSON: <*UnsignedInteger '0' />
-            versionSeparatorToken*: <* ':' />
-            doctypeToken*: <*Keyword 'cstml' />
-            attributes$: null
-            closeToken*: <* '>' />
-          </>
-          tree+$:
-          <$BoundNode>
-            node+$:
-            <$TreeNode>
-              openTag*:
-              <$OpenNodeTag { selfClosing: false }>
-                openToken*: <* '<' />
-                flags*: <$NodeFlags { token: false, hasGap: false } />
-                name$:
-                <$Identifier>
-                  content*: <*IdentifierContent 'Node' />
+        <$_>
+          _:
+          <$Document>
+            doctype:
+            <$DoctypeTag>
+              openToken*: <* '<!' />
+              version$: :JSON: <*UnsignedInteger '0' />
+              versionSeparatorToken*: <* ':' />
+              doctypeToken*: <*Keyword 'cstml' />
+              attributes$: null
+              closeToken*: <* '>' />
+            </>
+            tree+$:
+            <$BoundNode>
+              node+$:
+              <$TreeNode>
+                openTag*:
+                <$OpenNodeTag { selfClosing: false }>
+                  openToken*: <* '<' />
+                  flags*: <$NodeFlags { token: false, hasGap: false } />
+                  name$:
+                  <$Identifier>
+                    content*: <*IdentifierContent 'Node' />
+                  </>
+                  literalValue$: null
+                  attributes$: null
+                  closeToken*: <* '>' />
                 </>
-                literalValue$: null
-                attributes$: null
-                closeToken*: <* '>' />
-              </>
-              closeTag*:
-              <$CloseNodeTag>
-                openToken*: <* '</' />
-                closeToken*: <* '>' />
+                closeTag*:
+                <$CloseNodeTag>
+                  openToken*: <* '</' />
+                  closeToken*: <* '>' />
+                </>
               </>
             </>
           </>
@@ -164,350 +170,757 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<_></>', () => {
       expect(print(cstml`<_></>`)).toEqual(dedent`\
-        <$TreeNode>
-          openTag*:
-          <$OpenNodeTag { selfClosing: false }>
-            openToken*: <* '<' />
-            flags*: <$NodeFlags { token: false, hasGap: false } />
-            type*: <* '_' />
-            name$: null
-            literalValue$: null
-            attributes$: null
-            closeToken*: <* '>' />
-          </>
-          closeTag*:
-          <$CloseNodeTag>
-            openToken*: <* '</' />
-            closeToken*: <* '>' />
+        <$_>
+          _:
+          <$TreeNode>
+            openTag*:
+            <$OpenNodeTag { selfClosing: false }>
+              openToken*: <* '<' />
+              flags*: <$NodeFlags { token: false, hasGap: false } />
+              type*: <* '_' />
+              name$: null
+              literalValue$: null
+              attributes$: null
+              closeToken*: <* '>' />
+            </>
+            closeTag*:
+            <$CloseNodeTag>
+              openToken*: <* '</' />
+              closeToken*: <* '>' />
+            </>
           </>
         </>\n`);
     });
 
     it('<_> </>', () => {
       expect(print(cstml`<_> </>`)).toEqual(dedent`\
-        <$TreeNode>
-          openTag*:
-          <$OpenNodeTag { selfClosing: false }>
-            openToken*: <* '<' />
-            flags*: <$NodeFlags { token: false, hasGap: false } />
-            type*: <* '_' />
-            name$: null
-            literalValue$: null
-            attributes$: null
-            closeToken*: <* '>' />
-          </>
-          #: :Space: <*Space ' ' />
-          closeTag*:
-          <$CloseNodeTag>
-            openToken*: <* '</' />
-            closeToken*: <* '>' />
+        <$_>
+          _:
+          <$TreeNode>
+            openTag*:
+            <$OpenNodeTag { selfClosing: false }>
+              openToken*: <* '<' />
+              flags*: <$NodeFlags { token: false, hasGap: false } />
+              type*: <* '_' />
+              name$: null
+              literalValue$: null
+              attributes$: null
+              closeToken*: <* '>' />
+            </>
+            #: :Space: <*Space ' ' />
+            closeTag*:
+            <$CloseNodeTag>
+              openToken*: <* '</' />
+              closeToken*: <* '>' />
+            </>
           </>
         </>\n`);
     });
 
     it('<_>.:<Node></></>', () => {
       expect(print(cstml`<_>.:<Node></></>`)).toEqual(dedent`\
-        <$TreeNode>
-          openTag*:
-          <$OpenNodeTag { selfClosing: false }>
-            openToken*: <* '<' />
-            flags*: <$NodeFlags { token: false, hasGap: false } />
-            type*: <* '_' />
-            name$: null
-            literalValue$: null
-            attributes$: null
-            closeToken*: <* '>' />
-          </>
-          children[]$:
-          <$Property>
-            referenceTag$:
-            <$ReferenceTag>
-              type*: <* '.' />
+        <$_>
+          _:
+          <$TreeNode>
+            openTag*:
+            <$OpenNodeTag { selfClosing: false }>
+              openToken*: <* '<' />
+              flags*: <$NodeFlags { token: false, hasGap: false } />
+              type*: <* '_' />
               name$: null
-              flags*: <$ReferenceFlags />
-              sigilToken*: <* ':' />
+              literalValue$: null
+              attributes$: null
+              closeToken*: <* '>' />
             </>
-            value+$:
-            <$BoundNode>
-              node+$:
-              <$TreeNode>
-                openTag*:
-                <$OpenNodeTag { selfClosing: false }>
-                  openToken*: <* '<' />
-                  flags*: <$NodeFlags { token: false, hasGap: false } />
-                  name$:
-                  <$Identifier>
-                    content*: <*IdentifierContent 'Node' />
+            children[]$:
+            <$Property>
+              referenceTag$:
+              <$ReferenceTag>
+                type*: <* '.' />
+                name$: null
+                flags*: <$ReferenceFlags />
+                sigilToken*: <* ':' />
+              </>
+              value+$:
+              <$BoundNode>
+                node+$:
+                <$TreeNode>
+                  openTag*:
+                  <$OpenNodeTag { selfClosing: false }>
+                    openToken*: <* '<' />
+                    flags*: <$NodeFlags { token: false, hasGap: false } />
+                    name$:
+                    <$Identifier>
+                      content*: <*IdentifierContent 'Node' />
+                    </>
+                    literalValue$: null
+                    attributes$: null
+                    closeToken*: <* '>' />
                   </>
-                  literalValue$: null
-                  attributes$: null
-                  closeToken*: <* '>' />
-                </>
-                closeTag*:
-                <$CloseNodeTag>
-                  openToken*: <* '</' />
-                  closeToken*: <* '>' />
+                  closeTag*:
+                  <$CloseNodeTag>
+                    openToken*: <* '</' />
+                    closeToken*: <* '>' />
+                  </>
                 </>
               </>
             </>
-          </>
-          closeTag*:
-          <$CloseNodeTag>
-            openToken*: <* '</' />
-            closeToken*: <* '>' />
+            closeTag*:
+            <$CloseNodeTag>
+              openToken*: <* '</' />
+              closeToken*: <* '>' />
+            </>
           </>
         </>\n`);
     });
 
     it('<_>.:<Node></>#:<Trivia></></>', () => {
       expect(print(cstml`<_>.:<Node></>#:<Trivia></></>`)).toEqual(dedent`\
-        <$TreeNode>
-          openTag*:
-          <$OpenNodeTag { selfClosing: false }>
-            openToken*: <* '<' />
-            flags*: <$NodeFlags { token: false, hasGap: false } />
-            type*: <* '_' />
-            name$: null
-            literalValue$: null
-            attributes$: null
-            closeToken*: <* '>' />
-          </>
-          children[]$:
-          <$Property>
-            referenceTag$:
-            <$ReferenceTag>
-              type*: <* '.' />
+        <$_>
+          _:
+          <$TreeNode>
+            openTag*:
+            <$OpenNodeTag { selfClosing: false }>
+              openToken*: <* '<' />
+              flags*: <$NodeFlags { token: false, hasGap: false } />
+              type*: <* '_' />
               name$: null
-              flags*: <$ReferenceFlags />
-              sigilToken*: <* ':' />
+              literalValue$: null
+              attributes$: null
+              closeToken*: <* '>' />
             </>
-            value+$:
-            <$BoundNode>
-              node+$:
-              <$TreeNode>
-                openTag*:
-                <$OpenNodeTag { selfClosing: false }>
-                  openToken*: <* '<' />
-                  flags*: <$NodeFlags { token: false, hasGap: false } />
-                  name$:
-                  <$Identifier>
-                    content*: <*IdentifierContent 'Node' />
+            children[]$:
+            <$Property>
+              referenceTag$:
+              <$ReferenceTag>
+                type*: <* '.' />
+                name$: null
+                flags*: <$ReferenceFlags />
+                sigilToken*: <* ':' />
+              </>
+              value+$:
+              <$BoundNode>
+                node+$:
+                <$TreeNode>
+                  openTag*:
+                  <$OpenNodeTag { selfClosing: false }>
+                    openToken*: <* '<' />
+                    flags*: <$NodeFlags { token: false, hasGap: false } />
+                    name$:
+                    <$Identifier>
+                      content*: <*IdentifierContent 'Node' />
+                    </>
+                    literalValue$: null
+                    attributes$: null
+                    closeToken*: <* '>' />
                   </>
-                  literalValue$: null
-                  attributes$: null
-                  closeToken*: <* '>' />
-                </>
-                closeTag*:
-                <$CloseNodeTag>
-                  openToken*: <* '</' />
-                  closeToken*: <* '>' />
+                  closeTag*:
+                  <$CloseNodeTag>
+                    openToken*: <* '</' />
+                    closeToken*: <* '>' />
+                  </>
                 </>
               </>
             </>
-          </>
-          children[]$:
-          <$Property>
-            referenceTag$:
-            <$ReferenceTag>
-              type*: <* '#' />
-              name$: null
-              flags*: <$ReferenceFlags />
-              sigilToken*: <* ':' />
-            </>
-            value+$:
-            <$BoundNode>
-              node+$:
-              <$TreeNode>
-                openTag*:
-                <$OpenNodeTag { selfClosing: false }>
-                  openToken*: <* '<' />
-                  flags*: <$NodeFlags { token: false, hasGap: false } />
-                  name$:
-                  <$Identifier>
-                    content*: <*IdentifierContent 'Trivia' />
+            children[]$:
+            <$Property>
+              referenceTag$:
+              <$ReferenceTag>
+                type*: <* '#' />
+                name$: null
+                flags*: <$ReferenceFlags />
+                sigilToken*: <* ':' />
+              </>
+              value+$:
+              <$BoundNode>
+                node+$:
+                <$TreeNode>
+                  openTag*:
+                  <$OpenNodeTag { selfClosing: false }>
+                    openToken*: <* '<' />
+                    flags*: <$NodeFlags { token: false, hasGap: false } />
+                    name$:
+                    <$Identifier>
+                      content*: <*IdentifierContent 'Trivia' />
+                    </>
+                    literalValue$: null
+                    attributes$: null
+                    closeToken*: <* '>' />
                   </>
-                  literalValue$: null
-                  attributes$: null
-                  closeToken*: <* '>' />
-                </>
-                closeTag*:
-                <$CloseNodeTag>
-                  openToken*: <* '</' />
-                  closeToken*: <* '>' />
+                  closeTag*:
+                  <$CloseNodeTag>
+                    openToken*: <* '</' />
+                    closeToken*: <* '>' />
+                  </>
                 </>
               </>
             </>
-          </>
-          closeTag*:
-          <$CloseNodeTag>
-            openToken*: <* '</' />
-            closeToken*: <* '>' />
+            closeTag*:
+            <$CloseNodeTag>
+              openToken*: <* '</' />
+              closeToken*: <* '>' />
+            </>
           </>
         </>\n`);
     });
 
     it('`<Node>reference: null</>`', () => {
       expect(print(cstml`<Node>reference: null</>`)).toEqual(dedent`\
-        <$TreeNode>
-          openTag*:
-          <$OpenNodeTag { selfClosing: false }>
-            openToken*: <* '<' />
-            flags*: <$NodeFlags { token: false, hasGap: false } />
-            name$:
-            <$Identifier>
-              content*: <*IdentifierContent 'Node' />
-            </>
-            literalValue$: null
-            attributes$: null
-            closeToken*: <* '>' />
-          </>
-          children[]$:
-          <$Property>
-            referenceTag$:
-            <$ReferenceTag>
+        <$_>
+          _:
+          <$TreeNode>
+            openTag*:
+            <$OpenNodeTag { selfClosing: false }>
+              openToken*: <* '<' />
+              flags*: <$NodeFlags { token: false, hasGap: false } />
               name$:
               <$Identifier>
-                content*: <*IdentifierContent 'reference' />
+                content*: <*IdentifierContent 'Node' />
               </>
-              flags*: <$ReferenceFlags />
-              sigilToken*: <* ':' />
+              literalValue$: null
+              attributes$: null
+              closeToken*: <* '>' />
             </>
-            #: :Space: <*Space ' ' />
-            value+$:
-            <$BoundNode>
-              node+$:
-              <$NullNode>
-                sigilTag*:
-                <$NullTag>
-                  sigilToken*: <*Keyword 'null' />
+            children[]$:
+            <$Property>
+              referenceTag$:
+              <$ReferenceTag>
+                name$:
+                <$Identifier>
+                  content*: <*IdentifierContent 'reference' />
+                </>
+                flags*: <$ReferenceFlags />
+                sigilToken*: <* ':' />
+              </>
+              #: :Space: <*Space ' ' />
+              value+$:
+              <$BoundNode>
+                node+$:
+                <$NullNode>
+                  sigilTag*:
+                  <$NullTag>
+                    sigilToken*: <*Keyword 'null' />
+                  </>
                 </>
               </>
             </>
-          </>
-          closeTag*:
-          <$CloseNodeTag>
-            openToken*: <* '</' />
-            closeToken*: <* '>' />
+            closeTag*:
+            <$CloseNodeTag>
+              openToken*: <* '</' />
+              closeToken*: <* '>' />
+            </>
           </>
         </>\n`);
     });
 
     it('`<Node> "stringContent" </>`', () => {
       expect(print(cstml`<Node> "stringContent" </>`)).toEqual(dedent`\
-        <$TreeNode>
-          openTag*:
-          <$OpenNodeTag { selfClosing: false }>
-            openToken*: <* '<' />
-            flags*: <$NodeFlags { token: false, hasGap: false } />
-            name$:
-            <$Identifier>
-              content*: <*IdentifierContent 'Node' />
+        <$_>
+          _:
+          <$TreeNode>
+            openTag*:
+            <$OpenNodeTag { selfClosing: false }>
+              openToken*: <* '<' />
+              flags*: <$NodeFlags { token: false, hasGap: false } />
+              name$:
+              <$Identifier>
+                content*: <*IdentifierContent 'Node' />
+              </>
+              literalValue$: null
+              attributes$: null
+              closeToken*: <* '>' />
             </>
-            literalValue$: null
-            attributes$: null
-            closeToken*: <* '>' />
-          </>
-          #: :Space: <*Space ' ' />
-          children[]$:
-          <$Property>
-            referenceTag$: null
-            value+$:
-            <$BoundNode>
-              node+$:
-              <$TreeNode>
-                openTag*:
-                <$OpenNodeTag { selfClosing: false }>
-                  flags*: <$NodeFlags { token: true, hasGap: false } />
-                </>
-                children[]$:
-                <$LiteralTag>
-                  value*: :JSON:
-                  <$String>
-                    openToken*: <* '"' />
-                    content$: <*StringContent 'stringContent' />
-                    closeToken*: <* '"' />
+            #: :Space: <*Space ' ' />
+            children[]$:
+            <$Property>
+              referenceTag$: null
+              value+$:
+              <$BoundNode>
+                node+$:
+                <$TreeNode>
+                  openTag*:
+                  <$OpenNodeTag { selfClosing: false }>
+                    flags*: <$NodeFlags { token: true, hasGap: false } />
                   </>
+                  children[]$:
+                  <$LiteralTag>
+                    value*: :JSON:
+                    <$String>
+                      openToken*: <* '"' />
+                      content$: <*StringContent 'stringContent' />
+                      closeToken*: <* '"' />
+                    </>
+                  </>
+                  #: :Space: <*Space ' ' />
+                  closeTag*: <$CloseNodeTag />
                 </>
-                #: :Space: <*Space ' ' />
-                closeTag*: <$CloseNodeTag />
               </>
             </>
-          </>
-          closeTag*:
-          <$CloseNodeTag>
-            openToken*: <* '</' />
-            closeToken*: <* '>' />
+            closeTag*:
+            <$CloseNodeTag>
+              openToken*: <* '</' />
+              closeToken*: <* '>' />
+            </>
           </>
         </>\n`);
     });
 
     it('`<Node "stringContent" />`', () => {
       expect(print(cstml`<Node "stringContent" />`)).toEqual(dedent`\
-        <$TreeNode>
-          openTag*:
-          <$OpenNodeTag { selfClosing: true }>
-            openToken*: <* '<' />
-            flags*: <$NodeFlags { token: false, hasGap: false } />
-            name$:
-            <$Identifier>
-              content*: <*IdentifierContent 'Node' />
+        <$_>
+          _:
+          <$TreeNode>
+            openTag*:
+            <$OpenNodeTag { selfClosing: true }>
+              openToken*: <* '<' />
+              flags*: <$NodeFlags { token: false, hasGap: false } />
+              name$:
+              <$Identifier>
+                content*: <*IdentifierContent 'Node' />
+              </>
+              #: :Space: <*Space ' ' />
+              literalValue$: :JSON:
+              <$String>
+                openToken*: <* '\"' />
+                content$: <*StringContent 'stringContent' />
+                closeToken*: <* '\"' />
+              </>
+              #: :Space: <*Space ' ' />
+              attributes$: null
+              selfClosingToken*: <* '/' />
+              closeToken*: <* '>' />
             </>
-            #: :Space: <*Space ' ' />
-            literalValue$: :JSON:
-            <$String>
-              openToken*: <* '\"' />
-              content$: <*StringContent 'stringContent' />
-              closeToken*: <* '\"' />
-            </>
-            #: :Space: <*Space ' ' />
-            attributes$: null
-            selfClosingToken*: <* '/' />
-            closeToken*: <* '>' />
           </>
         </>\n`);
     });
 
     it('`<*Token> "stringContent" </>`', () => {
       expect(print(cstml`<*Token> "stringContent" </>`)).toEqual(dedent`\
-        <$TreeNode>
-          openTag*:
-          <$OpenNodeTag { selfClosing: false }>
-            openToken*: <* '<' />
-            flags*:
-            <$NodeFlags { token: true, hasGap: false }>
-              tokenToken*: <* '*' />
+        <$_>
+          _:
+          <$TreeNode>
+            openTag*:
+            <$OpenNodeTag { selfClosing: false }>
+              openToken*: <* '<' />
+              flags*:
+              <$NodeFlags { token: true, hasGap: false }>
+                tokenToken*: <* '*' />
+              </>
+              name$:
+              <$Identifier>
+                content*: <*IdentifierContent 'Token' />
+              </>
+              literalValue$: null
+              attributes$: null
+              closeToken*: <* '>' />
             </>
-            name$:
-            <$Identifier>
-              content*: <*IdentifierContent 'Token' />
+            #: :Space: <*Space ' ' />
+            children[]$:
+            <$LiteralTag>
+              value*: :JSON:
+              <$String>
+                openToken*: <* '"' />
+                content$: <*StringContent 'stringContent' />
+                closeToken*: <* '"' />
+              </>
             </>
-            literalValue$: null
-            attributes$: null
-            closeToken*: <* '>' />
-          </>
-          #: :Space: <*Space ' ' />
-          children[]$:
-          <$LiteralTag>
-            value*: :JSON:
-            <$String>
-              openToken*: <* '"' />
-              content$: <*StringContent 'stringContent' />
-              closeToken*: <* '"' />
+            #: :Space: <*Space ' ' />
+            closeTag*:
+            <$CloseNodeTag>
+              openToken*: <* '</' />
+              closeToken*: <* '>' />
             </>
-          </>
-          #: :Space: <*Space ' ' />
-          closeTag*:
-          <$CloseNodeTag>
-            openToken*: <* '</' />
-            closeToken*: <* '>' />
           </>
         </>\n`);
     });
 
     it('`<*Token "stringContent" />`', () => {
       expect(print(cstml`<*Token "stringContent" />`)).toEqual(dedent`\
-        <$TreeNode>
-          openTag*:
+        <$_>
+          _:
+          <$TreeNode>
+            openTag*:
+            <$OpenNodeTag { selfClosing: true }>
+              openToken*: <* '<' />
+              flags*:
+              <$NodeFlags { token: true, hasGap: false }>
+                tokenToken*: <* '*' />
+              </>
+              name$:
+              <$Identifier>
+                content*: <*IdentifierContent 'Token' />
+              </>
+              #: :Space: <*Space ' ' />
+              literalValue$: :JSON:
+              <$String>
+                openToken*: <* '"' />
+                content$: <*StringContent 'stringContent' />
+                closeToken*: <* '"' />
+              </>
+              #: :Space: <*Space ' ' />
+              attributes$: null
+              selfClosingToken*: <* '/' />
+              closeToken*: <* '>' />
+            </>
+          </>
+        </>\n`);
+    });
+
+    it('`<Node>#: <__></></>`', () => {
+      expect(print(cstml`<Node>_: <__></></>`)).toEqual(dedent`\
+        <$_>
+          _:
+          <$TreeNode>
+            openTag*:
+            <$OpenNodeTag { selfClosing: false }>
+              openToken*: <* '<' />
+              flags*: <$NodeFlags { token: false, hasGap: false } />
+              name$:
+              <$Identifier>
+                content*: <*IdentifierContent 'Node' />
+              </>
+              literalValue$: null
+              attributes$: null
+              closeToken*: <* '>' />
+            </>
+            children[]$:
+            <$Property>
+              referenceTag$:
+              <$ReferenceTag>
+                type*: <* '_' />
+                name$: null
+                flags*: <$ReferenceFlags />
+                sigilToken*: <* ':' />
+              </>
+              #: :Space: <*Space ' ' />
+              value+$:
+              <$BoundNode>
+                node+$:
+                <$TreeNode>
+                  openTag*:
+                  <$OpenNodeTag { selfClosing: false }>
+                    openToken*: <* '<' />
+                    flags*: <$NodeFlags { token: false, hasGap: false } />
+                    type*: <* '__' />
+                    name$: null
+                    literalValue$: null
+                    attributes$: null
+                    closeToken*: <* '>' />
+                  </>
+                  closeTag*:
+                  <$CloseNodeTag>
+                    openToken*: <* '</' />
+                    closeToken*: <* '>' />
+                  </>
+                </>
+              </>
+            </>
+            closeTag*:
+            <$CloseNodeTag>
+              openToken*: <* '</' />
+              closeToken*: <* '>' />
+            </>
+          </>
+        </>\n`);
+    });
+
+    it('`<Node>reference: <//></>`', () => {
+      expect(print(cstml`<Node>reference: <//></>`)).toEqual(dedent`\
+        <$_>
+          _:
+          <$TreeNode>
+            openTag*:
+            <$OpenNodeTag { selfClosing: false }>
+              openToken*: <* '<' />
+              flags*: <$NodeFlags { token: false, hasGap: false } />
+              name$:
+              <$Identifier>
+                content*: <*IdentifierContent 'Node' />
+              </>
+              literalValue$: null
+              attributes$: null
+              closeToken*: <* '>' />
+            </>
+            children[]$:
+            <$Property>
+              referenceTag$:
+              <$ReferenceTag>
+                name$:
+                <$Identifier>
+                  content*: <*IdentifierContent 'reference' />
+                </>
+                flags*: <$ReferenceFlags />
+                sigilToken*: <* ':' />
+              </>
+              #: :Space: <*Space ' ' />
+              value+$:
+              <$BoundNode>
+                node+$:
+                <$GapNode>
+                  sigilTag*:
+                  <$GapTag>
+                    sigilToken*: <* '<//>' />
+                  </>
+                </>
+              </>
+            </>
+            closeTag*:
+            <$CloseNodeTag>
+              openToken*: <* '</' />
+              closeToken*: <* '>' />
+            </>
+          </>
+        </>\n`);
+    });
+
+    it('`<Node>reference: <Node></></>`', () => {
+      expect(print(cstml`<Node>reference: <Node></></>`)).toEqual(dedent`\
+        <$_>
+          _:
+          <$TreeNode>
+            openTag*:
+            <$OpenNodeTag { selfClosing: false }>
+              openToken*: <* '<' />
+              flags*: <$NodeFlags { token: false, hasGap: false } />
+              name$:
+              <$Identifier>
+                content*: <*IdentifierContent 'Node' />
+              </>
+              literalValue$: null
+              attributes$: null
+              closeToken*: <* '>' />
+            </>
+            children[]$:
+            <$Property>
+              referenceTag$:
+              <$ReferenceTag>
+                name$:
+                <$Identifier>
+                  content*: <*IdentifierContent 'reference' />
+                </>
+                flags*: <$ReferenceFlags />
+                sigilToken*: <* ':' />
+              </>
+              #: :Space: <*Space ' ' />
+              value+$:
+              <$BoundNode>
+                node+$:
+                <$TreeNode>
+                  openTag*:
+                  <$OpenNodeTag { selfClosing: false }>
+                    openToken*: <* '<' />
+                    flags*: <$NodeFlags { token: false, hasGap: false } />
+                    name$:
+                    <$Identifier>
+                      content*: <*IdentifierContent 'Node' />
+                    </>
+                    literalValue$: null
+                    attributes$: null
+                    closeToken*: <* '>' />
+                  </>
+                  closeTag*:
+                  <$CloseNodeTag>
+                    openToken*: <* '</' />
+                    closeToken*: <* '>' />
+                  </>
+                </>
+              </>
+            </>
+            closeTag*:
+            <$CloseNodeTag>
+              openToken*: <* '</' />
+              closeToken*: <* '>' />
+            </>
+          </>
+        </>\n`);
+    });
+
+    it('`<Node { foo: { bar: undefined } }> { foo.bar: 1 } </>`', () => {
+      expect(print(cstml`<Node { foo: { bar: undefined } }> { foo.bar: 1 } </>`)).toEqual(dedent`\
+        <$_>
+          _:
+          <$TreeNode>
+            openTag*:
+            <$OpenNodeTag { selfClosing: false }>
+              openToken*: <* '<' />
+              flags*: <$NodeFlags { token: false, hasGap: false } />
+              name$:
+              <$Identifier>
+                content*: <*IdentifierContent 'Node' />
+              </>
+              #: :Space: <*Space ' ' />
+              literalValue$: null
+              attributes$: :JSON:
+              <$Object>
+                openToken*: <* '{' />
+                #: :Space: <*Space ' ' />
+                properties[]$:
+                <$Property>
+                  key$:
+                  <$Identifier>
+                    content*: <*IdentifierContent 'foo' />
+                  </>
+                  sigilToken*: <* ':' />
+                  #: :Space: <*Space ' ' />
+                  value$:
+                  <$Object>
+                    openToken*: <* '{' />
+                    #: :Space: <*Space ' ' />
+                    properties[]$:
+                    <$Property>
+                      key$:
+                      <$Identifier>
+                        content*: <*IdentifierContent 'bar' />
+                      </>
+                      sigilToken*: <* ':' />
+                      #: :Space: <*Space ' ' />
+                      value$:
+                      <$Undefined>
+                        sigilToken*: <*Keyword 'undefined' />
+                      </>
+                    </>
+                    #: :Space: <*Space ' ' />
+                    closeToken*: <* '}' />
+                  </>
+                </>
+                #: :Space: <*Space ' ' />
+                closeToken*: <* '}' />
+              </>
+              closeToken*: <* '>' />
+            </>
+            #: :Space: <*Space ' ' />
+            children[]$:
+            <$AttributeDefinition>
+              openToken*: <* '{' />
+              #: :Space: <*Space ' ' />
+              key$:
+              <$IdentifierPath>
+                segments[]$:
+                <$Identifier>
+                  content*: <*IdentifierContent 'foo' />
+                </>
+                #separatorTokens: <* '.' />
+                segments[]$:
+                <$Identifier>
+                  content*: <*IdentifierContent 'bar' />
+                </>
+              </>
+              sigilToken*: <* ':' />
+              #: :Space: <*Space ' ' />
+              value$: :JSON:
+              <$Number>
+                wholePart$:
+                <$Integer>
+                  value$: <*UnsignedInteger '1' />
+                </>
+                fractionalPart$: null
+                exponentPart$: null
+              </>
+              #: :Space: <*Space ' ' />
+              closeToken*: <* '}' />
+            </>
+            #: :Space: <*Space ' ' />
+            closeTag*:
+            <$CloseNodeTag>
+              openToken*: <* '</' />
+              closeToken*: <* '>' />
+            </>
+          </>
+        </>\n`);
+    });
+
+    it('`<*Tag>@:<Escape { cooked: "e" }></></>`', () => {
+      expect(print(cstml`<*Tag>@:<Escape { cooked: "e" }></></>`)).toEqual(dedent`\
+        <$_>
+          _:
+          <$TreeNode>
+            openTag*:
+            <$OpenNodeTag { selfClosing: false }>
+              openToken*: <* '<' />
+              flags*:
+              <$NodeFlags { token: true, hasGap: false }>
+                tokenToken*: <* '*' />
+              </>
+              name$:
+              <$Identifier>
+                content*: <*IdentifierContent 'Tag' />
+              </>
+              literalValue$: null
+              attributes$: null
+              closeToken*: <* '>' />
+            </>
+            children[]$:
+            <$Property>
+              referenceTag$:
+              <$ReferenceTag>
+                type*: <* '@' />
+                name$: null
+                flags*: <$ReferenceFlags />
+                sigilToken*: <* ':' />
+              </>
+              value+$:
+              <$BoundNode>
+                node+$:
+                <$TreeNode>
+                  openTag*:
+                  <$OpenNodeTag { selfClosing: false }>
+                    openToken*: <* '<' />
+                    flags*: <$NodeFlags { token: false, hasGap: false } />
+                    name$:
+                    <$Identifier>
+                      content*: <*IdentifierContent 'Escape' />
+                    </>
+                    #: :Space: <*Space ' ' />
+                    literalValue$: null
+                    attributes$: :JSON:
+                    <$Object>
+                      openToken*: <* '{' />
+                      #: :Space: <*Space ' ' />
+                      properties[]$:
+                      <$Property>
+                        key$:
+                        <$Identifier>
+                          content*: <*IdentifierContent 'cooked' />
+                        </>
+                        sigilToken*: <* ':' />
+                        #: :Space: <*Space ' ' />
+                        value$:
+                        <$String>
+                          openToken*: <* '"' />
+                          content$: <*StringContent 'e' />
+                          closeToken*: <* '"' />
+                        </>
+                      </>
+                      #: :Space: <*Space ' ' />
+                      closeToken*: <* '}' />
+                    </>
+                    closeToken*: <* '>' />
+                  </>
+                  closeTag*:
+                  <$CloseNodeTag>
+                    openToken*: <* '</' />
+                    closeToken*: <* '>' />
+                  </>
+                </>
+              </>
+            </>
+            closeTag*:
+            <$CloseNodeTag>
+              openToken*: <* '</' />
+              closeToken*: <* '>' />
+            </>
+          </>
+        </>\n`);
+    });
+  });
+
+  describe('OpenNodeTag', () => {
+    const tag = buildCSTMLTag(spam`<$OpenNodeTag />`);
+
+    it("`<*Type 'literalValue' />`", () => {
+      expect(print(tag`<*Type 'literalValue' />`)).toEqual(dedent`\
+        <$_>
+          _:
           <$OpenNodeTag { selfClosing: true }>
             openToken*: <* '<' />
             flags*:
@@ -516,14 +929,14 @@ describe('@bablr/language-en-cstml', () => {
             </>
             name$:
             <$Identifier>
-              content*: <*IdentifierContent 'Token' />
+              content*: <*IdentifierContent 'Type' />
             </>
             #: :Space: <*Space ' ' />
             literalValue$: :JSON:
             <$String>
-              openToken*: <* '"' />
-              content$: <*StringContent 'stringContent' />
-              closeToken*: <* '"' />
+              openToken*: <* "'" />
+              content$: <*StringContent 'literalValue' />
+              closeToken*: <* "'" />
             </>
             #: :Space: <*Space ' ' />
             attributes$: null
@@ -533,176 +946,42 @@ describe('@bablr/language-en-cstml', () => {
         </>\n`);
     });
 
-    it('`<Node>#: <__></></>`', () => {
-      expect(print(cstml`<Node>_: <__></></>`)).toEqual(dedent`\
-        <$TreeNode>
-          openTag*:
-          <$OpenNodeTag { selfClosing: false }>
+    it("`<* 'literalValue' />`", () => {
+      expect(print(tag`<* 'literalValue' />`)).toEqual(dedent`\
+        <$_>
+          _:
+          <$OpenNodeTag { selfClosing: true }>
             openToken*: <* '<' />
-            flags*: <$NodeFlags { token: false, hasGap: false } />
-            name$:
-            <$Identifier>
-              content*: <*IdentifierContent 'Node' />
+            flags*:
+            <$NodeFlags { token: true, hasGap: false }>
+              tokenToken*: <* '*' />
             </>
-            literalValue$: null
-            attributes$: null
-            closeToken*: <* '>' />
-          </>
-          children[]$:
-          <$Property>
-            referenceTag$:
-            <$ReferenceTag>
-              type*: <* '_' />
-              name$: null
-              flags*: <$ReferenceFlags />
-              sigilToken*: <* ':' />
+            name$: null
+            #: :Space: <*Space ' ' />
+            literalValue$: :JSON:
+            <$String>
+              openToken*: <* "'" />
+              content$: <*StringContent 'literalValue' />
+              closeToken*: <* "'" />
             </>
             #: :Space: <*Space ' ' />
-            value+$:
-            <$BoundNode>
-              node+$:
-              <$TreeNode>
-                openTag*:
-                <$OpenNodeTag { selfClosing: false }>
-                  openToken*: <* '<' />
-                  flags*: <$NodeFlags { token: false, hasGap: false } />
-                  type*: <* '__' />
-                  name$: null
-                  literalValue$: null
-                  attributes$: null
-                  closeToken*: <* '>' />
-                </>
-                closeTag*:
-                <$CloseNodeTag>
-                  openToken*: <* '</' />
-                  closeToken*: <* '>' />
-                </>
-              </>
-            </>
-          </>
-          closeTag*:
-          <$CloseNodeTag>
-            openToken*: <* '</' />
+            attributes$: null
+            selfClosingToken*: <* '/' />
             closeToken*: <* '>' />
           </>
         </>\n`);
     });
 
-    it('`<Node>reference: <//></>`', () => {
-      expect(print(cstml`<Node>reference: <//></>`)).toEqual(dedent`\
-        <$TreeNode>
-          openTag*:
-          <$OpenNodeTag { selfClosing: false }>
+    it('`<Quantifier { min: 1, max: Infinity } />`', () => {
+      expect(print(tag`<Quantifier { min: 1, max: Infinity } />`)).toEqual(dedent`\
+        <$_>
+          _:
+          <$OpenNodeTag { selfClosing: true }>
             openToken*: <* '<' />
             flags*: <$NodeFlags { token: false, hasGap: false } />
             name$:
             <$Identifier>
-              content*: <*IdentifierContent 'Node' />
-            </>
-            literalValue$: null
-            attributes$: null
-            closeToken*: <* '>' />
-          </>
-          children[]$:
-          <$Property>
-            referenceTag$:
-            <$ReferenceTag>
-              name$:
-              <$Identifier>
-                content*: <*IdentifierContent 'reference' />
-              </>
-              flags*: <$ReferenceFlags />
-              sigilToken*: <* ':' />
-            </>
-            #: :Space: <*Space ' ' />
-            value+$:
-            <$BoundNode>
-              node+$:
-              <$GapNode>
-                sigilTag*:
-                <$GapTag>
-                  sigilToken*: <* '<//>' />
-                </>
-              </>
-            </>
-          </>
-          closeTag*:
-          <$CloseNodeTag>
-            openToken*: <* '</' />
-            closeToken*: <* '>' />
-          </>
-        </>\n`);
-    });
-
-    it('`<Node>reference: <Node></></>`', () => {
-      expect(print(cstml`<Node>reference: <Node></></>`)).toEqual(dedent`\
-        <$TreeNode>
-          openTag*:
-          <$OpenNodeTag { selfClosing: false }>
-            openToken*: <* '<' />
-            flags*: <$NodeFlags { token: false, hasGap: false } />
-            name$:
-            <$Identifier>
-              content*: <*IdentifierContent 'Node' />
-            </>
-            literalValue$: null
-            attributes$: null
-            closeToken*: <* '>' />
-          </>
-          children[]$:
-          <$Property>
-            referenceTag$:
-            <$ReferenceTag>
-              name$:
-              <$Identifier>
-                content*: <*IdentifierContent 'reference' />
-              </>
-              flags*: <$ReferenceFlags />
-              sigilToken*: <* ':' />
-            </>
-            #: :Space: <*Space ' ' />
-            value+$:
-            <$BoundNode>
-              node+$:
-              <$TreeNode>
-                openTag*:
-                <$OpenNodeTag { selfClosing: false }>
-                  openToken*: <* '<' />
-                  flags*: <$NodeFlags { token: false, hasGap: false } />
-                  name$:
-                  <$Identifier>
-                    content*: <*IdentifierContent 'Node' />
-                  </>
-                  literalValue$: null
-                  attributes$: null
-                  closeToken*: <* '>' />
-                </>
-                closeTag*:
-                <$CloseNodeTag>
-                  openToken*: <* '</' />
-                  closeToken*: <* '>' />
-                </>
-              </>
-            </>
-          </>
-          closeTag*:
-          <$CloseNodeTag>
-            openToken*: <* '</' />
-            closeToken*: <* '>' />
-          </>
-        </>\n`);
-    });
-
-    it('`<Node { foo: { bar: undefined } }> { foo.bar: 1 } </>`', () => {
-      expect(print(cstml`<Node { foo: { bar: undefined } }> { foo.bar: 1 } </>`)).toEqual(dedent`\
-        <$TreeNode>
-          openTag*:
-          <$OpenNodeTag { selfClosing: false }>
-            openToken*: <* '<' />
-            flags*: <$NodeFlags { token: false, hasGap: false } />
-            name$:
-            <$Identifier>
-              content*: <*IdentifierContent 'Node' />
+              content*: <*IdentifierContent 'Quantifier' />
             </>
             #: :Space: <*Space ' ' />
             literalValue$: null
@@ -714,328 +993,115 @@ describe('@bablr/language-en-cstml', () => {
               <$Property>
                 key$:
                 <$Identifier>
-                  content*: <*IdentifierContent 'foo' />
+                  content*: <*IdentifierContent 'min' />
                 </>
                 sigilToken*: <* ':' />
                 #: :Space: <*Space ' ' />
                 value$:
-                <$Object>
-                  openToken*: <* '{' />
-                  #: :Space: <*Space ' ' />
-                  properties[]$:
-                  <$Property>
-                    key$:
-                    <$Identifier>
-                      content*: <*IdentifierContent 'bar' />
-                    </>
-                    sigilToken*: <* ':' />
-                    #: :Space: <*Space ' ' />
-                    value$:
-                    <$Undefined>
-                      sigilToken*: <*Keyword 'undefined' />
-                    </>
+                <$Number>
+                  wholePart$:
+                  <$Integer>
+                    value$: <*UnsignedInteger '1' />
                   </>
-                  #: :Space: <*Space ' ' />
-                  closeToken*: <* '}' />
+                  fractionalPart$: null
+                  exponentPart$: null
+                </>
+              </>
+              #separatorTokens: <* ',' />
+              #: :Space: <*Space ' ' />
+              properties[]$:
+              <$Property>
+                key$:
+                <$Identifier>
+                  content*: <*IdentifierContent 'max' />
+                </>
+                sigilToken*: <* ':' />
+                #: :Space: <*Space ' ' />
+                value$:
+                <$Infinity>
+                  sigilToken*: <*Keyword 'Infinity' />
                 </>
               </>
               #: :Space: <*Space ' ' />
               closeToken*: <* '}' />
             </>
+            #: :Space: <*Space ' ' />
+            selfClosingToken*: <* '/' />
             closeToken*: <* '>' />
           </>
-          #: :Space: <*Space ' ' />
-          children[]$:
-          <$AttributeDefinition>
-            openToken*: <* '{' />
-            #: :Space: <*Space ' ' />
-            key$:
-            <$IdentifierPath>
-              segments[]$:
-              <$Identifier>
-                content*: <*IdentifierContent 'foo' />
-              </>
-              #separatorTokens: <* '.' />
-              segments[]$:
-              <$Identifier>
-                content*: <*IdentifierContent 'bar' />
-              </>
-            </>
-            sigilToken*: <* ':' />
-            #: :Space: <*Space ' ' />
-            value$: :JSON:
-            <$Number>
-              wholePart$:
-              <$Integer>
-                value$: <*UnsignedInteger '1' />
-              </>
-              fractionalPart$: null
-              exponentPart$: null
-            </>
-            #: :Space: <*Space ' ' />
-            closeToken*: <* '}' />
-          </>
-          #: :Space: <*Space ' ' />
-          closeTag*:
-          <$CloseNodeTag>
-            openToken*: <* '</' />
-            closeToken*: <* '>' />
-          </>
-        </>\n`);
-    });
-
-    it('`<*Tag>@:<Escape { cooked: "e" }></></>`', () => {
-      expect(print(cstml`<*Tag>@:<Escape { cooked: "e" }></></>`)).toEqual(dedent`\
-        <$TreeNode>
-          openTag*:
-          <$OpenNodeTag { selfClosing: false }>
-            openToken*: <* '<' />
-            flags*:
-            <$NodeFlags { token: true, hasGap: false }>
-              tokenToken*: <* '*' />
-            </>
-            name$:
-            <$Identifier>
-              content*: <*IdentifierContent 'Tag' />
-            </>
-            literalValue$: null
-            attributes$: null
-            closeToken*: <* '>' />
-          </>
-          children[]$:
-          <$Property>
-            referenceTag$:
-            <$ReferenceTag>
-              type*: <* '@' />
-              name$: null
-              flags*: <$ReferenceFlags />
-              sigilToken*: <* ':' />
-            </>
-            value+$:
-            <$BoundNode>
-              node+$:
-              <$TreeNode>
-                openTag*:
-                <$OpenNodeTag { selfClosing: false }>
-                  openToken*: <* '<' />
-                  flags*: <$NodeFlags { token: false, hasGap: false } />
-                  name$:
-                  <$Identifier>
-                    content*: <*IdentifierContent 'Escape' />
-                  </>
-                  #: :Space: <*Space ' ' />
-                  literalValue$: null
-                  attributes$: :JSON:
-                  <$Object>
-                    openToken*: <* '{' />
-                    #: :Space: <*Space ' ' />
-                    properties[]$:
-                    <$Property>
-                      key$:
-                      <$Identifier>
-                        content*: <*IdentifierContent 'cooked' />
-                      </>
-                      sigilToken*: <* ':' />
-                      #: :Space: <*Space ' ' />
-                      value$:
-                      <$String>
-                        openToken*: <* '"' />
-                        content$: <*StringContent 'e' />
-                        closeToken*: <* '"' />
-                      </>
-                    </>
-                    #: :Space: <*Space ' ' />
-                    closeToken*: <* '}' />
-                  </>
-                  closeToken*: <* '>' />
-                </>
-                closeTag*:
-                <$CloseNodeTag>
-                  openToken*: <* '</' />
-                  closeToken*: <* '>' />
-                </>
-              </>
-            </>
-          </>
-          closeTag*:
-          <$CloseNodeTag>
-            openToken*: <* '</' />
-            closeToken*: <* '>' />
-          </>
-        </>\n`);
-    });
-  });
-
-  describe('OpenNodeTag', () => {
-    const tag = buildCSTMLTag(spam`<$OpenNodeTag />`);
-
-    it("`<*Type 'literalValue' />`", () => {
-      expect(print(tag`<*Type 'literalValue' />`)).toEqual(dedent`\
-        <$OpenNodeTag { selfClosing: true }>
-          openToken*: <* '<' />
-          flags*:
-          <$NodeFlags { token: true, hasGap: false }>
-            tokenToken*: <* '*' />
-          </>
-          name$:
-          <$Identifier>
-            content*: <*IdentifierContent 'Type' />
-          </>
-          #: :Space: <*Space ' ' />
-          literalValue$: :JSON:
-          <$String>
-            openToken*: <* "'" />
-            content$: <*StringContent 'literalValue' />
-            closeToken*: <* "'" />
-          </>
-          #: :Space: <*Space ' ' />
-          attributes$: null
-          selfClosingToken*: <* '/' />
-          closeToken*: <* '>' />
-        </>\n`);
-    });
-
-    it("`<* 'literalValue' />`", () => {
-      expect(print(tag`<* 'literalValue' />`)).toEqual(dedent`\
-        <$OpenNodeTag { selfClosing: true }>
-          openToken*: <* '<' />
-          flags*:
-          <$NodeFlags { token: true, hasGap: false }>
-            tokenToken*: <* '*' />
-          </>
-          name$: null
-          #: :Space: <*Space ' ' />
-          literalValue$: :JSON:
-          <$String>
-            openToken*: <* "'" />
-            content$: <*StringContent 'literalValue' />
-            closeToken*: <* "'" />
-          </>
-          #: :Space: <*Space ' ' />
-          attributes$: null
-          selfClosingToken*: <* '/' />
-          closeToken*: <* '>' />
-        </>\n`);
-    });
-
-    it('`<Quantifier { min: 1, max: Infinity } />`', () => {
-      expect(print(tag`<Quantifier { min: 1, max: Infinity } />`)).toEqual(dedent`\
-        <$OpenNodeTag { selfClosing: true }>
-          openToken*: <* '<' />
-          flags*: <$NodeFlags { token: false, hasGap: false } />
-          name$:
-          <$Identifier>
-            content*: <*IdentifierContent 'Quantifier' />
-          </>
-          #: :Space: <*Space ' ' />
-          literalValue$: null
-          attributes$: :JSON:
-          <$Object>
-            openToken*: <* '{' />
-            #: :Space: <*Space ' ' />
-            properties[]$:
-            <$Property>
-              key$:
-              <$Identifier>
-                content*: <*IdentifierContent 'min' />
-              </>
-              sigilToken*: <* ':' />
-              #: :Space: <*Space ' ' />
-              value$:
-              <$Number>
-                wholePart$:
-                <$Integer>
-                  value$: <*UnsignedInteger '1' />
-                </>
-                fractionalPart$: null
-                exponentPart$: null
-              </>
-            </>
-            #separatorTokens: <* ',' />
-            #: :Space: <*Space ' ' />
-            properties[]$:
-            <$Property>
-              key$:
-              <$Identifier>
-                content*: <*IdentifierContent 'max' />
-              </>
-              sigilToken*: <* ':' />
-              #: :Space: <*Space ' ' />
-              value$:
-              <$Infinity>
-                sigilToken*: <*Keyword 'Infinity' />
-              </>
-            </>
-            #: :Space: <*Space ' ' />
-            closeToken*: <* '}' />
-          </>
-          #: :Space: <*Space ' ' />
-          selfClosingToken*: <* '/' />
-          closeToken*: <* '>' />
         </>\n`);
     });
 
     it('"<`Identifier` />"', () => {
       expect(print(tag({ raw: ['<`Identifier` />'] }))).toEqual(dedent`\
-        <$OpenNodeTag { selfClosing: true }>
-          openToken*: <* '<' />
-          flags*: <$NodeFlags { token: false, hasGap: false } />
-          name$:
-          <$Identifier>
-            openToken*: <* '${'`'}' />
-            content*: <*IdentifierContent 'Identifier' />
-            closeToken*: <* '${'`'}' />
+        <$_>
+          _:
+          <$OpenNodeTag { selfClosing: true }>
+            openToken*: <* '<' />
+            flags*: <$NodeFlags { token: false, hasGap: false } />
+            name$:
+            <$Identifier>
+              openToken*: <* '${'`'}' />
+              content*: <*IdentifierContent 'Identifier' />
+              closeToken*: <* '${'`'}' />
+            </>
+            #: :Space: <*Space ' ' />
+            literalValue$: null
+            attributes$: null
+            selfClosingToken*: <* '/' />
+            closeToken*: <* '>' />
           </>
-          #: :Space: <*Space ' ' />
-          literalValue$: null
-          attributes$: null
-          selfClosingToken*: <* '/' />
-          closeToken*: <* '>' />
         </>\n`);
     });
 
     it('"<\\u004a />"', () => {
       expect(print(tag`<\u004a />`)).toEqual(dedent`\
-        <$OpenNodeTag { selfClosing: true }>
-          openToken*: <* '<' />
-          flags*: <$NodeFlags { token: false, hasGap: false } />
-          name$:
-          <$Identifier>
-            content*:
-            <*IdentifierContent>
-              @:
-              <EscapeSequence { cooked: 'J' }>
-                sigilToken*: <* '${'\\\\'}' />
-                code:
-                <EscapeCode>
-                  typeToken*: <*Keyword 'u' />
-                  value: :JSON: <*UnsignedHexInteger '004a' />
+        <$_>
+          _:
+          <$OpenNodeTag { selfClosing: true }>
+            openToken*: <* '<' />
+            flags*: <$NodeFlags { token: false, hasGap: false } />
+            name$:
+            <$Identifier>
+              content*:
+              <*IdentifierContent>
+                @:
+                <EscapeSequence { cooked: 'J' }>
+                  sigilToken*: <* '${'\\\\'}' />
+                  code:
+                  <EscapeCode>
+                    typeToken*: <*Keyword 'u' />
+                    value: :JSON: <*UnsignedHexInteger '004a' />
+                  </>
                 </>
               </>
             </>
+            #: :Space: <*Space ' ' />
+            literalValue$: null
+            attributes$: null
+            selfClosingToken*: <* '/' />
+            closeToken*: <* '>' />
           </>
-          #: :Space: <*Space ' ' />
-          literalValue$: null
-          attributes$: null
-          selfClosingToken*: <* '/' />
-          closeToken*: <* '>' />
         </>\n`);
     });
 
     it('"<日本語 />"', () => {
       expect(print(tag`<日本語 />`)).toEqual(dedent`\
-        <$OpenNodeTag { selfClosing: true }>
-          openToken*: <* '<' />
-          flags*: <$NodeFlags { token: false, hasGap: false } />
-          name$:
-          <$Identifier>
-            content*: <*IdentifierContent '日本語' />
+        <$_>
+          _:
+          <$OpenNodeTag { selfClosing: true }>
+            openToken*: <* '<' />
+            flags*: <$NodeFlags { token: false, hasGap: false } />
+            name$:
+            <$Identifier>
+              content*: <*IdentifierContent '日本語' />
+            </>
+            #: :Space: <*Space ' ' />
+            literalValue$: null
+            attributes$: null
+            selfClosingToken*: <* '/' />
+            closeToken*: <* '>' />
           </>
-          #: :Space: <*Space ' ' />
-          literalValue$: null
-          attributes$: null
-          selfClosingToken*: <* '/' />
-          closeToken*: <* '>' />
         </>\n`);
     });
   });
