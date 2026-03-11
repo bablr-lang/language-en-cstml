@@ -1,3 +1,4 @@
+import '@bablr/deep-freeze/register';
 import { buildTag } from 'bablr';
 import { spam } from '@bablr/boot';
 import { dedent } from '@qnighy/dedent';
@@ -6,8 +7,6 @@ import { expect } from 'expect';
 import { printPrettyCSTML } from '@bablr/helpers/tree';
 
 let enhancers = {};
-
-// enhancers = debugEnhancers;
 
 const buildCSTMLTag = (matcher) => {
   return buildTag(language, matcher, undefined, { enhancers });
