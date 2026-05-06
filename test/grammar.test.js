@@ -1,9 +1,9 @@
 import { buildTag } from 'bablr';
-import { spam } from '@bablr/boot';
 import { dedent } from '@qnighy/dedent';
 import language from '@bablr/language-en-cstml';
 import { expect } from 'expect';
 import { printPrettyCSTML } from '@bablr/helpers/tree';
+import { m } from '@bablr/helpers/grammar';
 
 let enhancers = {};
 
@@ -17,7 +17,7 @@ const print = (tree) => {
 
 describe('@bablr/language-en-cstml', () => {
   describe('Document', () => {
-    const cstml = buildCSTMLTag(spam`<$Document />`);
+    const cstml = buildCSTMLTag(m`<$Document />`);
 
     it('<!0:cstml><_></>', () => {
       expect(print(cstml`<!0:cstml><_></>`)).toEqual(dedent`\
@@ -48,7 +48,7 @@ describe('@bablr/language-en-cstml', () => {
                   closeToken*: <* '>' />
                 </>
                 closeTag*:
-                <$CloseNodeTag>
+                <$CloseTag>
                   openToken*: <* '</' />
                   closeToken*: <* '>' />
                 </>
@@ -89,7 +89,7 @@ describe('@bablr/language-en-cstml', () => {
                   closeToken*: <* '>' />
                 </>
                 closeTag*:
-                <$CloseNodeTag>
+                <$CloseTag>
                   openToken*: <* '</' />
                   closeToken*: <* '>' />
                 </>
@@ -101,7 +101,7 @@ describe('@bablr/language-en-cstml', () => {
   });
 
   describe('Stream', () => {
-    const cstml = buildCSTMLTag(spam`<$__Stream />`);
+    const cstml = buildCSTMLTag(m`<$__Stream />`);
 
     it('<!0:cstml> <_> .: <Node> </> </>', () => {
       expect(print(cstml`<!0:cstml> <_> .: <Node> </> </>`)).toEqual(dedent`\
@@ -149,13 +149,13 @@ describe('@bablr/language-en-cstml', () => {
           </>
           #: :Space: <*Space ' ' />
           .[]$:
-          <$CloseNodeTag>
+          <$CloseTag>
             openToken*: <* '</' />
             closeToken*: <* '>' />
           </>
           #: :Space: <*Space ' ' />
           .[]$:
-          <$CloseNodeTag>
+          <$CloseTag>
             openToken*: <* '</' />
             closeToken*: <* '>' />
           </>
@@ -164,7 +164,7 @@ describe('@bablr/language-en-cstml', () => {
   });
 
   describe('TreeNode', () => {
-    const cstml = buildCSTMLTag(spam`<$TreeNode />`);
+    const cstml = buildCSTMLTag(m`<$TreeNode />`);
 
     it('<_></>', () => {
       expect(print(cstml`<_></>`)).toEqual(dedent`\
@@ -182,7 +182,7 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
             closeTag*:
-            <$CloseNodeTag>
+            <$CloseTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -207,7 +207,7 @@ describe('@bablr/language-en-cstml', () => {
             </>
             #: :Space: <*Space ' ' />
             closeTag*:
-            <$CloseNodeTag>
+            <$CloseTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -256,7 +256,7 @@ describe('@bablr/language-en-cstml', () => {
                     closeToken*: <* '>' />
                   </>
                   closeTag*:
-                  <$CloseNodeTag>
+                  <$CloseTag>
                     openToken*: <* '</' />
                     closeToken*: <* '>' />
                   </>
@@ -264,7 +264,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
             closeTag*:
-            <$CloseNodeTag>
+            <$CloseTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -313,7 +313,7 @@ describe('@bablr/language-en-cstml', () => {
                     closeToken*: <* '>' />
                   </>
                   closeTag*:
-                  <$CloseNodeTag>
+                  <$CloseTag>
                     openToken*: <* '</' />
                     closeToken*: <* '>' />
                   </>
@@ -346,7 +346,7 @@ describe('@bablr/language-en-cstml', () => {
                     closeToken*: <* '>' />
                   </>
                   closeTag*:
-                  <$CloseNodeTag>
+                  <$CloseTag>
                     openToken*: <* '</' />
                     closeToken*: <* '>' />
                   </>
@@ -354,7 +354,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
             closeTag*:
-            <$CloseNodeTag>
+            <$CloseTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -403,7 +403,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
             closeTag*:
-            <$CloseNodeTag>
+            <$CloseTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -450,12 +450,12 @@ describe('@bablr/language-en-cstml', () => {
                     </>
                   </>
                   #: :Space: <*Space ' ' />
-                  closeTag*: <$CloseNodeTag />
+                  closeTag*: <$CloseTag />
                 </>
               </>
             </>
             closeTag*:
-            <$CloseNodeTag>
+            <$CloseTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -524,7 +524,7 @@ describe('@bablr/language-en-cstml', () => {
             </>
             #: :Space: <*Space ' ' />
             closeTag*:
-            <$CloseNodeTag>
+            <$CloseTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -606,7 +606,7 @@ describe('@bablr/language-en-cstml', () => {
                     closeToken*: <* '>' />
                   </>
                   closeTag*:
-                  <$CloseNodeTag>
+                  <$CloseTag>
                     openToken*: <* '</' />
                     closeToken*: <* '>' />
                   </>
@@ -614,7 +614,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
             closeTag*:
-            <$CloseNodeTag>
+            <$CloseTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -663,7 +663,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
             closeTag*:
-            <$CloseNodeTag>
+            <$CloseTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -717,7 +717,7 @@ describe('@bablr/language-en-cstml', () => {
                     closeToken*: <* '>' />
                   </>
                   closeTag*:
-                  <$CloseNodeTag>
+                  <$CloseTag>
                     openToken*: <* '</' />
                     closeToken*: <* '>' />
                   </>
@@ -725,7 +725,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
             closeTag*:
-            <$CloseNodeTag>
+            <$CloseTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -819,7 +819,7 @@ describe('@bablr/language-en-cstml', () => {
             </>
             #: :Space: <*Space ' ' />
             closeTag*:
-            <$CloseNodeTag>
+            <$CloseTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -895,7 +895,7 @@ describe('@bablr/language-en-cstml', () => {
                     closeToken*: <* '>' />
                   </>
                   closeTag*:
-                  <$CloseNodeTag>
+                  <$CloseTag>
                     openToken*: <* '</' />
                     closeToken*: <* '>' />
                   </>
@@ -903,7 +903,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
             closeTag*:
-            <$CloseNodeTag>
+            <$CloseTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -913,7 +913,7 @@ describe('@bablr/language-en-cstml', () => {
   });
 
   describe('OpenNodeTag', () => {
-    const tag = buildCSTMLTag(spam`<$OpenNodeTag />`);
+    const tag = buildCSTMLTag(m`<$OpenNodeTag />`);
 
     it("`<*Type 'literalValue' />`", () => {
       expect(print(tag`<*Type 'literalValue' />`)).toEqual(dedent`\
