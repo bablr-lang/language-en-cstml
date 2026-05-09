@@ -48,7 +48,7 @@ describe('@bablr/language-en-cstml', () => {
                   closeToken*: <* '>' />
                 </>
                 closeTag*:
-                <$CloseTag>
+                <$CloseNodeTag>
                   openToken*: <* '</' />
                   closeToken*: <* '>' />
                 </>
@@ -89,7 +89,7 @@ describe('@bablr/language-en-cstml', () => {
                   closeToken*: <* '>' />
                 </>
                 closeTag*:
-                <$CloseTag>
+                <$CloseNodeTag>
                   openToken*: <* '</' />
                   closeToken*: <* '>' />
                 </>
@@ -149,13 +149,13 @@ describe('@bablr/language-en-cstml', () => {
           </>
           #: :Space: <*Space ' ' />
           .[]$:
-          <$CloseTag>
+          <$CloseNodeTag>
             openToken*: <* '</' />
             closeToken*: <* '>' />
           </>
           #: :Space: <*Space ' ' />
           .[]$:
-          <$CloseTag>
+          <$CloseNodeTag>
             openToken*: <* '</' />
             closeToken*: <* '>' />
           </>
@@ -182,7 +182,7 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
             closeTag*:
-            <$CloseTag>
+            <$CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -207,7 +207,7 @@ describe('@bablr/language-en-cstml', () => {
             </>
             #: :Space: <*Space ' ' />
             closeTag*:
-            <$CloseTag>
+            <$CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -256,7 +256,7 @@ describe('@bablr/language-en-cstml', () => {
                     closeToken*: <* '>' />
                   </>
                   closeTag*:
-                  <$CloseTag>
+                  <$CloseNodeTag>
                     openToken*: <* '</' />
                     closeToken*: <* '>' />
                   </>
@@ -264,7 +264,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
             closeTag*:
-            <$CloseTag>
+            <$CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -313,7 +313,7 @@ describe('@bablr/language-en-cstml', () => {
                     closeToken*: <* '>' />
                   </>
                   closeTag*:
-                  <$CloseTag>
+                  <$CloseNodeTag>
                     openToken*: <* '</' />
                     closeToken*: <* '>' />
                   </>
@@ -346,7 +346,7 @@ describe('@bablr/language-en-cstml', () => {
                     closeToken*: <* '>' />
                   </>
                   closeTag*:
-                  <$CloseTag>
+                  <$CloseNodeTag>
                     openToken*: <* '</' />
                     closeToken*: <* '>' />
                   </>
@@ -354,7 +354,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
             closeTag*:
-            <$CloseTag>
+            <$CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -403,7 +403,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
             closeTag*:
-            <$CloseTag>
+            <$CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -450,12 +450,12 @@ describe('@bablr/language-en-cstml', () => {
                     </>
                   </>
                   #: :Space: <*Space ' ' />
-                  closeTag*: <$CloseTag />
+                  closeTag*: <$CloseNodeTag />
                 </>
               </>
             </>
             closeTag*:
-            <$CloseTag>
+            <$CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -524,7 +524,7 @@ describe('@bablr/language-en-cstml', () => {
             </>
             #: :Space: <*Space ' ' />
             closeTag*:
-            <$CloseTag>
+            <$CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -606,7 +606,7 @@ describe('@bablr/language-en-cstml', () => {
                     closeToken*: <* '>' />
                   </>
                   closeTag*:
-                  <$CloseTag>
+                  <$CloseNodeTag>
                     openToken*: <* '</' />
                     closeToken*: <* '>' />
                   </>
@@ -614,7 +614,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
             closeTag*:
-            <$CloseTag>
+            <$CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -663,7 +663,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
             closeTag*:
-            <$CloseTag>
+            <$CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -717,7 +717,7 @@ describe('@bablr/language-en-cstml', () => {
                     closeToken*: <* '>' />
                   </>
                   closeTag*:
-                  <$CloseTag>
+                  <$CloseNodeTag>
                     openToken*: <* '</' />
                     closeToken*: <* '>' />
                   </>
@@ -725,7 +725,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
             closeTag*:
-            <$CloseTag>
+            <$CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -819,7 +819,7 @@ describe('@bablr/language-en-cstml', () => {
             </>
             #: :Space: <*Space ' ' />
             closeTag*:
-            <$CloseTag>
+            <$CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -895,7 +895,7 @@ describe('@bablr/language-en-cstml', () => {
                     closeToken*: <* '>' />
                   </>
                   closeTag*:
-                  <$CloseTag>
+                  <$CloseNodeTag>
                     openToken*: <* '</' />
                     closeToken*: <* '>' />
                   </>
@@ -903,7 +903,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
             closeTag*:
-            <$CloseTag>
+            <$CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
