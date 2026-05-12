@@ -20,7 +20,7 @@ describe('@bablr/language-en-cstml', () => {
     const cstml = buildCSTMLTag(m`<$Document />`);
 
     it('<!0:cstml><_></>', () => {
-      expect(print(cstml`<!0:cstml><_></>`)).toEqual(dedent`\
+      expect(print(cstml`<!0:cstml><_></>`)).toEqual(dedent`
         <$_>
           _:
           <$Document>
@@ -59,7 +59,7 @@ describe('@bablr/language-en-cstml', () => {
     });
 
     it('<!0:cstml><Node></>', () => {
-      expect(print(cstml`<!0:cstml><Node></>`)).toEqual(dedent`\
+      expect(print(cstml`<!0:cstml><Node></>`)).toEqual(dedent`
         <$_>
           _:
           <$Document>
@@ -104,7 +104,7 @@ describe('@bablr/language-en-cstml', () => {
     const cstml = buildCSTMLTag(m`<$__Stream />`);
 
     it('<!0:cstml> <_> .: <Node> </> </>', () => {
-      expect(print(cstml`<!0:cstml> <_> .: <Node> </> </>`)).toEqual(dedent`\
+      expect(print(cstml`<!0:cstml> <_> .: <Node> </> </>`)).toEqual(dedent`
         <$__>
           .[]$:
           <$DoctypeTag>
@@ -167,7 +167,7 @@ describe('@bablr/language-en-cstml', () => {
     const cstml = buildCSTMLTag(m`<$TreeNode />`);
 
     it('<_></>', () => {
-      expect(print(cstml`<_></>`)).toEqual(dedent`\
+      expect(print(cstml`<_></>`)).toEqual(dedent`
         <$_>
           _:
           <$TreeNode>
@@ -191,7 +191,7 @@ describe('@bablr/language-en-cstml', () => {
     });
 
     it('<_> </>', () => {
-      expect(print(cstml`<_> </>`)).toEqual(dedent`\
+      expect(print(cstml`<_> </>`)).toEqual(dedent`
         <$_>
           _:
           <$TreeNode>
@@ -216,7 +216,7 @@ describe('@bablr/language-en-cstml', () => {
     });
 
     it('<_>.:<Node></></>', () => {
-      expect(print(cstml`<_>.:<Node></></>`)).toEqual(dedent`\
+      expect(print(cstml`<_>.:<Node></></>`)).toEqual(dedent`
         <$_>
           _:
           <$TreeNode>
@@ -273,7 +273,7 @@ describe('@bablr/language-en-cstml', () => {
     });
 
     it('<_>.:<Node></>#:<Trivia></></>', () => {
-      expect(print(cstml`<_>.:<Node></>#:<Trivia></></>`)).toEqual(dedent`\
+      expect(print(cstml`<_>.:<Node></>#:<Trivia></></>`)).toEqual(dedent`
         <$_>
           _:
           <$TreeNode>
@@ -363,7 +363,7 @@ describe('@bablr/language-en-cstml', () => {
     });
 
     it('`<Node>reference: null</>`', () => {
-      expect(print(cstml`<Node>reference: null</>`)).toEqual(dedent`\
+      expect(print(cstml`<Node>reference: null</>`)).toEqual(dedent`
         <$_>
           _:
           <$TreeNode>
@@ -412,7 +412,7 @@ describe('@bablr/language-en-cstml', () => {
     });
 
     it('`<Node> "stringContent" </>`', () => {
-      expect(print(cstml`<Node> "stringContent" </>`)).toEqual(dedent`\
+      expect(print(cstml`<Node> "stringContent" </>`)).toEqual(dedent`
         <$_>
           _:
           <$TreeNode>
@@ -464,7 +464,7 @@ describe('@bablr/language-en-cstml', () => {
     });
 
     it('`<Node "stringContent" />`', () => {
-      expect(print(cstml`<Node "stringContent" />`)).toEqual(dedent`\
+      expect(print(cstml`<Node "stringContent" />`)).toEqual(dedent`
         <$_>
           _:
           <$TreeNode>
@@ -493,7 +493,7 @@ describe('@bablr/language-en-cstml', () => {
     });
 
     it('`<*Token> "stringContent" </>`', () => {
-      expect(print(cstml`<*Token> "stringContent" </>`)).toEqual(dedent`\
+      expect(print(cstml`<*Token> "stringContent" </>`)).toEqual(dedent`
         <$_>
           _:
           <$TreeNode>
@@ -533,7 +533,7 @@ describe('@bablr/language-en-cstml', () => {
     });
 
     it('`<*Token "stringContent" />`', () => {
-      expect(print(cstml`<*Token "stringContent" />`)).toEqual(dedent`\
+      expect(print(cstml`<*Token "stringContent" />`)).toEqual(dedent`
         <$_>
           _:
           <$TreeNode>
@@ -565,7 +565,7 @@ describe('@bablr/language-en-cstml', () => {
     });
 
     it('`<Node>#: <__></></>`', () => {
-      expect(print(cstml`<Node>_: <__></></>`)).toEqual(dedent`\
+      expect(print(cstml`<Node>_: <__></></>`)).toEqual(dedent`
         <$_>
           _:
           <$TreeNode>
@@ -623,7 +623,7 @@ describe('@bablr/language-en-cstml', () => {
     });
 
     it('`<Node>reference: <//></>`', () => {
-      expect(print(cstml`<Node>reference: <//></>`)).toEqual(dedent`\
+      expect(print(cstml`<Node>reference: <//></>`)).toEqual(dedent`
         <$_>
           _:
           <$TreeNode>
@@ -672,7 +672,7 @@ describe('@bablr/language-en-cstml', () => {
     });
 
     it('`<Node>reference: <Node></></>`', () => {
-      expect(print(cstml`<Node>reference: <Node></></>`)).toEqual(dedent`\
+      expect(print(cstml`<Node>reference: <Node></></>`)).toEqual(dedent`
         <$_>
           _:
           <$TreeNode>
@@ -734,7 +734,7 @@ describe('@bablr/language-en-cstml', () => {
     });
 
     it('`<Node { foo: { bar: undefined } }> { foo.bar: 1 } </>`', () => {
-      expect(print(cstml`<Node { foo: { bar: undefined } }> { foo.bar: 1 } </>`)).toEqual(dedent`\
+      expect(print(cstml`<Node { foo: { bar: undefined } }> { foo.bar: 1 } </>`)).toEqual(dedent`
         <$_>
           _:
           <$TreeNode>
@@ -828,7 +828,7 @@ describe('@bablr/language-en-cstml', () => {
     });
 
     it('`<*Tag>@:<Escape { cooked: "e" }></></>`', () => {
-      expect(print(cstml`<*Tag>@:<Escape { cooked: "e" }></></>`)).toEqual(dedent`\
+      expect(print(cstml`<*Tag>@:<Escape { cooked: "e" }></></>`)).toEqual(dedent`
         <$_>
           _:
           <$TreeNode>
@@ -916,7 +916,7 @@ describe('@bablr/language-en-cstml', () => {
     const tag = buildCSTMLTag(m`<$OpenNodeTag />`);
 
     it("`<*Type 'literalValue' />`", () => {
-      expect(print(tag`<*Type 'literalValue' />`)).toEqual(dedent`\
+      expect(print(tag`<*Type 'literalValue' />`)).toEqual(dedent`
         <$_>
           _:
           <$OpenNodeTag { selfClosing: true }>
@@ -945,7 +945,7 @@ describe('@bablr/language-en-cstml', () => {
     });
 
     it("`<* 'literalValue' />`", () => {
-      expect(print(tag`<* 'literalValue' />`)).toEqual(dedent`\
+      expect(print(tag`<* 'literalValue' />`)).toEqual(dedent`
         <$_>
           _:
           <$OpenNodeTag { selfClosing: true }>
@@ -971,7 +971,7 @@ describe('@bablr/language-en-cstml', () => {
     });
 
     it('`<Quantifier { min: 1, max: Infinity } />`', () => {
-      expect(print(tag`<Quantifier { min: 1, max: Infinity } />`)).toEqual(dedent`\
+      expect(print(tag`<Quantifier { min: 1, max: Infinity } />`)).toEqual(dedent`
         <$_>
           _:
           <$OpenNodeTag { selfClosing: true }>
@@ -1031,7 +1031,7 @@ describe('@bablr/language-en-cstml', () => {
     });
 
     it('"<`Identifier` />"', () => {
-      expect(print(tag({ raw: ['<`Identifier` />'] }))).toEqual(dedent`\
+      expect(print(tag({ raw: ['<`Identifier` />'] }))).toEqual(dedent`
         <$_>
           _:
           <$OpenNodeTag { selfClosing: true }>
@@ -1053,7 +1053,7 @@ describe('@bablr/language-en-cstml', () => {
     });
 
     it('"<\\u004a />"', () => {
-      expect(print(tag`<\u004a />`)).toEqual(dedent`\
+      expect(print(tag`<\u004a />`)).toEqual(dedent`
         <$_>
           _:
           <$OpenNodeTag { selfClosing: true }>
@@ -1084,7 +1084,7 @@ describe('@bablr/language-en-cstml', () => {
     });
 
     it('"<日本語 />"', () => {
-      expect(print(tag`<日本語 />`)).toEqual(dedent`\
+      expect(print(tag`<日本語 />`)).toEqual(dedent`
         <$_>
           _:
           <$OpenNodeTag { selfClosing: true }>
