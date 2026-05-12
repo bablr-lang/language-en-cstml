@@ -55,7 +55,8 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('<!0:cstml><Node></>', () => {
@@ -96,7 +97,8 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
   });
 
@@ -159,7 +161,8 @@ describe('@bablr/language-en-cstml', () => {
             openToken*: <* '</' />
             closeToken*: <* '>' />
           </>
-        </>\n`);
+        </>
+      `);
     });
   });
 
@@ -187,7 +190,8 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('<_> </>', () => {
@@ -212,7 +216,8 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('<_>.:<Node></></>', () => {
@@ -269,7 +274,8 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('<_>.:<Node></>#:<Trivia></></>', () => {
@@ -359,7 +365,8 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('`<Node>reference: null</>`', () => {
@@ -408,7 +415,8 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('`<Node> "stringContent" </>`', () => {
@@ -460,7 +468,8 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('`<Node "stringContent" />`', () => {
@@ -489,7 +498,8 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('`<*Token> "stringContent" </>`', () => {
@@ -529,7 +539,8 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('`<*Token "stringContent" />`', () => {
@@ -561,7 +572,8 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('`<Node>#: <__></></>`', () => {
@@ -619,7 +631,8 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('`<Node>reference: <//></>`', () => {
@@ -668,7 +681,8 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('`<Node>reference: <Node></></>`', () => {
@@ -730,7 +744,8 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('`<Node { foo: { bar: undefined } }> { foo.bar: 1 } </>`', () => {
@@ -824,7 +839,8 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('`<*Tag>@:<Escape { cooked: "e" }></></>`', () => {
@@ -908,7 +924,8 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
           </>
-        </>\n`);
+        </>
+      `);
     });
   });
 
@@ -941,7 +958,8 @@ describe('@bablr/language-en-cstml', () => {
             selfClosingToken*: <* '/' />
             closeToken*: <* '>' />
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it("`<* 'literalValue' />`", () => {
@@ -967,7 +985,8 @@ describe('@bablr/language-en-cstml', () => {
             selfClosingToken*: <* '/' />
             closeToken*: <* '>' />
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('`<Quantifier { min: 1, max: Infinity } />`', () => {
@@ -1027,7 +1046,8 @@ describe('@bablr/language-en-cstml', () => {
             selfClosingToken*: <* '/' />
             closeToken*: <* '>' />
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('"<`Identifier` />"', () => {
@@ -1049,7 +1069,8 @@ describe('@bablr/language-en-cstml', () => {
             selfClosingToken*: <* '/' />
             closeToken*: <* '>' />
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('"<\\u004a />"', () => {
@@ -1080,7 +1101,8 @@ describe('@bablr/language-en-cstml', () => {
             selfClosingToken*: <* '/' />
             closeToken*: <* '>' />
           </>
-        </>\n`);
+        </>
+      `);
     });
 
     it('"<日本語 />"', () => {
@@ -1100,7 +1122,8 @@ describe('@bablr/language-en-cstml', () => {
             selfClosingToken*: <* '/' />
             closeToken*: <* '>' />
           </>
-        </>\n`);
+        </>
+      `);
     });
   });
 });
