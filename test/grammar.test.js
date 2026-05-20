@@ -748,8 +748,8 @@ describe('@bablr/language-en-cstml', () => {
       `);
     });
 
-    it('`<Node { foo: { bar: undefined } }> { foo.bar: 1 } </>`', () => {
-      expect(print(cstml`<Node { foo: { bar: undefined } }> { foo.bar: 1 } </>`)).toEqual(dedent`
+    it('`<Node { foo: { bar: undefined } }> { foo.bar: -1 } </>`', () => {
+      expect(print(cstml`<Node { foo: { bar: undefined } }> { foo.bar: -1 } </>`)).toEqual(dedent`
         <$_>
           _:
           <$TreeNode>
@@ -822,11 +822,12 @@ describe('@bablr/language-en-cstml', () => {
               #: :Space: <*Space ' ' />
               value$: :JSON:
               <$Number>
-                wholePart$:
-                <$Integer>
-                  value$: <*UnsignedInteger '1' />
-                </>
-                fractionalPart$: null
+                sign*: <* '-' />
+                wholePart$: <*UnsignedInteger '1' />
+                decimalSeparatorToken*: null
+                decimalPart$: null
+                exponentSeparatorToken*: null
+                exponentSign*: null
                 exponentPart$: null
               </>
               #: :Space: <*Space ' ' />
@@ -1016,11 +1017,12 @@ describe('@bablr/language-en-cstml', () => {
                 #: :Space: <*Space ' ' />
                 value$:
                 <$Number>
-                  wholePart$:
-                  <$Integer>
-                    value$: <*UnsignedInteger '1' />
-                  </>
-                  fractionalPart$: null
+                  sign*: null
+                  wholePart$: <*UnsignedInteger '1' />
+                  decimalSeparatorToken*: null
+                  decimalPart$: null
+                  exponentSeparatorToken*: null
+                  exponentSign*: null
                   exponentPart$: null
                 </>
               </>
