@@ -101,7 +101,7 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<!0:cstml> <_> .: <Node> </> </>', () => {
       expect(print(cstml`<!0:cstml> <_> .: <Node> </> </>`)).toEqual(dedent`
-        <$__>
+        <__>
           .[]$:
           <$DoctypeTag>
             openToken*: <* '<!' />
