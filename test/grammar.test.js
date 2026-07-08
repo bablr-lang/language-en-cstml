@@ -99,8 +99,8 @@ describe('@bablr/language-en-cstml', () => {
   describe('Stream', () => {
     const cstml = buildCSTMLTag(m`<$__Stream />`);
 
-    it('<!0:cstml> <_> .: <Node> </> </>', () => {
-      expect(print(cstml`<!0:cstml> <_> .: <Node> </> </>`)).toEqual(dedent`
+    it('<!0:cstml> <__> .: <Node> </> </>', () => {
+      expect(print(cstml`<!0:cstml> <__> .: <Node> </> </>`)).toEqual(dedent`
         <__>
           .[]$:
           <$DoctypeTag>
@@ -116,7 +116,7 @@ describe('@bablr/language-en-cstml', () => {
           <$OpenNodeTag { selfClosing: false }>
             openToken*: <* '<' />
             flags*: <$NodeFlags { token: false, hasGap: false } />
-            type*: <* '_' />
+            type*: <* '__' />
             name$: null
             literalValue$: null
             attributes$: null
