@@ -480,11 +480,14 @@ describe('@bablr/language-en-cstml', () => {
                 content*: <*IdentifierContent 'Node' />
               </>
               #: :Space: <*Space ' ' />
-              literalValue$: :JSON:
-              <$String>
-                openToken*: <* '\"' />
-                content$: <*StringContent 'stringContent' />
-                closeToken*: <* '\"' />
+              literalValue$:
+              <$LiteralTag>
+                value*: :JSON:
+                <$String>
+                  openToken*: <* '\"' />
+                  content$: <*StringContent 'stringContent' />
+                  closeToken*: <* '\"' />
+                </>
               </>
               #: :Space: <*Space ' ' />
               attributes$: null
@@ -554,11 +557,14 @@ describe('@bablr/language-en-cstml', () => {
                 content*: <*IdentifierContent 'Token' />
               </>
               #: :Space: <*Space ' ' />
-              literalValue$: :JSON:
-              <$String>
-                openToken*: <* '"' />
-                content$: <*StringContent 'stringContent' />
-                closeToken*: <* '"' />
+              literalValue$:
+              <$LiteralTag>
+                value*: :JSON:
+                <$String>
+                  openToken*: <* '"' />
+                  content$: <*StringContent 'stringContent' />
+                  closeToken*: <* '"' />
+                </>
               </>
               #: :Space: <*Space ' ' />
               attributes$: null
@@ -844,91 +850,6 @@ describe('@bablr/language-en-cstml', () => {
         </>
       `);
     });
-
-    it('`<*Tag>@:<Escape { cooked: "e" }></></>`', () => {
-      expect(print(cstml`<*Tag>@:<Escape { cooked: "e" }></></>`)).toEqual(dedent`
-        <$_>
-          _:
-          <$TreeNode>
-            openTag*:
-            <$OpenNodeTag { selfClosing: false }>
-              openToken*: <* '<' />
-              flags*:
-              <$NodeFlags { token: true, hasGap: false }>
-                tokenToken*: <* '*' />
-              </>
-              name$:
-              <$Identifier>
-                content*: <*IdentifierContent 'Tag' />
-              </>
-              literalValue$: null
-              attributes$: null
-              closeToken*: <* '>' />
-            </>
-            children[]$:
-            <$Property>
-              referenceTag$:
-              <$ReferenceTag>
-                type*: <* '@' />
-                name$: null
-                flags*: <$ReferenceFlags />
-                sigilToken*: <* ':' />
-              </>
-              value+$:
-              <$BoundNode>
-                node+$:
-                <$TreeNode>
-                  openTag*:
-                  <$OpenNodeTag { selfClosing: false }>
-                    openToken*: <* '<' />
-                    flags*: <$NodeFlags { token: false, hasGap: false } />
-                    name$:
-                    <$Identifier>
-                      content*: <*IdentifierContent 'Escape' />
-                    </>
-                    #: :Space: <*Space ' ' />
-                    literalValue$: null
-                    attributes$: :JSON:
-                    <$Object>
-                      openToken*: <* '{' />
-                      #: :Space: <*Space ' ' />
-                      properties[]$:
-                      <$Property>
-                        key$:
-                        <$Identifier>
-                          content*: <*IdentifierContent 'cooked' />
-                        </>
-                        sigilToken*: <* ':' />
-                        #: :Space: <*Space ' ' />
-                        value$:
-                        <$String>
-                          openToken*: <* '"' />
-                          content$: <*StringContent 'e' />
-                          closeToken*: <* '"' />
-                        </>
-                      </>
-                      #: :Space: <*Space ' ' />
-                      closeToken*: <* '}' />
-                    </>
-                    closeToken*: <* '>' />
-                  </>
-                  closeTag*:
-                  <$CloseNodeTag>
-                    openToken*: <* '</' />
-                    closeToken*: <* '>' />
-                  </>
-                </>
-              </>
-            </>
-            closeTag*:
-            <$CloseNodeTag>
-              openToken*: <* '</' />
-              closeToken*: <* '>' />
-            </>
-          </>
-        </>
-      `);
-    });
   });
 
   describe('OpenNodeTag', () => {
@@ -949,11 +870,48 @@ describe('@bablr/language-en-cstml', () => {
               content*: <*IdentifierContent 'Type' />
             </>
             #: :Space: <*Space ' ' />
-            literalValue$: :JSON:
-            <$String>
-              openToken*: <* "'" />
-              content$: <*StringContent 'literalValue' />
-              closeToken*: <* "'" />
+            literalValue$:
+            <$LiteralTag>
+              value*: :JSON:
+              <$String>
+                openToken*: <* "'" />
+                content$: <*StringContent 'literalValue' />
+                closeToken*: <* "'" />
+              </>
+            </>
+            #: :Space: <*Space ' ' />
+            attributes$: null
+            selfClosingToken*: <* '/' />
+            closeToken*: <* '>' />
+          </>
+        </>
+      `);
+    });
+
+    it("`<*Type @@'escape' />`", () => {
+      expect(print(tag`<*Type @@'escape' />`)).toEqual(dedent`
+        <$_>
+          _:
+          <$OpenNodeTag { selfClosing: true }>
+            openToken*: <* '<' />
+            flags*:
+            <$NodeFlags { token: true, hasGap: false }>
+              tokenToken*: <* '*' />
+            </>
+            name$:
+            <$Identifier>
+              content*: <*IdentifierContent 'Type' />
+            </>
+            #: :Space: <*Space ' ' />
+            literalValue$:
+            <$EscapeTag>
+              sigilToken*: <* '@@' />
+              value*: :JSON:
+              <$String>
+                openToken*: <* "'" />
+                content$: <*StringContent 'escape' />
+                closeToken*: <* "'" />
+              </>
             </>
             #: :Space: <*Space ' ' />
             attributes$: null
@@ -976,11 +934,14 @@ describe('@bablr/language-en-cstml', () => {
             </>
             name$: null
             #: :Space: <*Space ' ' />
-            literalValue$: :JSON:
-            <$String>
-              openToken*: <* "'" />
-              content$: <*StringContent 'literalValue' />
-              closeToken*: <* "'" />
+            literalValue$:
+            <$LiteralTag>
+              value*: :JSON:
+              <$String>
+                openToken*: <* "'" />
+                content$: <*StringContent 'literalValue' />
+                closeToken*: <* "'" />
+              </>
             </>
             #: :Space: <*Space ' ' />
             attributes$: null
@@ -1082,18 +1043,7 @@ describe('@bablr/language-en-cstml', () => {
             flags*: <$NodeFlags { token: false, hasGap: false } />
             name$:
             <$Identifier>
-              content*:
-              <*IdentifierContent>
-                @:
-                <EscapeSequence { cooked: 'J' }>
-                  sigilToken*: <* '${'\\\\'}' />
-                  code:
-                  <EscapeCode>
-                    typeToken*: <*Keyword 'u' />
-                    value: :JSON: <*UnsignedHexInteger '004a' />
-                  </>
-                </>
-              </>
+              content*: <*IdentifierContent @'J'@@'\\\\u004a' />
             </>
             #: :Space: <*Space ' ' />
             literalValue$: null
