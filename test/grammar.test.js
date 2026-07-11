@@ -2,7 +2,7 @@ import { buildTag } from 'bablr';
 import { dedent } from '@qnighy/dedent';
 import language from '@bablr/language-en-cstml';
 import { expect } from 'expect';
-import { printPrettyCSTML } from '@bablr/helpers/tree';
+import { printCSTML } from '@bablr/helpers/tree';
 import { m } from '@bablr/helpers/grammar';
 
 let enhancers = {};
@@ -12,7 +12,7 @@ const buildCSTMLTag = (matcher) => {
 };
 
 const print = (tree) => {
-  return printPrettyCSTML(tree);
+  return printCSTML(tree);
 };
 
 describe('@bablr/language-en-cstml', () => {
