@@ -1043,7 +1043,7 @@ describe('@bablr/language-en-cstml', () => {
             flags*: <$NodeFlags { token: false, hasGap: false } />
             name$:
             <$Identifier>
-              content*: <*IdentifierContent @'J'@@'\\\\u004a' />
+              content*: <*IdentifierContent @'J' @@'\\\\u004a' />
             </>
             #: :Space: <*Space ' ' />
             literalValue$: null
