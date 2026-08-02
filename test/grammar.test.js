@@ -17,15 +17,15 @@ const print = (tree) => {
 
 describe('@bablr/language-en-cstml', () => {
   describe('Document', () => {
-    const cstml = buildCSTMLTag(m`<$Document />`);
+    const cstml = buildCSTMLTag(m`<Document />`);
 
     it('<!0:cstml><_></>', () => {
       expect(print(cstml`<!0:cstml><_></>`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$Document>
+          <Document>
             doctype:
-            <$DoctypeTag>
+            <DoctypeTag>
               openToken*: <* '<!' />
               version$: :JSON: <*UnsignedInteger '0' />
               versionSeparatorToken*: <* ':' />
@@ -34,11 +34,11 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
             tree+$:
-            <$TreeNode>
+            <TreeNode>
               openTag*:
-              <$OpenNodeTag { selfClosing: false }>
+              <OpenNodeTag { selfClosing: false }>
                 openToken*: <* '<' />
-                flags*: <$NodeFlags { hasGap: false, token: false } />
+                flags*: <NodeFlags { token: false } />
                 type*: <* '_' />
                 name$: null 
                 literalValue$: null 
@@ -46,7 +46,7 @@ describe('@bablr/language-en-cstml', () => {
                 closeToken*: <* '>' />
               </>
               closeTag*:
-              <$CloseNodeTag>
+              <CloseNodeTag>
                 openToken*: <* '</' />
                 closeToken*: <* '>' />
               </>
@@ -58,11 +58,11 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<!0:cstml><Node></>', () => {
       expect(print(cstml`<!0:cstml><Node></>`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$Document>
+          <Document>
             doctype:
-            <$DoctypeTag>
+            <DoctypeTag>
               openToken*: <* '<!' />
               version$: :JSON: <*UnsignedInteger '0' />
               versionSeparatorToken*: <* ':' />
@@ -71,13 +71,13 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
             tree+$:
-            <$TreeNode>
+            <TreeNode>
               openTag*:
-              <$OpenNodeTag { selfClosing: false }>
+              <OpenNodeTag { selfClosing: false }>
                 openToken*: <* '<' />
-                flags*: <$NodeFlags { hasGap: false, token: false } />
+                flags*: <NodeFlags { token: false } />
                 name$:
-                <$Identifier>
+                <Identifier>
                   content*: <*IdentifierContent 'Node' />
                 </>
                 literalValue$: null 
@@ -85,7 +85,7 @@ describe('@bablr/language-en-cstml', () => {
                 closeToken*: <* '>' />
               </>
               closeTag*:
-              <$CloseNodeTag>
+              <CloseNodeTag>
                 openToken*: <* '</' />
                 closeToken*: <* '>' />
               </>
@@ -97,13 +97,13 @@ describe('@bablr/language-en-cstml', () => {
   });
 
   describe('Stream', () => {
-    const cstml = buildCSTMLTag(m`<$__Stream />`);
+    const cstml = buildCSTMLTag(m`<__Stream />`);
 
     it('<!0:cstml> <__> .: <Node> </> </>', () => {
       expect(print(cstml`<!0:cstml> <__> .: <Node> </> </>`)).toEqual(dedent`
         <__>
           .[]$:
-          <$DoctypeTag>
+          <DoctypeTag>
             openToken*: <* '<!' />
             version$: :JSON: <*UnsignedInteger '0' />
             versionSeparatorToken*: <* ':' />
@@ -113,9 +113,9 @@ describe('@bablr/language-en-cstml', () => {
           </>
           #: :Space: <*Space ' ' />
           .[]$:
-          <$OpenNodeTag { selfClosing: false }>
+          <OpenNodeTag { selfClosing: false }>
             openToken*: <* '<' />
-            flags*: <$NodeFlags { hasGap: false, token: false } />
+            flags*: <NodeFlags { token: false } />
             type*: <* '__' />
             name$: null 
             literalValue$: null 
@@ -124,19 +124,19 @@ describe('@bablr/language-en-cstml', () => {
           </>
           #: :Space: <*Space ' ' />
           .[]$:
-          <$ReferenceTag>
+          <ReferenceTag>
             type*: <* '.' />
             name$: null 
-            flags*: <$ReferenceFlags />
+            flags*: <ReferenceFlags />
             sigilToken*: <* ':' />
           </>
           #: :Space: <*Space ' ' />
           .[]$:
-          <$OpenNodeTag { selfClosing: false }>
+          <OpenNodeTag { selfClosing: false }>
             openToken*: <* '<' />
-            flags*: <$NodeFlags { hasGap: false, token: false } />
+            flags*: <NodeFlags { token: false } />
             name$:
-            <$Identifier>
+            <Identifier>
               content*: <*IdentifierContent 'Node' />
             </>
             literalValue$: null 
@@ -145,13 +145,13 @@ describe('@bablr/language-en-cstml', () => {
           </>
           #: :Space: <*Space ' ' />
           .[]$:
-          <$CloseNodeTag>
+          <CloseNodeTag>
             openToken*: <* '</' />
             closeToken*: <* '>' />
           </>
           #: :Space: <*Space ' ' />
           .[]$:
-          <$CloseNodeTag>
+          <CloseNodeTag>
             openToken*: <* '</' />
             closeToken*: <* '>' />
           </>
@@ -163,12 +163,12 @@ describe('@bablr/language-en-cstml', () => {
       expect(print(cstml`nullref:`)).toEqual(dedent`
         <__>
           .[]$:
-          <$ReferenceTag>
+          <ReferenceTag>
             name$:
-            <$Identifier>
+            <Identifier>
               content*: <*IdentifierContent 'nullref' />
             </>
-            flags*: <$ReferenceFlags />
+            flags*: <ReferenceFlags />
             sigilToken*: <* ':' />
           </>
         </>
@@ -177,17 +177,17 @@ describe('@bablr/language-en-cstml', () => {
   });
 
   describe('TreeNode', () => {
-    const cstml = buildCSTMLTag(m`<$TreeNode />`);
+    const cstml = buildCSTMLTag(m`<TreeNode />`);
 
     it('<_></>', () => {
       expect(print(cstml`<_></>`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$TreeNode>
+          <TreeNode>
             openTag*:
-            <$OpenNodeTag { selfClosing: false }>
+            <OpenNodeTag { selfClosing: false }>
               openToken*: <* '<' />
-              flags*: <$NodeFlags { hasGap: false, token: false } />
+              flags*: <NodeFlags { token: false } />
               type*: <* '_' />
               name$: null 
               literalValue$: null 
@@ -195,7 +195,7 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
             closeTag*:
-            <$CloseNodeTag>
+            <CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -206,13 +206,13 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<_> </>', () => {
       expect(print(cstml`<_> </>`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$TreeNode>
+          <TreeNode>
             openTag*:
-            <$OpenNodeTag { selfClosing: false }>
+            <OpenNodeTag { selfClosing: false }>
               openToken*: <* '<' />
-              flags*: <$NodeFlags { hasGap: false, token: false } />
+              flags*: <NodeFlags { token: false } />
               type*: <* '_' />
               name$: null 
               literalValue$: null 
@@ -221,7 +221,7 @@ describe('@bablr/language-en-cstml', () => {
             </>
             #: :Space: <*Space ' ' />
             closeTag*:
-            <$CloseNodeTag>
+            <CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -232,13 +232,13 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<_>.:<Node></></>', () => {
       expect(print(cstml`<_>.:<Node></></>`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$TreeNode>
+          <TreeNode>
             openTag*:
-            <$OpenNodeTag { selfClosing: false }>
+            <OpenNodeTag { selfClosing: false }>
               openToken*: <* '<' />
-              flags*: <$NodeFlags { hasGap: false, token: false } />
+              flags*: <NodeFlags { token: false } />
               type*: <* '_' />
               name$: null 
               literalValue$: null 
@@ -246,24 +246,24 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
             children[]$:
-            <$Property>
+            <Property>
               referenceTag$:
-              <$ReferenceTag>
+              <ReferenceTag>
                 type*: <* '.' />
                 name$: null 
-                flags*: <$ReferenceFlags />
+                flags*: <ReferenceFlags />
                 sigilToken*: <* ':' />
               </>
               value+$:
-              <$BoundNode>
+              <BoundNode>
                 node+$:
-                <$TreeNode>
+                <TreeNode>
                   openTag*:
-                  <$OpenNodeTag { selfClosing: false }>
+                  <OpenNodeTag { selfClosing: false }>
                     openToken*: <* '<' />
-                    flags*: <$NodeFlags { hasGap: false, token: false } />
+                    flags*: <NodeFlags { token: false } />
                     name$:
-                    <$Identifier>
+                    <Identifier>
                       content*: <*IdentifierContent 'Node' />
                     </>
                     literalValue$: null 
@@ -271,7 +271,7 @@ describe('@bablr/language-en-cstml', () => {
                     closeToken*: <* '>' />
                   </>
                   closeTag*:
-                  <$CloseNodeTag>
+                  <CloseNodeTag>
                     openToken*: <* '</' />
                     closeToken*: <* '>' />
                   </>
@@ -279,7 +279,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
             closeTag*:
-            <$CloseNodeTag>
+            <CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -290,13 +290,13 @@ describe('@bablr/language-en-cstml', () => {
 
     it('<_>.:<Node></>#:<Trivia></></>', () => {
       expect(print(cstml`<_>.:<Node></>#:<Trivia></></>`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$TreeNode>
+          <TreeNode>
             openTag*:
-            <$OpenNodeTag { selfClosing: false }>
+            <OpenNodeTag { selfClosing: false }>
               openToken*: <* '<' />
-              flags*: <$NodeFlags { hasGap: false, token: false } />
+              flags*: <NodeFlags { token: false } />
               type*: <* '_' />
               name$: null 
               literalValue$: null 
@@ -304,24 +304,24 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
             children[]$:
-            <$Property>
+            <Property>
               referenceTag$:
-              <$ReferenceTag>
+              <ReferenceTag>
                 type*: <* '.' />
                 name$: null 
-                flags*: <$ReferenceFlags />
+                flags*: <ReferenceFlags />
                 sigilToken*: <* ':' />
               </>
               value+$:
-              <$BoundNode>
+              <BoundNode>
                 node+$:
-                <$TreeNode>
+                <TreeNode>
                   openTag*:
-                  <$OpenNodeTag { selfClosing: false }>
+                  <OpenNodeTag { selfClosing: false }>
                     openToken*: <* '<' />
-                    flags*: <$NodeFlags { hasGap: false, token: false } />
+                    flags*: <NodeFlags { token: false } />
                     name$:
-                    <$Identifier>
+                    <Identifier>
                       content*: <*IdentifierContent 'Node' />
                     </>
                     literalValue$: null 
@@ -329,7 +329,7 @@ describe('@bablr/language-en-cstml', () => {
                     closeToken*: <* '>' />
                   </>
                   closeTag*:
-                  <$CloseNodeTag>
+                  <CloseNodeTag>
                     openToken*: <* '</' />
                     closeToken*: <* '>' />
                   </>
@@ -337,24 +337,24 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
             children[]$:
-            <$Property>
+            <Property>
               referenceTag$:
-              <$ReferenceTag>
+              <ReferenceTag>
                 type*: <* '#' />
                 name$: null 
-                flags*: <$ReferenceFlags />
+                flags*: <ReferenceFlags />
                 sigilToken*: <* ':' />
               </>
               value+$:
-              <$BoundNode>
+              <BoundNode>
                 node+$:
-                <$TreeNode>
+                <TreeNode>
                   openTag*:
-                  <$OpenNodeTag { selfClosing: false }>
+                  <OpenNodeTag { selfClosing: false }>
                     openToken*: <* '<' />
-                    flags*: <$NodeFlags { hasGap: false, token: false } />
+                    flags*: <NodeFlags { token: false } />
                     name$:
-                    <$Identifier>
+                    <Identifier>
                       content*: <*IdentifierContent 'Trivia' />
                     </>
                     literalValue$: null 
@@ -362,7 +362,7 @@ describe('@bablr/language-en-cstml', () => {
                     closeToken*: <* '>' />
                   </>
                   closeTag*:
-                  <$CloseNodeTag>
+                  <CloseNodeTag>
                     openToken*: <* '</' />
                     closeToken*: <* '>' />
                   </>
@@ -370,7 +370,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
             closeTag*:
-            <$CloseNodeTag>
+            <CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -381,15 +381,15 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node>reference: null </>`', () => {
       expect(print(cstml`<Node>reference: null </>`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$TreeNode>
+          <TreeNode>
             openTag*:
-            <$OpenNodeTag { selfClosing: false }>
+            <OpenNodeTag { selfClosing: false }>
               openToken*: <* '<' />
-              flags*: <$NodeFlags { hasGap: false, token: false } />
+              flags*: <NodeFlags { token: false } />
               name$:
-              <$Identifier>
+              <Identifier>
                 content*: <*IdentifierContent 'Node' />
               </>
               literalValue$: null 
@@ -397,23 +397,23 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
             children[]$:
-            <$Property>
+            <Property>
               referenceTag$:
-              <$ReferenceTag>
+              <ReferenceTag>
                 name$:
-                <$Identifier>
+                <Identifier>
                   content*: <*IdentifierContent 'reference' />
                 </>
-                flags*: <$ReferenceFlags />
+                flags*: <ReferenceFlags />
                 sigilToken*: <* ':' />
               </>
               #: :Space: <*Space ' ' />
               value+$:
-              <$BoundNode>
+              <BoundNode>
                 node+$:
-                <$NullNode>
+                <NullNode>
                   sigilTag*:
-                  <$NullTag>
+                  <NullTag>
                     sigilToken*: <*Keyword 'null' />
                     #separatorToken: <* ' ' />
                   </>
@@ -421,7 +421,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
             closeTag*:
-            <$CloseNodeTag>
+            <CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -432,15 +432,15 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node> "stringContent" </>`', () => {
       expect(print(cstml`<Node> "stringContent" </>`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$TreeNode>
+          <TreeNode>
             openTag*:
-            <$OpenNodeTag { selfClosing: false }>
+            <OpenNodeTag { selfClosing: false }>
               openToken*: <* '<' />
-              flags*: <$NodeFlags { hasGap: false, token: false } />
+              flags*: <NodeFlags { token: false } />
               name$:
-              <$Identifier>
+              <Identifier>
                 content*: <*IdentifierContent 'Node' />
               </>
               literalValue$: null 
@@ -449,32 +449,32 @@ describe('@bablr/language-en-cstml', () => {
             </>
             #: :Space: <*Space ' ' />
             children[]$:
-            <$Property>
+            <Property>
               referenceTag$: null 
               value+$:
-              <$BoundNode>
+              <BoundNode>
                 node+$:
-                <$TreeNode>
+                <TreeNode>
                   openTag*:
-                  <$OpenNodeTag { selfClosing: false }>
-                    flags*: <$NodeFlags { hasGap: false, token: true } />
+                  <OpenNodeTag { selfClosing: false }>
+                    flags*: <NodeFlags { token: true } />
                   </>
                   children[]$:
-                  <$LiteralTag>
+                  <LiteralTag>
                     value*: :JSON:
-                    <$String>
+                    <String>
                       openToken*: <* '"' />
                       content$: <*StringContent 'stringContent' />
                       closeToken*: <* '"' />
                     </>
                   </>
                   #: :Space: <*Space ' ' />
-                  closeTag*: <$CloseNodeTag />
+                  closeTag*: <CloseNodeTag />
                 </>
               </>
             </>
             closeTag*:
-            <$CloseNodeTag>
+            <CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -485,22 +485,22 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node "stringContent" />`', () => {
       expect(print(cstml`<Node "stringContent" />`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$TreeNode>
+          <TreeNode>
             openTag*:
-            <$OpenNodeTag { selfClosing: true }>
+            <OpenNodeTag { selfClosing: true }>
               openToken*: <* '<' />
-              flags*: <$NodeFlags { hasGap: false, token: false } />
+              flags*: <NodeFlags { token: false } />
               name$:
-              <$Identifier>
+              <Identifier>
                 content*: <*IdentifierContent 'Node' />
               </>
               #: :Space: <*Space ' ' />
               literalValue$:
-              <$LiteralTag>
+              <LiteralTag>
                 value*: :JSON:
-                <$String>
+                <String>
                   openToken*: <* '\"' />
                   content$: <*StringContent 'stringContent' />
                   closeToken*: <* '\"' />
@@ -518,18 +518,18 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<*Token> "stringContent" </>`', () => {
       expect(print(cstml`<*Token> "stringContent" </>`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$TreeNode>
+          <TreeNode>
             openTag*:
-            <$OpenNodeTag { selfClosing: false }>
+            <OpenNodeTag { selfClosing: false }>
               openToken*: <* '<' />
               flags*:
-              <$NodeFlags { hasGap: false, token: true }>
+              <NodeFlags { token: true }>
                 tokenToken*: <* '*' />
               </>
               name$:
-              <$Identifier>
+              <Identifier>
                 content*: <*IdentifierContent 'Token' />
               </>
               literalValue$: null 
@@ -538,9 +538,9 @@ describe('@bablr/language-en-cstml', () => {
             </>
             #: :Space: <*Space ' ' />
             children[]$:
-            <$LiteralTag>
+            <LiteralTag>
               value*: :JSON:
-              <$String>
+              <String>
                 openToken*: <* '"' />
                 content$: <*StringContent 'stringContent' />
                 closeToken*: <* '"' />
@@ -548,7 +548,7 @@ describe('@bablr/language-en-cstml', () => {
             </>
             #: :Space: <*Space ' ' />
             closeTag*:
-            <$CloseNodeTag>
+            <CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -559,25 +559,25 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<*Token "stringContent" />`', () => {
       expect(print(cstml`<*Token "stringContent" />`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$TreeNode>
+          <TreeNode>
             openTag*:
-            <$OpenNodeTag { selfClosing: true }>
+            <OpenNodeTag { selfClosing: true }>
               openToken*: <* '<' />
               flags*:
-              <$NodeFlags { hasGap: false, token: true }>
+              <NodeFlags { token: true }>
                 tokenToken*: <* '*' />
               </>
               name$:
-              <$Identifier>
+              <Identifier>
                 content*: <*IdentifierContent 'Token' />
               </>
               #: :Space: <*Space ' ' />
               literalValue$:
-              <$LiteralTag>
+              <LiteralTag>
                 value*: :JSON:
-                <$String>
+                <String>
                   openToken*: <* '"' />
                   content$: <*StringContent 'stringContent' />
                   closeToken*: <* '"' />
@@ -595,15 +595,15 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node>#: <__></></>`', () => {
       expect(print(cstml`<Node>_: <__></></>`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$TreeNode>
+          <TreeNode>
             openTag*:
-            <$OpenNodeTag { selfClosing: false }>
+            <OpenNodeTag { selfClosing: false }>
               openToken*: <* '<' />
-              flags*: <$NodeFlags { hasGap: false, token: false } />
+              flags*: <NodeFlags { token: false } />
               name$:
-              <$Identifier>
+              <Identifier>
                 content*: <*IdentifierContent 'Node' />
               </>
               literalValue$: null 
@@ -611,23 +611,23 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
             children[]$:
-            <$Property>
+            <Property>
               referenceTag$:
-              <$ReferenceTag>
+              <ReferenceTag>
                 type*: <* '_' />
                 name$: null 
-                flags*: <$ReferenceFlags />
+                flags*: <ReferenceFlags />
                 sigilToken*: <* ':' />
               </>
               #: :Space: <*Space ' ' />
               value+$:
-              <$BoundNode>
+              <BoundNode>
                 node+$:
-                <$TreeNode>
+                <TreeNode>
                   openTag*:
-                  <$OpenNodeTag { selfClosing: false }>
+                  <OpenNodeTag { selfClosing: false }>
                     openToken*: <* '<' />
-                    flags*: <$NodeFlags { hasGap: false, token: false } />
+                    flags*: <NodeFlags { token: false } />
                     type*: <* '__' />
                     name$: null 
                     literalValue$: null 
@@ -635,7 +635,7 @@ describe('@bablr/language-en-cstml', () => {
                     closeToken*: <* '>' />
                   </>
                   closeTag*:
-                  <$CloseNodeTag>
+                  <CloseNodeTag>
                     openToken*: <* '</' />
                     closeToken*: <* '>' />
                   </>
@@ -643,7 +643,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
             closeTag*:
-            <$CloseNodeTag>
+            <CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -654,15 +654,15 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node>reference: <//></>`', () => {
       expect(print(cstml`<Node>reference: <//></>`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$TreeNode>
+          <TreeNode>
             openTag*:
-            <$OpenNodeTag { selfClosing: false }>
+            <OpenNodeTag { selfClosing: false }>
               openToken*: <* '<' />
-              flags*: <$NodeFlags { hasGap: false, token: false } />
+              flags*: <NodeFlags { token: false } />
               name$:
-              <$Identifier>
+              <Identifier>
                 content*: <*IdentifierContent 'Node' />
               </>
               literalValue$: null 
@@ -670,30 +670,30 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
             children[]$:
-            <$Property>
+            <Property>
               referenceTag$:
-              <$ReferenceTag>
+              <ReferenceTag>
                 name$:
-                <$Identifier>
+                <Identifier>
                   content*: <*IdentifierContent 'reference' />
                 </>
-                flags*: <$ReferenceFlags />
+                flags*: <ReferenceFlags />
                 sigilToken*: <* ':' />
               </>
               #: :Space: <*Space ' ' />
               value+$:
-              <$BoundNode>
+              <BoundNode>
                 node+$:
-                <$GapNode>
+                <GapNode>
                   sigilTag*:
-                  <$GapTag>
+                  <GapTag>
                     sigilToken*: <* '<//>' />
                   </>
                 </>
               </>
             </>
             closeTag*:
-            <$CloseNodeTag>
+            <CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -704,15 +704,15 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node>reference: :Binding: <Node></></>`', () => {
       expect(print(cstml`<Node>reference: :Binding: <Node></></>`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$TreeNode>
+          <TreeNode>
             openTag*:
-            <$OpenNodeTag { selfClosing: false }>
+            <OpenNodeTag { selfClosing: false }>
               openToken*: <* '<' />
-              flags*: <$NodeFlags { hasGap: false, token: false } />
+              flags*: <NodeFlags { token: false } />
               name$:
-              <$Identifier>
+              <Identifier>
                 content*: <*IdentifierContent 'Node' />
               </>
               literalValue$: null 
@@ -720,37 +720,37 @@ describe('@bablr/language-en-cstml', () => {
               closeToken*: <* '>' />
             </>
             children[]$:
-            <$Property>
+            <Property>
               referenceTag$:
-              <$ReferenceTag>
+              <ReferenceTag>
                 name$:
-                <$Identifier>
+                <Identifier>
                   content*: <*IdentifierContent 'reference' />
                 </>
-                flags*: <$ReferenceFlags />
+                flags*: <ReferenceFlags />
                 sigilToken*: <* ':' />
               </>
               #: :Space: <*Space ' ' />
               value+$:
-              <$BoundNode>
+              <BoundNode>
                 bindingTags[]*:
-                <$BindingTag>
+                <BindingTag>
                   openToken*: <* ':' />
                   name*:
-                  <$Identifier>
+                  <Identifier>
                     content*: <*IdentifierContent 'Binding' />
                   </>
                   closeToken*: <* ':' />
                 </>
                 #: :Space: <*Space ' ' />
                 node+$:
-                <$TreeNode>
+                <TreeNode>
                   openTag*:
-                  <$OpenNodeTag { selfClosing: false }>
+                  <OpenNodeTag { selfClosing: false }>
                     openToken*: <* '<' />
-                    flags*: <$NodeFlags { hasGap: false, token: false } />
+                    flags*: <NodeFlags { token: false } />
                     name$:
-                    <$Identifier>
+                    <Identifier>
                       content*: <*IdentifierContent 'Node' />
                     </>
                     literalValue$: null 
@@ -758,7 +758,7 @@ describe('@bablr/language-en-cstml', () => {
                     closeToken*: <* '>' />
                   </>
                   closeTag*:
-                  <$CloseNodeTag>
+                  <CloseNodeTag>
                     openToken*: <* '</' />
                     closeToken*: <* '>' />
                   </>
@@ -766,7 +766,7 @@ describe('@bablr/language-en-cstml', () => {
               </>
             </>
             closeTag*:
-            <$CloseNodeTag>
+            <CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -777,45 +777,45 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Node { foo: { bar: undefined } }> { foo.bar: -1 } </>`', () => {
       expect(print(cstml`<Node { foo: { bar: undefined } }> { foo.bar: -1 } </>`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$TreeNode>
+          <TreeNode>
             openTag*:
-            <$OpenNodeTag { selfClosing: false }>
+            <OpenNodeTag { selfClosing: false }>
               openToken*: <* '<' />
-              flags*: <$NodeFlags { hasGap: false, token: false } />
+              flags*: <NodeFlags { token: false } />
               name$:
-              <$Identifier>
+              <Identifier>
                 content*: <*IdentifierContent 'Node' />
               </>
               #: :Space: <*Space ' ' />
               literalValue$: null 
               attributes$: :JSON:
-              <$Object>
+              <Object>
                 openToken*: <* '{' />
                 #: :Space: <*Space ' ' />
                 properties[]$:
-                <$Property>
+                <Property>
                   key$:
-                  <$Identifier>
+                  <Identifier>
                     content*: <*IdentifierContent 'foo' />
                   </>
                   sigilToken*: <* ':' />
                   #: :Space: <*Space ' ' />
                   value$:
-                  <$Object>
+                  <Object>
                     openToken*: <* '{' />
                     #: :Space: <*Space ' ' />
                     properties[]$:
-                    <$Property>
+                    <Property>
                       key$:
-                      <$Identifier>
+                      <Identifier>
                         content*: <*IdentifierContent 'bar' />
                       </>
                       sigilToken*: <* ':' />
                       #: :Space: <*Space ' ' />
                       value$:
-                      <$Undefined>
+                      <Undefined>
                         sigilToken*: <*Keyword 'undefined' />
                       </>
                     </>
@@ -830,25 +830,25 @@ describe('@bablr/language-en-cstml', () => {
             </>
             #: :Space: <*Space ' ' />
             children[]$:
-            <$AttributeDefinition>
+            <AttributeDefinition>
               openToken*: <* '{' />
               #: :Space: <*Space ' ' />
               key$:
-              <$IdentifierPath>
+              <IdentifierPath>
                 segments[]$:
-                <$Identifier>
+                <Identifier>
                   content*: <*IdentifierContent 'foo' />
                 </>
                 #separatorTokens: <* '.' />
                 segments[]$:
-                <$Identifier>
+                <Identifier>
                   content*: <*IdentifierContent 'bar' />
                 </>
               </>
               sigilToken*: <* ':' />
               #: :Space: <*Space ' ' />
               value$: :JSON:
-              <$Number>
+              <Number>
                 sign*: <* '-' />
                 wholePart$: <*UnsignedInteger '1' />
                 decimalSeparatorToken*: null 
@@ -859,7 +859,7 @@ describe('@bablr/language-en-cstml', () => {
             </>
             #: :Space: <*Space ' ' />
             closeTag*:
-            <$CloseNodeTag>
+            <CloseNodeTag>
               openToken*: <* '</' />
               closeToken*: <* '>' />
             </>
@@ -870,27 +870,27 @@ describe('@bablr/language-en-cstml', () => {
   });
 
   describe('OpenNodeTag', () => {
-    const tag = buildCSTMLTag(m`<$OpenNodeTag />`);
+    const tag = buildCSTMLTag(m`<OpenNodeTag />`);
 
     it("`<*Type 'literalValue' />`", () => {
       expect(print(tag`<*Type 'literalValue' />`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$OpenNodeTag { selfClosing: true }>
+          <OpenNodeTag { selfClosing: true }>
             openToken*: <* '<' />
             flags*:
-            <$NodeFlags { hasGap: false, token: true }>
+            <NodeFlags { token: true }>
               tokenToken*: <* '*' />
             </>
             name$:
-            <$Identifier>
+            <Identifier>
               content*: <*IdentifierContent 'Type' />
             </>
             #: :Space: <*Space ' ' />
             literalValue$:
-            <$LiteralTag>
+            <LiteralTag>
               value*: :JSON:
-              <$String>
+              <String>
                 openToken*: <* "'" />
                 content$: <*StringContent 'literalValue' />
                 closeToken*: <* "'" />
@@ -907,24 +907,24 @@ describe('@bablr/language-en-cstml', () => {
 
     it("`<*Type @@'escape' />`", () => {
       expect(print(tag`<*Type @@'escape' />`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$OpenNodeTag { selfClosing: true }>
+          <OpenNodeTag { selfClosing: true }>
             openToken*: <* '<' />
             flags*:
-            <$NodeFlags { hasGap: false, token: true }>
+            <NodeFlags { token: true }>
               tokenToken*: <* '*' />
             </>
             name$:
-            <$Identifier>
+            <Identifier>
               content*: <*IdentifierContent 'Type' />
             </>
             #: :Space: <*Space ' ' />
             literalValue$:
-            <$EscapeTag>
+            <EscapeTag>
               sigilToken*: <* '@@' />
               value*: :JSON:
-              <$String>
+              <String>
                 openToken*: <* "'" />
                 content$: <*StringContent 'escape' />
                 closeToken*: <* "'" />
@@ -941,20 +941,20 @@ describe('@bablr/language-en-cstml', () => {
 
     it("`<* 'literalValue' />`", () => {
       expect(print(tag`<* 'literalValue' />`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$OpenNodeTag { selfClosing: true }>
+          <OpenNodeTag { selfClosing: true }>
             openToken*: <* '<' />
             flags*:
-            <$NodeFlags { hasGap: false, token: true }>
+            <NodeFlags { token: true }>
               tokenToken*: <* '*' />
             </>
             name$: null 
             #: :Space: <*Space ' ' />
             literalValue$:
-            <$LiteralTag>
+            <LiteralTag>
               value*: :JSON:
-              <$String>
+              <String>
                 openToken*: <* "'" />
                 content$: <*StringContent 'literalValue' />
                 closeToken*: <* "'" />
@@ -971,31 +971,31 @@ describe('@bablr/language-en-cstml', () => {
 
     it('`<Quantifier { min: 1, max: Infinity } />`', () => {
       expect(print(tag`<Quantifier { min: 1, max: Infinity } />`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$OpenNodeTag { selfClosing: true }>
+          <OpenNodeTag { selfClosing: true }>
             openToken*: <* '<' />
-            flags*: <$NodeFlags { hasGap: false, token: false } />
+            flags*: <NodeFlags { token: false } />
             name$:
-            <$Identifier>
+            <Identifier>
               content*: <*IdentifierContent 'Quantifier' />
             </>
             #: :Space: <*Space ' ' />
             literalValue$: null 
             attributes$: :JSON:
-            <$Object>
+            <Object>
               openToken*: <* '{' />
               #: :Space: <*Space ' ' />
               properties[]$:
-              <$Property>
+              <Property>
                 key$:
-                <$Identifier>
+                <Identifier>
                   content*: <*IdentifierContent 'min' />
                 </>
                 sigilToken*: <* ':' />
                 #: :Space: <*Space ' ' />
                 value$:
-                <$Number>
+                <Number>
                   sign*: null 
                   wholePart$: <*UnsignedInteger '1' />
                   decimalSeparatorToken*: null 
@@ -1005,15 +1005,15 @@ describe('@bablr/language-en-cstml', () => {
               #separatorTokens: <* ',' />
               #: :Space: <*Space ' ' />
               properties[]$:
-              <$Property>
+              <Property>
                 key$:
-                <$Identifier>
+                <Identifier>
                   content*: <*IdentifierContent 'max' />
                 </>
                 sigilToken*: <* ':' />
                 #: :Space: <*Space ' ' />
                 value$:
-                <$Infinity>
+                <Infinity>
                   sigilToken*: <*Keyword 'Infinity' />
                 </>
               </>
@@ -1030,13 +1030,13 @@ describe('@bablr/language-en-cstml', () => {
 
     it('"<`Identifier` />"', () => {
       expect(print(tag({ raw: ['<`Identifier` />'] }))).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$OpenNodeTag { selfClosing: true }>
+          <OpenNodeTag { selfClosing: true }>
             openToken*: <* '<' />
-            flags*: <$NodeFlags { hasGap: false, token: false } />
+            flags*: <NodeFlags { token: false } />
             name$:
-            <$Identifier>
+            <Identifier>
               openToken*: <* '${'`'}' />
               content*: <*IdentifierContent 'Identifier' />
               closeToken*: <* '${'`'}' />
@@ -1053,13 +1053,13 @@ describe('@bablr/language-en-cstml', () => {
 
     it('"<\\u004a />"', () => {
       expect(print(tag`<\u004a />`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$OpenNodeTag { selfClosing: true }>
+          <OpenNodeTag { selfClosing: true }>
             openToken*: <* '<' />
-            flags*: <$NodeFlags { hasGap: false, token: false } />
+            flags*: <NodeFlags { token: false } />
             name$:
-            <$Identifier>
+            <Identifier>
               content*: <*IdentifierContent @'J' @@'\\\\u004a' />
             </>
             #: :Space: <*Space ' ' />
@@ -1074,13 +1074,13 @@ describe('@bablr/language-en-cstml', () => {
 
     it('"<日本語 />"', () => {
       expect(print(tag`<日本語 />`)).toEqual(dedent`
-        <$_>
+        <_>
           _:
-          <$OpenNodeTag { selfClosing: true }>
+          <OpenNodeTag { selfClosing: true }>
             openToken*: <* '<' />
-            flags*: <$NodeFlags { hasGap: false, token: false } />
+            flags*: <NodeFlags { token: false } />
             name$:
-            <$Identifier>
+            <Identifier>
               content*: <*IdentifierContent '日本語' />
             </>
             #: :Space: <*Space ' ' />
