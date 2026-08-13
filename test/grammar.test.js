@@ -851,8 +851,8 @@ describe('@bablr/language-en-cstml', () => {
               <Number>
                 sign*: <* '-' />
                 wholePart$: <*UnsignedInteger '1' />
-                decimalSeparatorToken*: null 
-                exponentSeparatorToken*: null 
+                decimalSeparator*: null 
+                exponentSeparator*: null 
               </>
               #: :Space: <*Space ' ' />
               closeToken*: <* '}' />
@@ -998,8 +998,8 @@ describe('@bablr/language-en-cstml', () => {
                 <Number>
                   sign*: null 
                   wholePart$: <*UnsignedInteger '1' />
-                  decimalSeparatorToken*: null 
-                  exponentSeparatorToken*: null 
+                  decimalSeparator*: null 
+                  exponentSeparator*: null 
                 </>
               </>
               #separatorTokens: <* ',' />
