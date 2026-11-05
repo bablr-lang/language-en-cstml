@@ -905,8 +905,8 @@ describe('@bablr/language-en-cstml', () => {
       `);
     });
 
-    it("`<*Type @@'escape' />`", () => {
-      expect(print(tag`<*Type @@'escape' />`)).toEqual(dedent`
+    it("`<*Type @'cooked' @@'raw' />`", () => {
+      expect(print(tag`<*Type @'cooked' @@'raw' />`)).toEqual(dedent`
         <_>
           _:
           <OpenNodeTag { selfClosing: true }>
@@ -921,12 +921,20 @@ describe('@bablr/language-en-cstml', () => {
             </>
             #: :Space: <*Space ' ' />
             literalValue$:
-            <EscapeTag>
-              sigilToken*: <* '@@' />
+            <LiteralTag>
+              cookedValueToken*: <* '@' />
+              cookedValue*: :JSON:
+              <String>
+                openToken*: <* "'" />
+                content$: <*StringContent 'cooked' />
+                closeToken*: <* "'" />
+              </>
+              #: :Space: <*Space ' ' />
+              valueToken*: <* '@@' />
               value*: :JSON:
               <String>
                 openToken*: <* "'" />
-                content$: <*StringContent 'escape' />
+                content$: <*StringContent 'raw' />
                 closeToken*: <* "'" />
               </>
             </>
