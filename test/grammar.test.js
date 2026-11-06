@@ -38,7 +38,7 @@ describe('@bablr/language-en-cstml', () => {
               openTag*:
               <OpenTag { selfClosing: false }>
                 openToken*: <* '<' />
-                flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+                flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
                 type*: <* '_' />
                 name$: null 
                 literalValue$: null 
@@ -75,7 +75,7 @@ describe('@bablr/language-en-cstml', () => {
               openTag*:
               <OpenTag { selfClosing: false }>
                 openToken*: <* '<' />
-                flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+                flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
                 name$:
                 <Identifier>
                   content*: <*IdentifierContent 'Node' />
@@ -115,7 +115,7 @@ describe('@bablr/language-en-cstml', () => {
           .[]$:
           <OpenTag { selfClosing: false }>
             openToken*: <* '<' />
-            flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+            flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
             type*: <* '__' />
             name$: null 
             literalValue$: null 
@@ -134,7 +134,7 @@ describe('@bablr/language-en-cstml', () => {
           .[]$:
           <OpenTag { selfClosing: false }>
             openToken*: <* '<' />
-            flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+            flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
             name$:
             <Identifier>
               content*: <*IdentifierContent 'Node' />
@@ -187,7 +187,7 @@ describe('@bablr/language-en-cstml', () => {
             openTag*:
             <OpenTag { selfClosing: false }>
               openToken*: <* '<' />
-              flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+              flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
               type*: <* '_' />
               name$: null 
               literalValue$: null 
@@ -212,7 +212,7 @@ describe('@bablr/language-en-cstml', () => {
             openTag*:
             <OpenTag { selfClosing: false }>
               openToken*: <* '<' />
-              flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+              flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
               type*: <* '_' />
               name$: null 
               literalValue$: null 
@@ -238,7 +238,7 @@ describe('@bablr/language-en-cstml', () => {
             openTag*:
             <OpenTag { selfClosing: false }>
               openToken*: <* '<' />
-              flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+              flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
               type*: <* '_' />
               name$: null 
               literalValue$: null 
@@ -261,7 +261,7 @@ describe('@bablr/language-en-cstml', () => {
                   openTag*:
                   <OpenTag { selfClosing: false }>
                     openToken*: <* '<' />
-                    flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+                    flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
                     name$:
                     <Identifier>
                       content*: <*IdentifierContent 'Node' />
@@ -296,7 +296,7 @@ describe('@bablr/language-en-cstml', () => {
             openTag*:
             <OpenTag { selfClosing: false }>
               openToken*: <* '<' />
-              flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+              flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
               type*: <* '_' />
               name$: null 
               literalValue$: null 
@@ -319,7 +319,7 @@ describe('@bablr/language-en-cstml', () => {
                   openTag*:
                   <OpenTag { selfClosing: false }>
                     openToken*: <* '<' />
-                    flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+                    flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
                     name$:
                     <Identifier>
                       content*: <*IdentifierContent 'Node' />
@@ -352,7 +352,7 @@ describe('@bablr/language-en-cstml', () => {
                   openTag*:
                   <OpenTag { selfClosing: false }>
                     openToken*: <* '<' />
-                    flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+                    flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
                     name$:
                     <Identifier>
                       content*: <*IdentifierContent 'Trivia' />
@@ -387,7 +387,7 @@ describe('@bablr/language-en-cstml', () => {
             openTag*:
             <OpenTag { selfClosing: false }>
               openToken*: <* '<' />
-              flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+              flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
               name$:
               <Identifier>
                 content*: <*IdentifierContent 'Node' />
@@ -438,7 +438,7 @@ describe('@bablr/language-en-cstml', () => {
             openTag*:
             <OpenTag { selfClosing: false }>
               openToken*: <* '<' />
-              flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+              flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
               name$:
               <Identifier>
                 content*: <*IdentifierContent 'Node' />
@@ -455,10 +455,6 @@ describe('@bablr/language-en-cstml', () => {
               <BoundNode>
                 node$:
                 <TreeNode>
-                  openTag*:
-                  <OpenTag { selfClosing: false }>
-                    flags*: <Flags { array: false, component: false, object: false, shift: false, token: true } />
-                  </>
                   children[]$:
                   <LiteralTag>
                     value*: :JSON:
@@ -469,7 +465,6 @@ describe('@bablr/language-en-cstml', () => {
                     </>
                   </>
                   #: :Space: <*Space ' ' />
-                  closeTag*: <CloseTag />
                 </>
               </>
             </>
@@ -491,7 +486,7 @@ describe('@bablr/language-en-cstml', () => {
             openTag*:
             <OpenTag { selfClosing: true }>
               openToken*: <* '<' />
-              flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+              flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
               name$:
               <Identifier>
                 content*: <*IdentifierContent 'Node' />
@@ -525,7 +520,7 @@ describe('@bablr/language-en-cstml', () => {
             <OpenTag { selfClosing: false }>
               openToken*: <* '<' />
               flags*:
-              <Flags { array: false, component: false, object: false, shift: false, token: true }>
+              <Flags { array: false, component: false, hash: false, object: false, shift: false, token: true }>
                 tokenToken*: <* '*' />
               </>
               name$:
@@ -566,7 +561,7 @@ describe('@bablr/language-en-cstml', () => {
             <OpenTag { selfClosing: true }>
               openToken*: <* '<' />
               flags*:
-              <Flags { array: false, component: false, object: false, shift: false, token: true }>
+              <Flags { array: false, component: false, hash: false, object: false, shift: false, token: true }>
                 tokenToken*: <* '*' />
               </>
               name$:
@@ -601,7 +596,7 @@ describe('@bablr/language-en-cstml', () => {
             openTag*:
             <OpenTag { selfClosing: false }>
               openToken*: <* '<' />
-              flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+              flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
               name$:
               <Identifier>
                 content*: <*IdentifierContent 'Node' />
@@ -627,7 +622,7 @@ describe('@bablr/language-en-cstml', () => {
                   openTag*:
                   <OpenTag { selfClosing: false }>
                     openToken*: <* '<' />
-                    flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+                    flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
                     type*: <* '__' />
                     name$: null 
                     literalValue$: null 
@@ -660,7 +655,7 @@ describe('@bablr/language-en-cstml', () => {
             openTag*:
             <OpenTag { selfClosing: false }>
               openToken*: <* '<' />
-              flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+              flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
               name$:
               <Identifier>
                 content*: <*IdentifierContent 'Node' />
@@ -710,7 +705,7 @@ describe('@bablr/language-en-cstml', () => {
             openTag*:
             <OpenTag { selfClosing: false }>
               openToken*: <* '<' />
-              flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+              flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
               name$:
               <Identifier>
                 content*: <*IdentifierContent 'Node' />
@@ -748,7 +743,7 @@ describe('@bablr/language-en-cstml', () => {
                   openTag*:
                   <OpenTag { selfClosing: false }>
                     openToken*: <* '<' />
-                    flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+                    flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
                     name$:
                     <Identifier>
                       content*: <*IdentifierContent 'Node' />
@@ -783,7 +778,7 @@ describe('@bablr/language-en-cstml', () => {
             openTag*:
             <OpenTag { selfClosing: false }>
               openToken*: <* '<' />
-              flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+              flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
               name$:
               <Identifier>
                 content*: <*IdentifierContent 'Node' />
@@ -879,7 +874,7 @@ describe('@bablr/language-en-cstml', () => {
           <OpenTag { selfClosing: true }>
             openToken*: <* '<' />
             flags*:
-            <Flags { array: false, component: false, object: false, shift: false, token: true }>
+            <Flags { array: false, component: false, hash: false, object: false, shift: false, token: true }>
               tokenToken*: <* '*' />
             </>
             name$:
@@ -912,7 +907,7 @@ describe('@bablr/language-en-cstml', () => {
           <OpenTag { selfClosing: true }>
             openToken*: <* '<' />
             flags*:
-            <Flags { array: false, component: false, object: false, shift: false, token: true }>
+            <Flags { array: false, component: false, hash: false, object: false, shift: false, token: true }>
               tokenToken*: <* '*' />
             </>
             name$:
@@ -954,7 +949,7 @@ describe('@bablr/language-en-cstml', () => {
           <OpenTag { selfClosing: true }>
             openToken*: <* '<' />
             flags*:
-            <Flags { array: false, component: false, object: false, shift: false, token: true }>
+            <Flags { array: false, component: false, hash: false, object: false, shift: false, token: true }>
               tokenToken*: <* '*' />
             </>
             name$: null 
@@ -983,7 +978,7 @@ describe('@bablr/language-en-cstml', () => {
           _:
           <OpenTag { selfClosing: true }>
             openToken*: <* '<' />
-            flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+            flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
             name$:
             <Identifier>
               content*: <*IdentifierContent 'Quantifier' />
@@ -1042,7 +1037,7 @@ describe('@bablr/language-en-cstml', () => {
           _:
           <OpenTag { selfClosing: true }>
             openToken*: <* '<' />
-            flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+            flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
             name$:
             <Identifier>
               openToken*: <* '${'`'}' />
@@ -1065,7 +1060,7 @@ describe('@bablr/language-en-cstml', () => {
           _:
           <OpenTag { selfClosing: true }>
             openToken*: <* '<' />
-            flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+            flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
             name$:
             <Identifier>
               content*: <*IdentifierContent @'J' @@'\\\\u004a' />
@@ -1086,7 +1081,7 @@ describe('@bablr/language-en-cstml', () => {
           _:
           <OpenTag { selfClosing: true }>
             openToken*: <* '<' />
-            flags*: <Flags { array: false, component: false, object: false, shift: false, token: false } />
+            flags*: <Flags { array: false, component: false, hash: false, object: false, shift: false, token: false } />
             name$:
             <Identifier>
               content*: <*IdentifierContent '日本語' />
